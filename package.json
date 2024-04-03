@@ -1,0 +1,31 @@
+{
+  "name": "my-new-project",
+  "type": "module",
+  "devDependencies": {
+    "@types/cucumber": "^7.0.0",
+    "@wdio/allure-reporter": "^8.15.6",
+    "@wdio/cli": "^8.20.2",
+    "@wdio/cucumber-framework": "^8.20.0",
+    "@wdio/junit-reporter": "^8.20.0",
+    "@wdio/local-runner": "^8.20.0",
+    "@wdio/spec-reporter": "^8.20.0",
+    "adm-zip": "^0.5.12",
+    "allure-commandline": "^2.23.1",
+    "chromedriver": "^118.0.1",
+    "fs-extra": "^11.1.1",
+    "multiple-cucumber-html-reporter": "^3.5.0",
+    "random-email": "^1.0.3",
+    "wdio-chromedriver-service": "^8.1.1",
+    "wdio-cucumberjs-json-reporter": "^5.1.8",
+    "zip-a-folder": "^3.1.6"
+  },
+  "scripts": {
+    "open-allure": ".\node_modules/.bin/allure generate ./Reports/allure-results --clean && allure open",
+    "test": "wdio run ./wdio.conf.js && wdio-junit-to-html -i ./Reports/JunitReport/ -o ./Reports/JunitReport/"
+  },
+  "dependencies": {
+    "cucumber": "^6.0.7",
+    "fs.promises": "^0.1.2",
+    "wdio-junit-to-html": "^3.1.2"
+  }
+}
