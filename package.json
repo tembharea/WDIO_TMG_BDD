@@ -26,6 +26,7 @@
   "dependencies": {
     "cucumber": "^6.0.7",
     "fs.promises": "^0.1.2",
-    "wdio-junit-to-html": "^3.1.2"
+    "wdio-junit-to-html": "^3.1.2",
+    "wdio-selenium-standalone-service": "^0.0.12"
   }
 }
