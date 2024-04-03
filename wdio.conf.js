@@ -93,7 +93,7 @@ export const config = {
   capabilities: [
     {
       browserName: "chrome",
-      browserVersion: "120",
+      browserVersion: "118",
 
       //'goog:chromeOptions': { // or 'moz:firefoxOptions'
       //binary: '/WDIO_Workspace/WDIO_TMG_BDD/Browser/chrome/',
