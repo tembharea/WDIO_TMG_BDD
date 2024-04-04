@@ -93,11 +93,13 @@ export const config = {
   capabilities: [
     {
       browserName: "chrome",
-      browserVersion: "118",
-
-      //'goog:chromeOptions': { // or 'moz:firefoxOptions'
-      //binary: '/WDIO_Workspace/WDIO_TMG_BDD/Browser/chrome/',
-      //browserVersion: '118.0.5993.70'
+      browserVersion: "116",
+      //port: 9585,
+      "wdio:chromedriverOptions": {
+        //binary: "/chromedriver/chromedriver.exe",
+        //port: 9585,
+        args: ["whitelisted-ips", "allowed-origins"],
+      },
       "goog:chromeOptions": {
         args: [
           "disable-infobars",
@@ -182,7 +184,18 @@ export const config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: ["selenium-standalone"],
+  services: [
+    "selenium-standalone",
+    // [
+    //   "chromedriver",
+    //   {
+    //     outputDir: "./chromedriver/",
+    //     //logFileName: "wdio-chromedriver.log",
+    //     port: 9515,
+    //     chromedriverCustomPath: "./chromedriver/",
+    //   },
+    // ],
+  ],
   //
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -352,6 +365,7 @@ export const config = {
    * @param {object}         browser      instance of created browser/device session
    */
   // before: function (capabilities, specs) {
+  //   // npm install -g
   // },
   /**
    * Runs before a WebdriverIO command gets executed.

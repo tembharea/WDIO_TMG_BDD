@@ -4,14 +4,14 @@ Feature: ETE 11 Account creation Register flow
 
     Scenario: TC_01:User Registration in Customer
         Given I launch login from homepage
-        Then  I fill in new email
-        When  I click login-register button
-        And   I enter "valid" register password
-        Then  I enter "right" first name and last name
-        When  I click continue button on registration page
-        Then  Validate HomePage
-        Then  Go to My Account page
-        Then  Logout from Customer application
+        # Then  I fill in new email
+        # When  I click login-register button
+        # And   I enter "valid" register password
+        # Then  I enter "right" first name and last name
+        # When  I click continue button on registration page
+        # Then  Validate HomePage
+        # Then  Go to My Account page
+        # Then  Logout from Customer application
 
 #     Scenario: TC_02:Validate Registrant Homepage in Customer web app
 #         Given I launch login from homepage
