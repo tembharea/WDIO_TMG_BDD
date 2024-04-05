@@ -96,11 +96,11 @@ export const config = {
       browserVersion: "116",
       //port: 61973,
       "wdio:chromedriverOptions": {
-        binary:
-          //"/chromedriver/win64-116.0.5845.96/chromedriver-win64/chromedriver.exe",
-          //"C:/Users/10703317/WDIO_Workspace/WDIO_TMG_BDD/chromedriver/win64-116.0.5845.96/chromedriver-win64/chromedriver.exe",
-          //v"./chromedriver/win64-116.0.5845.96/chromedriver-win64/chromedriver.exe",
-          "./chromedriverforlinux/chromedriver-linux64/chromedriver",
+        //binary:
+        //"/chromedriver/win64-116.0.5845.96/chromedriver-win64/chromedriver.exe",
+        //"C:/Users/10703317/WDIO_Workspace/WDIO_TMG_BDD/chromedriver/win64-116.0.5845.96/chromedriver-win64/chromedriver.exe",
+        //v"./chromedriver/win64-116.0.5845.96/chromedriver-win64/chromedriver.exe",
+        //"./chromedriverforlinux/chromedriver-linux64/chromedriver",
         //port: 61973,
         args: ["whitelisted-ips", "allowed-origins"],
       },
