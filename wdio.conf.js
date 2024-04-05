@@ -94,13 +94,18 @@ export const config = {
     {
       browserName: "chrome",
       browserVersion: "116",
-      //port: 9585,
+      //port: 61973,
       "wdio:chromedriverOptions": {
-        //binary: "/chromedriver/chromedriver.exe",
-        //port: 9585,
+        binary:
+          //"/chromedriver/win64-116.0.5845.96/chromedriver-win64/chromedriver.exe",
+          //"C:/Users/10703317/WDIO_Workspace/WDIO_TMG_BDD/chromedriver/win64-116.0.5845.96/chromedriver-win64/chromedriver.exe",
+          //v"./chromedriver/win64-116.0.5845.96/chromedriver-win64/chromedriver.exe",
+          "./chromedriverforlinux/chromedriver-linux64/chromedriver",
+        //port: 61973,
         args: ["whitelisted-ips", "allowed-origins"],
       },
       "goog:chromeOptions": {
+        // binary: "/chrome/win64-116.0.5845.96/chrome-win64/",
         args: [
           "disable-infobars",
           "disable-popup-blocking",

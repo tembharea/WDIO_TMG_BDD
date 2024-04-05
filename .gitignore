@@ -3,4 +3,4 @@
 # BrowserDriver/
 node_modules
 Reports
-chromedriver
+chrome
