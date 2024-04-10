@@ -54,19 +54,23 @@ Feature: ETE 20 Puzzles One Click OnBoarding
     Given I launch Salesforce URL
     And I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     When Enter the digitalete20 Sub email id in the search box
     And Open the Account Page
     Then Validate a GUID and PianoID are generated
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
 
   Scenario: TC_06:Validate Digital Puzzle Subscriber Account details in Salesforce
     Given I launch Salesforce URL
     And I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     When Enter the digitalete20 Sub email id in the search box
     And Open the Account Page
     Then Validate if user has any active subscription for ete20
     And I verify puzzle subscription is active from salesforce
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
 
   Scenario: TC_07:Validate Digital Puzzle Subscriber TS number in Salesforce

@@ -22,11 +22,13 @@ Feature: ETE 4 Online Cancellation
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     And Enter the Cancellation email id in the search box in Salesforce
     Then Open the Account Page
     When User clicks on Details tab
     Then User clicks on Subscriptions tab
     Then Validate if Cancellation user has active subscription
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
 
   Scenario: TC_03_Validate Registrant User data in Zoura
@@ -90,12 +92,14 @@ Feature: ETE 4 Online Cancellation
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     And Enter the Cancellation email id in the search box in Salesforce
     Then Open the Account Page
     When User clicks on Details tab
     Then User clicks on Subscriptions tab
     Then Validate the status of the subscription view in Zuora as Cancelled after the Cancellation process
     Then Validate the status of the subscription as Pending Cancellation before the Cancellation process
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
     
 
@@ -132,11 +136,13 @@ Feature: ETE 4 Online Cancellation
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     And Enter the Cancellation email id in the search box in Salesforce
     Then Open the Account Page
     When User clicks on Details tab
     Then User clicks on Subscriptions tab
     Then Validate if user has active subscription
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
 
   Scenario: TC_11_Validate Registrant User data in Zoura

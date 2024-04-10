@@ -88,23 +88,28 @@ Scenario: TC_05:Validate Digital Puzzle Subscriber GUID PianoID details in Sales
     Given I launch Salesforce URL
     And I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     When Enter the digitalMPaypalforPuzzles email id in the search box
     And Open the Account Page
     Then Validate a GUID and PianoID are generated
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
 
   Scenario: TC_06:Validate Digital Puzzle Subscriber details in Salesforce
     Given I launch Salesforce URL
     And I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     When Enter the digitalMPaypalforPuzzles email id in the search box
     And Open the Account Page
     Then Validate subscription for digitalMPaypalforPuzzles in salesforce
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
 
   Scenario: TC_07:Validate Digital Puzzle Subscriber TS number in Salesforce
     Given I launch Salesforce URL
     And I login to Salesforce
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
     And Enter the digitalMPaypalforPuzzles email id in the search box
     When Open the Account Page

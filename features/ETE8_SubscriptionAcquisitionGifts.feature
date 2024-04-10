@@ -26,10 +26,12 @@ Feature: ETE 8 Subscription Acquisition Gifts
         When I launch Salesforce URL
         Then I login to Salesforce
         Then Close Opened tabs in salesforce
+        Then Close Opened tabs in salesforce
         And  Enter the Gift email id in the search box
         Then Open the Account Page
         When User clicks on Details tab
         Then Validate Gift Promo Code is Generated
+        Then Close Opened tabs in salesforce
         Then Close Opened tabs in salesforce
 
     Scenario: TC_03:Redeem Gift Subscription
@@ -43,10 +45,12 @@ Feature: ETE 8 Subscription Acquisition Gifts
         When I launch Salesforce URL
         Then I login to Salesforce
         Then Close Opened tabs in salesforce
+        Then Close Opened tabs in salesforce
         And  Enter the Gift email id in the search box
         Then Open the Account Page
         When User clicks on Details tab
         Then Validate Gift Promo Code is Used
+        Then Close Opened tabs in salesforce
         Then Close Opened tabs in salesforce
 
     Scenario: TC_05:Validate no subscription details exists for Gift Donor
@@ -59,6 +63,7 @@ Feature: ETE 8 Subscription Acquisition Gifts
         When  Go to My Account page
         Then  Click on Manage Your Details button
         Then  Logout from Customer application
+        
 
     Scenario: TC_06:Validate subscription details exists for Gift receipent user
         Given I launch login from homepage
@@ -85,20 +90,24 @@ Feature: ETE 8 Subscription Acquisition Gifts
         When I launch Salesforce URL
         Then I login to Salesforce
         Then Close Opened tabs in salesforce
+        Then Close Opened tabs in salesforce
         And  Enter the Gift email id in the search box
         Then Open the Account Page
         When User clicks on Details tab
         Then Validate no Subscription exists for Gift Donor in salesforce
+        Then Close Opened tabs in salesforce
         Then Close Opened tabs in salesforce
 
     Scenario: TC_09:Validate subscription details exists for Gift Receipent user in Salesforce
         When I launch Salesforce URL
         Then I login to Salesforce
         Then Close Opened tabs in salesforce
+        Then Close Opened tabs in salesforce
         And  Enter the Gift redeem email id in the search box
         Then Open the Account Page for GiftReceipent
         When User clicks on Details tab
         Then Validate Subscription exists for Gift Receipent in salesforce
+        Then Close Opened tabs in salesforce
         Then Close Opened tabs in salesforce
 
     Scenario: TC_10:Validate Gift Donor Payent details in MPP

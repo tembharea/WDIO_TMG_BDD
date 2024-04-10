@@ -101,6 +101,7 @@ Scenario: TC_08:Validate Digital Subscriber Print status in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     And  Enter the Puzzles email id in the search box
     Then Open the Account Page
     When User clicks on Details tab
@@ -110,6 +111,7 @@ Scenario: TC_08:Validate Digital Subscriber Print status in Salesforce
 Scenario: TC_09:Validate Digital status is Active
     When I launch Salesforce URL
     Then I login to Salesforce
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
@@ -121,6 +123,7 @@ Scenario: TC_10:Validate Replatform Digital Status is Active
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
     When User clicks on Details tab
@@ -130,6 +133,7 @@ Scenario: TC_10:Validate Replatform Digital Status is Active
 Scenario: TC_11:Validate Puzzles Subscriber name in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
@@ -141,6 +145,7 @@ Scenario: TC_11A:Validate Puzzle subscription status in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
     When User clicks on Details tab
@@ -150,6 +155,7 @@ Scenario: TC_11A:Validate Puzzle subscription status in Salesforce
 Scenario: TC_12:Validate Puzzles Subscriber TS number in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
     Then Enter the Puzzles email id in the search box
     Then Open the Account Page
@@ -161,6 +167,7 @@ Scenario: TC_13:Validate account Origin
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     And  Enter the Puzzles email id in the search box
     Then Open the Account Page
     When User clicks on Details tab
@@ -170,6 +177,7 @@ Scenario: TC_13:Validate account Origin
 Scenario: TC_14:Validate Puzzles Subscriber Piano ID in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
@@ -181,6 +189,7 @@ Scenario: TC_15:Validate account channel is Premium
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
     When User clicks on Details tab
@@ -190,6 +199,7 @@ Scenario: TC_15:Validate account channel is Premium
 Scenario: TC_16:Validate Billing Currency is GBP
     When I launch Salesforce URL
     Then I login to Salesforce
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
@@ -212,6 +222,7 @@ Scenario: TC_18:Validate Puzzles Subscriber Entitlements data in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
     When User clicks on Details tab
@@ -222,6 +233,7 @@ Scenario: TC_18:Validate Puzzles Subscriber Entitlements data in Salesforce
 Scenario: TC_19:Validate Puzzles Subscriber Lock In Expiry in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
@@ -234,6 +246,7 @@ Scenario: TC_20:Validate Puzzles Subscriber Type of Offer in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
     When User clicks on Details tab
@@ -244,6 +257,7 @@ Scenario: TC_20:Validate Puzzles Subscriber Type of Offer in Salesforce
 Scenario: TC_21:Validate Puzzles Subscriber Payment details in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
@@ -257,6 +271,7 @@ Scenario: TC_22:Validate External ID is craeted for Puzzles only user in salesfo
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
     When User clicks on Details tab
@@ -267,6 +282,7 @@ Scenario: TC_22:Validate External ID is craeted for Puzzles only user in salesfo
 Scenario: TC_23:Validate subscription product name is Puzzles Monthly Subscription
     When I launch Salesforce URL
     Then I login to Salesforce
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
@@ -279,6 +295,7 @@ Scenario: TC_23:Validate subscription product name is Puzzles Monthly Subscripti
 Scenario: TC_24:Validate the correct Price Segment Code is generated based on the offer
     When I launch Salesforce URL
     Then I login to Salesforce
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
@@ -301,11 +318,13 @@ Scenario: TC_26:Validate Promo Code field has generated the correct offer name w
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
     When User clicks on Details tab
     And  User Opens Subscription page
     Then Validate Promo Code is generated for PuzzlesOnly
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
 
 Scenario: TC_27:Validate Name and Account number in Zoura

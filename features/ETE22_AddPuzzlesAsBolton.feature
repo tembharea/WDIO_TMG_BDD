@@ -74,14 +74,17 @@ Scenario: TC_05:Validate Digital Puzzle Subscriber GUID PianoID details in Sales
     Given I launch Salesforce URL
     And I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     When Enter the digitalMPaypaletePuzzles email id in the search box in Salesforce
     And Open the Account Page
     Then Validate a GUID and PianoID are generated
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
 
 Scenario: TC_06:Validate DigitalPuzzleAsBolton Subscriber Digital status is Active
     When I launch Salesforce URL
     Then I login to Salesforce
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
     And Enter the digitalMPaypaletePuzzles email id in the search box in Salesforce    
     Then Open the Account Page

@@ -61,47 +61,57 @@ Scenario: TC_05:Validate Puzzle Digital BoltOn Subscriber GUID PianoID details i
     Given I launch Salesforce URL
     And I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     When Enter the Puzzledigitalbotlon email id in the search box
     And Open the Account Page
     Then Validate a GUID and PianoID are generated
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
 
   Scenario: TC_06:Validate Puzzle Digital BoltOn Subscriber details in Salesforce
     Given I launch Salesforce URL
     And I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     When Enter the Puzzledigitalbotlon email id in the search box
     And Open the Account Page
     Then Validate if user has any active subscription
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
 
     Scenario: TC_07:Validate Puzzle Digital BoltOn Subscriber Digital status is Active
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     And Enter the Puzzledigitalbotlon email id in the search box  
     Then Open the Account Page
     When User clicks on Details tab
     Then Validate Digital status is Active
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
 
 Scenario: TC_08:Validate Puzzle Digital BoltOn Subscriber Replatform Digital Status is Active
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     And Enter the Puzzledigitalbotlon email id in the search box
     Then Open the Account Page
     When User clicks on Details tab
     Then Validate Replatform Digital status is Active
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
 
   Scenario: TC_09:Validate Puzzle Digital BoltOn Subscriber details in Salesforce
     Given I launch Salesforce URL
     And I login to Salesforce
     Then Close Opened tabs in salesforce
+    Then Close Opened tabs in salesforce
     When Enter the Puzzledigitalbotlon email id in the search box
     And Open the Account Page
     Then Validate subscription for Puzzledigitalbotlonn in salesforce
+    Then Close Opened tabs in salesforce
     Then Close Opened tabs in salesforce
 
   Scenario: TC_10:Validate Puzzle Digital BoltOn Subscriber TS number in Salesforce

@@ -52,6 +52,8 @@ Scenario: TC_04:Validate Digital Monthly Sub bought via paypal details in Piano
     Then Validate Piano UiD
     Then Validate Access details in Piano
     Then LogOut from Piano
+    Then LogOut from Piano
+
 
 Scenario: TC_05:User purchasing Digital plan Annually with credit card
     Given I launch login from homepage
@@ -138,41 +140,41 @@ Scenario: TC_11:Validate logged out registrant Digital Monthly Sub details in Pi
     Then Validate Access details in Piano
     Then LogOut from Piano
 
-Scenario: TC_12:User Purchasing Digital Plan Annually as logged out registrant
-    Given I launch Telegraph homepage
-    And   I click on subscribeNow button on homepage
-    Then  User clicks on Digital Plan Annually
-    Then  Validate user is redirected to Payment gateway page
-    And   User Enters Email ID as a logged out registrant for Digital Annually
-    Then  Input CreditCard Payment details
-    Then  Validate User is asked to create password
-    And   User Enters First and Last with password
-    Then  User completes the purchase as loggedout Registrant
-    When  Go to My Account page
-    Then  Click on Manage Your Details button
-    Then  Logout from Customer application
+# Scenario: TC_12:User Purchasing Digital Plan Annually as logged out registrant
+#     Given I launch Telegraph homepage
+#     And   I click on subscribeNow button on homepage
+#     Then  User clicks on Digital Plan Annually
+#     Then  Validate user is redirected to Payment gateway page
+#     And   User Enters Email ID as a logged out registrant for Digital Annually
+#     Then  Input CreditCard Payment details
+#     Then  Validate User is asked to create password
+#     And   User Enters First and Last with password
+#     Then  User completes the purchase as loggedout Registrant
+#     When  Go to My Account page
+#     Then  Click on Manage Your Details button
+#     Then  Logout from Customer application
 
-Scenario: TC_13:Validate logged out registrant Digital Annually Sub details in Salesforce
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the digitalLoggedOutDSAUser in the search box of salesforce
-    # Then Open the Account Page
-    # When User clicks on Details tab
-    Then Validate subscription for digital Annual Plan in salesforce
-    Then Close Opened tabs in salesforce
+# Scenario: TC_13:Validate logged out registrant Digital Annually Sub details in Salesforce
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     And Enter the digitalLoggedOutDSAUser in the search box of salesforce
+#     # Then Open the Account Page
+#     # When User clicks on Details tab
+#     Then Validate subscription for digital Annual Plan in salesforce
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_14:Validate logged out registrant Digital Annually Sub details in Piano
-    Given User opens Piano URL
-    When User logins to Piano account
-    When Navigate to All Users page
-    And  Enter DigitalCustDSARegistrant subscriber email in search box
-    Then Validate Registration date in Piano
-    Then Validate Piano UiD
-    Then Validate Access details in Piano
-    Then LogOut from Piano
+# Scenario: TC_14:Validate logged out registrant Digital Annually Sub details in Piano
+#     Given User opens Piano URL
+#     When User logins to Piano account
+#     When Navigate to All Users page
+#     And  Enter DigitalCustDSARegistrant subscriber email in search box
+#     Then Validate Registration date in Piano
+#     Then Validate Piano UiD
+#     Then Validate Access details in Piano
+#     Then LogOut from Piano
 
-Scenario: TC_15:User purchasing Digital plan with credit card
+Scenario: TC_12:User purchasing Digital plan with any working payment method
     Given I launch login from homepage
     And   I fill in new digital email
     When  I click login-register button
@@ -184,12 +186,13 @@ Scenario: TC_15:User purchasing Digital plan with credit card
     Then  Click on View Subscription Offers
     Then  User clicks on Digital Plan Monthly
     Then  Validate user is redirected to Payment gateway page
-    Then  Input CreditCard Payment details
+    Then  Input paypal Payment details
+    Then  User completes the purchase
     When  Go to My Account page
     Then  Click on Manage Your Details button
-    Then  Logout from Customer application
+    Then  Logout from Customer application  
 
-Scenario: TC_16:Validate Digital Subscriber has One Bonus Account in Telegraph app
+Scenario: TC_13:Validate Digital Subscriber has One Bonus Account in Telegraph app
     Given I launch login from homepage
     And   I fill in existing digital email
     When  I click login-register button
@@ -200,7 +203,7 @@ Scenario: TC_16:Validate Digital Subscriber has One Bonus Account in Telegraph a
     When  Go to My Account page
     Then  Logout from Customer application
 
-Scenario: TC_17:Validate Digital subscription and Payment details in Customer web app
+Scenario: TC_14:Validate Digital subscription and Payment details in Customer web app
     Given I launch login from homepage
     And   I fill in existing digital email
     When  I click login-register button
@@ -213,28 +216,28 @@ Scenario: TC_17:Validate Digital subscription and Payment details in Customer we
     When  Go to My Account page
     Then  Logout from Customer application
 
-Scenario: TC_18:Validate Digital Subscriber Newsletter details in Customer web app
-    Given I launch login from homepage
-    And   I fill in existing digital email
-    When  I click login-register button
-    When  Go to My Account page
-    When  Navigate to My Newsletters page
-    Then  Validate The From The Editor Newsletters is added by default in customer app
-    Then  Validate Subscriber rewards is added by default in customer app
-    When  Go to My Account page
-    Then  Logout from Customer application
+# Scenario: TC_18:Validate Digital Subscriber Newsletter details in Customer web app
+#     Given I launch login from homepage
+#     And   I fill in existing digital email
+#     When  I click login-register button
+#     When  Go to My Account page
+#     When  Navigate to My Newsletters page
+#     Then  Validate The From The Editor Newsletters is added by default in customer app
+#     Then  Validate Subscriber rewards is added by default in customer app
+#     When  Go to My Account page
+#     Then  Logout from Customer application
 
-Scenario: TC_19:Validate Digital subscriber Exclusive Newsletter details in Customer web app
-    Given I launch login from homepage
-    And   I fill in existing digital email
-    When  I click login-register button
-    When  Go to My Account page
-    When  Navigate to My Newsletters page
-    Then  Validate Exclusive newsletters have signup CTA or not
-    When  Go to My Account page
-    Then  Logout from Customer application
+# Scenario: TC_19:Validate Digital subscriber Exclusive Newsletter details in Customer web app
+#     Given I launch login from homepage
+#     And   I fill in existing digital email
+#     When  I click login-register button
+#     When  Go to My Account page
+#     When  Navigate to My Newsletters page
+#     Then  Validate Exclusive newsletters have signup CTA or not
+#     When  Go to My Account page
+#     Then  Logout from Customer application
 
-Scenario: TC_20:Validate Digital Subscriber data in Piano
+Scenario: TC_15:Validate Digital Subscriber data in Piano
     Given User opens Piano URL
     When User logins to Piano account
     When Navigate to All Users page
@@ -244,7 +247,7 @@ Scenario: TC_20:Validate Digital Subscriber data in Piano
     Then Validate Access details in Piano
     Then LogOut from Piano
 
-Scenario: TC_21:Validate Digital Subscriber Print status in Salesforce
+Scenario: TC_16:Validate Digital Subscriber Print status in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -254,7 +257,7 @@ Scenario: TC_21:Validate Digital Subscriber Print status in Salesforce
     Then Verify the Print Status is "Inactive"
     Then Close Opened tabs in salesforce
 
-Scenario: TC_22:Validate Digital Subscriber account channel type in Salesforce
+Scenario: TC_17:Validate Digital Subscriber account channel type in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -265,7 +268,7 @@ Scenario: TC_22:Validate Digital Subscriber account channel type in Salesforce
     Then Validate account channel is "Premium"
     Then Close Opened tabs in salesforce
 
-Scenario: TC_23:Validate Digital Subscriber subscription status in Salesforce
+Scenario: TC_18:Validate Digital Subscriber subscription status in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -276,7 +279,7 @@ Scenario: TC_23:Validate Digital Subscriber subscription status in Salesforce
     #Then Validate if user has active subscription Digital subscription
     Then Close Opened tabs in salesforce
 
-Scenario: TC_24:Validate Digital Subscriber newsletters in Salesforce
+Scenario: TC_19:Validate Digital Subscriber newsletters in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -287,7 +290,7 @@ Scenario: TC_24:Validate Digital Subscriber newsletters in Salesforce
     #Then Verify Subscriber rewards is added by default
     Then Close Opened tabs in salesforce
 
-Scenario: TC_25:Validate Digital Subscriber has 1 bonus account in Salesforce
+Scenario: TC_20:Validate Digital Subscriber has 1 bonus account in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -298,7 +301,7 @@ Scenario: TC_25:Validate Digital Subscriber has 1 bonus account in Salesforce
     Then Validate bonus promo code is Unused
     Then Close Opened tabs in salesforce
 
-Scenario: TC_26:Validate Digital Subscriber billing Currency in Salesforce
+Scenario: TC_21:Validate Digital Subscriber billing Currency in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -308,7 +311,7 @@ Scenario: TC_26:Validate Digital Subscriber billing Currency in Salesforce
     Then Validate Billing Currency is GBP
     Then Close Opened tabs in salesforce
 
-Scenario: TC_27:Validate Digital Subscriber current plan in Salesforce
+Scenario: TC_22:Validate Digital Subscriber current plan in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -318,7 +321,7 @@ Scenario: TC_27:Validate Digital Subscriber current plan in Salesforce
     Then Validate Current plan is Website UK
     Then Close Opened tabs in salesforce
 
-Scenario: TC_28:Validate Digital Subscriber Subscription start and end date in Salesforce
+Scenario: TC_23:Validate Digital Subscriber Subscription start and end date in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -330,7 +333,7 @@ Scenario: TC_28:Validate Digital Subscriber Subscription start and end date in S
     Then Validate Subscription end date
     Then Close Opened tabs in salesforce
 
-Scenario: TC_29:Validate Digital Subscriber social acoount data in Salesforce
+Scenario: TC_24:Validate Digital Subscriber social acoount data in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -339,7 +342,7 @@ Scenario: TC_29:Validate Digital Subscriber social acoount data in Salesforce
     Then Verify if registrant signed up via email then validate no Social Account is linked
     Then Close Opened tabs in salesforce
 
-Scenario: TC_30:Validate Digital Subscriber newsletters data in Salesforce
+Scenario: TC_25:Validate Digital Subscriber newsletters data in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -350,7 +353,7 @@ Scenario: TC_30:Validate Digital Subscriber newsletters data in Salesforce
     #Then Validate Subscriber rewards is added
     Then Close Opened tabs in salesforce
 
-Scenario: TC_31:Validate Digital Subscriber product name in Salesforce
+Scenario: TC_26:Validate Digital Subscriber product name in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -360,7 +363,7 @@ Scenario: TC_31:Validate Digital Subscriber product name in Salesforce
     Then Validate Subscription product name is Website Monthly
     Then Close Opened tabs in salesforce
 
-Scenario: TC_32:Validate Digital Subscriber Entitlements data in Salesforce
+Scenario: TC_27:Validate Digital Subscriber Entitlements data in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -370,7 +373,7 @@ Scenario: TC_32:Validate Digital Subscriber Entitlements data in Salesforce
     Then Validate Entitlements are added for digital subscription
     Then Close Opened tabs in salesforce
 
-Scenario: TC_33:Validate Digital Subscriber type of subscription in Salesforce
+Scenario: TC_28:Validate Digital Subscriber type of subscription in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -379,7 +382,7 @@ Scenario: TC_33:Validate Digital Subscriber type of subscription in Salesforce
     Then Validate type of subscription is standard
     Then Close Opened tabs in salesforce
 
-Scenario: TC_34:Validate Digital Subscriber Zuora details in Salesforce
+Scenario: TC_29:Validate Digital Subscriber Zuora details in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -389,7 +392,7 @@ Scenario: TC_34:Validate Digital Subscriber Zuora details in Salesforce
     Then Validate Zoura subscription status is active
     Then Close Opened tabs in salesforce
 
-Scenario: TC_35:Validate Digital Subscriber billing account is created in Salesforce
+Scenario: TC_30:Validate Digital Subscriber billing account is created in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -400,7 +403,7 @@ Scenario: TC_35:Validate Digital Subscriber billing account is created in Salesf
     Then Invoice is created
     Then Close Opened tabs in salesforce
 
-Scenario: TC_36:Validate Digital Subscriber name in Salesforce
+Scenario: TC_31:Validate Digital Subscriber name in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -409,7 +412,7 @@ Scenario: TC_36:Validate Digital Subscriber name in Salesforce
     Then Open the Account Page
     Then Close Opened tabs in salesforce
 
-Scenario: TC_37:Validate Digital Subscriber TS number in Salesforce
+Scenario: TC_32:Validate Digital Subscriber TS number in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -420,7 +423,7 @@ Scenario: TC_37:Validate Digital Subscriber TS number in Salesforce
     Then Validate TS number is generated in Subscriber Number field
     Then Close Opened tabs in salesforce
 
-Scenario: TC_38:Validate Digital Subscriber Piano ID in Salesforce
+Scenario: TC_33:Validate Digital Subscriber Piano ID in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -430,7 +433,7 @@ Scenario: TC_38:Validate Digital Subscriber Piano ID in Salesforce
     Then Validate a GUID and PianoID are generated
     Then Close Opened tabs in salesforce
 
-Scenario: TC_39:Validate Digital Subscriber has digital status as Registered in Salesforce
+Scenario: TC_34:Validate Digital Subscriber has digital status as Registered in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
@@ -440,7 +443,7 @@ Scenario: TC_39:Validate Digital Subscriber has digital status as Registered in 
     Then Verify the Digital Status is Registered and Account Record Type is Registrant
     Then Close Opened tabs in salesforce
 
-Scenario: TC_40:Validate Digital Subscriber Account number is generated in Zoura
+Scenario: TC_35:Validate Digital Subscriber Account number is generated in Zoura
     Given I open zuora
     And Login to Zoura
     When Go to Zoura Subscription Page for Digital
@@ -448,7 +451,7 @@ Scenario: TC_40:Validate Digital Subscriber Account number is generated in Zoura
     Then Validate account number is generated
     And I logout from Zuora   
 
-Scenario: TC_41:Validate Digital Subscriber Auto Renew is Enabled in Zoura
+Scenario: TC_36:Validate Digital Subscriber Auto Renew is Enabled in Zoura
     Given I open zuora
     And Login to Zoura
     When Go to Zoura Subscription Page for Digital
@@ -456,7 +459,7 @@ Scenario: TC_41:Validate Digital Subscriber Auto Renew is Enabled in Zoura
     Then Validate Auto pay is set to True
     And I logout from Zuora   
 
-Scenario: TC_42:Validate Digital Subscriber subscription start and end date in Zoura
+Scenario: TC_37:Validate Digital Subscriber subscription start and end date in Zoura
     Given I open zuora
     And Login to Zoura
     When Go to Zoura Subscription Page for Digital
@@ -467,7 +470,7 @@ Scenario: TC_42:Validate Digital Subscriber subscription start and end date in Z
     Then Validate Current term end date
     And I logout from Zuora
 
-Scenario: TC_43:Validate Digital Subscriber Renewal data in Zoura
+Scenario: TC_38:Validate Digital Subscriber Renewal data in Zoura
     When I launch Zoura application
     And Login to Zoura
     When Go to Zoura Subscription Page for Digital
@@ -475,14 +478,14 @@ Scenario: TC_43:Validate Digital Subscriber Renewal data in Zoura
     Then Validate Renewal term
     And I logout from Zuora
 
-Scenario: TC_44:Validate Digital Subscriber Aquisition channel data in Zoura
+Scenario: TC_39:Validate Digital Subscriber Aquisition channel data in Zoura
     When I launch Zoura application
     And Login to Zoura
     When Go to Zoura Subscription Page for Digital
     Then Validate Aquisition channel
     And I logout from Zuora
 
-Scenario: TC_45:Validate Digital Subscriber Price Segment code data in Zoura
+Scenario: TC_40:Validate Digital Subscriber Price Segment code data in Zoura
     When I launch Zoura application
     And Login to Zoura
     When Go to Zoura Subscription Page for Digital

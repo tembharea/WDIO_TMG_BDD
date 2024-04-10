@@ -28,6 +28,8 @@ const jsonReports = process.cwd() + "/Reports/json";
 //import { generate } from 'multiple-cucumber-html-reporter'
 //const report = require('multiple-cucumber-html-reporter');
 export const config = {
+
+  //port: 4444,
   //
   // ====================
   // Runner Configuration
@@ -51,7 +53,7 @@ export const config = {
   // will be called from there.
   //C:\Users\10703317\WDIO_Workspace\WDIO_TMG_BDD\features\SubscriptionAcquisitionDigital.feature
   specs: [
-    "./features/**/ETE11_AccountcreationRegisterflow.feature",
+    //"./features/**/ETE11_AccountcreationRegisterflow.feature",
     // "./features/**/ETE3_SubscriptionAcquisitionDigitalPlus.feature",
     // "./features/**/ETE7_SubscriptionAcquisitionPuzzles.feature",
     // "./features/**/ETE20_PuzzlesOneClickOnboarding.feature",
@@ -60,9 +62,9 @@ export const config = {
     // "./features/**/ETE23_AddDigitalAsBoltonToPuzzles.feature",
     // "./features/**/ETE5_SubscriptionAcquisitionBonus.feature",
     // "./features/**/ETE8_SubscriptionAcquisitionGifts.feature",
-    // "./features/**/ETE2_SubscriptionAcquisitionMyAccount.feature",
-    // "./features/**/ETE4_SubscriptionAcquisitionOnlineCancellation.feature",
-    // "./features/**/ETE10_SubscriptionAcquisitionDigital.feature",
+     "./features/**/ETE2_SubscriptionAcquisitionMyAccount.feature",
+     //"./features/**/ETE4_SubscriptionAcquisitionOnlineCancellation.feature",
+     //"./features/**/ETE10_SubscriptionAcquisitionDigital.feature",
   ],
   // Patterns to exclude.
   exclude: [
@@ -92,18 +94,19 @@ export const config = {
   //
   capabilities: [
     {
+      //browserName: "safari",
       browserName: "chrome",
       browserVersion: "116",
       //port: 61973,
-      "wdio:chromedriverOptions": {
-        binary:
+      //"wdio:chromedriverOptions": {
+        //binary:
           //"/chromedriver/win64-116.0.5845.96/chromedriver-win64/chromedriver.exe",
           //"C:/Users/10703317/WDIO_Workspace/WDIO_TMG_BDD/chromedriver/win64-116.0.5845.96/chromedriver-win64/chromedriver.exe",
           //v"./chromedriver/win64-116.0.5845.96/chromedriver-win64/chromedriver.exe",
-          "./chromedriverforlinux/chromedriver-linux64/chromedriver",
+          //"./chromedriverforlinux/chromedriver-linux64/chromedriver",
         //port: 61973,
-        args: ["whitelisted-ips", "allowed-origins"],
-      },
+        //args: ["whitelisted-ips", "allowed-origins"],
+      //},
       "goog:chromeOptions": {
         // binary: "/chrome/win64-116.0.5845.96/chrome-win64/",
         args: [
@@ -114,28 +117,14 @@ export const config = {
         ],
       },
       "cjson:metadata": {
-        // For a browser
-        browser: {
+        browser:{
           name: "chrome",
-          version: "119",
+          version: "116",
         },
-        // for an app
-        // app: {
-        //   name: "TMG apps",
-        //   version: "1",
-        // },
-        device: "LITM WDIO",
+        device: "MacBook Pro M2",
         platform: {
-          name: "Windows",
-          version: "11",
-        },
-        customData: {
-          title: "Run info",
-          data: [
-            { label: "Project", value: "project" },
-            //{label: 'Execution Start Time', value: new Date(runInfos.startedTestsAt).toLocaleString()},
-            //{label: 'Execution End Time', value: new Date(runInfos.endedTestsAt).toLocaleString()}
-          ],
+          name: "OSX",
+          version: "13.6.4",
         },
       },
     },
@@ -190,7 +179,7 @@ export const config = {
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
   services: [
-    "selenium-standalone",
+    //"selenium-standalone",
     // [
     //   "chromedriver",
     //   {
@@ -200,6 +189,10 @@ export const config = {
     //     chromedriverCustomPath: "./chromedriver/",
     //   },
     // ],
+    ["safaridriver", {
+        outputDir: './logs',
+        logFileName: 'wdio-safaridriver.log'
+    }]
   ],
   //
   // Framework you want to run your specs with.
@@ -301,7 +294,7 @@ export const config = {
     // <string> (expression) only execute the features or scenarios with tags matching the expression
     tagExpression: "",
     // <number> timeout for step definitions
-    timeout: 60000,
+    timeout: 90000,
     // <boolean> Enable this config to treat undefined definitions as warnings.
     ignoreUndefinedDefinitions: false,
   },
@@ -550,16 +543,16 @@ export const config = {
       reportFilePerRetry: false,
       displayDuration: true,
       customData: {
-        title: "Run info",
+        title: "Run Info",
         data: [
           { label: "Project", value: "TMG Automation" },
           {
             label: "Execution Time",
-            value: new Date().toLocaleString(),
+            value: new Date().toLocaleString() + "" + "IST",
           },
           {
             label: "Release",
-            value: "24.06",
+            value: "24.07",
           },
           {
             label: "Apps Tested",

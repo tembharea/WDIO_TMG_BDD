@@ -1,6 +1,7 @@
 import { Given, When, Then } from "@wdio/cucumber-framework";
 import { expect, $ } from "@wdio/globals";
 import { Key } from "webdriverio";
+import { CucumberJsJsonReporter } from "wdio-cucumberjs-json-reporter";
 
 import LoginPage from "../pageobjects/login.page.js";
 import SecurePage from "../pageobjects/secure.page.js";
@@ -127,7 +128,10 @@ Given("I fill in new bonus email", async () => {
   await browser.pause(100);
   await EmailInput.setValue(BonusCustEmail);
 
-  //console.log("Teststststs");
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Bonus Receiver is: " + BonusCustEmail,
+    "text/plain"
+  );
 });
 
 Given("I validate bonus subscription is not redeem", async () => {
@@ -208,6 +212,11 @@ Then("Enter the Bonus Sub email id in the search box", async () => {
   await SearchBarInput.waitForDisplayed({ timeout: 50000 });
   await SearchBarInput.setValue(BonusCustEmail);
   await browser.keys("Enter");
+
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Bonus Receiver is: " + BonusCustEmail,
+    "text/plain"
+  );
 });
 
 When("Enter Bonus subscriber email in search box", async () => {
@@ -231,6 +240,11 @@ When("Enter Bonus subscriber email in search box", async () => {
   await browser.pause(4000);
   await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
   await pianoUserSrchResultSelect.click();
+
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Bonus Receiver is: " + BonusCustEmail,
+    "text/plain"
+  );
 });
 
 Given("I validate promo code is redeemed by bonus user", async () => {
@@ -381,6 +395,7 @@ Given("I activate bonus subscription", async () => {
   await browser.pause(2000);
   await browser.scroll(0, 200);
   await activatebonussubscription.click();
+  await browser.pause(10000);
   await browser.scroll(0, 200);
   await exploreyourbenifitsbutton.waitForDisplayed({ timeout: 50000 });
   await browser.pause(4000);

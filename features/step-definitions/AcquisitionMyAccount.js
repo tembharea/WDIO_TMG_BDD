@@ -4,6 +4,7 @@ import { Key } from "webdriverio";
 
 import LoginPage from "../pageobjects/login.page.js";
 import SecurePage from "../pageobjects/secure.page.js";
+import { CucumberJsJsonReporter } from "wdio-cucumberjs-json-reporter";
 
 const pages = {
   login: LoginPage,
@@ -96,12 +97,6 @@ var RecordSubID;
 //   }
 // );
 
-When(
-  "Validate Subscriber rewards is added by default in customer app",
-  async () => {
-    //await browser.pause(100);
-  }
-);
 
 Then("I fill in new email for Subscriptionfour Acquisition", async () => {
   await browser.pause(500);
@@ -153,6 +148,10 @@ Then("I fill in new email for Subscriptiontwo Acquisition", async () => {
   console.log("CustEmail" + NewCustEmailtwo);
   await browser.pause(100);
   //console.log("Teststststs");
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + NewCustEmailtwo,
+    "text/plain"
+  );
 });
 
 Then("I fill in new email for Subscriptionthree Acquisition", async () => {
@@ -657,21 +656,24 @@ Then("Enter existing subscriber email in search box", async () => {
   const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
   const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
   const pianoUserSrchResultSelect = await $(
-    '//*[@class="pn-table__cell pn-table__cell--head pn-table__cell--users-user sortable"]//following::span[contains(text(),".co")][1]'
+    '//div[contains(text(),"Akshat")]'
   );
 
   await pianoSearchBtnInput.waitForDisplayed({ timeout: 50000 });
   await pianoSearchBtnInput.click();
 
   await pianoAdvanceSearchInput.waitForDisplayed({ timeout: 50000 });
-  await pianoAdvanceSearchInput.setValue(NewCustEmail);
+  await pianoAdvanceSearchInput.setValue(NewCustEmailtwo);
 
   await pianoAdvanceSearchBTN.waitForDisplayed({ timeout: 50000 });
   await pianoAdvanceSearchBTN.click();
 
   await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
   await pianoUserSrchResultSelect.click();
+  
 });
+
+
 
 Then("Input American Express Payment details", async () => {
   //var parentWindow = browser.getWindowHandle();
@@ -742,4 +744,79 @@ Then("Input American Express Payment details", async () => {
     }
   );
   //a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"][2]
+});
+
+When('Go to Zoura Subscription Page for DigitalPlus', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await browser.pause(500);
+})
+
+Then("Enter the email id in the search box in Salesforce for DigitalMonthly in ete2", async () => {
+  await browser.pause(2000);
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  await browser.refresh();
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  await browser.pause(900);
+  const SearchBarClick = await $(
+    '//button[contains(@class,"slds-button slds-button_neutral search")]'
+  );
+  await SearchBarClick.waitForDisplayed({ timeout: 20000 });
+  // await SearchBarClick.click();
+  await browser.pause(1500);
+  await SearchBarClick.doubleClick();
+  await browser.pause(700);
+  await browser.keys("Enter");
+  await browser.pause(1000);
+
+  const serchBartxt = await $('//h2[text()="Do more with Search!"]');
+  //await serchBartxt.waitForDisplayed({ timeout: 20000 });
+  const SearchBarInput = await $(
+    '//div[contains(@class,"icon_left-right")]//input[@class="slds-input"]'
+  );
+
+  if (serchBartxt.isExisting == true) {
+    await SearchBarInput.waitForDisplayed({ timeout: 20000 });
+    await SearchBarInput.click();
+    await SearchBarInput.clearValue();
+    await browser.pause(300);
+    await SearchBarInput.setValue(NewCustEmailtwo);
+    await browser.pause(300);
+    await browser.keys("Enter");
+    await browser.pause(3000);
+  } else {
+    await browser.refresh();
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+    await SearchBarClick.waitForDisplayed({ timeout: 20000 });
+    await browser.pause(1500);
+    await SearchBarClick.doubleClick();
+    await browser.pause(700);
+    await browser.keys("Enter");
+    await browser.pause(1000);
+    await SearchBarInput.waitForDisplayed({ timeout: 20000 });
+    await SearchBarInput.click();
+    await SearchBarInput.clearValue();
+    await browser.pause(300);
+    await SearchBarInput.setValue(NewCustEmailtwo);
+    await browser.pause(300);
+    await browser.keys("Enter");
+    await browser.pause(3000);
+  }
 });

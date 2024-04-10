@@ -115,7 +115,7 @@ Given("I continue the flow till puzzle subscription onboarding", async () => {
   const afterPaymentSubmitButton = await $('//button[@id="password_submit"]');
 
   try {
-    await afterPaymentFirstName.waitForDisplayed({ timeout: 50000 });
+    await afterPaymentFirstName.waitForDisplayed({ timeout: 20000 });
     await afterPaymentFirstName.setValue("Akshat");
     await afterPaymentlastName.waitForDisplayed({ timeout: 10000 });
     await afterPaymentlastName.setValue("Tembhare");
@@ -129,7 +129,7 @@ Given("I continue the flow till puzzle subscription onboarding", async () => {
     const continueButton = await $(
       '//div[@class="onboarding-sms-btns non-uk"]//button[text()="Continue"]'
     );
-    await continueButton.waitForDisplayed({ timeout: 50000 });
+    await continueButton.waitForDisplayed({ timeout: 40000 });
     await continueButton.click();
 
     const offerForPuzzleHeading = await $(
@@ -148,19 +148,50 @@ Given("I continue the flow till puzzle subscription onboarding", async () => {
     await subscriptionConfirmation.waitForDisplayed({ timeout: 50000 });
     await subscriptionConfirmation.click();
 
-    await browser.scroll(0, 200);
-    const step4ContinueButton = $('//button[@class="onboarding-bonus-next"]');
-    await step4ContinueButton.waitForDisplayed({ timeout: 50000 });
-    await step4ContinueButton.click();
+    // await browser.scroll(0, 200);
+    // const step4ContinueButton = $('//button[@class="onboarding-bonus-next"]');
+    // await step4ContinueButton.waitForDisplayed({ timeout: 50000 });
+    // await step4ContinueButton.click();
+    // await browser.pause(5000);
+    // await step4ContinueButton.waitForDisplayed({ timeout: 50000 });
+    // await step4ContinueButton.click();
+    // const step5header = await $('//h1[@class="title"]');
+    // await step5header.waitForDisplayed({ timeout: 50000 });
 
-    const step5header = await $('//h1[@class="title"]');
-    await step5header.waitForDisplayed({ timeout: 50000 });
+    // const pickwhereyouleftButton = await $(
+    //   '//span[contains(text(),"Pick up where you left off")]'
+    // );
+    // await pickwhereyouleftButton.waitForDisplayed({ timeout: 50000 });
+    // await pickwhereyouleftButton.click();
 
-    const pickwhereyouleftButton = await $(
-      '//span[contains(text(),"Pick up where you left off")]'
+    // const subSkipContinueBtn = await $(
+    //   '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Skip and continue"]'
+    // );
+    // await subSkipContinueBtn.waitForDisplayed({ timeout: 50000 });
+    // await subSkipContinueBtn.click();
+
+    const subContinueBtnn = await $(
+      '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"]'
     );
-    await pickwhereyouleftButton.waitForDisplayed({ timeout: 50000 });
-    await pickwhereyouleftButton.click();
+    await subContinueBtnn.waitForDisplayed({ timeout: 50000 });
+    await subContinueBtnn.click();
+
+    await subContinueBtnn.waitForDisplayed({ timeout: 50000 });
+    await subContinueBtnn.click();
+
+    const pickwhrleftoff = await $(
+      '//span[text()="Pick up where you left off"]'
+    );
+    await pickwhrleftoff.waitForDisplayed({ timeout: 50000 });
+    await pickwhrleftoff.click();
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+
     browser.waitUntil(
       () => browser.execute(() => document.readyState === "complete"),
       {
@@ -258,6 +289,7 @@ Then("Validate Access details in Piano for puzzles user", async () => {
   await pianoAccessPodcast.waitForDisplayed({ timeout: 50000 });
   await pianoAccessPodcast.isDisplayed();
 });
+
 When(
   "Enter Digital subscriber email in search box and check user is present",
   async () => {

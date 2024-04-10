@@ -43,6 +43,7 @@ const rnd5 = generateRandomString(6);
 const rnd6 = generateRandomString(6);
 const rnd7 = generateRandomString(6);
 const rnd8 = generateRandomString(6);
+const rnd9 = generateRandomString(6);
 
 const MyNewsletterPage = await $('//button[text()="My Newsletters"]');
 const NewsletterPage = await $('//a[text()="Newsletters"]');
@@ -55,10 +56,12 @@ const pianoID = "akshat.tembhare@telegraph.co.uk";
 const pianoPsswd = "Ayt@akshat123";
 const CustPasswrd = "Ayt@akshat123";
 const CustEmail = rndstr2 + "@telegraph.co.uk";
+const digitalforBonus = rnd9 + "bonusdonor@telegraph.co.uk"
 const CustCancellEmail = rnd4 + "DigitalCancel@telegraph.co.uk";
 const CustWineEmail = rndstr3 + "wine@telegraph.co.uk";
 const CustDigitete2 = rnd5 + "plusete2@telegraph.co.uk";
 const CustDigitete2ame = rnd6 + "plusete2@telegraph.co.uk";
+const DigitalPlussCustAlRegistrant = rnd6 + "digitlplsal@telegraph.co.uk";
 const CustDigitete2One = rnd8 + "plusete2@telegraph.co.uk";
 const CustPuzzOneEmail = rndstr4 + "puzzle@telegraph.co.uk";
 const CustPuzzTwoEmail = rndstr5 + "puzzle@telegraph.co.uk";
@@ -66,12 +69,14 @@ const DigitalCustEmail = randstr + "Digital@telegraph.co.uk";
 const DigitalPlusCCEmail = rndst3 + "DigitalPlus@telegraph.co.uk";
 const DigitalPlusCCEmail2 = rnd7 + "DigitalPlus@telegraph.co.uk";
 const DigitalPLusMPaypal = rndst4 + "DigitalPlus@telegraph.co.uk";
+const DigitalPLusAPaypal = rndst4 + "DigitalPlusA@telegraph.co.uk";
 const DigitalPaypalCustEmailPuzl = rndst1 + "DigitPuzzlete21@telegraph.co.uk";
 const digitalMPaypaletePuzzles = rndst2 + "DigitalPuzzete22@telegraph.co.uk";
 const digitMPypletePuzzOne = rnd1 + "Digitalete20@telegraph.co.uk";
 const digitMPypletePuzzTwo = rnd2 + "Digitalete22@telegraph.co.uk";
 const digitMPypletePuzzThree = rnd3 + "Digitalete23@telegraph.co.uk";
 const DigitalCustMRegistrant = rndst6 + "loggedoutmonthly@telegraph.co.uk";
+const DigitalPlussCustMRegistrant = rndst6 + "loggedoutmonth@telegraph.co.uk";
 const DigitalCustARegistrant = rndst5 + "loggedoutAnnual@telegraph.co.uk";
 const DigitalPaypalCustEmail = rndst8 + "digitalviapaypal@telegraph.co.uk";
 const DigitalPaypalACustEmail = rndst7 + "digitalviapaypal@telegraph.co.uk";
@@ -159,18 +164,18 @@ Then("Validate Registrant Account details do not exist in Zoura", async () => {
     }
   );
 
-  const ZuoraCustNamebutton = await $(
-    '//div[@aria-label="Customer Name"]//child::button[1]'
-  );
-  await ZuoraCustNamebutton.waitForDisplayed({ timeout: 50000 });
-  await ZuoraCustNamebutton.click();
-  await browser.pause(300);
-  const ZuoraCustNameSerchBox = await $(
-    '//div[@aria-label="Customer Name"]//following::input[3]'
-  );
-  await ZuoraCustNameSerchBox.waitForDisplayed({ timeout: 50000 });
-  await ZuoraCustNameSerchBox.setValue(CustEmail);
-  await browser.keys("Enter");
+  // const ZuoraCustNamebutton = await $(
+  //   '//div[@aria-label="Customer Name"]//child::button[1]'
+  // );
+  // await ZuoraCustNamebutton.waitForDisplayed({ timeout: 50000 });
+  // await ZuoraCustNamebutton.click();
+  // await browser.pause(300);
+  // const ZuoraCustNameSerchBox = await $(
+  //   '//div[@aria-label="Customer Name"]//following::input[3]'
+  // );
+  // await ZuoraCustNameSerchBox.waitForDisplayed({ timeout: 50000 });
+  // await ZuoraCustNameSerchBox.setValue(CustEmail);
+  // await browser.keys("Enter");
   // const NoRecordFoundTxt = await $('//span[text()="No Records Found"]');
   // await NoRecordFoundTxt.waitForDisplayed({ timeout: 50000 });
   // await NoRecordFoundTxt.isExisting();
@@ -410,7 +415,7 @@ Given("I launch login from homepage", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  CucumberJsJsonReporter.attach("checking text logs", "text/plain");
+  //CucumberJsJsonReporter.attach("checking text logs", "text/plain");
 });
 
 Given("I launch Telegraph homepage", async () => {
@@ -498,8 +503,89 @@ When(
         timeoutMsg: "Message on failure",
       }
     );
+    CucumberJsJsonReporter.attach(
+      "Test ID used for loggedOut Registrant for Digital Monthly Plan is: " + DigitalCustMRegistrant,
+      "text/plain"
+    );
   }
 );
+
+
+
+When(
+  "User Enters Email ID as a logged out registrant",
+  async () => {
+    await browser.pause(100);
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+    const loggedOutID = await $('//input[@id="email"]');
+    await loggedOutID.waitForDisplayed();
+    await loggedOutID.setValue(DigitalPlussCustMRegistrant);
+
+    const submitNowBTN = await $('//button[@type="submit"]');
+    await submitNowBTN.waitForDisplayed();
+    await submitNowBTN.click();
+    await browser.pause(3000);
+    await browser.pause(100);
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+    CucumberJsJsonReporter.attach(
+      "Test ID used for loggedOut Registrant for Digital Plus Monthly Plan is: " + DigitalPlussCustMRegistrant,
+      "text/plain"
+    );
+  }
+);
+
+
+When(
+  "User Enters Email ID as a logged out registrant Annual",
+  async () => {
+    await browser.pause(100);
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+    const loggedOutID = await $('//input[@id="email"]');
+    await loggedOutID.waitForDisplayed();
+    await loggedOutID.setValue(DigitalPlussCustAlRegistrant);
+
+    const submitNowBTN = await $('//button[@type="submit"]');
+    await submitNowBTN.waitForDisplayed();
+    await submitNowBTN.click();
+    await browser.pause(3000);
+    await browser.pause(100);
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+    CucumberJsJsonReporter.attach(
+      "Test ID used for loggedOut Registrant for Digital Plus Annual Plan is: " + DigitalPlussCustAlRegistrant,
+      "text/plain"
+    );
+  }
+);
+
+
+
+
+
+
 
 When(
   "User Enters Email ID as a logged out registrant for Digital Annually",
@@ -527,6 +613,10 @@ When(
         timeout: 60 * 1000, // 60 seconds
         timeoutMsg: "Message on failure",
       }
+    );
+    CucumberJsJsonReporter.attach(
+      "Test ID used for loggedOut Registrant for Digital Annual Plan is: " + DigitalCustARegistrant,
+      "text/plain"
     );
   }
 );
@@ -579,15 +669,12 @@ Then("I fill in new email", async () => {
 
   const EmailInput = await $('//input[@id="email"]');
   await EmailInput.waitForDisplayed();
-  //await EmailInput.doubleClick();
   await EmailInput.click();
-  //await EmailInput.click();
   await browser.pause(200);
   await EmailInput.setValue(CustEmail);
   await browser.pause(100);
-  //console.log("Teststststs");
   CucumberJsJsonReporter.attach(
-    "Test Login ID used for ETE11 TC 01: " + CustEmail,
+    "Test ID used is: " + CustEmail,
     "text/plain"
   );
 });
@@ -609,7 +696,35 @@ Then("I fill in new digitalete20 email", async () => {
   await browser.pause(200);
   await EmailInput.setValue(digitMPypletePuzzOne);
   await browser.pause(100);
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + digitMPypletePuzzOne,
+    "text/plain"
+  );
 });
+
+Then("I fill in new digital for bonus email", async () => {
+  await browser.pause(500);
+  await browser.refresh();
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  await browser.pause(500);
+  const EmailInput = await $('//input[@id="email"]');
+  await EmailInput.waitForDisplayed();
+  await EmailInput.click();
+  await browser.pause(200);
+  await EmailInput.setValue(digitalforBonus);
+  await browser.pause(100);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Bonus Donor is: " + digitalforBonus,
+    "text/plain"
+  );
+});
+
 
 Then("I fill in new DigitalPLusMPaypal email", async () => {
   await browser.pause(500);
@@ -629,7 +744,37 @@ Then("I fill in new DigitalPLusMPaypal email", async () => {
   await browser.pause(200);
   await EmailInput.setValue(DigitalPLusMPaypal);
   await browser.pause(100);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Digital Plus Monthly Subscription via Paypal is: " + DigitalPLusMPaypal,
+    "text/plain"
+  );
 });
+
+Then("I fill in new DigitalPLusAPaypal email", async () => {
+  await browser.pause(500);
+  await browser.refresh();
+
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  await browser.pause(500);
+  const EmailInput = await $('//input[@id="email"]');
+  await EmailInput.waitForDisplayed();
+  await EmailInput.click();
+  await browser.pause(200);
+  await EmailInput.setValue(DigitalPLusAPaypal);
+  await browser.pause(100);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Digital Plus Annual Subscription via Paypal is: " + DigitalPLusAPaypal,
+    "text/plain"
+  );
+});
+
+
 
 Then(
   "User fills delivery address details in Enotria Payment page",
@@ -779,6 +924,10 @@ Then("I fill in new PuzzleOne email", async () => {
   await browser.pause(200);
   await EmailInput.setValue(CustPuzzOneEmail);
   await browser.pause(1000);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Puzzles Subscription via Paypal: " + CustPuzzOneEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in new DigitalPlusCC email", async () => {
@@ -798,6 +947,10 @@ Then("I fill in new DigitalPlusCC email", async () => {
   await browser.pause(200);
   await EmailInput.setValue(DigitalPlusCCEmail);
   await browser.pause(1000);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Digital Plus Subscription: " + DigitalPlusCCEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in new DigitalPlusCC emailtwo", async () => {
@@ -836,6 +989,10 @@ Then("I fill in new digitalMPaypaletePuzzles email", async () => {
   await browser.pause(200);
   await EmailInput.setValue(digitalMPaypaletePuzzles);
   await browser.pause(1000);
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + digitalMPaypaletePuzzles,
+    "text/plain"
+  );
 });
 
 Then("I fill in new PuzzleTwo email", async () => {
@@ -864,6 +1021,10 @@ Then("I fill in new PuzzleTwo email", async () => {
   //await browser.Keys("1");
   await browser.pause(1000);
   //console.log("Teststststs");
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Puzzles Subscription: " + CustPuzzTwoEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in new digital email", async () => {
@@ -886,6 +1047,10 @@ Then("I fill in new digital email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(DigitalCustEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Digital Subscriber is: " + DigitalCustEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in new digitalMPaypal email", async () => {
@@ -908,6 +1073,10 @@ Then("I fill in new digitalMPaypal email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(DigitalPaypalCustEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Digital Monthly Plan via paypal payment method is: " + DigitalPaypalCustEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in new digitalMPaypalforPuzzles email", async () => {
@@ -930,6 +1099,10 @@ Then("I fill in new digitalMPaypalforPuzzles email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(DigitalPaypalCustEmailPuzl);
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + DigitalPaypalCustEmailPuzl,
+    "text/plain"
+  );
 });
 
 Then("I fill in new Puzzledigitalbotlon email", async () => {
@@ -952,6 +1125,10 @@ Then("I fill in new Puzzledigitalbotlon email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(digitMPypletePuzzThree);
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + digitMPypletePuzzThree,
+    "text/plain"
+  );
 });
 
 Then("I fill in new digitalACC email", async () => {
@@ -974,6 +1151,10 @@ Then("I fill in new digitalACC email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(DigitalPaypalACustEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Digital Annual Plan via credit card payment method is: " + DigitalPaypalACustEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in new Gift email", async () => {
@@ -995,6 +1176,10 @@ Then("I fill in new Gift email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(GiftCustEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Puzzles Gift Subscription Donor: " + GiftCustEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in new GiftTwo email", async () => {
@@ -1016,6 +1201,10 @@ Then("I fill in new GiftTwo email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(GiftCustTwoEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Puzzles Digital Subscription Donor: " + GiftCustTwoEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in new GiftThree email", async () => {
@@ -1037,6 +1226,10 @@ Then("I fill in new GiftThree email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(GiftCustThreeEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Puzzles Digital Plus Subscription Donor: " + GiftCustThreeEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in existing email", async () => {
@@ -1057,6 +1250,10 @@ Then("I fill in existing email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(CustEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + CustEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in existing digitalete20 email", async () => {
@@ -1077,6 +1274,10 @@ Then("I fill in existing digitalete20 email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(digitMPypletePuzzOne);
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + digitMPypletePuzzOne,
+    "text/plain"
+  );
 });
 
 Then("I fill in existing DigitalPlusCC email", async () => {
@@ -1097,6 +1298,10 @@ Then("I fill in existing DigitalPlusCC email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(DigitalPlusCCEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Digital Plus Subscription: " + DigitalPlusCCEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in existing Wine email", async () => {
@@ -1137,6 +1342,10 @@ Then("I fill in existing PuzzleTwo email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(CustPuzzTwoEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Puzzles Subscription: " + CustPuzzTwoEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in existing digitalMPaypaletePuzzles email", async () => {
@@ -1157,6 +1366,10 @@ Then("I fill in existing digitalMPaypaletePuzzles email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(digitalMPaypaletePuzzles);
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + digitalMPaypaletePuzzles,
+    "text/plain"
+  );
 });
 
 Then("I fill in existing Gift email", async () => {
@@ -1177,6 +1390,10 @@ Then("I fill in existing Gift email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(GiftCustEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Puzzles Gift Subscription Donor: " + GiftCustEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in existing Gift receipent email", async () => {
@@ -1197,6 +1414,10 @@ Then("I fill in existing Gift receipent email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(GiftRcvOneEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Puzzles Gift Subscription Receiver: " + GiftRcvOneEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in existing GiftTwo receipent email", async () => {
@@ -1217,6 +1438,10 @@ Then("I fill in existing GiftTwo receipent email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(GiftRcvTwoEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Puzzles Digital Subscription Receiver: " + GiftRcvTwoEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in existing GiftThree receipent email", async () => {
@@ -1237,6 +1462,10 @@ Then("I fill in existing GiftThree receipent email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(GiftRcvThreeEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Puzzles Digital Plus Subscription Receiver: " + GiftRcvThreeEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in existing digital email", async () => {
@@ -1259,6 +1488,10 @@ Then("I fill in existing digital email", async () => {
   await EmailInput.waitForDisplayed();
   await EmailInput.click();
   await EmailInput.setValue(DigitalCustEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Digital Subscriber is: " + DigitalCustEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in existing digitalMPaypalforPuzzles email", async () => {
@@ -1281,6 +1514,10 @@ Then("I fill in existing digitalMPaypalforPuzzles email", async () => {
   await EmailInput.waitForDisplayed();
   await EmailInput.click();
   await EmailInput.setValue(DigitalPaypalCustEmailPuzl);
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + DigitalPaypalCustEmailPuzl,
+    "text/plain"
+  );
 });
 
 Then("I fill in existing Puzzledigitalbotlon email", async () => {
@@ -1303,6 +1540,10 @@ Then("I fill in existing Puzzledigitalbotlon email", async () => {
   await EmailInput.waitForDisplayed();
   await EmailInput.click();
   await EmailInput.setValue(digitMPypletePuzzThree);
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + digitMPypletePuzzThree,
+    "text/plain"
+  );
 });
 
 When("I click continue button on registration page", async () => {
@@ -1314,6 +1555,7 @@ When("I click continue button on registration page", async () => {
       timeoutMsg: "Message on failure",
     }
   );
+  
   const createAccBtn = await $('//button[@id="create-account-button"]');
   await createAccBtn.waitForDisplayed({ timeout: 50000 });
   await createAccBtn.click();
@@ -1502,6 +1744,10 @@ Then("Enter the email id in the search box", async () => {
     await browser.keys("Enter");
     await browser.pause(3000);
   }
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + CustEmail,
+    "text/plain"
+  );
 });
 
 Then("Enter the Puzzles email id in the search box", async () => {
@@ -1572,6 +1818,10 @@ Then("Enter the Puzzles email id in the search box", async () => {
     await browser.pause(300);
     await browser.keys("Enter");
     await browser.pause(3000);
+    CucumberJsJsonReporter.attach(
+      "Test ID used for Puzzles Subscription: " + CustPuzzTwoEmail,
+      "text/plain"
+    );
   }
 });
 
@@ -1642,6 +1892,10 @@ Then("Enter the Gift email id in the search box", async () => {
     await browser.pause(300);
     await browser.keys("Enter");
     await browser.pause(3000);
+    CucumberJsJsonReporter.attach(
+      "Test ID used for Puzzles Gift Subscription Donor: " + GiftCustEmail,
+      "text/plain"
+    );
   }
 });
 
@@ -1712,6 +1966,10 @@ Then("Enter the GiftTwo email id in the search box", async () => {
     await browser.pause(300);
     await browser.keys("Enter");
     await browser.pause(3000);
+    CucumberJsJsonReporter.attach(
+      "Test ID used for Puzzles Digital Subscription Donor: " + GiftCustTwoEmail,
+      "text/plain"
+    );
   }
 });
 
@@ -1852,6 +2110,10 @@ Then("Enter the GiftTwo redeem email id in the search box", async () => {
     await browser.pause(300);
     await browser.keys("Enter");
     await browser.pause(3000);
+    CucumberJsJsonReporter.attach(
+      "Test ID used for Digital Gift Subscription Receiver: " + GiftRcvTwoEmail,
+      "text/plain"
+    );
   }
 });
 
@@ -1922,6 +2184,10 @@ Then("Enter the GiftThree email id in the search box", async () => {
     await browser.pause(300);
     await browser.keys("Enter");
     await browser.pause(3000);
+    CucumberJsJsonReporter.attach(
+      "Test ID used for Puzzles Digital Plus Subscription Donor: " + GiftCustThreeEmail,
+      "text/plain"
+    );
   }
 });
 
@@ -1992,6 +2258,10 @@ Then("Enter the Digital Sub email id in the search box", async () => {
     await browser.pause(300);
     await browser.keys("Enter");
     await browser.pause(3000);
+    CucumberJsJsonReporter.attach(
+      "Test ID used for Digital Subscriber is: " + DigitalCustEmail,
+      "text/plain"
+    );
   }
 });
 
@@ -2205,6 +2475,10 @@ Then("Validate if user has any active subscription", async () => {
     RecordSubID +
     "&searchObjectType=subscription";
   await browser.pause(5000);
+  CucumberJsJsonReporter.attach(
+    "Subscription ID for Puzzles Subscription: " + RecordSubID,
+    "text/plain"
+  );
 });
 
 Then(
@@ -2225,7 +2499,7 @@ Then(
     const NoSocialAccLinkedTxt = await $(
       '//lightning-formatted-text[contains(text(),",.No linked Social Accounts were found")]'
     );
-    await NoSocialAccLinkedTxt.waitForDisplayed({ timeout: 60000 });
+    await NoSocialAccLinkedTxt.waitForDisplayed({ timeout: 20000 });
     await NoSocialAccLinkedTxt.isExisting();
   }
 );
@@ -2296,6 +2570,10 @@ Then("Go to Zoura Subscription Page for Digital", async () => {
   // );
   // await browser.url(ZouraSubURLDigital);
   await browser.pause(1000);
+  CucumberJsJsonReporter.attach(
+    "Subscription ID for Digital Subscriber is: " + RecordSubIDP5,
+    "text/plain"
+  );
 });
 
 Then("Go to Zoura Subscription Page for digitalete20", async () => {
@@ -2308,7 +2586,11 @@ Then("Go to Zoura Subscription Page for digitalete20", async () => {
     }
   );
   await browser.url(ZouraSubURLDigitalete20);
-  await browser.pause(1000);
+  await browser.pause(3000);
+  CucumberJsJsonReporter.attach(
+    "Subscription ID: " + RecordSubIDP7,
+    "text/plain"
+  );
 });
 
 Then("Go to Zoura Subscription Page for DigitalPlusCC", async () => {
@@ -2319,6 +2601,10 @@ Then("Go to Zoura Subscription Page for DigitalPlusCC", async () => {
       timeout: 60 * 1000, // 60 seconds
       timeoutMsg: "Message on failure",
     }
+  );
+  CucumberJsJsonReporter.attach(
+    "Subscription ID for Digital Plus Subscription: " + RecordSubIDP6,
+    "text/plain"
   );
   // await browser.url(ZouraSubURLDigitalPlusC);
   // await browser.pause(1000);
@@ -2704,6 +2990,24 @@ Then("User clicks on Digital Plus Plan Monthly", async () => {
   await DigitalBuyMonthly.click();
 });
 
+Then("User clicks on Digital Plus Plan Annual", async () => {
+  //await browser.pause(100);
+  //await browser.pause(1000);
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  const DigitalPBuyAnunual = await $(
+    '//header[text()="Digital Plus"]//following::div[@class="acquisition-button"][2]'
+  );
+  await DigitalPBuyAnunual.waitForDisplayed({ timeout: 20000 });
+  await DigitalPBuyAnunual.click();
+});
+
+
 Then("Click on View Subscription Offers", async () => {
   await browser.pause(100);
   browser.waitUntil(
@@ -2892,7 +3196,7 @@ Then("Input paypal Payment details", async () => {
     '//iframe[@class="zoid-component-frame zoid-visible"]'
   );
 
-  await browser.pause(1000);
+  await browser.pause(4000);
   await browser.switchToFrame(checkoutpageIframe);
   const paypalBtn = await $('//div[@id="paypal-animation-content"]');
   await paypalBtn.waitForDisplayed({ timeout: 50000 });
@@ -3286,7 +3590,7 @@ Then("Input MPP payment details", async () => {
   const CardNameMPP = await $(
     '//label[text()="Card type"]//following::input[@class="m_input__input"][1]'
   );
-  await CardNameMPP.waitForDisplayed({ timeout: 20000 });
+  await CardNameMPP.waitForDisplayed({ timeout: 40000 });
   await CardNameMPP.setValue("Akshat");
   await browser.pause(900);
 
@@ -3317,7 +3621,7 @@ Then("Input MPP payment details", async () => {
   await GiftFinalSubmitBtn.waitForDisplayed({ timeout: 20000 });
   await GiftFinalSubmitBtn.click();
 
-  await browser.pause(30000);
+  await browser.pause(55000);
   browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
@@ -3441,7 +3745,7 @@ Then("Validate Entitlements are added for digital subscription", async () => {
     '//div[@class="slds-dueling-list__column slds-dueling-list__column_responsive"]/following::span[text()="Current"]//following::li[@class="slds-listbox__item"]'
   );
 
-  await SFEntitlements.waitForDisplayed({ timeout: 500 });
+  await SFEntitlements.waitForDisplayed({ timeout: 3000 });
   await SFEntitlements.isExisting();
   // Write code here that turns the phrase above into concrete actions
 });
@@ -3667,7 +3971,7 @@ When("Enter subscriber email in search box", async () => {
   const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
   const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
   const pianoUserSrchResultSelect = await $(
-    "//span[text()='" + CustFirstLastNameZ + "']"
+    "//div[contains(text(),'Akshat')]"
   );
   await pianoMenuUser.waitForDisplayed({ timeout: 50000 });
   await pianoMenuUser.doubleClick();
@@ -3683,6 +3987,10 @@ When("Enter subscriber email in search box", async () => {
 
   await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
   await pianoUserSrchResultSelect.click();
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + CustEmail,
+    "text/plain"
+  );
 });
 
 When("Enter Digital subscriber email in search box", async () => {
@@ -3690,7 +3998,7 @@ When("Enter Digital subscriber email in search box", async () => {
   const pianoSearchBtnInput = await $('//button[@id="userMiningBtn"]');
   const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
   const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
-  const pianoUserSrchResultSelect = await $('//span[text()="Akshat Tembhare"]');
+  const pianoUserSrchResultSelect = await $('//div[contains(text(),"Akshat")]');
   await pianoSearchBtnInput.waitForDisplayed({ timeout: 50000 });
   await pianoSearchBtnInput.click();
   await pianoAdvanceSearchInput.waitForDisplayed({ timeout: 50000 });
@@ -3699,6 +4007,10 @@ When("Enter Digital subscriber email in search box", async () => {
   await pianoAdvanceSearchBTN.click();
   await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
   await pianoUserSrchResultSelect.click();
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Digital Subscriber is: " + DigitalCustEmail,
+    "text/plain"
+  );
 });
 
 When(
@@ -3709,7 +4021,7 @@ When(
     const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
     const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
     const pianoUserSrchResultSelect = await $(
-      '//span[text()="Akshat Tembhare"]'
+      '//div[contains(text(),"Akshat")]'
     );
     await pianoSearchBtnInput.waitForDisplayed({ timeout: 50000 });
     await pianoSearchBtnInput.click();
@@ -3719,6 +4031,10 @@ When(
     await pianoAdvanceSearchBTN.click();
     await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
     await pianoUserSrchResultSelect.click();
+    CucumberJsJsonReporter.attach(
+      "Test ID used is: " + digitMPypletePuzzOne,
+      "text/plain"
+    );
   }
 );
 
@@ -3730,7 +4046,7 @@ When(
     const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
     const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
     const pianoUserSrchResultSelect = await $(
-      '//span[text()="Akshat Tembhare"]'
+      '//div[contains(text(),"Akshat")]'
     );
     await pianoSearchBtnInput.waitForDisplayed({ timeout: 50000 });
     await pianoSearchBtnInput.click();
@@ -3740,6 +4056,10 @@ When(
     await pianoAdvanceSearchBTN.click();
     await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
     await pianoUserSrchResultSelect.click();
+    CucumberJsJsonReporter.attach(
+      "Test ID used is: " + DigitalPaypalCustEmailPuzl,
+      "text/plain"
+    );
   }
 );
 
@@ -3751,7 +4071,7 @@ When(
     const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
     const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
     const pianoUserSrchResultSelect = await $(
-      '//span[text()="Akshat Tembhare"]'
+      '//div[contains(text(),"Akshat")]'
     );
     await pianoSearchBtnInput.waitForDisplayed({ timeout: 50000 });
     await pianoSearchBtnInput.click();
@@ -3761,6 +4081,10 @@ When(
     await pianoAdvanceSearchBTN.click();
     await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
     await pianoUserSrchResultSelect.click();
+    CucumberJsJsonReporter.attach(
+      "Test ID used is: " + digitMPypletePuzzThree,
+      "text/plain"
+    );
   }
 );
 
@@ -3769,7 +4093,7 @@ When("Enter DigitalPlus subscriber email in search box", async () => {
   const pianoSearchBtnInput = await $('//button[@id="userMiningBtn"]');
   const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
   const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
-  const pianoUserSrchResultSelect = await $('//span[text()="Akshat Tembhare"]');
+  const pianoUserSrchResultSelect = await $('//div[contains(text(),"Akshat")]');
   await pianoSearchBtnInput.waitForDisplayed({ timeout: 50000 });
   await pianoSearchBtnInput.click();
   await pianoAdvanceSearchInput.waitForDisplayed({ timeout: 50000 });
@@ -3778,6 +4102,10 @@ When("Enter DigitalPlus subscriber email in search box", async () => {
   await pianoAdvanceSearchBTN.click();
   await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
   await pianoUserSrchResultSelect.click();
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Digital Plus Subscription: " + DigitalPlusCCEmail,
+    "text/plain"
+  );
 });
 
 When(
@@ -3788,7 +4116,7 @@ When(
     const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
     const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
     const pianoUserSrchResultSelect = await $(
-      '//span[text()="Akshat Tembhare"]'
+      '//div[contains(text(),"Akshat")]'
     );
     await pianoSearchBtnInput.waitForDisplayed({ timeout: 50000 });
     await pianoSearchBtnInput.click();
@@ -3798,6 +4126,10 @@ When(
     await pianoAdvanceSearchBTN.click();
     await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
     await pianoUserSrchResultSelect.click();
+    CucumberJsJsonReporter.attach(
+      "Test ID used is: " + digitalMPaypaletePuzzles,
+      "text/plain"
+    );
   }
 );
 
@@ -3806,7 +4138,7 @@ When("Enter Puzzle subscriber email in search box", async () => {
   const pianoSearchBtnInput = await $('//button[@id="userMiningBtn"]');
   const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
   const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
-  const pianoUserSrchResultSelect = await $('//span[text()="Akshat Tembhare"]');
+  const pianoUserSrchResultSelect = await $('//div[contains(text(),"Akshat")]');
   await pianoSearchBtnInput.waitForDisplayed({ timeout: 50000 });
   await pianoSearchBtnInput.click();
 
@@ -3818,6 +4150,10 @@ When("Enter Puzzle subscriber email in search box", async () => {
 
   await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
   await pianoUserSrchResultSelect.click();
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Puzzles Subscription: " + CustPuzzTwoEmail,
+    "text/plain"
+  );
 });
 
 When("Enter Gift Receipenet email in search box", async () => {
@@ -3827,7 +4163,7 @@ When("Enter Gift Receipenet email in search box", async () => {
   const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
   const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
   const pianoUserSrchResultSelect = await $(
-    '//span[text()="Akshat GiftReceipent"]'
+    '//div[contains(text(),"Akshat")]'
   );
   await pianoMenuUser.waitForDisplayed({ timeout: 50000 });
   await pianoMenuUser.doubleClick();
@@ -3843,6 +4179,10 @@ When("Enter Gift Receipenet email in search box", async () => {
 
   await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
   await pianoUserSrchResultSelect.click();
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Puzzles Gift Subscription Receiver: " + GiftRcvOneEmail,
+    "text/plain"
+  );
 });
 
 When("Enter GiftTwo Receipent email in search box", async () => {
@@ -3852,7 +4192,7 @@ When("Enter GiftTwo Receipent email in search box", async () => {
   const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
   const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
   const pianoUserSrchResultSelect = await $(
-    '//span[text()="Akshat GiftReceipent"]'
+    '//div[contains(text(),"Akshat")]'
   );
   await pianoMenuUser.waitForDisplayed({ timeout: 50000 });
   await pianoMenuUser.doubleClick();
@@ -3868,6 +4208,10 @@ When("Enter GiftTwo Receipent email in search box", async () => {
 
   await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
   await pianoUserSrchResultSelect.click();
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Puzzles Digital Subscription Receiver: " + GiftRcvTwoEmail,
+    "text/plain"
+  );
 });
 
 When("Enter GiftThree Receipent email in search box", async () => {
@@ -3877,7 +4221,7 @@ When("Enter GiftThree Receipent email in search box", async () => {
   const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
   const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
   const pianoUserSrchResultSelect = await $(
-    '//span[text()="Akshat GiftReceipent"]'
+    '//div[contains(text(),"Akshat")]'
   );
   await pianoMenuUser.waitForDisplayed({ timeout: 50000 });
   await pianoMenuUser.doubleClick();
@@ -3893,6 +4237,10 @@ When("Enter GiftThree Receipent email in search box", async () => {
 
   await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
   await pianoUserSrchResultSelect.click();
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Puzzles Digital Plus Subscription Receiver: " + GiftRcvThreeEmail,
+    "text/plain"
+  );
 });
 
 Then("Validate Piano UiD", async () => {
@@ -3915,13 +4263,13 @@ When("User logins to Piano account", async () => {
     const pianoHomeIcon = await $('//a[text()="Piano"]');
     await browser.pause(4000);
     if (pianoUsrname.isExisting) {
-      await pianoUsrname.waitForDisplayed({ timeout: 40000 });
+      await pianoUsrname.waitForDisplayed({ timeout: 10000 });
       await pianoUsrname.setValue(pianoID);
-      await pianoLoginBtn1.waitForDisplayed({ timeout: 10000 });
+      await pianoLoginBtn1.waitForDisplayed({ timeout: 1000 });
       await pianoLoginBtn1.click();
-      await pianoPswrd.waitForDisplayed({ timeout: 10000 });
+      await pianoPswrd.waitForDisplayed({ timeout: 1000 });
       await pianoPswrd.setValue(pianoPsswd);
-      await pianoLoginBtn2.waitForDisplayed({ timeout: 10000 });
+      await pianoLoginBtn2.waitForDisplayed({ timeout: 1000 });
       await pianoLoginBtn2.click();
       await pianoHomeIcon.waitForDisplayed({ timeout: 50000 });
       await pianoHomeIcon.isExisting();
@@ -4059,13 +4407,13 @@ Then("Validate Access details for Registrant user in Piano", async () => {
 
   await browser.pause(1000);
   //await expect(mainIframe).toExist()
-  await browser.switchToFrame(mainIframe);
+  // await browser.switchToFrame(mainIframe);
 
-  await pianoNoaccess.waitForDisplayed({ timeout: 50000 });
-  await pianoNoaccess.isExisting();
+  // await pianoNoaccess.waitForDisplayed({ timeout: 50000 });
+  // await pianoNoaccess.isExisting();
 
-  await browser.switchToFrame(null);
-  await browser.switchToParentFrame();
+  // await browser.switchToFrame(null);
+  // await browser.switchToParentFrame();
 });
 
 Then("Validate Access details in Piano for Gift", async () => {
@@ -4077,9 +4425,9 @@ Then("Validate Access details in Piano for Gift", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  const pianoAccessMenu = await $(
-    '//span[contains(text(),".co")]//following::span[text()="Access"][1]'
-  );
+  // const pianoAccessMenu = await $(
+  //   '//span[contains(text(),".co")]//following::span[text()="Access"][1]'
+  // );
   // const pianoNoaccess = await $('//*[contains(text(),"does not have access")]');
   // const mainIframe = await $('//iframe[@id="tabs-iframe"]');
   // await pianoAccessMenu.waitForDisplayed({ timeout: 50000 });
@@ -4438,6 +4786,10 @@ When("Redemption of gift subscription", async () => {
   await GiftRcvPWD.setValue(CustPasswrd);
   await GiFtRcvRegisterSubmitBtn.click();
   await browser.pause(3000);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Puzzles Gift Subscription Receiver: " + GiftRcvOneEmail,
+    "text/plain"
+  );
 
   const StreetLineOne = await $('//input[@id="streetline1"]');
   await StreetLineOne.waitForDisplayed({ timeout: 20000 });
@@ -4538,7 +4890,7 @@ Then("I login to MPP application", async () => {
     '//div[@class="SelectMenuContainer"]//following::input[3]'
   );
   await MPPloginPWD.waitForDisplayed({ timeout: 20000 });
-  await MPPloginPWD.setValue("Ayt@akshat123");
+  await MPPloginPWD.setValue("Ayt@akshat1234");
 
   const MPPloginBTN = await $(
     '//div[@class="SelectMenuContainer"]//following::a[@class="mTop10 bold"]'
@@ -4567,6 +4919,10 @@ Then("Enter the Gift Donor email id in the MPP search box", async () => {
   await MPPCustEmailInput.waitForDisplayed({ timeout: 20000 });
   //await MPPCustEmailInput.setValue(testemail);
   await MPPCustEmailInput.setValue(GiftCustEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Puzzles Gift Subscription Donor: " + GiftCustEmail,
+    "text/plain"
+  );
   //await MPPCustEmailInput.setValue("testgift121@telegraph.com");
   await browser.pause(500);
   // await browser.keys("Enter");
@@ -4601,7 +4957,7 @@ Then("Enter the Gift Donor email id in the MPP search box", async () => {
 Then("Open the Account Page in MPP", async () => {
   //const testemail = "f96bh3GiftDonor@telegraph.co.uk";
   try {
-    const scrollElement = $("//span[text()='Akshat Tembhare']");
+    const scrollElement = $("//*[contains(text(),'Akshat')]");
     const MppEmailLink = await $(
       "//h3//following::a[text()='" + GiftCustEmail + "'][1]"
     );
@@ -4630,7 +4986,7 @@ Then("Open the Account Page in MPP", async () => {
 Then("Open the Account Page for DigitalSubDonor in MPP", async () => {
   //const testemail = "f96bh3GiftDonor@telegraph.co.uk";
   try {
-    const scrollElement = $("//span[text()='Akshat Tembhare']");
+    const scrollElement = $("//*[contains(text(),'Akshat')]");
     const MppEmailLink = await $(
       "//h3//following::a[text()='" + GiftCustTwoEmail + "'][1]"
     );
@@ -4659,7 +5015,7 @@ Then("Open the Account Page for DigitalSubDonor in MPP", async () => {
 Then("Open the Account Page for DigitalPlusSubDonor in MPP", async () => {
   //const testemail = "f96bh3GiftDonor@telegraph.co.uk";
   try {
-    const scrollElement = $("//span[text()='Akshat Tembhare']");
+    const scrollElement = $("//*[contains(text(),'Akshat')]");
     const MppEmailLink = await $(
       "//h3//following::a[text()='" + GiftCustThreeEmail + "'][1]"
     );
@@ -4697,6 +5053,10 @@ Then("Enter the GiftTwo Donor email id in the search box", async () => {
   await MPPCustEmailInput.waitForDisplayed({ timeout: 20000 });
   //await MPPCustEmailInput.setValue(testemail);
   await MPPCustEmailInput.setValue(GiftCustTwoEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Digital Gift Subscription Donor: " + GiftCustTwoEmail,
+    "text/plain"
+  );
   //await MPPCustEmailInput.setValue("testgift121@telegraph.com");
   await browser.pause(500);
   // await browser.keys("Enter");
@@ -4741,6 +5101,10 @@ Then("Enter the GiftThree Donor email id in the search box", async () => {
     await MPPCustEmailInput.waitForDisplayed({ timeout: 20000 });
     //await MPPCustEmailInput.setValue(testemail);
     await MPPCustEmailInput.setValue(GiftCustThreeEmail);
+    CucumberJsJsonReporter.attach(
+      "Test ID used for Digital Plus Gift Subscription Donor: " + GiftCustThreeEmail,
+      "text/plain"
+    );
     //await MPPCustEmailInput.setValue("testgift121@telegraph.com");
     await browser.pause(500);
     // await browser.keys("Enter");
@@ -4830,7 +5194,7 @@ Then("Enter the Gift redeem email id in the search box", async () => {
     await SearchBarInput.click();
     await SearchBarInput.clearValue();
     await browser.pause(300);
-    await SearchBarInput.setValue(CustEmail);
+    await SearchBarInput.setValue(GiftRcvOneEmail);
     await browser.pause(300);
     await browser.keys("Enter");
     await browser.pause(3000);
@@ -4857,6 +5221,10 @@ Then("Enter the Gift redeem email id in the search box", async () => {
     await browser.pause(300);
     await browser.keys("Enter");
     await browser.pause(3000);
+    CucumberJsJsonReporter.attach(
+      "Test ID used for Puzzles Gift Subscription Receiver: " + GiftRcvOneEmail,
+      "text/plain"
+    );
   }
 });
 
@@ -4947,6 +5315,12 @@ When("Redemption of GiftTwo subscription", async () => {
   await GiFtRcvRegisterSubmitBtn.click();
   await browser.pause(3000);
 
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Puzzles Digital Subscription Receiver: " + GiftRcvTwoEmail,
+    "text/plain"
+  );
+
+
   const StreetLineOne = await $('//input[@id="streetline1"]');
   await StreetLineOne.waitForDisplayed({ timeout: 20000 });
   const StreetLineTwo = await $('//input[@id="streetline2"]');
@@ -5005,6 +5379,11 @@ When("Redemption of GiftThree subscription", async () => {
   await GiftRcvPWD.setValue(CustPasswrd);
   await GiFtRcvRegisterSubmitBtn.click();
   await browser.pause(3000);
+
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Puzzles Digital Plus Subscription Receiver: " + GiftRcvThreeEmail,
+    "text/plain"
+  );
 
   const StreetLineOne = await $('//input[@id="streetline1"]');
   await StreetLineOne.waitForDisplayed({ timeout: 20000 });
@@ -5087,7 +5466,7 @@ Then("Enter the Test email id in the search box", async () => {
 
 Then("Open the Account Page for Test in MPP", async () => {
   const testemail = "f96bh3GiftDonor@telegraph.co.uk";
-  const scrollElement = $("//span[text()='Akshat Tembhare']");
+  const scrollElement = $("//*[contains(text(),'Akshat Tembhare')]");
   const MppEmailLink = await $(
     "//h3//following::a[text()='" + testemail + "'][1]"
   );
@@ -5348,6 +5727,10 @@ Then("Go to Zoura Subscription Page for Puzzles", async () => {
   );
   await browser.url(ZouraSubURLPuzzle);
   await browser.pause(2000);
+  CucumberJsJsonReporter.attach(
+    "Subscription ID for Puzzles Subscription: " + RecordSubID,
+    "text/plain"
+  );
 });
 
 Then("Go to Zoura Subscription Page for digitalMPaypalforPuzzles", async () => {
@@ -5361,6 +5744,10 @@ Then("Go to Zoura Subscription Page for digitalMPaypalforPuzzles", async () => {
   );
   await browser.url(ZouraSubURLPuzzleete21);
   await browser.pause(2000);
+  CucumberJsJsonReporter.attach(
+    "Subscription ID: " + RecordSubIDP2,
+    "text/plain"
+  );
 });
 
 Then("Go to Zoura Subscription Page for Puzzledigitalbotlon", async () => {
@@ -5374,6 +5761,10 @@ Then("Go to Zoura Subscription Page for Puzzledigitalbotlon", async () => {
   );
   await browser.url(ZouraSubURLPuzzleete23);
   await browser.pause(2000);
+  CucumberJsJsonReporter.attach(
+    "Subscription ID: " + RecordSubIDP4,
+    "text/plain"
+  );
 });
 
 Then("Go to Zoura digitalMPaypaletePuzzles Subscription Page", async () => {
@@ -5387,6 +5778,10 @@ Then("Go to Zoura digitalMPaypaletePuzzles Subscription Page", async () => {
   );
   await browser.url(ZouraSubURLPuzzleete22);
   await browser.pause(2000);
+  CucumberJsJsonReporter.attach(
+    "Subscription ID: " + RecordSubIDP3,
+    "text/plain"
+  );
 });
 
 Then(
@@ -5473,6 +5868,10 @@ Then(
       RecordSubIDP2 +
       "&searchObjectType=subscription";
     await browser.pause(5000);
+    CucumberJsJsonReporter.attach(
+      "Subscription ID: " + RecordSubIDP2,
+      "text/plain"
+    );
   }
 );
 
@@ -5545,6 +5944,10 @@ Then(
       await browser.pause(300);
       await browser.keys("Enter");
       await browser.pause(3000);
+      CucumberJsJsonReporter.attach(
+        "Test ID used is: " + digitalMPaypaletePuzzles,
+        "text/plain"
+      );
     }
   }
 );
@@ -5575,6 +5978,10 @@ Then(
       RecordSubIDP3 +
       "&searchObjectType=subscription";
     await browser.pause(5000);
+    CucumberJsJsonReporter.attach(
+      "Subscription ID: " + RecordSubIDP3,
+      "text/plain"
+    );
   }
 );
 Then(
@@ -5604,6 +6011,10 @@ Then(
       RecordSubIDP4 +
       "&searchObjectType=subscription";
     await browser.pause(5000);
+    CucumberJsJsonReporter.attach(
+      "Subscription ID: " + RecordSubIDP4,
+      "text/plain"
+    );
   }
 );
 
@@ -5632,6 +6043,10 @@ Then("Validate subscription for digitalsub in salesforce", async () => {
     RecordSubIDP5 +
     "&searchObjectType=subscription";
   await browser.pause(5000);
+  CucumberJsJsonReporter.attach(
+    "Subscription ID for Digital Subscriber is: " + RecordSubIDP5,
+    "text/plain"
+  );
 });
 
 Then("Validate subscription for digitalPlussub in salesforce", async () => {
@@ -5659,6 +6074,10 @@ Then("Validate subscription for digitalPlussub in salesforce", async () => {
     RecordSubIDP6 +
     "&searchObjectType=subscription";
   await browser.pause(5000);
+  CucumberJsJsonReporter.attach(
+    "Subscription ID for Digital Plus Subscription: " + RecordSubIDP6,
+    "text/plain"
+  );
 });
 
 Then("Enter the DigitalPlusCC email id in the search box", async () => {
@@ -5728,6 +6147,10 @@ Then("Enter the DigitalPlusCC email id in the search box", async () => {
     await browser.pause(300);
     await browser.keys("Enter");
     await browser.pause(3000);
+    CucumberJsJsonReporter.attach(
+      "Test ID used for Digital Plus Subscription: " + DigitalPlusCCEmail,
+      "text/plain"
+    );
   }
 });
 
@@ -5878,6 +6301,10 @@ Then(
       await browser.pause(300);
       await browser.keys("Enter");
       await browser.pause(3000);
+      CucumberJsJsonReporter.attach(
+        "Test ID used is: " + DigitalPaypalCustEmailPuzl,
+        "text/plain"
+      );
     }
   }
 );
@@ -5945,6 +6372,10 @@ Then("Enter the Puzzledigitalbotlon email id in the search box", async () => {
     await browser.pause(300);
     await browser.keys("Enter");
     await browser.pause(3000);
+    CucumberJsJsonReporter.attach(
+      "Test ID used is: " + digitMPypletePuzzThree,
+      "text/plain"
+    );
   }
 });
 
@@ -6011,6 +6442,10 @@ Then("Enter the digitalete20 Sub email id in the search box", async () => {
     await browser.pause(300);
     await browser.keys("Enter");
     await browser.pause(3000);
+    CucumberJsJsonReporter.attach(
+      "Test ID used is: " + digitMPypletePuzzOne,
+      "text/plain"
+    );
   }
 });
 
@@ -6037,6 +6472,10 @@ Then("Validate if user has any active subscription for ete20", async () => {
     RecordSubIDP7 +
     "&searchObjectType=subscription";
   await browser.pause(5000);
+  CucumberJsJsonReporter.attach(
+    "Subscription ID: " + RecordSubIDP7,
+    "text/plain"
+  );
 });
 
 Then("User Completes Puzzle Purchase", async () => {
@@ -6137,6 +6576,10 @@ Then("I fill in new email for Onlinecancellation", async () => {
   await browser.pause(200);
   await EmailInput.setValue(CustCancellEmail);
   await browser.pause(100);
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + CustCancellEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in existing email for Onlinecancellation", async () => {
@@ -6157,6 +6600,10 @@ Then("I fill in existing email for Onlinecancellation", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(CustCancellEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + CustCancellEmail,
+    "text/plain"
+  );
 });
 
 Then(
@@ -6229,7 +6676,12 @@ Then(
       await browser.keys("Enter");
       await browser.pause(3000);
     }
+    CucumberJsJsonReporter.attach(
+      "Test ID used is: " + CustCancellEmail,
+      "text/plain"
+    );
   }
+  
 );
 
 Then("Validate if Cancellation user has active subscription", async () => {
@@ -6290,6 +6742,10 @@ Then(
     await browser.pause(3000);
     await browser.keys("Enter");
     await browser.pause(30000);
+    CucumberJsJsonReporter.attach(
+      "Subscription = : " + RecordSubIDP8,
+      "text/plain"
+    );
   }
 );
 
@@ -6355,6 +6811,10 @@ Then("I fill in existing digitalMPaypal email", async () => {
   await EmailInput.waitForDisplayed();
   await EmailInput.click();
   await EmailInput.setValue(DigitalPaypalCustEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Digital Monthly Plan via paypal payment method is: " + DigitalPaypalCustEmail,
+    "text/plain"
+  );
 });
 
 Then("Enter the digitalMPaypal in the search box of salesforce", async () => {
@@ -6424,6 +6884,10 @@ Then("Enter the digitalMPaypal in the search box of salesforce", async () => {
     await browser.pause(300);
     await browser.keys("Enter");
     await browser.pause(3000);
+    CucumberJsJsonReporter.attach(
+      "Test ID used for Digital Monthly Plan via paypal payment method is: " + DigitalPaypalCustEmail,
+      "text/plain"
+    );
   }
 });
 
@@ -6432,7 +6896,7 @@ When("Enter digitalMPaypal subscriber email in search box", async () => {
   const pianoSearchBtnInput = await $('//button[@id="userMiningBtn"]');
   const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
   const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
-  const pianoUserSrchResultSelect = await $('//span[text()="Akshat Tembhare"]');
+  const pianoUserSrchResultSelect = await $('//div[contains(text(),"Akshat")]');
   await pianoSearchBtnInput.waitForDisplayed({ timeout: 50000 });
   await pianoSearchBtnInput.click();
   await pianoAdvanceSearchInput.waitForDisplayed({ timeout: 50000 });
@@ -6441,6 +6905,10 @@ When("Enter digitalMPaypal subscriber email in search box", async () => {
   await pianoAdvanceSearchBTN.click();
   await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
   await pianoUserSrchResultSelect.click();
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Digital Monthly Plan via paypal payment method is: " + DigitalPaypalCustEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in existing digitalACC email", async () => {
@@ -6463,6 +6931,10 @@ Then("I fill in existing digitalACC email", async () => {
   await EmailInput.waitForDisplayed();
   await EmailInput.click();
   await EmailInput.setValue(DigitalPaypalACustEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Digital Annual Plan via credit card payment method is: " + DigitalPaypalACustEmail,
+    "text/plain"
+  );
 });
 
 Then("Enter the digitalACC in the search box of salesforce", async () => {
@@ -6532,6 +7004,10 @@ Then("Enter the digitalACC in the search box of salesforce", async () => {
     await browser.pause(300);
     await browser.keys("Enter");
     await browser.pause(3000);
+    CucumberJsJsonReporter.attach(
+      "Test ID used for Digital Annual Plan via credit card payment method is: " + DigitalPaypalACustEmail,
+      "text/plain"
+    );
   }
 });
 
@@ -6540,7 +7016,7 @@ When("Enter digitalACC subscriber email in search box", async () => {
   const pianoSearchBtnInput = await $('//button[@id="userMiningBtn"]');
   const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
   const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
-  const pianoUserSrchResultSelect = await $('//span[text()="Akshat Tembhare"]');
+  const pianoUserSrchResultSelect = await $('//div[contains(text(),"Akshat")]');
   await pianoSearchBtnInput.waitForDisplayed({ timeout: 50000 });
   await pianoSearchBtnInput.click();
   await pianoAdvanceSearchInput.waitForDisplayed({ timeout: 50000 });
@@ -6549,6 +7025,10 @@ When("Enter digitalACC subscriber email in search box", async () => {
   await pianoAdvanceSearchBTN.click();
   await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
   await pianoUserSrchResultSelect.click();
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Digital Annual Plan via credit card payment method is: " + DigitalPaypalACustEmail,
+    "text/plain"
+  );
 });
 
 Then(
@@ -6620,6 +7100,10 @@ Then(
       await browser.pause(300);
       await browser.keys("Enter");
       await browser.pause(3000);
+      CucumberJsJsonReporter.attach(
+        "Test ID used for loggedOut Registrant for Digital Monthly Plan is: " + DigitalCustMRegistrant,
+        "text/plain"
+      );
     }
   }
 );
@@ -6632,7 +7116,7 @@ When(
     const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
     const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
     const pianoUserSrchResultSelect = await $(
-      '//span[text()="Akshat Tembhare"]'
+      '//div[contains(text(),"Akshat")]'
     );
     await pianoSearchBtnInput.waitForDisplayed({ timeout: 50000 });
     await pianoSearchBtnInput.click();
@@ -6642,6 +7126,10 @@ When(
     await pianoAdvanceSearchBTN.click();
     await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
     await pianoUserSrchResultSelect.click();
+    CucumberJsJsonReporter.attach(
+      "Test ID used for loggedOut Registrant for Digital Monthly Plan is: " + DigitalCustMRegistrant,
+      "text/plain"
+    );
   }
 );
 
@@ -6714,6 +7202,10 @@ Then(
       await browser.pause(300);
       await browser.keys("Enter");
       await browser.pause(3000);
+      CucumberJsJsonReporter.attach(
+        "Test ID used for loggedOut Registrant for Digital Annual Plan is: " + DigitalCustARegistrant,
+        "text/plain"
+      );
     }
   }
 );
@@ -6726,7 +7218,7 @@ When(
     const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
     const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
     const pianoUserSrchResultSelect = await $(
-      '//span[text()="Akshat Tembhare"]'
+      '//div[contains(text(),"Akshat")]'
     );
     await pianoSearchBtnInput.waitForDisplayed({ timeout: 50000 });
     await pianoSearchBtnInput.click();
@@ -6736,6 +7228,10 @@ When(
     await pianoAdvanceSearchBTN.click();
     await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
     await pianoUserSrchResultSelect.click();
+    CucumberJsJsonReporter.attach(
+      "Test ID used for loggedOut Registrant for Digital Annual Plan is: " + DigitalCustARegistrant,
+      "text/plain"
+    );
   }
 );
 
@@ -7007,6 +7503,10 @@ Then("I fill in new emailOne for Subscription Acquisition", async () => {
   await browser.pause(200);
   await EmailInput.setValue(CustDigitete2One);
   await browser.pause(100);
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + CustDigitete2One,
+    "text/plain"
+  );
 });
 
 Then("Enter the Digital ete2One id in the search box", async () => {
@@ -7076,7 +7576,39 @@ Then("Enter the Digital ete2One id in the search box", async () => {
     await browser.pause(300);
     await browser.keys("Enter");
     await browser.pause(3000);
+    CucumberJsJsonReporter.attach(
+      "Test ID used is: " + CustDigitete2One,
+      "text/plain"
+    );
+    
   }
+});
+
+Then("Enter existing etee2One subscriber email in search box", async () => {
+  await browser.pause(100);
+  const pianoSearchBtnInput = await $('//button[@id="userMiningBtn"]');
+  const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
+  const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
+  const pianoUserSrchResultSelect = await $(
+    '//div[contains(text(),"Akshat")]'
+  );
+
+  await pianoSearchBtnInput.waitForDisplayed({ timeout: 50000 });
+  await pianoSearchBtnInput.click();
+
+  await pianoAdvanceSearchInput.waitForDisplayed({ timeout: 50000 });
+  await pianoAdvanceSearchInput.setValue(CustDigitete2One);
+
+  await pianoAdvanceSearchBTN.waitForDisplayed({ timeout: 50000 });
+  await pianoAdvanceSearchBTN.click();
+
+  await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
+  await pianoUserSrchResultSelect.click();
+
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + CustDigitete2One,
+    "text/plain"
+  );
 });
 
 Then("I fill in existing Digital ete2One email", async () => {
@@ -7097,6 +7629,10 @@ Then("I fill in existing Digital ete2One email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(CustDigitete2One);
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + CustDigitete2One,
+    "text/plain"
+  );
 });
 
 Then("User completes Bonus Onboarding Journey", async () => {
@@ -7132,3 +7668,141 @@ Then("User completes Bonus Onboarding Journey", async () => {
     }
   );
 });
+
+Then("Enter the DigitalForBonus email in the sf search box", async () => {
+  await browser.pause(2000);
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  await browser.refresh();
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  await browser.pause(900);
+  const SearchBarClick = await $(
+    '//button[contains(@class,"slds-button slds-button_neutral search")]'
+  );
+  await SearchBarClick.waitForDisplayed({ timeout: 20000 });
+  // await SearchBarClick.click();
+  await browser.pause(1500);
+  await SearchBarClick.doubleClick();
+  await browser.pause(700);
+  await browser.keys("Enter");
+  await browser.pause(1000);
+
+  const serchBartxt = await $('//h2[text()="Do more with Search!"]');
+  //await serchBartxt.waitForDisplayed({ timeout: 20000 });
+  const SearchBarInput = await $(
+    '//div[contains(@class,"icon_left-right")]//input[@class="slds-input"]'
+  );
+
+  if (serchBartxt.isExisting == true) {
+    await SearchBarInput.waitForDisplayed({ timeout: 20000 });
+    await SearchBarInput.click();
+    await SearchBarInput.clearValue();
+    await browser.pause(300);
+    await SearchBarInput.setValue(digitalforBonus);
+    await browser.pause(300);
+    await browser.keys("Enter");
+    await browser.pause(3000);
+  } else {
+    await browser.refresh();
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+    await SearchBarClick.waitForDisplayed({ timeout: 20000 });
+    await browser.pause(1500);
+    await SearchBarClick.doubleClick();
+    await browser.pause(700);
+    await browser.keys("Enter");
+    await browser.pause(1000);
+    await SearchBarInput.waitForDisplayed({ timeout: 20000 });
+    await SearchBarInput.click();
+    await SearchBarInput.clearValue();
+    await browser.pause(300);
+    await SearchBarInput.setValue(digitalforBonus);
+    await browser.pause(300);
+    await browser.keys("Enter");
+    await browser.pause(3000);
+  }
+
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Bonus Donor is: " + digitalforBonus,
+    "text/plain"
+  );
+});
+
+Then("I fill in existing digitalforBonus email", async () => {
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  await browser.refresh();
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  const EmailInput = await $('//input[@id="email"]');
+  await EmailInput.waitForDisplayed();
+  await EmailInput.click();
+  await EmailInput.setValue(digitalforBonus);
+
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Bonus Donor is: " + digitalforBonus,
+    "text/plain"
+  );
+});
+
+Then('Validate Exclusive newsletters can be added and do not have signup CTA', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await browser.pause(500);
+})
+
+Then('Validate account channel is Premium', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await browser.pause(500);
+})
+
+Then('Validate tyep of subscription is standard', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await browser.pause(500);
+})
+
+Then('Search the subscription in Zuora for ete2', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await browser.pause(500);
+})
+
+Then('validate Zuora Data for ete2', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await browser.pause(500);
+})
+
+Then('Search the subscription in Zuora in ete2', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await browser.pause(500);
+})
+
+Then('validate the status of the subscription in Zuora', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await browser.pause(500);
+})
+
