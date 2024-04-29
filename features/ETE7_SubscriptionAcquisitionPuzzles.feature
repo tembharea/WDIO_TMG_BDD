@@ -4,401 +4,401 @@ Feature: ETE 7 Subscription Acquisition puzzles
 
     Scenario: TC_01:User purchasing puzzles subscription using Paypal
         Given I launch login from homepage
-        And   I fill in new PuzzleOne email
-        When  I click login-register button
-        And   I enter "valid" register password
-        Then  I enter "right" first name and last name
-        When  I click continue button on registration page
-        Then  Validate HomePage
-        When  Go to My Account page
-        Then  Click on View Subscription Offers
-        Then  Navigate to Puzzles Subscription option in View Subscription page
-        Then  Select Annual plan of Puzzles
-        Then  Validate user is redirected to Payment gateway page
-        Then  Input paypal Payment details
-        Then  Post Payment redirect to Puzzles
-        Then  Validate Puzzles Homepage
-        Then  Navigate to MyAccount from Puzzles Page
-        Then  Click on Manage Your Details button
-        Then  Logout from Customer application
+#         And   I fill in new PuzzleOne email
+#         When  I click login-register button
+#         And   I enter "valid" register password
+#         Then  I enter "right" first name and last name
+#         When  I click continue button on registration page
+#         Then  Validate HomePage
+#         When  Go to My Account page
+#         Then  Click on View Subscription Offers
+#         Then  Navigate to Puzzles Subscription option in View Subscription page
+#         Then  Select Annual plan of Puzzles
+#         Then  Validate user is redirected to Payment gateway page
+#         Then  Input paypal Payment details
+#         Then  Post Payment redirect to Puzzles
+#         Then  Validate Puzzles Homepage
+#         Then  Navigate to MyAccount from Puzzles Page
+#         Then  Click on Manage Your Details button
+#         Then  Logout from Customer application
 
-    Scenario: TC_02:User purchasing puzzles subscription using card
-        Given I launch login from homepage
-        And   I fill in new PuzzleTwo email
-        When  I click login-register button
-        And   I enter "valid" register password
-        Then  I enter "right" first name and last name
-        When  I click continue button on registration page
-        Then  Validate HomePage
-        When  Go to My Account page
-        Then  Click on View Subscription Offers
-        Then  Navigate to Puzzles Subscription option in View Subscription page
-        Then  Select Annual plan of Puzzles
-        Then  Validate user is redirected to Payment gateway page
-        Then  Input CreditCard Payment details
-        Then  Post Payment redirect to Puzzles
-        Then  Validate Puzzles Homepage
-        Then  Navigate to MyAccount from Puzzles Page
-        Then  Click on Manage Your Details button
-        Then  Logout from Customer application
+#     Scenario: TC_02:User purchasing puzzles subscription using card
+#         Given I launch login from homepage
+#         And   I fill in new PuzzleTwo email
+#         When  I click login-register button
+#         And   I enter "valid" register password
+#         Then  I enter "right" first name and last name
+#         When  I click continue button on registration page
+#         Then  Validate HomePage
+#         When  Go to My Account page
+#         Then  Click on View Subscription Offers
+#         Then  Navigate to Puzzles Subscription option in View Subscription page
+#         Then  Select Annual plan of Puzzles
+#         Then  Validate user is redirected to Payment gateway page
+#         Then  Input CreditCard Payment details
+#         Then  Post Payment redirect to Puzzles
+#         Then  Validate Puzzles Homepage
+#         Then  Navigate to MyAccount from Puzzles Page
+#         Then  Click on Manage Your Details button
+#         Then  Logout from Customer application
 
-    Scenario: TC_03:Validate Puzzles Only Subscriber Homepage in Customer web app
-        Given I launch login from homepage
-        And   I fill in existing PuzzleTwo email
-        When  I click login-register button
-        And   I enter "valid" register password
-        When  I click login-register button
-        Then  Validate HomePage
-        When  Go to My Account page
-        Then  Validate Puzzles MyAccount Page
-        Then  Logout from Customer application
+#     Scenario: TC_03:Validate Puzzles Only Subscriber Homepage in Customer web app
+#         Given I launch login from homepage
+#         And   I fill in existing PuzzleTwo email
+#         When  I click login-register button
+#         And   I enter "valid" register password
+#         When  I click login-register button
+#         Then  Validate HomePage
+#         When  Go to My Account page
+#         Then  Validate Puzzles MyAccount Page
+#         Then  Logout from Customer application
 
-    Scenario: TC_04:Validate Puzzles Only Subscriber subscription details in Customer web app
-        Given I launch login from homepage
-        And   I fill in existing PuzzleTwo email
-        When  I click login-register button
-        And   I enter "valid" register password
-        When  I click login-register button
-        Then  Validate HomePage
-        When  Go to My Account page
-        Then  Click on Manage Your Details button
-        Then  Validate Your Subscription section for puzzles
-        Then  Logout from Customer application
+#     Scenario: TC_04:Validate Puzzles Only Subscriber subscription details in Customer web app
+#         Given I launch login from homepage
+#         And   I fill in existing PuzzleTwo email
+#         When  I click login-register button
+#         And   I enter "valid" register password
+#         When  I click login-register button
+#         Then  Validate HomePage
+#         When  Go to My Account page
+#         Then  Click on Manage Your Details button
+#         Then  Validate Your Subscription section for puzzles
+#         Then  Logout from Customer application
 
-Scenario: TC_05:Validate Registrant Exclusive Newsletter details in Customer web app
-    Given I launch login from homepage
-    Then  I fill in existing PuzzleTwo email
-    When  I click login-register button
-    And   I enter "valid" register password
-    When  I click login-register button
-    Then  Validate HomePage
-    When  Go to My Account page
-    When  Navigate to My Newsletters page
-    Then  Validate Exclusive newsletters
-    Then  Logout from Customer application
+# Scenario: TC_05:Validate Registrant Exclusive Newsletter details in Customer web app
+#     Given I launch login from homepage
+#     Then  I fill in existing PuzzleTwo email
+#     When  I click login-register button
+#     And   I enter "valid" register password
+#     When  I click login-register button
+#     Then  Validate HomePage
+#     When  Go to My Account page
+#     When  Navigate to My Newsletters page
+#     Then  Validate Exclusive newsletters
+#     Then  Logout from Customer application
 
-Scenario: TC_06:Validate Puzzles Subscriber Payment details in Customer web app
-    Given I launch login from homepage
-    And   I fill in existing PuzzleTwo email
-    When  I click login-register button
-    And   I enter "valid" register password
-    When  I click login-register button
-    When  Go to My Account page
-    Then  Click on Manage Your Details button
-    Then  Validate Your Payment section for Puzzles
-    Then  Logout from Customer application
+# Scenario: TC_06:Validate Puzzles Subscriber Payment details in Customer web app
+#     Given I launch login from homepage
+#     And   I fill in existing PuzzleTwo email
+#     When  I click login-register button
+#     And   I enter "valid" register password
+#     When  I click login-register button
+#     When  Go to My Account page
+#     Then  Click on Manage Your Details button
+#     Then  Validate Your Payment section for Puzzles
+#     Then  Logout from Customer application
 
-Scenario: TC_07:Validate Puzzles Subscriber data in Piano
-    Given User opens Piano URL
-    When User logins to Piano account
-    When Navigate to All Users page
-    And  Enter Puzzle subscriber email in search box
-    Then Validate Registration date in Piano
-    Then Validate Piano UiD
-    Then Validate Access details in Piano for Puzzles
+# Scenario: TC_07:Validate Puzzles Subscriber data in Piano
+#     Given User opens Piano URL
+#     When User logins to Piano account
+#     When Navigate to All Users page
+#     And  Enter Puzzle subscriber email in search box
+#     Then Validate Registration date in Piano
+#     Then Validate Piano UiD
+#     Then Validate Access details in Piano for Puzzles
 
-Scenario: TC_08:Validate Digital Subscriber Print status in Salesforce
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    And  Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    When User clicks on Details tab
-    Then Verify the Print Status is "Inactive"
-    Then Close Opened tabs in salesforce
+# Scenario: TC_08:Validate Digital Subscriber Print status in Salesforce
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
+#     And  Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     When User clicks on Details tab
+#     Then Verify the Print Status is "Inactive"
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_09:Validate Digital status is Active
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    When User clicks on Details tab
-    Then Validate Digital status is Active
-    Then Close Opened tabs in salesforce
+# Scenario: TC_09:Validate Digital status is Active
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
+#     And Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     When User clicks on Details tab
+#     Then Validate Digital status is Active
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_10:Validate Replatform Digital Status is Active
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    When User clicks on Details tab
-    Then Validate Replatform Digital status is Active
-    Then Close Opened tabs in salesforce
+# Scenario: TC_10:Validate Replatform Digital Status is Active
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
+#     And Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     When User clicks on Details tab
+#     Then Validate Replatform Digital status is Active
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_11:Validate Puzzles Subscriber name in Salesforce
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    Then Validate the name in Salesforce for Puzzles
-    Then Open the Account Page
-    Then Close Opened tabs in salesforce
+# Scenario: TC_11:Validate Puzzles Subscriber name in Salesforce
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
+#     And Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     Then Validate the name in Salesforce for Puzzles
+#     Then Open the Account Page
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_11A:Validate Puzzle subscription status in Salesforce
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    When User clicks on Details tab
-    Then Validate if user has any active subscription
-    Then Close Opened tabs in salesforce
+# Scenario: TC_11A:Validate Puzzle subscription status in Salesforce
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
+#     And Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     When User clicks on Details tab
+#     Then Validate if user has any active subscription
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_12:Validate Puzzles Subscriber TS number in Salesforce
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    Then Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    When User clicks on Details tab
-    Then Validate TS number is generated in Subscriber Number field
-    Then Close Opened tabs in salesforce
+# Scenario: TC_12:Validate Puzzles Subscriber TS number in Salesforce
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     When User clicks on Details tab
+#     Then Validate TS number is generated in Subscriber Number field
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_13:Validate account Origin
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    And  Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    When User clicks on Details tab
-    Then Validate Account Origin is empty
-    Then Close Opened tabs in salesforce
+# Scenario: TC_13:Validate account Origin
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
+#     And  Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     When User clicks on Details tab
+#     Then Validate Account Origin is empty
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_14:Validate Puzzles Subscriber Piano ID in Salesforce
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    When User clicks on Details tab
-    Then Validate a GUID and PianoID are generated
-    Then Close Opened tabs in salesforce
+# Scenario: TC_14:Validate Puzzles Subscriber Piano ID in Salesforce
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
+#     And Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     When User clicks on Details tab
+#     Then Validate a GUID and PianoID are generated
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_15:Validate account channel is Premium
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    When User clicks on Details tab
-    Then Validate account channel is "Premium"
-    Then Close Opened tabs in salesforce
+# Scenario: TC_15:Validate account channel is Premium
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
+#     And Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     When User clicks on Details tab
+#     Then Validate account channel is "Premium"
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_16:Validate Billing Currency is GBP
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    When User clicks on Details tab
-    Then Validate Billing Currency is GBP
-    Then Close Opened tabs in salesforce
+# Scenario: TC_16:Validate Billing Currency is GBP
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
+#     And Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     When User clicks on Details tab
+#     Then Validate Billing Currency is GBP
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_17:Validate Billing Account and invoice is created with 0 balance
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    When User clicks on Payment tab
-    Then Validate Billing Account balance
-    Then Validate Invoice balance
-    Then Close Opened tabs in salesforce
+# Scenario: TC_17:Validate Billing Account and invoice is created with 0 balance
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     And Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     When User clicks on Payment tab
+#     Then Validate Billing Account balance
+#     Then Validate Invoice balance
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_18:Validate Puzzles Subscriber Entitlements data in Salesforce
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    When User clicks on Details tab
-    When User clicks on System tab
-    Then Validate Entitlements are added for Puzzle subscription
-    Then Close Opened tabs in salesforce
+# Scenario: TC_18:Validate Puzzles Subscriber Entitlements data in Salesforce
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
+#     And Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     When User clicks on Details tab
+#     When User clicks on System tab
+#     Then Validate Entitlements are added for Puzzle subscription
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_19:Validate Puzzles Subscriber Lock In Expiry in Salesforce
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    When User clicks on Details tab
-    Then User clicks on Subscriptions tab
-    Then Validate Lock in Expiry date
-    Then Close Opened tabs in salesforce
+# Scenario: TC_19:Validate Puzzles Subscriber Lock In Expiry in Salesforce
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
+#     And Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     When User clicks on Details tab
+#     Then User clicks on Subscriptions tab
+#     Then Validate Lock in Expiry date
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_20:Validate Puzzles Subscriber Type of Offer in Salesforce
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    When User clicks on Details tab
-    Then User clicks on Subscriptions tab
-    Then Validate Type of Offer for Puzzles
-    Then Close Opened tabs in salesforce
+# Scenario: TC_20:Validate Puzzles Subscriber Type of Offer in Salesforce
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
+#     And Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     When User clicks on Details tab
+#     Then User clicks on Subscriptions tab
+#     Then Validate Type of Offer for Puzzles
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_21:Validate Puzzles Subscriber Payment details in Salesforce
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    When User clicks on Details tab
-    When User clicks on Payment tab
-    Then Validate Default Payment Method for Puzzles in Payment Tab
-    Then Validate CMRR matches with the price selected on telegraph customer app
-    Then Close Opened tabs in salesforce
+# Scenario: TC_21:Validate Puzzles Subscriber Payment details in Salesforce
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
+#     And Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     When User clicks on Details tab
+#     When User clicks on Payment tab
+#     Then Validate Default Payment Method for Puzzles in Payment Tab
+#     Then Validate CMRR matches with the price selected on telegraph customer app
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_22:Validate External ID is craeted for Puzzles only user in salesforce
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    When User clicks on Details tab
-    And  User Opens Subscription page
-    Then Validate Subscription External ID is generated
-    Then Close Opened tabs in salesforce
+# Scenario: TC_22:Validate External ID is craeted for Puzzles only user in salesforce
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
+#     And Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     When User clicks on Details tab
+#     And  User Opens Subscription page
+#     Then Validate Subscription External ID is generated
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_23:Validate subscription product name is Puzzles Monthly Subscription
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    When User clicks on Details tab
-    Then User clicks on Subscriptions tab
-    Then Validate if user has any subscription for puzzle in salesforce
-    Then Validate Product name is Puzzles Monthly Subscription
-    Then Close Opened tabs in salesforce
+# Scenario: TC_23:Validate subscription product name is Puzzles Monthly Subscription
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
+#     And Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     When User clicks on Details tab
+#     Then User clicks on Subscriptions tab
+#     Then Validate if user has any subscription for puzzle in salesforce
+#     Then Validate Product name is Puzzles Monthly Subscription
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_24:Validate the correct Price Segment Code is generated based on the offer
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    When User clicks on Details tab
-    And  User Opens Subscription page
-    Then Validate Price Segment code is generated
-    Then Close Opened tabs in salesforce
+# Scenario: TC_24:Validate the correct Price Segment Code is generated based on the offer
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
+#     And Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     When User clicks on Details tab
+#     And  User Opens Subscription page
+#     Then Validate Price Segment code is generated
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_25:Validate Acquisition Channel is set to TCUK
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    And  User Opens Subscription page
-    Then Validate Acquisition Channel is set to TCUK
-    Then Close Opened tabs in salesforce
+# Scenario: TC_25:Validate Acquisition Channel is set to TCUK
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     And Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     And  User Opens Subscription page
+#     Then Validate Acquisition Channel is set to TCUK
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_26:Validate Promo Code field has generated the correct offer name which was used in the frontend URL
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    When User clicks on Details tab
-    And  User Opens Subscription page
-    Then Validate Promo Code is generated for PuzzlesOnly
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
+# Scenario: TC_26:Validate Promo Code field has generated the correct offer name which was used in the frontend URL
+#     When I launch Salesforce URL
+#     Then I login to Salesforce
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
+#     And Enter the Puzzles email id in the search box
+#     Then Open the Account Page
+#     When User clicks on Details tab
+#     And  User Opens Subscription page
+#     Then Validate Promo Code is generated for PuzzlesOnly
+#     Then Close Opened tabs in salesforce
+#     Then Close Opened tabs in salesforce
 
-Scenario: TC_27:Validate Name and Account number in Zoura
-    When I launch Zoura application
-    Then Login to Zoura
-    Then Go to Zoura Subscription Page for Puzzles
-    And  Open Subscription in Zoura for Puzzles
-    Then Validate Name and Account number in Zoura
-    Then I logout from Zuora
+# Scenario: TC_27:Validate Name and Account number in Zoura
+#     When I launch Zoura application
+#     Then Login to Zoura
+#     Then Go to Zoura Subscription Page for Puzzles
+#     And  Open Subscription in Zoura for Puzzles
+#     Then Validate Name and Account number in Zoura
+#     Then I logout from Zuora
 
-Scenario: TC_28:Validate Payment details in Zoura
-    When I launch Zoura application
-    Then Login to Zoura
-    Then Go to Zoura Subscription Page for Puzzles
-    And  Open Subscription in Zoura for Puzzles
-    Then Validate Payment details for Puzzles in Zoura
-    Then I logout from Zuora
+# Scenario: TC_28:Validate Payment details in Zoura
+#     When I launch Zoura application
+#     Then Login to Zoura
+#     Then Go to Zoura Subscription Page for Puzzles
+#     And  Open Subscription in Zoura for Puzzles
+#     Then Validate Payment details for Puzzles in Zoura
+#     Then I logout from Zuora
 
-Scenario: TC_29:Validate Auto Pay details in Zoura
-    When I launch Zoura application
-    Then Login to Zoura
-    Then Go to Zoura Subscription Page for Puzzles
-    And  Open Subscription in Zoura for Puzzles
-    Then Validate Auto Pay details in Zoura
-    Then I logout from Zuora
+# Scenario: TC_29:Validate Auto Pay details in Zoura
+#     When I launch Zoura application
+#     Then Login to Zoura
+#     Then Go to Zoura Subscription Page for Puzzles
+#     And  Open Subscription in Zoura for Puzzles
+#     Then Validate Auto Pay details in Zoura
+#     Then I logout from Zuora
 
-Scenario: TC_30:Validate Term setting and current term in Zoura
-    When I launch Zoura application
-    Then Login to Zoura
-    Then Go to Zoura Subscription Page for Puzzles
-    And  Open Subscription in Zoura for Puzzles
-    Then Validate Term setting and current term in Zoura
-    Then I logout from Zuora
+# Scenario: TC_30:Validate Term setting and current term in Zoura
+#     When I launch Zoura application
+#     Then Login to Zoura
+#     Then Go to Zoura Subscription Page for Puzzles
+#     And  Open Subscription in Zoura for Puzzles
+#     Then Validate Term setting and current term in Zoura
+#     Then I logout from Zuora
 
-Scenario: TC_31:Validate Subscription and Curent term dates in Zoura
-    When I launch Zoura application
-    Then Login to Zoura
-    Then Go to Zoura Subscription Page for Puzzles
-    And  Open Subscription in Zoura for Puzzles
-    Then Validate Subscription and Curent term dates in Zoura
-    Then I logout from Zuora
+# Scenario: TC_31:Validate Subscription and Curent term dates in Zoura
+#     When I launch Zoura application
+#     Then Login to Zoura
+#     Then Go to Zoura Subscription Page for Puzzles
+#     And  Open Subscription in Zoura for Puzzles
+#     Then Validate Subscription and Curent term dates in Zoura
+#     Then I logout from Zuora
 
-Scenario: TC_32:Validate Renewal Settings, term and auto Renew
-    When I launch Zoura application
-    Then Login to Zoura
-    Then Go to Zoura Subscription Page for Puzzles
-    And  Open Subscription in Zoura for Puzzles
-    Then Validate Renweal Settings
-    And  Valiadate Renewal term
-    And  Validate AutoRenew
-    Then I logout from Zuora
+# Scenario: TC_32:Validate Renewal Settings, term and auto Renew
+#     When I launch Zoura application
+#     Then Login to Zoura
+#     Then Go to Zoura Subscription Page for Puzzles
+#     And  Open Subscription in Zoura for Puzzles
+#     Then Validate Renweal Settings
+#     And  Valiadate Renewal term
+#     And  Validate AutoRenew
+#     Then I logout from Zuora
 
-Scenario: TC_33:Validate Price Segment Code and Promo code in Zoura
-    When I launch Zoura application
-    Then Login to Zoura
-    Then Go to Zoura Subscription Page for Puzzles
-    And  Open Subscription in Zoura for Puzzles
-    Then Validate Price Segment code in Zoura
-    And  Validate Promo code in Zoura
-    Then I logout from Zuora
+# Scenario: TC_33:Validate Price Segment Code and Promo code in Zoura
+#     When I launch Zoura application
+#     Then Login to Zoura
+#     Then Go to Zoura Subscription Page for Puzzles
+#     And  Open Subscription in Zoura for Puzzles
+#     Then Validate Price Segment code in Zoura
+#     And  Validate Promo code in Zoura
+#     Then I logout from Zuora
 
-Scenario: TC_34:Validate Price Rise Cancellation in Zoura
-    When I launch Zoura application
-    Then Login to Zoura
-    And  Enter Subscription ID in search box
-    Then Validate Price Rise Cancellation in Zoura
-    Then I logout from Zuora
+# Scenario: TC_34:Validate Price Rise Cancellation in Zoura
+#     When I launch Zoura application
+#     Then Login to Zoura
+#     And  Enter Subscription ID in search box
+#     Then Validate Price Rise Cancellation in Zoura
+#     Then I logout from Zuora
 
-Scenario: TC_35:Validate Source System in Zoura
-    When I launch Zoura application
-    Then Login to Zoura
-    And  Enter Subscription ID in search box
-    Then Validate Source System in Zoura
-    Then I logout from Zuora
+# Scenario: TC_35:Validate Source System in Zoura
+#     When I launch Zoura application
+#     Then Login to Zoura
+#     And  Enter Subscription ID in search box
+#     Then Validate Source System in Zoura
+#     Then I logout from Zuora
 
 
 

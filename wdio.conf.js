@@ -53,18 +53,19 @@ export const config = {
   // will be called from there.
   //C:\Users\10703317\WDIO_Workspace\WDIO_TMG_BDD\features\SubscriptionAcquisitionDigital.feature
   specs: [
-    //"./features/**/ETE11_AccountcreationRegisterflow.feature",
-    // "./features/**/ETE3_SubscriptionAcquisitionDigitalPlus.feature",
-    // "./features/**/ETE7_SubscriptionAcquisitionPuzzles.feature",
-    // "./features/**/ETE20_PuzzlesOneClickOnboarding.feature",
-    // "./features/**/ETE21_AddPuzzlesfromMyAccount.feature",
-    // "./features/**/ETE22_AddPuzzlesAsBolton.feature",
-    // "./features/**/ETE23_AddDigitalAsBoltonToPuzzles.feature",
+    //  "./features/**/ETE11_AccountcreationRegisterflow.feature",
+    //   "./features/**/ETE3_SubscriptionAcquisitionDigitalPlus.feature",
+    //   "./features/**/ETE7_SubscriptionAcquisitionPuzzles.feature",
+    //   "./features/**/ETE20_PuzzlesOneClickOnboarding.feature",
+    //  "./features/**/ETE21_AddPuzzlesfromMyAccount.feature",
+    //  "./features/**/ETE22_AddPuzzlesAsBolton.feature",
+    //  "./features/**/ETE23_AddDigitalAsBoltonToPuzzles.feature",
     // "./features/**/ETE5_SubscriptionAcquisitionBonus.feature",
-    // "./features/**/ETE8_SubscriptionAcquisitionGifts.feature",
-     "./features/**/ETE2_SubscriptionAcquisitionMyAccount.feature",
-     //"./features/**/ETE4_SubscriptionAcquisitionOnlineCancellation.feature",
-     //"./features/**/ETE10_SubscriptionAcquisitionDigital.feature",
+    //  "./features/**/ETE8_SubscriptionAcquisitionGifts.feature",
+    //   "./features/**/ETE2_SubscriptionAcquisitionMyAccount.feature",
+    //  "./features/**/ETE4_SubscriptionAcquisitionOnlineCancellation.feature",
+    //  "./features/**/ETE10_SubscriptionAcquisitionDigital.feature",
+     "./features/**/ETE12_Backdated.feature",
   ],
   // Patterns to exclude.
   exclude: [
@@ -94,9 +95,8 @@ export const config = {
   //
   capabilities: [
     {
-      //browserName: "safari",
       browserName: "chrome",
-      browserVersion: "116",
+      browserVersion: "118",
       //port: 61973,
       //"wdio:chromedriverOptions": {
         //binary:
@@ -189,10 +189,10 @@ export const config = {
     //     chromedriverCustomPath: "./chromedriver/",
     //   },
     // ],
-    ["safaridriver", {
-        outputDir: './logs',
-        logFileName: 'wdio-safaridriver.log'
-    }]
+    // ["safaridriver", {
+    //     outputDir: './logs',
+    //     logFileName: 'wdio-safaridriver.log'
+    // }]
   ],
   //
   // Framework you want to run your specs with.
@@ -294,7 +294,7 @@ export const config = {
     // <string> (expression) only execute the features or scenarios with tags matching the expression
     tagExpression: "",
     // <number> timeout for step definitions
-    timeout: 90000,
+    timeout: 120000,
     // <boolean> Enable this config to treat undefined definitions as warnings.
     ignoreUndefinedDefinitions: false,
   },
@@ -548,11 +548,11 @@ export const config = {
           { label: "Project", value: "TMG Automation" },
           {
             label: "Execution Time",
-            value: new Date().toLocaleString() + "" + "IST",
+            value: new Date().toLocaleString() + " " + "IST",
           },
           {
             label: "Release",
-            value: "24.07",
+            value: "24.08",
           },
           {
             label: "Apps Tested",

@@ -148,27 +148,6 @@ Given("I continue the flow till puzzle subscription onboarding", async () => {
     await subscriptionConfirmation.waitForDisplayed({ timeout: 50000 });
     await subscriptionConfirmation.click();
 
-    // await browser.scroll(0, 200);
-    // const step4ContinueButton = $('//button[@class="onboarding-bonus-next"]');
-    // await step4ContinueButton.waitForDisplayed({ timeout: 50000 });
-    // await step4ContinueButton.click();
-    // await browser.pause(5000);
-    // await step4ContinueButton.waitForDisplayed({ timeout: 50000 });
-    // await step4ContinueButton.click();
-    // const step5header = await $('//h1[@class="title"]');
-    // await step5header.waitForDisplayed({ timeout: 50000 });
-
-    // const pickwhereyouleftButton = await $(
-    //   '//span[contains(text(),"Pick up where you left off")]'
-    // );
-    // await pickwhereyouleftButton.waitForDisplayed({ timeout: 50000 });
-    // await pickwhereyouleftButton.click();
-
-    // const subSkipContinueBtn = await $(
-    //   '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Skip and continue"]'
-    // );
-    // await subSkipContinueBtn.waitForDisplayed({ timeout: 50000 });
-    // await subSkipContinueBtn.click();
 
     const subContinueBtnn = await $(
       '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"]'

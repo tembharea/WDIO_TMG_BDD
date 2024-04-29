@@ -65,27 +65,27 @@ const DigitalPlussCustAlRegistrant = rnd6 + "digitlplsal@telegraph.co.uk";
 const CustDigitete2One = rnd8 + "plusete2@telegraph.co.uk";
 const CustPuzzOneEmail = rndstr4 + "puzzle@telegraph.co.uk";
 const CustPuzzTwoEmail = rndstr5 + "puzzle@telegraph.co.uk";
-const DigitalCustEmail = randstr + "Digital@telegraph.co.uk";
-const DigitalPlusCCEmail = rndst3 + "DigitalPlus@telegraph.co.uk";
-const DigitalPlusCCEmail2 = rnd7 + "DigitalPlus@telegraph.co.uk";
-const DigitalPLusMPaypal = rndst4 + "DigitalPlus@telegraph.co.uk";
-const DigitalPLusAPaypal = rndst4 + "DigitalPlusA@telegraph.co.uk";
+const DigitalCustEmail = randstr + "Digital78@telegraph.co.uk";
+const DigitalPlusCCEmail = rndst3 + "DigitalPlus123@telegraph.co.uk";
+const DigitalPlusCCEmail2 = rnd7 + "DigitalPlus234@telegraph.co.uk";
+const DigitalPLusMPaypal = rndst4 + "DigitalPlus567@telegraph.co.uk";
+const DigitalPLusAPaypal = rndst4 + "DigitalPlusA654@telegraph.co.uk";
 const DigitalPaypalCustEmailPuzl = rndst1 + "DigitPuzzlete21@telegraph.co.uk";
 const digitalMPaypaletePuzzles = rndst2 + "DigitalPuzzete22@telegraph.co.uk";
-const digitMPypletePuzzOne = rnd1 + "Digitalete20@telegraph.co.uk";
-const digitMPypletePuzzTwo = rnd2 + "Digitalete22@telegraph.co.uk";
-const digitMPypletePuzzThree = rnd3 + "Digitalete23@telegraph.co.uk";
-const DigitalCustMRegistrant = rndst6 + "loggedoutmonthly@telegraph.co.uk";
-const DigitalPlussCustMRegistrant = rndst6 + "loggedoutmonth@telegraph.co.uk";
+const digitMPypletePuzzOne = rnd1 + "Digitalete20test@telegraph.co.uk";
+const digitMPypletePuzzTwo = rnd2 + "Digitalete22test@telegraph.co.uk";
+const digitMPypletePuzzThree = rnd3 + "Digitalete23test@telegraph.co.uk";
+const DigitalCustMRegistrant = rndst6 + "loggedoutmonthlytmg@telegraph.co.uk";
+const DigitalPlussCustMRegistrant = rndst6 + "loggedoutmonthtest@telegraph.co.uk";
 const DigitalCustARegistrant = rndst5 + "loggedoutAnnual@telegraph.co.uk";
-const DigitalPaypalCustEmail = rndst8 + "digitalviapaypal@telegraph.co.uk";
-const DigitalPaypalACustEmail = rndst7 + "digitalviapaypal@telegraph.co.uk";
-const GiftCustEmail = randstr + "GiftDonor@telegraph.co.uk";
-const GiftCustTwoEmail = rndstr7 + "GiftDonorTwo@telegraph.co.uk";
-const GiftCustThreeEmail = rndstr8 + "GiftDonorTwo@telegraph.co.uk";
-const GiftRcvOneEmail = rndstr6 + "GiftReceipent@telegraph.co.uk";
-const GiftRcvTwoEmail = rndstr9 + "GiftReceipent@telegraph.co.uk";
-const GiftRcvThreeEmail = rndst9 + "GiftReceipent@telegraph.co.uk";
+const DigitalPaypalCustEmail = rndst8 + "digitalviapaypaltest@telegraph.co.uk";
+const DigitalPaypalACustEmail = rndst7 + "digitalviapaypaltmg@telegraph.co.uk";
+const GiftCustEmail = randstr + "GiftDonor78@telegraph.co.uk";
+const GiftCustTwoEmail = rndstr7 + "GiftDonorTwo16@telegraph.co.uk";
+const GiftCustThreeEmail = rndstr8 + "GiftDonorTwo1@telegraph.co.uk";
+const GiftRcvOneEmail = rndstr6 + "GiftReceipent1@telegraph.co.uk";
+const GiftRcvTwoEmail = rndstr9 + "GiftReceipent2@telegraph.co.uk";
+const GiftRcvThreeEmail = rndst9 + "GiftReceipent3@telegraph.co.uk";
 const paypalID = "tarun.sharma+20180523personal@telegraph.co.uk";
 const paypalpasswrd = "tmgsw1w0dt";
 var RecordSubID;
@@ -2279,7 +2279,7 @@ Then("I login to Salesforce", async () => {
     await SalesforceUsrname.setValue("akshat.tembhare@telegraph.co.uk.qa");
     const SalesforcePwd = await $('//input[@id="password"]');
     await SalesforcePwd.waitForDisplayed({ timeout: 10000 });
-    await SalesforcePwd.setValue("Fabokrl@5678");
+    await SalesforcePwd.setValue("Fabokrl@5679");
     const SalesforceLogin = await $('//input[@id="Login"]');
     await SalesforceLogin.waitForDisplayed({ timeout: 10000 });
     await SalesforceLogin.click();
@@ -2296,6 +2296,7 @@ Then("I login to Salesforce", async () => {
     await browser.pause(100);
   }
 });
+
 
 Then("Validate TS number is generated in Subscriber Number field", async () => {
   await browser.pause(100);
@@ -2612,7 +2613,7 @@ Then("Go to Zoura Subscription Page for DigitalPlusCC", async () => {
 
 Then("Open Subscription in Zoura for Puzzles", async () => {
   //await browser.pause(100);
-  browser.waitUntil(
+  await browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
       timeout: 60 * 1000, // 60 seconds
@@ -2624,7 +2625,9 @@ Then("Open Subscription in Zoura for Puzzles", async () => {
   await SubIDOpen.waitForDisplayed({ timeout: 50000 });
   await SubIDOpen.click();
 
-  browser.waitUntil(
+  await browser.pause(5000);
+
+  await browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
       timeout: 60 * 1000, // 60 seconds
@@ -2635,7 +2638,7 @@ Then("Open Subscription in Zoura for Puzzles", async () => {
 
 Then("Validate Name and Account number in Zoura", async () => {
   //await browser.pause(100);
-  browser.waitUntil(
+  await browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
       timeout: 60 * 1000, // 60 seconds
@@ -2787,7 +2790,27 @@ When("Login to Zoura", async () => {
   const ZouraloginBTN = await $('//a[@class="btn-login"]');
   try {
     if (Zourausername.isExisting) {
-      await Zourausername.waitForDisplayed({ timeout: 50000 });
+      await Zourausername.waitForDisplayed({ timeout: 30000 });
+      await Zourausername.setValue("akshat.tembhare@telegraph.co.uk.qa");
+      await Zourapwd.setValue("Aytakshat@1");
+      await ZouraloginBTN.click();
+      browser.waitUntil(
+        () => browser.execute(() => document.readyState === "complete"),
+        {
+          timeout: 60 * 1000, // 60 seconds
+          timeoutMsg: "Message on failure",
+        }
+      );
+    }
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
+
+  try {
+    if (Zourausername.isExisting) {
+      await Zourausername.waitForDisplayed({ timeout: 30000 });
       await Zourausername.setValue("akshat.tembhare@telegraph.co.uk.qa");
       await Zourapwd.setValue("Aytakshat@1");
       await ZouraloginBTN.click();
@@ -3112,10 +3135,17 @@ Then("User completes the purchase", async () => {
   } catch (error) {
     console.error("no such element");
   } finally {
+    await browser.pause(100);
+  }
+
+
+
+  try {
+  
     const subContinueBtn = await $(
       '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"][2]'
     );
-    await subContinueBtn.waitForDisplayed({ timeout: 50000 });
+    await subContinueBtn.waitForDisplayed({ timeout: 30000 });
     await subContinueBtn.click();
 
     const subSkipContinueBtn = await $(
@@ -3138,14 +3168,12 @@ Then("User completes the purchase", async () => {
     );
     await pickwhrleftoff.waitForDisplayed({ timeout: 50000 });
     await pickwhrleftoff.click();
-    browser.waitUntil(
-      () => browser.execute(() => document.readyState === "complete"),
-      {
-        timeout: 60 * 1000, // 60 seconds
-        timeoutMsg: "Message on failure",
-      }
-    );
+  } catch (error) {
+    console.error("no such element");
+  }  finally {
+    await browser.pause(100);
   }
+
 });
 
 Then("User completes the purchase as loggedout Registrant", async () => {
@@ -5175,7 +5203,7 @@ Then("Enter the Gift redeem email id in the search box", async () => {
   const SearchBarClick = await $(
     '//button[contains(@class,"slds-button slds-button_neutral search")]'
   );
-  await SearchBarClick.waitForDisplayed({ timeout: 20000 });
+  await SearchBarClick.waitForDisplayed({ timeout: 40000 });
   // await SearchBarClick.click();
   await browser.pause(1500);
   await SearchBarClick.doubleClick();
@@ -5497,13 +5525,13 @@ Then("Validate User able to purchase Puzzles from MyAccount page", async () => {
   );
   const AddPuzzleBTN = await $('//button[contains(text(),"Add Puzzles")]');
   const ConfrimPayBTN = await $('//button[contains(text(),"Confirm payment")]');
-  const PlayNowBtn = await $('//a[text()="Play now"]');
+  const PlayNowBtn = await $('//*[text()="Play now"]');
   await browser.scroll(0, 200);
   try {
-    await AddPuzzleBTN.waitForDisplayed({ timeout: 50000 });
+    await AddPuzzleBTN.waitForDisplayed({ timeout: 30000 });
     await AddPuzzleBTN.doubleClick();
     await browser.pause(500);
-    await ConfrimPayBTN.waitForDisplayed({ timeout: 50000 });
+    await ConfrimPayBTN.waitForDisplayed({ timeout: 30000 });
     await ConfrimPayBTN.click();
     await browser.pause(600);
     await ConfrimPayBTN.waitForDisplayed({ timeout: 20000 });
@@ -5591,7 +5619,7 @@ Then("Validate User able to purchase Puzzles from MyAccount page", async () => {
     }
   );
 
-  await PlayNowBtn.waitForDisplayed({ timeout: 50000 });
+  await PlayNowBtn.waitForDisplayed({ timeout: 30000 });
   await PlayNowBtn.isExisting();
   await browser.pause(4500);
 });
@@ -5718,7 +5746,7 @@ Then("User Opens Subscription page", async () => {
 
 Then("Go to Zoura Subscription Page for Puzzles", async () => {
   //await browser.pause(100);
-  browser.waitUntil(
+  await browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
       timeout: 60 * 1000, // 60 seconds
@@ -5727,15 +5755,23 @@ Then("Go to Zoura Subscription Page for Puzzles", async () => {
   );
   await browser.url(ZouraSubURLPuzzle);
   await browser.pause(2000);
+  await browser.url(ZouraSubURLPuzzle);
+  await browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
   CucumberJsJsonReporter.attach(
-    "Subscription ID for Puzzles Subscription: " + RecordSubID,
+    "Subscription ID for Puzzles Subscription: " + RecordSubIDP,
     "text/plain"
   );
 });
 
 Then("Go to Zoura Subscription Page for digitalMPaypalforPuzzles", async () => {
   //await browser.pause(100);
-  browser.waitUntil(
+  await browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
       timeout: 60 * 1000, // 60 seconds
@@ -5752,7 +5788,7 @@ Then("Go to Zoura Subscription Page for digitalMPaypalforPuzzles", async () => {
 
 Then("Go to Zoura Subscription Page for Puzzledigitalbotlon", async () => {
   //await browser.pause(100);
-  browser.waitUntil(
+  await browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
       timeout: 60 * 1000, // 60 seconds
@@ -5769,7 +5805,7 @@ Then("Go to Zoura Subscription Page for Puzzledigitalbotlon", async () => {
 
 Then("Go to Zoura digitalMPaypaletePuzzles Subscription Page", async () => {
   //await browser.pause(100);
-  browser.waitUntil(
+  await browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
       timeout: 60 * 1000, // 60 seconds
@@ -5788,7 +5824,7 @@ Then(
   "Validate if user has any subscription for puzzle in salesforce",
   async () => {
     await browser.pause(100);
-    browser.waitUntil(
+    await browser.waitUntil(
       () => browser.execute(() => document.readyState === "complete"),
       {
         timeout: 60 * 1000, // 60 seconds

@@ -272,7 +272,7 @@ Then("Click on Restart your subscription", async () => {
 
 Then("Verify Subscription is restarted successfully", async () => {
   await browser.pause(100);
-  browser.waitUntil(
+  await browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
       timeout: 60 * 1000, // 60 seconds
@@ -285,3 +285,8 @@ Then("Verify Subscription is restarted successfully", async () => {
   // await yourCurrentPlan.waitForDisplayed({ timeout: 50000 });
   // await yourCurrentPlan.isExisting();
 });
+
+Then('Cancel Subscription in Zoura', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await browser.pause(100);
+})
