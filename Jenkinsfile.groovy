@@ -9,6 +9,7 @@ pipeline {
             steps {
                 script {
                    sh 'npm i'
+                    sh 'npx wdio'
                 }
             }
         }
