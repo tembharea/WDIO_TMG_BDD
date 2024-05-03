@@ -115,6 +115,9 @@ export const config = {
           "enable-automation",
           "--headless",
           "--disable-gpu",
+          "--disable-setuid-sandbox",
+          "--disable-dev-shm-usage",
+          "--no-sandbox",
         ],
       },
       "cjson:metadata": {
