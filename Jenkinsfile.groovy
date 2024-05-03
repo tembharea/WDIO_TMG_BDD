@@ -23,7 +23,7 @@ pipeline {
                                     alwaysLinkToLastBuild: true,
                                     keepAll              : true,
                                     reportDir            : "Reports",
-                                    reportFiles          : "CucmumberReports/index.html",
+                                    reportFiles          : "CucumberReports/index.html",
                                     reportName           : "Tests",
                                     reportTitles         : "Tests"
                             ])
@@ -41,9 +41,9 @@ pipeline {
                                     alwaysLinkToLastBuild: true,
                                     keepAll              : true,
                                     reportDir            : "Reports",
-                                    reportFiles          : "CucmumberReports/index.html",
-                                    reportName           : "Tests",
-                                    reportTitles         : "Tests"
+                                    reportFiles          : "CucumberReports/index.html",
+                                    reportName           : "Tests2",
+                                    reportTitles         : "Tests2"
                             ])
                         }
                         }
