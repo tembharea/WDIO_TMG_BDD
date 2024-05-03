@@ -113,6 +113,8 @@ export const config = {
           "disable-popup-blocking",
           "disable-notifications",
           "enable-automation",
+          "--headless",
+          "--disable-gpu",
         ],
       },
       "cjson:metadata": {
