@@ -10,8 +10,10 @@ pipeline {
                 script {
                    sh 'npm i'
                     sh 'npx wdio'
+                    archiveArtifacts artifacts: 'Reports/*', allowEmptyArchive: true
                 }
             }
+
         }
     }
 }
