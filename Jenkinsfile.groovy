@@ -11,39 +11,21 @@ pipeline {
             steps {
                 script {
                     sh 'npm i'
-                    try {
-                        sh 'npx wdio'
-                    }
-                    catch (error){
-                        sh 'ls -l'
-                        archiveArtifacts artifacts: 'Reports/**', allowEmptyArchive: true
-
-                            publishHTML(target: [
-                                    allowMissing         : false,
-                                    alwaysLinkToLastBuild: true,
-                                    keepAll              : true,
-                                    reportDir            : "Reports",
-                                    reportFiles          : "CucumberReports/index.html",
-                                    reportName           : "Tests",
-                                    reportTitles         : "Tests"
-                            ])
-                        }
-                      throw error
+                    sh 'npx wdio'
                     }
                 post {
                     always {
                         script {
                             sh 'ls -l'
                             archiveArtifacts artifacts: 'Reports/**', allowEmptyArchive: true
-
                             publishHTML(target: [
                                     allowMissing         : false,
                                     alwaysLinkToLastBuild: true,
                                     keepAll              : true,
-                                    reportDir            : "Reports",
-                                    reportFiles          : "CucumberReports/index.html",
-                                    reportName           : "Tests2",
-                                    reportTitles         : "Tests2"
+                                    reportDir            : "Reports/CucumberReports",
+                                    reportFiles          : "index.html",
+                                    reportName           : "Tests",
+                                    reportTitles         : "Tests"
                             ])
                         }
                         }
