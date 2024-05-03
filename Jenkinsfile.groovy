@@ -1,5 +1,3 @@
-import org.apache.commons.lang3.StringUtils
-import groovy.lang.Binding
 pipeline {
     agent { label 'UseGCPPreprodClusterWeb' }
     tools {
@@ -11,26 +9,29 @@ pipeline {
             steps {
                 script {
                     sh 'npm i'
-                    sh 'npx wdio'
+                    try {
+                        sh 'npx wdio'
+                        reports()
                     }
-                post {
-                    always {
-                        script {
-                            sh 'ls -l'
-                            archiveArtifacts artifacts: 'Reports/**', allowEmptyArchive: true
-                            publishHTML(target: [
-                                    allowMissing         : false,
-                                    alwaysLinkToLastBuild: true,
-                                    keepAll              : true,
-                                    reportDir            : "Reports/CucumberReports",
-                                    reportFiles          : "index.html",
-                                    reportName           : "Tests",
-                                    reportTitles         : "Tests"
-                            ])
-                        }
-                        }
+                    catch (e) {
+                        reports()
+                        throw e
                     }
                 }
             }
         }
     }
+}
+
+def reports() {
+    archiveArtifacts artifacts: 'Reports/**', allowEmptyArchive: true
+    publishHTML(target: [
+            allowMissing         : false,
+            alwaysLinkToLastBuild: true,
+            keepAll              : true,
+            reportDir            : "Reports/CucumberReports",
+            reportFiles          : "index.html",
+            reportName           : "Tests",
+            reportTitles         : "Tests"
+    ])
+}
