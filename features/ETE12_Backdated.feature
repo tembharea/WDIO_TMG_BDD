@@ -31,10 +31,35 @@ Feature: ETE 12 Backdated Subscription
         Then Validate if user has any subscription for puzzle in salesforce
         Then Close Opened tabs in salesforce
 
-    Scenario: 3:Cancel subscription from zuora
+    Scenario: 3:Cancel of subscription to backdated sub creation
         When I launch Zoura application
         Then Login to Zoura
         Then Go to Zoura Subscription Page for Puzzles
         And  Open Subscription in Zoura for Puzzles
         And  Cancel Subscription in Zoura
+        And  Create New Subscription
+        And  Create Bill Run with Payment
         Then I logout from Zuora
+
+    Scenario: 4:Validate Cancelled and Backdated subscription in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the Puzzles email id in the search box
+        Then Open the Account Page
+        When User clicks on Details tab
+        Then Validate if user has any subscription for puzzle in salesforce
+        Then Close Opened tabs in salesforce
+
+
+    Scenario: 5:Validate Backdated subcription is created in FE
+        Given I launch login from homepage
+        And   I fill in existing PuzzleTwo email
+        When  I click login-register button
+        And   I enter "valid" register password
+        When  I click login-register button
+        Then  Validate HomePage
+        When  Go to My Account page
+        Then  Click on Manage Your Details button
+        Then  Logout from Customer application

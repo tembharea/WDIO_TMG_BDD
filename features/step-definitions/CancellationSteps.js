@@ -289,4 +289,36 @@ Then("Verify Subscription is restarted successfully", async () => {
 Then('Cancel Subscription in Zoura', async () => {
   // Write code here that turns the phrase above into concrete actions
   await browser.pause(100);
+  
+const zuoraSubCancel = await $(
+  '//span[text()="Cancel"]'
+);
+await zuoraSubCancel.waitForDisplayed({ timeout: 50000 });
+await zuoraSubCancel.isExisting();
+await zuoraSubCancel.click();
+await browser.pause(5000);
+
+const startOfCurrentTerm = await $(
+  '//div[text()="Cancellation Date"]//following::label[3]'
+);
+await startOfCurrentTerm.waitForDisplayed({ timeout: 50000 });
+await startOfCurrentTerm.isExisting();
+await startOfCurrentTerm.click();
+
+const cancelsubmitsub = await $(
+  '//button[text()="Submit"]'
+);
+await cancelsubmitsub.waitForDisplayed({ timeout: 50000 });
+await cancelsubmitsub.isExisting();
+await cancelsubmitsub.click();
+
+
+const cancelsubStatus = await $(
+  '//span[text()="Cancelled"]'
+);
+await cancelsubStatus.waitForDisplayed({ timeout: 50000 });
+await cancelsubStatus.isExisting();
+
+await browser.pause(5000);
+
 })

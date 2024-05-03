@@ -56,7 +56,7 @@ const pianoID = "akshat.tembhare@telegraph.co.uk";
 const pianoPsswd = "Ayt@akshat123";
 const CustPasswrd = "Ayt@akshat123";
 const CustEmail = rndstr2 + "@telegraph.co.uk";
-const digitalforBonus = rnd9 + "bonusdonor@telegraph.co.uk";
+const digitalforBonus = rnd9 + "bonusdonor@telegraph.co.uk"
 const CustCancellEmail = rnd4 + "DigitalCancel@telegraph.co.uk";
 const CustWineEmail = rndstr3 + "wine@telegraph.co.uk";
 const CustDigitete2 = rnd5 + "plusete2@telegraph.co.uk";
@@ -65,27 +65,27 @@ const DigitalPlussCustAlRegistrant = rnd6 + "digitlplsal@telegraph.co.uk";
 const CustDigitete2One = rnd8 + "plusete2@telegraph.co.uk";
 const CustPuzzOneEmail = rndstr4 + "puzzle@telegraph.co.uk";
 const CustPuzzTwoEmail = rndstr5 + "puzzle@telegraph.co.uk";
-const DigitalCustEmail = randstr + "Digital@telegraph.co.uk";
-const DigitalPlusCCEmail = rndst3 + "DigitalPlus@telegraph.co.uk";
-const DigitalPlusCCEmail2 = rnd7 + "DigitalPlus@telegraph.co.uk";
-const DigitalPLusMPaypal = rndst4 + "DigitalPlus@telegraph.co.uk";
-const DigitalPLusAPaypal = rndst4 + "DigitalPlusA@telegraph.co.uk";
+const DigitalCustEmail = randstr + "Digital78@telegraph.co.uk";
+const DigitalPlusCCEmail = rndst3 + "DigitalPlus123@telegraph.co.uk";
+const DigitalPlusCCEmail2 = rnd7 + "DigitalPlus234@telegraph.co.uk";
+const DigitalPLusMPaypal = rndst4 + "DigitalPlus567@telegraph.co.uk";
+const DigitalPLusAPaypal = rndst4 + "DigitalPlusA654@telegraph.co.uk";
 const DigitalPaypalCustEmailPuzl = rndst1 + "DigitPuzzlete21@telegraph.co.uk";
 const digitalMPaypaletePuzzles = rndst2 + "DigitalPuzzete22@telegraph.co.uk";
-const digitMPypletePuzzOne = rnd1 + "Digitalete20@telegraph.co.uk";
-const digitMPypletePuzzTwo = rnd2 + "Digitalete22@telegraph.co.uk";
-const digitMPypletePuzzThree = rnd3 + "Digitalete23@telegraph.co.uk";
-const DigitalCustMRegistrant = rndst6 + "loggedoutmonthly@telegraph.co.uk";
-const DigitalPlussCustMRegistrant = rndst6 + "loggedoutmonth@telegraph.co.uk";
+const digitMPypletePuzzOne = rnd1 + "Digitalete20test@telegraph.co.uk";
+const digitMPypletePuzzTwo = rnd2 + "Digitalete22test@telegraph.co.uk";
+const digitMPypletePuzzThree = rnd3 + "Digitalete23test@telegraph.co.uk";
+const DigitalCustMRegistrant = rndst6 + "loggedoutmonthlytmg@telegraph.co.uk";
+const DigitalPlussCustMRegistrant = rndst6 + "loggedoutmonthtest@telegraph.co.uk";
 const DigitalCustARegistrant = rndst5 + "loggedoutAnnual@telegraph.co.uk";
-const DigitalPaypalCustEmail = rndst8 + "digitalviapaypal@telegraph.co.uk";
-const DigitalPaypalACustEmail = rndst7 + "digitalviapaypal@telegraph.co.uk";
-const GiftCustEmail = randstr + "GiftDonor@telegraph.co.uk";
-const GiftCustTwoEmail = rndstr7 + "GiftDonorTwo@telegraph.co.uk";
-const GiftCustThreeEmail = rndstr8 + "GiftDonorTwo@telegraph.co.uk";
-const GiftRcvOneEmail = rndstr6 + "GiftReceipent@telegraph.co.uk";
-const GiftRcvTwoEmail = rndstr9 + "GiftReceipent@telegraph.co.uk";
-const GiftRcvThreeEmail = rndst9 + "GiftReceipent@telegraph.co.uk";
+const DigitalPaypalCustEmail = rndst8 + "digitalviapaypaltest@telegraph.co.uk";
+const DigitalPaypalACustEmail = rndst7 + "digitalviapaypaltmg@telegraph.co.uk";
+const GiftCustEmail = randstr + "GiftDonor78@telegraph.co.uk";
+const GiftCustTwoEmail = rndstr7 + "GiftDonorTwo16@telegraph.co.uk";
+const GiftCustThreeEmail = rndstr8 + "GiftDonorTwo1@telegraph.co.uk";
+const GiftRcvOneEmail = rndstr6 + "GiftReceipent1@telegraph.co.uk";
+const GiftRcvTwoEmail = rndstr9 + "GiftReceipent2@telegraph.co.uk";
+const GiftRcvThreeEmail = rndst9 + "GiftReceipent3@telegraph.co.uk";
 const paypalID = "tarun.sharma+20180523personal@telegraph.co.uk";
 const paypalpasswrd = "tmgsw1w0dt";
 var RecordSubID;
@@ -504,76 +504,88 @@ When(
       }
     );
     CucumberJsJsonReporter.attach(
-      "Test ID used for loggedOut Registrant for Digital Monthly Plan is: " +
-        DigitalCustMRegistrant,
+      "Test ID used for loggedOut Registrant for Digital Monthly Plan is: " + DigitalCustMRegistrant,
       "text/plain"
     );
   }
 );
 
-When("User Enters Email ID as a logged out registrant", async () => {
-  await browser.pause(100);
-  browser.waitUntil(
-    () => browser.execute(() => document.readyState === "complete"),
-    {
-      timeout: 60 * 1000, // 60 seconds
-      timeoutMsg: "Message on failure",
-    }
-  );
-  const loggedOutID = await $('//input[@id="email"]');
-  await loggedOutID.waitForDisplayed();
-  await loggedOutID.setValue(DigitalPlussCustMRegistrant);
 
-  const submitNowBTN = await $('//button[@type="submit"]');
-  await submitNowBTN.waitForDisplayed();
-  await submitNowBTN.click();
-  await browser.pause(3000);
-  await browser.pause(100);
-  browser.waitUntil(
-    () => browser.execute(() => document.readyState === "complete"),
-    {
-      timeout: 60 * 1000, // 60 seconds
-      timeoutMsg: "Message on failure",
-    }
-  );
-  CucumberJsJsonReporter.attach(
-    "Test ID used for loggedOut Registrant for Digital Plus Monthly Plan is: " +
-      DigitalPlussCustMRegistrant,
-    "text/plain"
-  );
-});
 
-When("User Enters Email ID as a logged out registrant Annual", async () => {
-  await browser.pause(100);
-  browser.waitUntil(
-    () => browser.execute(() => document.readyState === "complete"),
-    {
-      timeout: 60 * 1000, // 60 seconds
-      timeoutMsg: "Message on failure",
-    }
-  );
-  const loggedOutID = await $('//input[@id="email"]');
-  await loggedOutID.waitForDisplayed();
-  await loggedOutID.setValue(DigitalPlussCustAlRegistrant);
+When(
+  "User Enters Email ID as a logged out registrant",
+  async () => {
+    await browser.pause(100);
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+    const loggedOutID = await $('//input[@id="email"]');
+    await loggedOutID.waitForDisplayed();
+    await loggedOutID.setValue(DigitalPlussCustMRegistrant);
 
-  const submitNowBTN = await $('//button[@type="submit"]');
-  await submitNowBTN.waitForDisplayed();
-  await submitNowBTN.click();
-  await browser.pause(3000);
-  await browser.pause(100);
-  browser.waitUntil(
-    () => browser.execute(() => document.readyState === "complete"),
-    {
-      timeout: 60 * 1000, // 60 seconds
-      timeoutMsg: "Message on failure",
-    }
-  );
-  CucumberJsJsonReporter.attach(
-    "Test ID used for loggedOut Registrant for Digital Plus Annual Plan is: " +
-      DigitalPlussCustAlRegistrant,
-    "text/plain"
-  );
-});
+    const submitNowBTN = await $('//button[@type="submit"]');
+    await submitNowBTN.waitForDisplayed();
+    await submitNowBTN.click();
+    await browser.pause(3000);
+    await browser.pause(100);
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+    CucumberJsJsonReporter.attach(
+      "Test ID used for loggedOut Registrant for Digital Plus Monthly Plan is: " + DigitalPlussCustMRegistrant,
+      "text/plain"
+    );
+  }
+);
+
+
+When(
+  "User Enters Email ID as a logged out registrant Annual",
+  async () => {
+    await browser.pause(100);
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+    const loggedOutID = await $('//input[@id="email"]');
+    await loggedOutID.waitForDisplayed();
+    await loggedOutID.setValue(DigitalPlussCustAlRegistrant);
+
+    const submitNowBTN = await $('//button[@type="submit"]');
+    await submitNowBTN.waitForDisplayed();
+    await submitNowBTN.click();
+    await browser.pause(3000);
+    await browser.pause(100);
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+    CucumberJsJsonReporter.attach(
+      "Test ID used for loggedOut Registrant for Digital Plus Annual Plan is: " + DigitalPlussCustAlRegistrant,
+      "text/plain"
+    );
+  }
+);
+
+
+
+
+
+
 
 When(
   "User Enters Email ID as a logged out registrant for Digital Annually",
@@ -603,8 +615,7 @@ When(
       }
     );
     CucumberJsJsonReporter.attach(
-      "Test ID used for loggedOut Registrant for Digital Annual Plan is: " +
-        DigitalCustARegistrant,
+      "Test ID used for loggedOut Registrant for Digital Annual Plan is: " + DigitalCustARegistrant,
       "text/plain"
     );
   }
@@ -662,7 +673,10 @@ Then("I fill in new email", async () => {
   await browser.pause(200);
   await EmailInput.setValue(CustEmail);
   await browser.pause(100);
-  CucumberJsJsonReporter.attach("Test ID used is: " + CustEmail, "text/plain");
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + CustEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in new digitalete20 email", async () => {
@@ -711,6 +725,7 @@ Then("I fill in new digital for bonus email", async () => {
   );
 });
 
+
 Then("I fill in new DigitalPLusMPaypal email", async () => {
   await browser.pause(500);
   await browser.refresh();
@@ -730,8 +745,7 @@ Then("I fill in new DigitalPLusMPaypal email", async () => {
   await EmailInput.setValue(DigitalPLusMPaypal);
   await browser.pause(100);
   CucumberJsJsonReporter.attach(
-    "Test ID used for Digital Plus Monthly Subscription via Paypal is: " +
-      DigitalPLusMPaypal,
+    "Test ID used for Digital Plus Monthly Subscription via Paypal is: " + DigitalPLusMPaypal,
     "text/plain"
   );
 });
@@ -755,11 +769,12 @@ Then("I fill in new DigitalPLusAPaypal email", async () => {
   await EmailInput.setValue(DigitalPLusAPaypal);
   await browser.pause(100);
   CucumberJsJsonReporter.attach(
-    "Test ID used for Digital Plus Annual Subscription via Paypal is: " +
-      DigitalPLusAPaypal,
+    "Test ID used for Digital Plus Annual Subscription via Paypal is: " + DigitalPLusAPaypal,
     "text/plain"
   );
 });
+
+
 
 Then(
   "User fills delivery address details in Enotria Payment page",
@@ -1059,8 +1074,7 @@ Then("I fill in new digitalMPaypal email", async () => {
   await browser.pause(100);
   await EmailInput.setValue(DigitalPaypalCustEmail);
   CucumberJsJsonReporter.attach(
-    "Test ID used for Digital Monthly Plan via paypal payment method is: " +
-      DigitalPaypalCustEmail,
+    "Test ID used for Digital Monthly Plan via paypal payment method is: " + DigitalPaypalCustEmail,
     "text/plain"
   );
 });
@@ -1138,8 +1152,7 @@ Then("I fill in new digitalACC email", async () => {
   await browser.pause(100);
   await EmailInput.setValue(DigitalPaypalACustEmail);
   CucumberJsJsonReporter.attach(
-    "Test ID used for Digital Annual Plan via credit card payment method is: " +
-      DigitalPaypalACustEmail,
+    "Test ID used for Digital Annual Plan via credit card payment method is: " + DigitalPaypalACustEmail,
     "text/plain"
   );
 });
@@ -1214,8 +1227,7 @@ Then("I fill in new GiftThree email", async () => {
   await browser.pause(100);
   await EmailInput.setValue(GiftCustThreeEmail);
   CucumberJsJsonReporter.attach(
-    "Test ID used for Puzzles Digital Plus Subscription Donor: " +
-      GiftCustThreeEmail,
+    "Test ID used for Puzzles Digital Plus Subscription Donor: " + GiftCustThreeEmail,
     "text/plain"
   );
 });
@@ -1238,7 +1250,10 @@ Then("I fill in existing email", async () => {
   await EmailInput.click();
   await browser.pause(100);
   await EmailInput.setValue(CustEmail);
-  CucumberJsJsonReporter.attach("Test ID used is: " + CustEmail, "text/plain");
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + CustEmail,
+    "text/plain"
+  );
 });
 
 Then("I fill in existing digitalete20 email", async () => {
@@ -1424,8 +1439,7 @@ Then("I fill in existing GiftTwo receipent email", async () => {
   await browser.pause(100);
   await EmailInput.setValue(GiftRcvTwoEmail);
   CucumberJsJsonReporter.attach(
-    "Test ID used for Puzzles Digital Subscription Receiver: " +
-      GiftRcvTwoEmail,
+    "Test ID used for Puzzles Digital Subscription Receiver: " + GiftRcvTwoEmail,
     "text/plain"
   );
 });
@@ -1449,8 +1463,7 @@ Then("I fill in existing GiftThree receipent email", async () => {
   await browser.pause(100);
   await EmailInput.setValue(GiftRcvThreeEmail);
   CucumberJsJsonReporter.attach(
-    "Test ID used for Puzzles Digital Plus Subscription Receiver: " +
-      GiftRcvThreeEmail,
+    "Test ID used for Puzzles Digital Plus Subscription Receiver: " + GiftRcvThreeEmail,
     "text/plain"
   );
 });
@@ -1542,7 +1555,7 @@ When("I click continue button on registration page", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-
+  
   const createAccBtn = await $('//button[@id="create-account-button"]');
   await createAccBtn.waitForDisplayed({ timeout: 50000 });
   await createAccBtn.click();
@@ -1731,7 +1744,10 @@ Then("Enter the email id in the search box", async () => {
     await browser.keys("Enter");
     await browser.pause(3000);
   }
-  CucumberJsJsonReporter.attach("Test ID used is: " + CustEmail, "text/plain");
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + CustEmail,
+    "text/plain"
+  );
 });
 
 Then("Enter the Puzzles email id in the search box", async () => {
@@ -1951,8 +1967,7 @@ Then("Enter the GiftTwo email id in the search box", async () => {
     await browser.keys("Enter");
     await browser.pause(3000);
     CucumberJsJsonReporter.attach(
-      "Test ID used for Puzzles Digital Subscription Donor: " +
-        GiftCustTwoEmail,
+      "Test ID used for Puzzles Digital Subscription Donor: " + GiftCustTwoEmail,
       "text/plain"
     );
   }
@@ -2170,8 +2185,7 @@ Then("Enter the GiftThree email id in the search box", async () => {
     await browser.keys("Enter");
     await browser.pause(3000);
     CucumberJsJsonReporter.attach(
-      "Test ID used for Puzzles Digital Plus Subscription Donor: " +
-        GiftCustThreeEmail,
+      "Test ID used for Puzzles Digital Plus Subscription Donor: " + GiftCustThreeEmail,
       "text/plain"
     );
   }
@@ -2282,6 +2296,7 @@ Then("I login to Salesforce", async () => {
     await browser.pause(100);
   }
 });
+
 
 Then("Validate TS number is generated in Subscriber Number field", async () => {
   await browser.pause(100);
@@ -2598,7 +2613,7 @@ Then("Go to Zoura Subscription Page for DigitalPlusCC", async () => {
 
 Then("Open Subscription in Zoura for Puzzles", async () => {
   //await browser.pause(100);
-  browser.waitUntil(
+  await browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
       timeout: 60 * 1000, // 60 seconds
@@ -2610,7 +2625,9 @@ Then("Open Subscription in Zoura for Puzzles", async () => {
   await SubIDOpen.waitForDisplayed({ timeout: 50000 });
   await SubIDOpen.click();
 
-  browser.waitUntil(
+  await browser.pause(5000);
+
+  await browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
       timeout: 60 * 1000, // 60 seconds
@@ -2621,7 +2638,7 @@ Then("Open Subscription in Zoura for Puzzles", async () => {
 
 Then("Validate Name and Account number in Zoura", async () => {
   //await browser.pause(100);
-  browser.waitUntil(
+  await browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
       timeout: 60 * 1000, // 60 seconds
@@ -2749,7 +2766,7 @@ Then("Validate AutoRenew", async () => {
 
 When("I launch Zoura application", async () => {
   await browser.url("https://apisandbox.zuora.com/");
-  await browser.maximizeWindow();
+  //await browser.maximizeWindow();
   browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
@@ -2760,23 +2777,17 @@ When("I launch Zoura application", async () => {
 });
 
 When("Login to Zoura", async () => {
-  await browser.refresh();
-  browser.waitUntil(
-    () => browser.execute(() => document.readyState === "complete"),
-    {
-      timeout: 60 * 1000, // 60 seconds
-      timeoutMsg: "Message on failure",
-    }
-  );
+  //await browser.refresh();
   const Zourausername = await $('//input[@name="username"]');
   const Zourapwd = await $('//input[@id="id_password"]');
   const ZouraloginBTN = await $('//a[@class="btn-login"]');
   try {
     if (Zourausername.isExisting) {
-      await Zourausername.waitForDisplayed({ timeout: 50000 });
+      await Zourausername.waitForDisplayed({ timeout: 20000 });
       await Zourausername.setValue("akshat.tembhare@telegraph.co.uk.qa");
       await Zourapwd.setValue("Aytakshat@1");
       await ZouraloginBTN.click();
+      await browser.pause(2000);
       browser.waitUntil(
         () => browser.execute(() => document.readyState === "complete"),
         {
@@ -2790,6 +2801,26 @@ When("Login to Zoura", async () => {
   } finally {
     await browser.pause(100);
   }
+
+  // try {
+  //   if (Zourausername.isExisting) {
+  //     await Zourausername.waitForDisplayed({ timeout: 30000 });
+  //     await Zourausername.setValue("akshat.tembhare@telegraph.co.uk.qa");
+  //     await Zourapwd.setValue("Aytakshat@1");
+  //     await ZouraloginBTN.click();
+  //     browser.waitUntil(
+  //       () => browser.execute(() => document.readyState === "complete"),
+  //       {
+  //         timeout: 60 * 1000, // 60 seconds
+  //         timeoutMsg: "Message on failure",
+  //       }
+  //     );
+  //   }
+  // } catch (error) {
+  //   console.error("no such element");
+  // } finally {
+  //   await browser.pause(100);
+  // }
 });
 
 // Then("I nagivate to MyAccount Page", async () => {
@@ -2993,6 +3024,7 @@ Then("User clicks on Digital Plus Plan Annual", async () => {
   await DigitalPBuyAnunual.click();
 });
 
+
 Then("Click on View Subscription Offers", async () => {
   await browser.pause(100);
   browser.waitUntil(
@@ -3097,10 +3129,17 @@ Then("User completes the purchase", async () => {
   } catch (error) {
     console.error("no such element");
   } finally {
+    await browser.pause(100);
+  }
+
+
+
+  try {
+  
     const subContinueBtn = await $(
       '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"][2]'
     );
-    await subContinueBtn.waitForDisplayed({ timeout: 50000 });
+    await subContinueBtn.waitForDisplayed({ timeout: 30000 });
     await subContinueBtn.click();
 
     const subSkipContinueBtn = await $(
@@ -3123,14 +3162,12 @@ Then("User completes the purchase", async () => {
     );
     await pickwhrleftoff.waitForDisplayed({ timeout: 50000 });
     await pickwhrleftoff.click();
-    browser.waitUntil(
-      () => browser.execute(() => document.readyState === "complete"),
-      {
-        timeout: 60 * 1000, // 60 seconds
-        timeoutMsg: "Message on failure",
-      }
-    );
+  } catch (error) {
+    console.error("no such element");
+  }  finally {
+    await browser.pause(100);
   }
+
 });
 
 Then("User completes the purchase as loggedout Registrant", async () => {
@@ -3290,13 +3327,15 @@ Then("Input CreditCard Payment details", async () => {
   await CardSubmitBtn.waitForDisplayed({ timeout: 50000 });
   await CardSubmitBtn.click();
 
-  browser.waitUntil(
+  await browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
       timeout: 60 * 1000, // 60 seconds
       timeoutMsg: "Message on failure",
     }
   );
+
+  await browser.pause(5000)
 });
 
 Then("Validate Your Subscription section", async () => {
@@ -3955,7 +3994,9 @@ When("Enter subscriber email in search box", async () => {
   const pianoSearchBtnInput = await $('//a[@class="mine-users"]');
   const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
   const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
-  const pianoUserSrchResultSelect = await $("//div[contains(text(),'Akshat')]");
+  const pianoUserSrchResultSelect = await $(
+    "//div[contains(text(),'Akshat')]"
+  );
   await pianoMenuUser.waitForDisplayed({ timeout: 50000 });
   await pianoMenuUser.doubleClick();
   await browser.pause(1000);
@@ -3970,7 +4011,10 @@ When("Enter subscriber email in search box", async () => {
 
   await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
   await pianoUserSrchResultSelect.click();
-  CucumberJsJsonReporter.attach("Test ID used is: " + CustEmail, "text/plain");
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + CustEmail,
+    "text/plain"
+  );
 });
 
 When("Enter Digital subscriber email in search box", async () => {
@@ -4142,7 +4186,9 @@ When("Enter Gift Receipenet email in search box", async () => {
   const pianoSearchBtnInput = await $('//a[@class="mine-users"]');
   const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
   const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
-  const pianoUserSrchResultSelect = await $('//div[contains(text(),"Akshat")]');
+  const pianoUserSrchResultSelect = await $(
+    '//div[contains(text(),"Akshat")]'
+  );
   await pianoMenuUser.waitForDisplayed({ timeout: 50000 });
   await pianoMenuUser.doubleClick();
   await browser.pause(1000);
@@ -4169,7 +4215,9 @@ When("Enter GiftTwo Receipent email in search box", async () => {
   const pianoSearchBtnInput = await $('//a[@class="mine-users"]');
   const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
   const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
-  const pianoUserSrchResultSelect = await $('//div[contains(text(),"Akshat")]');
+  const pianoUserSrchResultSelect = await $(
+    '//div[contains(text(),"Akshat")]'
+  );
   await pianoMenuUser.waitForDisplayed({ timeout: 50000 });
   await pianoMenuUser.doubleClick();
   await browser.pause(1000);
@@ -4185,8 +4233,7 @@ When("Enter GiftTwo Receipent email in search box", async () => {
   await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
   await pianoUserSrchResultSelect.click();
   CucumberJsJsonReporter.attach(
-    "Test ID used for Puzzles Digital Subscription Receiver: " +
-      GiftRcvTwoEmail,
+    "Test ID used for Puzzles Digital Subscription Receiver: " + GiftRcvTwoEmail,
     "text/plain"
   );
 });
@@ -4197,7 +4244,9 @@ When("Enter GiftThree Receipent email in search box", async () => {
   const pianoSearchBtnInput = await $('//a[@class="mine-users"]');
   const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
   const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
-  const pianoUserSrchResultSelect = await $('//div[contains(text(),"Akshat")]');
+  const pianoUserSrchResultSelect = await $(
+    '//div[contains(text(),"Akshat")]'
+  );
   await pianoMenuUser.waitForDisplayed({ timeout: 50000 });
   await pianoMenuUser.doubleClick();
   await browser.pause(1000);
@@ -4213,8 +4262,7 @@ When("Enter GiftThree Receipent email in search box", async () => {
   await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
   await pianoUserSrchResultSelect.click();
   CucumberJsJsonReporter.attach(
-    "Test ID used for Puzzles Digital Plus Subscription Receiver: " +
-      GiftRcvThreeEmail,
+    "Test ID used for Puzzles Digital Plus Subscription Receiver: " + GiftRcvThreeEmail,
     "text/plain"
   );
 });
@@ -5078,8 +5126,7 @@ Then("Enter the GiftThree Donor email id in the search box", async () => {
     //await MPPCustEmailInput.setValue(testemail);
     await MPPCustEmailInput.setValue(GiftCustThreeEmail);
     CucumberJsJsonReporter.attach(
-      "Test ID used for Digital Plus Gift Subscription Donor: " +
-        GiftCustThreeEmail,
+      "Test ID used for Digital Plus Gift Subscription Donor: " + GiftCustThreeEmail,
       "text/plain"
     );
     //await MPPCustEmailInput.setValue("testgift121@telegraph.com");
@@ -5152,7 +5199,7 @@ Then("Enter the Gift redeem email id in the search box", async () => {
   const SearchBarClick = await $(
     '//button[contains(@class,"slds-button slds-button_neutral search")]'
   );
-  await SearchBarClick.waitForDisplayed({ timeout: 20000 });
+  await SearchBarClick.waitForDisplayed({ timeout: 40000 });
   // await SearchBarClick.click();
   await browser.pause(1500);
   await SearchBarClick.doubleClick();
@@ -5293,10 +5340,10 @@ When("Redemption of GiftTwo subscription", async () => {
   await browser.pause(3000);
 
   CucumberJsJsonReporter.attach(
-    "Test ID used for Puzzles Digital Subscription Receiver: " +
-      GiftRcvTwoEmail,
+    "Test ID used for Puzzles Digital Subscription Receiver: " + GiftRcvTwoEmail,
     "text/plain"
   );
+
 
   const StreetLineOne = await $('//input[@id="streetline1"]');
   await StreetLineOne.waitForDisplayed({ timeout: 20000 });
@@ -5358,8 +5405,7 @@ When("Redemption of GiftThree subscription", async () => {
   await browser.pause(3000);
 
   CucumberJsJsonReporter.attach(
-    "Test ID used for Puzzles Digital Plus Subscription Receiver: " +
-      GiftRcvThreeEmail,
+    "Test ID used for Puzzles Digital Plus Subscription Receiver: " + GiftRcvThreeEmail,
     "text/plain"
   );
 
@@ -5475,13 +5521,13 @@ Then("Validate User able to purchase Puzzles from MyAccount page", async () => {
   );
   const AddPuzzleBTN = await $('//button[contains(text(),"Add Puzzles")]');
   const ConfrimPayBTN = await $('//button[contains(text(),"Confirm payment")]');
-  const PlayNowBtn = await $('//a[text()="Play now"]');
+  const PlayNowBtn = await $('//*[text()="Play now"]');
   await browser.scroll(0, 200);
   try {
-    await AddPuzzleBTN.waitForDisplayed({ timeout: 50000 });
+    await AddPuzzleBTN.waitForDisplayed({ timeout: 30000 });
     await AddPuzzleBTN.doubleClick();
     await browser.pause(500);
-    await ConfrimPayBTN.waitForDisplayed({ timeout: 50000 });
+    await ConfrimPayBTN.waitForDisplayed({ timeout: 30000 });
     await ConfrimPayBTN.click();
     await browser.pause(600);
     await ConfrimPayBTN.waitForDisplayed({ timeout: 20000 });
@@ -5569,7 +5615,7 @@ Then("Validate User able to purchase Puzzles from MyAccount page", async () => {
     }
   );
 
-  await PlayNowBtn.waitForDisplayed({ timeout: 50000 });
+  await PlayNowBtn.waitForDisplayed({ timeout: 30000 });
   await PlayNowBtn.isExisting();
   await browser.pause(4500);
 });
@@ -5696,7 +5742,7 @@ Then("User Opens Subscription page", async () => {
 
 Then("Go to Zoura Subscription Page for Puzzles", async () => {
   //await browser.pause(100);
-  browser.waitUntil(
+  await browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
       timeout: 60 * 1000, // 60 seconds
@@ -5705,15 +5751,23 @@ Then("Go to Zoura Subscription Page for Puzzles", async () => {
   );
   await browser.url(ZouraSubURLPuzzle);
   await browser.pause(2000);
+  await browser.url(ZouraSubURLPuzzle);
+  await browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
   CucumberJsJsonReporter.attach(
-    "Subscription ID for Puzzles Subscription: " + RecordSubID,
+    "Subscription ID for Puzzles Subscription: " + RecordSubIDP,
     "text/plain"
   );
 });
 
 Then("Go to Zoura Subscription Page for digitalMPaypalforPuzzles", async () => {
   //await browser.pause(100);
-  browser.waitUntil(
+  await browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
       timeout: 60 * 1000, // 60 seconds
@@ -5730,7 +5784,7 @@ Then("Go to Zoura Subscription Page for digitalMPaypalforPuzzles", async () => {
 
 Then("Go to Zoura Subscription Page for Puzzledigitalbotlon", async () => {
   //await browser.pause(100);
-  browser.waitUntil(
+  await browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
       timeout: 60 * 1000, // 60 seconds
@@ -5747,7 +5801,7 @@ Then("Go to Zoura Subscription Page for Puzzledigitalbotlon", async () => {
 
 Then("Go to Zoura digitalMPaypaletePuzzles Subscription Page", async () => {
   //await browser.pause(100);
-  browser.waitUntil(
+  await browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
       timeout: 60 * 1000, // 60 seconds
@@ -5766,7 +5820,7 @@ Then(
   "Validate if user has any subscription for puzzle in salesforce",
   async () => {
     await browser.pause(100);
-    browser.waitUntil(
+    await browser.waitUntil(
       () => browser.execute(() => document.readyState === "complete"),
       {
         timeout: 60 * 1000, // 60 seconds
@@ -6659,6 +6713,7 @@ Then(
       "text/plain"
     );
   }
+  
 );
 
 Then("Validate if Cancellation user has active subscription", async () => {
@@ -6789,8 +6844,7 @@ Then("I fill in existing digitalMPaypal email", async () => {
   await EmailInput.click();
   await EmailInput.setValue(DigitalPaypalCustEmail);
   CucumberJsJsonReporter.attach(
-    "Test ID used for Digital Monthly Plan via paypal payment method is: " +
-      DigitalPaypalCustEmail,
+    "Test ID used for Digital Monthly Plan via paypal payment method is: " + DigitalPaypalCustEmail,
     "text/plain"
   );
 });
@@ -6863,8 +6917,7 @@ Then("Enter the digitalMPaypal in the search box of salesforce", async () => {
     await browser.keys("Enter");
     await browser.pause(3000);
     CucumberJsJsonReporter.attach(
-      "Test ID used for Digital Monthly Plan via paypal payment method is: " +
-        DigitalPaypalCustEmail,
+      "Test ID used for Digital Monthly Plan via paypal payment method is: " + DigitalPaypalCustEmail,
       "text/plain"
     );
   }
@@ -6885,8 +6938,7 @@ When("Enter digitalMPaypal subscriber email in search box", async () => {
   await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
   await pianoUserSrchResultSelect.click();
   CucumberJsJsonReporter.attach(
-    "Test ID used for Digital Monthly Plan via paypal payment method is: " +
-      DigitalPaypalCustEmail,
+    "Test ID used for Digital Monthly Plan via paypal payment method is: " + DigitalPaypalCustEmail,
     "text/plain"
   );
 });
@@ -6912,8 +6964,7 @@ Then("I fill in existing digitalACC email", async () => {
   await EmailInput.click();
   await EmailInput.setValue(DigitalPaypalACustEmail);
   CucumberJsJsonReporter.attach(
-    "Test ID used for Digital Annual Plan via credit card payment method is: " +
-      DigitalPaypalACustEmail,
+    "Test ID used for Digital Annual Plan via credit card payment method is: " + DigitalPaypalACustEmail,
     "text/plain"
   );
 });
@@ -6986,8 +7037,7 @@ Then("Enter the digitalACC in the search box of salesforce", async () => {
     await browser.keys("Enter");
     await browser.pause(3000);
     CucumberJsJsonReporter.attach(
-      "Test ID used for Digital Annual Plan via credit card payment method is: " +
-        DigitalPaypalACustEmail,
+      "Test ID used for Digital Annual Plan via credit card payment method is: " + DigitalPaypalACustEmail,
       "text/plain"
     );
   }
@@ -7008,8 +7058,7 @@ When("Enter digitalACC subscriber email in search box", async () => {
   await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
   await pianoUserSrchResultSelect.click();
   CucumberJsJsonReporter.attach(
-    "Test ID used for Digital Annual Plan via credit card payment method is: " +
-      DigitalPaypalACustEmail,
+    "Test ID used for Digital Annual Plan via credit card payment method is: " + DigitalPaypalACustEmail,
     "text/plain"
   );
 });
@@ -7084,8 +7133,7 @@ Then(
       await browser.keys("Enter");
       await browser.pause(3000);
       CucumberJsJsonReporter.attach(
-        "Test ID used for loggedOut Registrant for Digital Monthly Plan is: " +
-          DigitalCustMRegistrant,
+        "Test ID used for loggedOut Registrant for Digital Monthly Plan is: " + DigitalCustMRegistrant,
         "text/plain"
       );
     }
@@ -7111,8 +7159,7 @@ When(
     await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
     await pianoUserSrchResultSelect.click();
     CucumberJsJsonReporter.attach(
-      "Test ID used for loggedOut Registrant for Digital Monthly Plan is: " +
-        DigitalCustMRegistrant,
+      "Test ID used for loggedOut Registrant for Digital Monthly Plan is: " + DigitalCustMRegistrant,
       "text/plain"
     );
   }
@@ -7188,8 +7235,7 @@ Then(
       await browser.keys("Enter");
       await browser.pause(3000);
       CucumberJsJsonReporter.attach(
-        "Test ID used for loggedOut Registrant for Digital Annual Plan is: " +
-          DigitalCustARegistrant,
+        "Test ID used for loggedOut Registrant for Digital Annual Plan is: " + DigitalCustARegistrant,
         "text/plain"
       );
     }
@@ -7215,8 +7261,7 @@ When(
     await pianoUserSrchResultSelect.waitForDisplayed({ timeout: 50000 });
     await pianoUserSrchResultSelect.click();
     CucumberJsJsonReporter.attach(
-      "Test ID used for loggedOut Registrant for Digital Annual Plan is: " +
-        DigitalCustARegistrant,
+      "Test ID used for loggedOut Registrant for Digital Annual Plan is: " + DigitalCustARegistrant,
       "text/plain"
     );
   }
@@ -7567,6 +7612,7 @@ Then("Enter the Digital ete2One id in the search box", async () => {
       "Test ID used is: " + CustDigitete2One,
       "text/plain"
     );
+    
   }
 });
 
@@ -7575,7 +7621,9 @@ Then("Enter existing etee2One subscriber email in search box", async () => {
   const pianoSearchBtnInput = await $('//button[@id="userMiningBtn"]');
   const pianoAdvanceSearchInput = await $('//input[@id="advanced-search"]');
   const pianoAdvanceSearchBTN = await $('//span[text()=" Search "]');
-  const pianoUserSrchResultSelect = await $('//div[contains(text(),"Akshat")]');
+  const pianoUserSrchResultSelect = await $(
+    '//div[contains(text(),"Akshat")]'
+  );
 
   await pianoSearchBtnInput.waitForDisplayed({ timeout: 50000 });
   await pianoSearchBtnInput.click();
@@ -7755,40 +7803,230 @@ Then("I fill in existing digitalforBonus email", async () => {
   );
 });
 
-Then(
-  "Validate Exclusive newsletters can be added and do not have signup CTA",
-  async () => {
-    // Write code here that turns the phrase above into concrete actions
-    await browser.pause(500);
+Then('Validate Exclusive newsletters can be added and do not have signup CTA', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await browser.pause(500);
+})
+
+Then('Validate account channel is Premium', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await browser.pause(500);
+})
+
+Then('Validate tyep of subscription is standard', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await browser.pause(500);
+})
+
+Then('Search the subscription in Zuora for ete2', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await browser.pause(500);
+})
+
+Then('validate Zuora Data for ete2', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await browser.pause(500);
+})
+
+Then('Search the subscription in Zuora in ete2', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await browser.pause(500);
+})
+
+Then('validate the status of the subscription in Zuora', async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await browser.pause(500);
+});
+
+Then('Create New Subscription', async () => {
+  // Write code here that turns the phrase above into concrete actions
+
+
+  await browser.refresh();
+  await browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+
+  const accountsecelt = await $('//span[text()="Customer Account"]//following::a[1]');
+  await accountsecelt.waitForDisplayed();
+  await accountsecelt.click();
+  await browser.pause(5000);
+
+  const createNewSubBtn = await $('//span[text()="create new subscription"]');
+  await createNewSubBtn.waitForDisplayed();
+  await createNewSubBtn.click();
+
+  await browser.scroll(0, 200);
+
+  const aquichannel = await $('//h5[contains(text(),"Acquisition Channel")]//following::select[1]');
+  await aquichannel.waitForDisplayed();
+  //await aquichannel.selectByAttribute("value", "TCUK");
+  await aquichannel.selectByVisibleText("TCUK")
+  await browser.keys("\ue004");
+
+  const suborigin = await $('//h5[contains(text(),"Subscription Origin")]//following::select[1]');
+  await suborigin.waitForDisplayed();
+  //await suborigin.selectByAttribute("value", "Online");
+  await suborigin.selectByVisibleText("Online")
+  await browser.keys("\ue004");
+  
+  const subrateplanterm = await $('//h5[contains(text(),"Subscription Rate Plan Term")]//following::input[1]');
+  await subrateplanterm.waitForDisplayed();
+  await subrateplanterm.setValue("Annually");
+  await browser.keys("\ue004");
+
+
+  const Campaigncode = await $('//h5[contains(text(),"Campaign Code")]//following::input[1]');
+  await Campaigncode.waitForDisplayed();
+  await Campaigncode.setValue("116A");
+  await browser.keys("\ue004");
+
+  const promocode = await $('//h5[contains(text(),"Promo Code")]//following::input[1]');
+  await promocode.waitForDisplayed();
+  await promocode.setValue("puzzles-annual-RP382");
+  await browser.keys("\ue004");
+
+  const tyepsub = await $('//h5[contains(text(),"Type of Subscription")]//following::select[1]');
+  await tyepsub.waitForDisplayed();
+  await tyepsub.selectByVisibleText("Standard");
+  await browser.keys("\ue004");
+
+  const productselect = await $('//h5[contains(text(),"Product")]//following::input[1]');
+  await productselect.waitForDisplayed();
+  await productselect.setValue("Website+ UK");
+  // await browser.keys("\ue004");
+  // await browser.keys("\ue004");
+  await browser.keys("Tab");
+  await browser.keys("Enter");
+
+  const rateplanselect = await $('//h5[contains(text(),"Rate Plan:")]//following::input[1]');
+  await rateplanselect.waitForDisplayed();
+  await rateplanselect.click();
+  await rateplanselect.setValue("Open Offer - Monthly");
+  //await browser.keys("\ue004");
+  await browser.keys("Tab");
+
+  const subsaveactivate = await $('//span[text()="save and activate"]');
+  await subsaveactivate.waitForDisplayed();
+  await subsaveactivate.click();
+
+await browser.pause(5000);
+
+const contracteffectivedateone = await $('//h5[contains(text(),"Contract Effective:")]//following::input[1]');
+const contracteffectivedatetwo = await $('//h5[contains(text(),"Contract Effective:")]//following::input[2]');
+const contracteffectivedatethree = await $('//h5[contains(text(),"Contract Effective:")]//following::input[3]');
+
+await contracteffectivedateone.waitForDisplayed();
+await contracteffectivedateone.setValue("01/04/2024");
+await browser.keys("TAB");
+await browser.pause(2000);
+await contracteffectivedatetwo.waitForDisplayed();
+await contracteffectivedatetwo.click();
+await contracteffectivedatetwo.setValue("01/04/2024");
+await browser.pause(2000);
+await contracteffectivedatethree.waitForDisplayed();
+await contracteffectivedatethree.click();
+await contracteffectivedatethree.setValue("01/04/2024");
+await browser.pause(1000);
+
+const contractsave = await $('//h5[contains(text(),"Contract Effective:")]//following::span[text()="save"]');
+  await contractsave.waitForDisplayed();
+  await contractsave.click();
+
+  await browser.pause(5000);
+  await browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+});
+
+
+
+Then('Create Bill Run with Payment',  async () => {
+
+  const createbillrun = await $('//span[text()="Create Bill Run"]');
+  await createbillrun.waitForDisplayed();
+  await createbillrun.click();
+
+  await browser.pause(7000);
+
+  const labelone = await $('//span[text()="Processing Rules"]//following::label[1]');
+  await labelone.waitForDisplayed();
+  await labelone.click();
+
+  const labeltwo = await $('//span[text()="Processing Rules"]//following::label[5]');
+  await labeltwo.waitForDisplayed();
+  await labeltwo.click();
+
+
+  const createbillruntwo = await $('//span[text()="Bill Runs"]//following::span[text()="Create Bill Run"][2]');
+  await createbillruntwo.waitForDisplayed();
+  await createbillruntwo.click();
+
+  const yesbtnnn = await $('//h6[text()="Confirmation"]//following::span[text()="Yes"]');
+  await yesbtnnn.waitForDisplayed();
+  await yesbtnnn.click();
+
+  await browser.pause(7000);
+
+
+const refreshvtnnn = await $('//span[text()="Refresh"]');
+await refreshvtnnn.waitForDisplayed();
+await refreshvtnnn.click();
+await browser.pause(5000);
+await refreshvtnnn.click();
+await browser.pause(3000);
+const postedbtnnn = await $('//span[text()="Posted"]');
+await postedbtnnn.waitForDisplayed();
+
+const clickinvoice = await $('//div[text()="Documents"]//following::span[contains(text(),"INV0")]');
+await clickinvoice.waitForDisplayed();
+await clickinvoice.click();
+
+const clickinvoicethree = await $('//span[contains(text(),"INV0")]//following::button[3]');
+await clickinvoicethree.waitForDisplayed();
+await clickinvoicethree.click();
+
+await browser.pause(3000);
+
+const createpay = await $('//span[contains(text(),"INV0")]//following::button[text()="Create Payment"]');
+await createpay.waitForDisplayed();
+await createpay.click();
+
+await browser.pause(7000);
+
+//const eternal = await $('//h5[contains(text()," Type of Payment: ")]//following::label[1]');
+const eternal = await $('//input[@value="External"]');
+await eternal.waitForDisplayed();
+await eternal.click();
+await browser.pause(7000);
+
+const paymethod = await $('//h5[contains(text()," Payment Method: ")]//following::select[1]');
+await paymethod.waitForDisplayed();
+await paymethod.selectByVisibleText("Credit Card");
+await browser.keys("\ue004");
+await browser.pause(4000);
+
+const createPaybtn = await $('//span[text()="create payment"]');
+await createPaybtn.waitForDisplayed();
+await createPaybtn.click();
+
+const createPaybtnyes = await $('//td[text()="Are you sure you want to apply an External payment of "]//following::span[text()="Yes"]');
+await createPaybtnyes.waitForDisplayed();
+await createPaybtnyes.click();
+
+await browser.waitUntil(
+  () => browser.execute(() => document.readyState === "complete"),
+  {
+    timeout: 60 * 1000, // 60 seconds
+    timeoutMsg: "Message on failure",
   }
 );
-
-Then("Validate account channel is Premium", async () => {
-  // Write code here that turns the phrase above into concrete actions
-  await browser.pause(500);
-});
-
-Then("Validate tyep of subscription is standard", async () => {
-  // Write code here that turns the phrase above into concrete actions
-  await browser.pause(500);
-});
-
-Then("Search the subscription in Zuora for ete2", async () => {
-  // Write code here that turns the phrase above into concrete actions
-  await browser.pause(500);
-});
-
-Then("validate Zuora Data for ete2", async () => {
-  // Write code here that turns the phrase above into concrete actions
-  await browser.pause(500);
-});
-
-Then("Search the subscription in Zuora in ete2", async () => {
-  // Write code here that turns the phrase above into concrete actions
-  await browser.pause(500);
-});
-
-Then("validate the status of the subscription in Zuora", async () => {
-  // Write code here that turns the phrase above into concrete actions
-  await browser.pause(500);
-});
+})

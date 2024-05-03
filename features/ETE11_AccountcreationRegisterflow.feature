@@ -181,44 +181,44 @@ Scenario: TC_17:Validate Registrant User data in Zoura
 
 
 
-##Description
-# To create a registrant on online flow Using a Valid Email/facebook/google/apple
-# Flow:
-# User clicks login from home page
-# User creates a registrant account using all methods above
-# User redirected to home page after account creation
-# user navigates to MyAccount
-# MyAccount validations:
-# Validate user is a registrant with yellow banner on MyAccount page
-# Validate there is no active subscription
-# Validate ‘The From The Editor Newsletters’ is added by default in the My Newsletters tab
-# Validate Exclusive news letters cant be added and have a ‘Sign up’ CTA
-# Piano Validations:
-# Navigate to piano
-# click users
-# From dropdown click all users and enter email in search bar
-# Validate user is in piano
-# Validate member since field matches the date the registration date
-# validate registrant has no Access (Entitlements)
-# Validate user has a Piano ID generated and the same ID is passed to Salesforce
-# Salsforce validations:
-# OnAccount level in details Tab
-# validate name
-# Validate TS number is generated in Subscriber Number field
-# Validate a GUID (SAM) is generated
-# Validate a piano ID is generated and matches the ID in piano
-# Validate Digital status is Registrant
-# Validate account record type is Registrant
-# Validate Print Status is Inactive
-# Validate account channel is Premium
-# OnAccount level in Subscriptions Tab
-# Validate no subscription s created
-# OnAccount level in Newsletter tab
-# Validate ‘The From The Editor Newsletters’ is added by default
-# OnAccount level in System Tab
-# Validate that no entitlements are added in the current entitlements table
-# If registrant signed up via email then validate no Social Account is linked
-# If registrant signed up via facebook/apple or google then Validate Social account is linked
-# During registration if the user selects the checkbox “I would like to receive by email other offers, promotions and services from Telegraph Media Group Ltd and its group companies.“ Then in Salesforce and frontend MyAccount validate under market preferences that Email is selected.
-# During Registration if the user adds additional newsletters then validate the Newsletters are added on the account in Salesforce under newsletter tab and also on Frontend Myaccount under My Newsletters tab.
-# As there is no subscription there should be no account details stored in Zuora
+# ##Description
+# # To create a registrant on online flow Using a Valid Email/facebook/google/apple
+# # Flow:
+# # User clicks login from home page
+# # User creates a registrant account using all methods above
+# # User redirected to home page after account creation
+# # user navigates to MyAccount
+# # MyAccount validations:
+# # Validate user is a registrant with yellow banner on MyAccount page
+# # Validate there is no active subscription
+# # Validate ‘The From The Editor Newsletters’ is added by default in the My Newsletters tab
+# # Validate Exclusive news letters cant be added and have a ‘Sign up’ CTA
+# # Piano Validations:
+# # Navigate to piano
+# # click users
+# # From dropdown click all users and enter email in search bar
+# # Validate user is in piano
+# # Validate member since field matches the date the registration date
+# # validate registrant has no Access (Entitlements)
+# # Validate user has a Piano ID generated and the same ID is passed to Salesforce
+# # Salsforce validations:
+# # OnAccount level in details Tab
+# # validate name
+# # Validate TS number is generated in Subscriber Number field
+# # Validate a GUID (SAM) is generated
+# # Validate a piano ID is generated and matches the ID in piano
+# # Validate Digital status is Registrant
+# # Validate account record type is Registrant
+# # Validate Print Status is Inactive
+# # Validate account channel is Premium
+# # OnAccount level in Subscriptions Tab
+# # Validate no subscription s created
+# # OnAccount level in Newsletter tab
+# # Validate ‘The From The Editor Newsletters’ is added by default
+# # OnAccount level in System Tab
+# # Validate that no entitlements are added in the current entitlements table
+# # If registrant signed up via email then validate no Social Account is linked
+# # If registrant signed up via facebook/apple or google then Validate Social account is linked
+# # During registration if the user selects the checkbox “I would like to receive by email other offers, promotions and services from Telegraph Media Group Ltd and its group companies.“ Then in Salesforce and frontend MyAccount validate under market preferences that Email is selected.
+# # During Registration if the user adds additional newsletters then validate the Newsletters are added on the account in Salesforce under newsletter tab and also on Frontend Myaccount under My Newsletters tab.
+# # As there is no subscription there should be no account details stored in Zuora

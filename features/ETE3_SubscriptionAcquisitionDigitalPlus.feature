@@ -4,107 +4,85 @@ Feature: ETE 3 Subscription Acquisition Digital plus monthly & Annual
 
     Scenario: TC_01:User purchasing Digital Plus Monthly plan with Paypal
         Given I launch login from homepage
-    #     And   I fill in new DigitalPLusMPaypal email
-    #     When  I click login-register button
-    #     And   I enter "valid" register password
-    #     Then  I enter "right" first name and last name
-    #     When  I click continue button on registration page
-    #     Then  Validate HomePage
-    #     When  Go to My Account page
-    #     Then  Click on View Subscription Offers
-    #     Then  User clicks on Digital Plus Plan Monthly
-    #     Then  Validate user is redirected to Payment gateway page
-    #     Then  Input paypal Payment details
-    #     Then  User completes the purchase for DigitalPlus
-    #     Then  Validate HomePage
-    #     When  Go to My Account page
-    #     Then  Logout from Customer application
+        And   I fill in new DigitalPLusMPaypal email
+        When  I click login-register button
+        And   I enter "valid" register password
+        Then  I enter "right" first name and last name
+        When  I click continue button on registration page
+        Then  Validate HomePage
+        When  Go to My Account page
+        Then  Click on View Subscription Offers
+        Then  User clicks on Digital Plus Plan Monthly
+        Then  Validate user is redirected to Payment gateway page
+        Then  Input paypal Payment details
+        Then  User completes the purchase for DigitalPlus
+        Then  Validate HomePage
+        When  Go to My Account page
+        Then  Logout from Customer application
 
-    # Scenario: TC_02:User purchasing Digital Plus Annual plan with Paypal
-    #     Given I launch login from homepage
-    #     And   I fill in new DigitalPLusAPaypal email
-    #     When  I click login-register button
-    #     And   I enter "valid" register password
-    #     Then  I enter "right" first name and last name
-    #     When  I click continue button on registration page
-    #     Then  Validate HomePage
-    #     When  Go to My Account page
-    #     Then  Click on View Subscription Offers
-    #     Then  User clicks on Digital Plus Plan Annual
-    #     Then  Validate user is redirected to Payment gateway page
-    #     Then  Input paypal Payment details
-    #     Then  User completes the purchase for DigitalPlus
-    #     Then  Validate HomePage
-    #     When  Go to My Account page
-    #     Then  Logout from Customer application
+    Scenario: TC_02:User purchasing Digital Plus Annual plan with Paypal
+        Given I launch login from homepage
+        And   I fill in new DigitalPLusAPaypal email
+        When  I click login-register button
+        And   I enter "valid" register password
+        Then  I enter "right" first name and last name
+        When  I click continue button on registration page
+        Then  Validate HomePage
+        When  Go to My Account page
+        Then  Click on View Subscription Offers
+        Then  User clicks on Digital Plus Plan Annual
+        Then  Validate user is redirected to Payment gateway page
+        Then  Input paypal Payment details
+        Then  User completes the purchase for DigitalPlus
+        Then  Validate HomePage
+        When  Go to My Account page
+        Then  Logout from Customer application
 
-    # Scenario: TC_03:User Purchasing Digital Plus Plan Monthly as logged out registrant
-    #     Given I launch Telegraph homepage
-    #     And   I click on subscribeNow button on homepage
-    #     Then  User clicks on Digital Plus Plan Monthly
-    #     Then  Validate user is redirected to Payment gateway page
-    #     And   User Enters Email ID as a logged out registrant
-    #     Then  Input CreditCard Payment details
-    #     Then  Validate User is asked to create password
-    #     And   User Enters First and Last with password
-    #     When  Go to My Account page
-    #     Then  Click on Manage Your Details button
-    #     Then  Logout from Customer application
+    Scenario: TC_03:User Purchasing Digital Plus Plan Monthly as logged out registrant
+        Given I launch Telegraph homepage
+        And   I click on subscribeNow button on homepage
+        Then  User clicks on Digital Plus Plan Monthly
+        Then  Validate user is redirected to Payment gateway page
+        And   User Enters Email ID as a logged out registrant
+        Then  Input CreditCard Payment details
+        Then  Validate User is asked to create password
+        And   User Enters First and Last with password
+        When  Go to My Account page
+        Then  Click on Manage Your Details button
+        Then  Logout from Customer application
 
-    # Scenario: TC_04:User Purchasing Digital Plus Plan Annual as logged out registrant
-    #     Given I launch Telegraph homepage
-    #     And   I click on subscribeNow button on homepage
-    #     Then  User clicks on Digital Plus Plan Annual
-    #     Then  Validate user is redirected to Payment gateway page
-    #     And   User Enters Email ID as a logged out registrant Annual
-    #     Then  Input CreditCard Payment details
-    #     Then  Validate User is asked to create password
-    #     And   User Enters First and Last with password
-    #     When  Go to My Account page
-    #     Then  Click on Manage Your Details button
-    #     Then  Logout from Customer application
+    Scenario: TC_04:User Purchasing Digital Plus Plan Annual as logged out registrant
+        Given I launch Telegraph homepage
+        And   I click on subscribeNow button on homepage
+        Then  User clicks on Digital Plus Plan Annual
+        Then  Validate user is redirected to Payment gateway page
+        And   User Enters Email ID as a logged out registrant Annual
+        Then  Input CreditCard Payment details
+        Then  Validate User is asked to create password
+        And   User Enters First and Last with password
+        When  Go to My Account page
+        Then  Click on Manage Your Details button
+        Then  Logout from Customer application
 
-    # Scenario: TC_05:User purchasing Digital Plus Monthly plan with Credit Card
-    #     Given I launch login from homepage
-    #     And   I fill in new DigitalPlusCC email
-    #     When  I click login-register button
-    #     And   I enter "valid" register password
-    #     Then  I enter "right" first name and last name
-    #     When  I click continue button on registration page
-    #     Then  Validate HomePage
-    #     When  Go to My Account page
-    #     Then  Click on View Subscription Offers
-    #     Then  User clicks on Digital Plus Plan Monthly
-    #     Then  Validate user is redirected to Payment gateway page
-    #     Then  Input CreditCard Payment details
-    #     Then  User completes the purchase for DigitalPlus
-    #     When  Go to My Account page
-    #     Then  Click on Manage Your Details button
-    #     Then  Logout from Customer application
+    Scenario: TC_05:User purchasing Digital Plus Monthly plan with Credit Card
+        Given I launch login from homepage
+        And   I fill in new DigitalPlusCC email
+        When  I click login-register button
+        And   I enter "valid" register password
+        Then  I enter "right" first name and last name
+        When  I click continue button on registration page
+        Then  Validate HomePage
+        When  Go to My Account page
+        Then  Click on View Subscription Offers
+        Then  User clicks on Digital Plus Plan Monthly
+        Then  Validate user is redirected to Payment gateway page
+        Then  Input CreditCard Payment details
+        Then  User completes the purchase for DigitalPlus
+        When  Go to My Account page
+        Then  Click on Manage Your Details button
+        Then  Logout from Customer application
 
-    # # Scenario: TC_06:Validate Digital Plus Subscriber Homepage in Customer web app
-    # #     Given I launch login from homepage
-    # #     And   I fill in existing DigitalPlusCC email
-    # #     When  I click login-register button
-    # #     And   I enter "valid" register password
-    # #     When  I click login-register button
-    # #     Then  Validate HomePage
-    # #     When  Go to My Account page
-    # #     Then  Click on Manage Your Details button
-    # #     Then  Logout from Customer application
-
-    # # Scenario: TC_06:Validate Digital Plus Subscriber Bonus account details in Customer web app
-    # #     Given I launch login from homepage
-    # #     And   I fill in existing DigitalPlusCC email
-    # #     When  I click login-register button
-    # #     And   I enter "valid" register password
-    # #     When  I click login-register button
-    # #     Then  Validate HomePage
-    # #     When  Go to My Account page
-    # #     Then  Validate Digital Subscriber has 1 bonus account
-    # #     Then  Logout from Customer application
-
-    # Scenario: TC_06:Validate Digital Plus Subscriber subscription details in Customer web app
+    # Scenario: TC_06:Validate Digital Plus Subscriber Homepage in Customer web app
     #     Given I launch login from homepage
     #     And   I fill in existing DigitalPlusCC email
     #     When  I click login-register button
@@ -113,10 +91,9 @@ Feature: ETE 3 Subscription Acquisition Digital plus monthly & Annual
     #     Then  Validate HomePage
     #     When  Go to My Account page
     #     Then  Click on Manage Your Details button
-    #     Then  Validate Your Subscription section
     #     Then  Logout from Customer application
 
-    # Scenario: TC_07:Validate Digital Plus Subscriber Payment details in Customer web app
+    # Scenario: TC_06:Validate Digital Plus Subscriber Bonus account details in Customer web app
     #     Given I launch login from homepage
     #     And   I fill in existing DigitalPlusCC email
     #     When  I click login-register button
@@ -124,358 +101,381 @@ Feature: ETE 3 Subscription Acquisition Digital plus monthly & Annual
     #     When  I click login-register button
     #     Then  Validate HomePage
     #     When  Go to My Account page
-    #     Then  Click on Manage Your Details button
-    #     Then  Validate Your Payment section
+    #     Then  Validate Digital Subscriber has 1 bonus account
     #     Then  Logout from Customer application
 
-    # # Scenario: TC_09:Validate Digital Plus Subscriber Newsletter details in Customer web app
-    # #     Given I launch login from homepage
-    # #     And   I fill in existing DigitalPlusCC email
-    # #     When  I click login-register button
-    # #     And   I enter "valid" register password
-    # #     When  I click login-register button
-    # #     Then  Validate HomePage
-    # #     When  Go to My Account page
-    # #     When  Navigate to Newsletters page
-    # #     Then  Validate The From The Editor Newsletters is added by default in customer app
-    # #     #Then  Validate "Subscriber rewards" is added by default in customer app
-    # #     Then  Logout from Customer application
+    Scenario: TC_06:Validate Digital Plus Subscriber subscription details in Customer web app
+        Given I launch login from homepage
+        And   I fill in existing DigitalPlusCC email
+        When  I click login-register button
+        And   I enter "valid" register password
+        When  I click login-register button
+        Then  Validate HomePage
+        When  Go to My Account page
+        Then  Click on Manage Your Details button
+        Then  Validate Your Subscription section
+        Then  Logout from Customer application
 
-    # # Scenario: TC_10:Validate Digital Plus subscriber Exclusive Newsletter details in Customer web app
-    # #     Given I launch login from homepage
-    # #     And   I fill in existing DigitalPlusCC email
-    # #     When  I click login-register button
-    # #     And   I enter "valid" register password
-    # #     When  I click login-register button
-    # #     Then  Validate HomePage
-    # #     When  Go to My Account page
-    # #     When  Navigate to Newsletters page
-    # #     Then  Validate Exclusive newsletters can be added and do not have signup CTA
-    # #     Then  Logout from Customer application
+    Scenario: TC_07:Validate Digital Plus Subscriber Payment details in Customer web app
+        Given I launch login from homepage
+        And   I fill in existing DigitalPlusCC email
+        When  I click login-register button
+        And   I enter "valid" register password
+        When  I click login-register button
+        Then  Validate HomePage
+        When  Go to My Account page
+        Then  Click on Manage Your Details button
+        Then  Validate Your Payment section
+        Then  Logout from Customer application
 
-    # # Scenario: TC_11:Validate Digital Plus Subscriber Wine details in Customer web app
-    # #     Given I launch login from homepage
-    # #     And   I fill in existing DigitalPlusCC email
-    # #     When  I click login-register button
-    # #     And   I enter "valid" register password
-    # #     When  I click login-register button
-    # #     Then  Validate HomePage
-    # #     When  Go to My Account page
-    # #     Then  Validate Wine CTA
-    # #     Then  Logout from Customer application
+    # Scenario: TC_09:Validate Digital Plus Subscriber Newsletter details in Customer web app
+    #     Given I launch login from homepage
+    #     And   I fill in existing DigitalPlusCC email
+    #     When  I click login-register button
+    #     And   I enter "valid" register password
+    #     When  I click login-register button
+    #     Then  Validate HomePage
+    #     When  Go to My Account page
+    #     When  Navigate to Newsletters page
+    #     Then  Validate The From The Editor Newsletters is added by default in customer app
+    #     #Then  Validate "Subscriber rewards" is added by default in customer app
+    #     Then  Logout from Customer application
 
-    # Scenario: TC_08:Validate Digital Plus Subscriber data in Piano
-    #     Given User opens Piano URL
-    #     When User logins to Piano account
-    #     When Navigate to All Users page
-    #     And  Enter DigitalPlus subscriber email in search box
-    #     Then Validate Registration date in Piano
-    #     Then Validate Piano UiD
-    #     Then Validate Access details in Piano
-    #     Then Validate Subscription details
-    #     Then LogOut from Piano
+    # Scenario: TC_10:Validate Digital Plus subscriber Exclusive Newsletter details in Customer web app
+    #     Given I launch login from homepage
+    #     And   I fill in existing DigitalPlusCC email
+    #     When  I click login-register button
+    #     And   I enter "valid" register password
+    #     When  I click login-register button
+    #     Then  Validate HomePage
+    #     When  Go to My Account page
+    #     When  Navigate to Newsletters page
+    #     Then  Validate Exclusive newsletters can be added and do not have signup CTA
+    #     Then  Logout from Customer application
 
-    # Scenario: TC_09:Validate Digital Plus Subscriber Print status in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     When User clicks on Details tab
-    #     Then Verify the Print Status is "Inactive"
-    #     Then Close Opened tabs in salesforce
+    # Scenario: TC_11:Validate Digital Plus Subscriber Wine details in Customer web app
+    #     Given I launch login from homepage
+    #     And   I fill in existing DigitalPlusCC email
+    #     When  I click login-register button
+    #     And   I enter "valid" register password
+    #     When  I click login-register button
+    #     Then  Validate HomePage
+    #     When  Go to My Account page
+    #     Then  Validate Wine CTA
+    #     Then  Logout from Customer application
 
-    # Scenario: TC_10:Validate Digital Plus Subscriber account channel type in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     When User clicks on Details tab
-    #     Then Validate the name in Salesforce
-    #     Then Validate account channel is Premium
-    #     Then Close Opened tabs in salesforce
+    Scenario: TC_08:Validate Digital Plus Subscriber data in Piano
+        Given User opens Piano URL
+        When User logins to Piano account
+        When Navigate to All Users page
+        And  Enter DigitalPlus subscriber email in search box
+        Then Validate Registration date in Piano
+        Then Validate Piano UiD
+        Then Validate Access details in Piano
+        Then Validate Subscription details
+        Then LogOut from Piano
 
-    # Scenario: TC_11:Validate Digital Plus Subscriber subscription status in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     When User clicks on Details tab
-    #     Then Validate subscription for digitalPlussub in salesforce
-    #     #Then Validate if user has active subscription Digital subscription
-    #     Then Close Opened tabs in salesforce
+    Scenario: TC_09:Validate Digital Plus Subscriber Print status in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        When User clicks on Details tab
+        Then Verify the Print Status is "Inactive"
+        Then Close Opened tabs in salesforce
 
-    # Scenario: TC_12:Validate Digital Plus Subscriber newsletters in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     When User clicks on Details tab
-    #     Then Verify The From The Editor Newsletter is added by default
-    #     #Then Verify Subscriber rewards is added by default
-    #     Then Close Opened tabs in salesforce
+    Scenario: TC_10:Validate Digital Plus Subscriber account channel type in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        When User clicks on Details tab
+        Then Validate the name in Salesforce
+        Then Validate account channel is Premium
+        Then Close Opened tabs in salesforce
 
-    # Scenario: TC_13:Validate Digital Plus Subscriber has 1 bonus account in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     When User clicks on Details tab
-    #     Then Validate 3 bonus promo code is generated
-    #     Then Validate bonus promo code is Unused
-    #     Then Close Opened tabs in salesforce
+    Scenario: TC_11:Validate Digital Plus Subscriber subscription status in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        When User clicks on Details tab
+        Then Validate subscription for digitalPlussub in salesforce
+        #Then Validate if user has active subscription Digital subscription
+        Then Close Opened tabs in salesforce
 
-    # Scenario: TC_14:Validate Digital Plus Subscriber billing Currency in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     When User clicks on Details tab
-    #     Then Validate Billing Currency is GBP
-    #     Then Close Opened tabs in salesforce
+    Scenario: TC_12:Validate Digital Plus Subscriber newsletters in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        When User clicks on Details tab
+        Then Verify The From The Editor Newsletter is added by default
+        #Then Verify Subscriber rewards is added by default
+        Then Close Opened tabs in salesforce
 
-    # Scenario: TC_15:Validate Digital Plus Subscriber current plan in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     When User clicks on Details tab
-    #     Then Validate Current plan is Website UK
-    #     Then Close Opened tabs in salesforce
+    Scenario: TC_13:Validate Digital Plus Subscriber has 1 bonus account in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        When User clicks on Details tab
+        Then Validate 3 bonus promo code is generated
+        Then Validate bonus promo code is Unused
+        Then Close Opened tabs in salesforce
 
-    # Scenario: TC_16:Validate Digital Plus Subscriber Subscription start and end date in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     When User clicks on Subscriptions tab
-    #     Then Validate Active subscription is created
-    #     Then Validate Subscription start date
-    #     Then Validate Subscription end date
-    #     Then Close Opened tabs in salesforce
+    Scenario: TC_14:Validate Digital Plus Subscriber billing Currency in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        When User clicks on Details tab
+        Then Validate Billing Currency is GBP
+        Then Close Opened tabs in salesforce
 
-    # Scenario: TC_17:Validate Digital Plus Subscriber social acoount data in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     Then Verify if registrant signed up via email then validate no Social Account is linked
-    #     Then Close Opened tabs in salesforce
+    Scenario: TC_15:Validate Digital Plus Subscriber current plan in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        When User clicks on Details tab
+        Then Validate Current plan is Website UK
+        Then Close Opened tabs in salesforce
 
-    # Scenario: TC_18:Validate Digital Plus Subscriber newsletters data in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     When User clicks on Newsletter tab
-    #     Then Validate The From The Editor Newsletters is added
-    #     # Then Validate Subscriber rewards is added
-    #     Then Close Opened tabs in salesforce
+    Scenario: TC_16:Validate Digital Plus Subscriber Subscription start and end date in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        When User clicks on Subscriptions tab
+        Then Validate Active subscription is created
+        Then Validate Subscription start date
+        Then Validate Subscription end date
+        Then Close Opened tabs in salesforce
 
-    # Scenario: TC_19:Validate Digital Plus Subscriber product name in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     When User clicks on Subscriptions tab
-    #     Then Validate Subscription product name
-    #     Then Close Opened tabs in salesforce
+    Scenario: TC_17:Validate Digital Plus Subscriber social acoount data in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        Then Verify if registrant signed up via email then validate no Social Account is linked
+        Then Close Opened tabs in salesforce
 
-    # Scenario: TC_20:Validate Digital Plus Subscriber Entitlements data in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     When User clicks on System tab
-    #     Then Validate Entitlements are added for digitalPlus subscription
-    #     Then Close Opened tabs in salesforce
+    Scenario: TC_18:Validate Digital Plus Subscriber newsletters data in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        When User clicks on Newsletter tab
+        Then Validate The From The Editor Newsletters is added
+        # Then Validate Subscriber rewards is added
+        Then Close Opened tabs in salesforce
 
-    # Scenario: TC_21:Validate Digital Plus Subscriber type of subscription in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     When User clicks on Payment tab
-    #     When User clicks on the Subscription
-    #     Then Validate tyep of subscription is standard
-    #     Then Close Opened tabs in salesforce
+    Scenario: TC_19:Validate Digital Plus Subscriber product name in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        When User clicks on Subscriptions tab
+        Then Validate Subscription product name
+        Then Close Opened tabs in salesforce
 
-    # Scenario: TC_22:Validate Digital Plus Subscriber Zuora details in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     When User clicks on Payment tab
-    #     When User clicks on the Subscription
-    #     Then Validate Zoura subscription status is active
-    #     Then Validate auto renew is set to true
-    #     Then Close Opened tabs in salesforce
+    Scenario: TC_20:Validate Digital Plus Subscriber Entitlements data in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        When User clicks on System tab
+        Then Validate Entitlements are added for digitalPlus subscription
+        Then Close Opened tabs in salesforce
 
-    # Scenario: TC_23:Validate Digital Plus Subscriber billing account and invoice is created in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     When User clicks on Payment tab
-    #     Then Validate Billing account is created
-    #     Then Invoice is created
-    #     Then Close Opened tabs in salesforce
+    Scenario: TC_21:Validate Digital Plus Subscriber type of subscription in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        When User clicks on Payment tab
+        When User clicks on the Subscription
+        Then Validate tyep of subscription is standard
+        Then Close Opened tabs in salesforce
 
-    # Scenario: TC_24:Validate Digital Plus Subscriber name in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     When User clicks on Details tab
-    #     Then Validate the name in Salesforce
-    #     Then Close Opened tabs in salesforce
+    Scenario: TC_22:Validate Digital Plus Subscriber Zuora details in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        When User clicks on Payment tab
+        When User clicks on the Subscription
+        Then Validate Zoura subscription status is active
+        Then Validate auto renew is set to true
+        Then Close Opened tabs in salesforce
 
-    # Scenario: TC_25:Validate Digital Plus Subscriber TS number in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     When User clicks on Details tab
-    #     Then Validate the name in Salesforce
-    #     Then Validate TS number is generated in Subscriber Number field
-    #     Then Close Opened tabs in salesforce
+    Scenario: TC_23:Validate Digital Plus Subscriber billing account and invoice is created in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        When User clicks on Payment tab
+        Then Validate Billing account is created
+        Then Invoice is created
+        Then Close Opened tabs in salesforce
 
-    # Scenario: TC_26:Validate Digital Plus Subscriber Piano ID in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     When User clicks on Details tab
-    #     Then Validate a GUID and PianoID are generated
-    #     Then Close Opened tabs in salesforce
+    Scenario: TC_24:Validate Digital Plus Subscriber name in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        When User clicks on Details tab
+        Then Validate the name in Salesforce
+        Then Close Opened tabs in salesforce
 
-    # Scenario: TC_27:Validate Digital Plus Subscriber has digital status as Registered in Salesforce
-    #     When I launch Salesforce URL
-    #     Then I login to Salesforce
-    #     Then Close Opened tabs in salesforce
-    #     And Enter the DigitalPlusCC email id in the search box
-    #     Then Open the Account Page
-    #     When User clicks on Details tab
-    #     Then Verify the Digital Status is Registered and Account Record Type is Registrant
-    #     Then Close Opened tabs in salesforce
+    Scenario: TC_25:Validate Digital Plus Subscriber TS number in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        When User clicks on Details tab
+        Then Validate the name in Salesforce
+        Then Validate TS number is generated in Subscriber Number field
+        Then Close Opened tabs in salesforce
 
-    # Scenario: TC_28:Validate Digital Plus Subscriber Account number is generated in Zoura
-    #     When I launch Zoura application
-    #     And Login to Zoura
-    #     When Go to Zoura Subscription Page for DigitalPlusCC
-    #     Then Validate account number is generated
-    #     And I logout from Zuora
+    Scenario: TC_26:Validate Digital Plus Subscriber Piano ID in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        When User clicks on Details tab
+        Then Validate a GUID and PianoID are generated
+        Then Close Opened tabs in salesforce
+
+    Scenario: TC_27:Validate Digital Plus Subscriber has digital status as Registered in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the DigitalPlusCC email id in the search box
+        Then Open the Account Page
+        When User clicks on Details tab
+        Then Verify the Digital Status is Registered and Account Record Type is Registrant
+        Then Close Opened tabs in salesforce
+
+    Scenario: TC_28:Validate Digital Plus Subscriber Account number is generated in Zoura
+        When I launch Zoura application
+        And Login to Zoura
+        When Go to Zoura Subscription Page for DigitalPlusCC
+        Then Validate account number is generated
+        And I logout from Zuora
         
-    # Scenario: TC_29:Validate Digital Plus Subscriber Auto pay data in Zoura
-    #     When I launch Zoura application
-    #     And Login to Zoura
-    #     When Go to Zoura Subscription Page for DigitalPlusCC
-    #     Then Validate Auto pay is set to True
-    #     And I logout from Zuora
+    Scenario: TC_29:Validate Digital Plus Subscriber Auto pay data in Zoura
+        When I launch Zoura application
+        And Login to Zoura
+        When Go to Zoura Subscription Page for DigitalPlusCC
+        Then Validate Auto pay is set to True
+        And I logout from Zuora
 
-    # Scenario: TC_30:Validate Digital Plus Subscriber subscription start and end date in Zoura
-    #     When I launch Zoura application
-    #     And Login to Zoura
-    #     When Go to Zoura Subscription Page for DigitalPlusCC
-    #     Then Validate Subscription End date
-    #     Then Validate Subscription start date
-    #     And I logout from Zuora
+    Scenario: TC_30:Validate Digital Plus Subscriber subscription start and end date in Zoura
+        When I launch Zoura application
+        And Login to Zoura
+        When Go to Zoura Subscription Page for DigitalPlusCC
+        Then Validate Subscription End date
+        Then Validate Subscription start date
+        And I logout from Zuora
 
-    # Scenario: TC_31:Validate Digital Plus Subscriber current term data in Zoura
-    #     When I launch Zoura application
-    #     And Login to Zoura
-    #     When Go to Zoura Subscription Page for DigitalPlusCC
-    #     Then Validate Current Term
-    #     Then Validate Current term start date
-    #     Then Validate Current term end date
-    #     And I logout from Zuora
+    Scenario: TC_31:Validate Digital Plus Subscriber current term data in Zoura
+        When I launch Zoura application
+        And Login to Zoura
+        When Go to Zoura Subscription Page for DigitalPlusCC
+        Then Validate Current Term
+        Then Validate Current term start date
+        Then Validate Current term end date
+        And I logout from Zuora
 
-    # Scenario: TC_32:Validate Digital Plus Subscriber Renewal data in Zoura
-    #     When I launch Zoura application
-    #     And Login to Zoura
-    #     When Go to Zoura Subscription Page for DigitalPlusCC
-    #     Then Validate Renewal Setting
-    #     Then Validate Renewal term
-    #     And I logout from Zuora
+    Scenario: TC_32:Validate Digital Plus Subscriber Renewal data in Zoura
+        When I launch Zoura application
+        And Login to Zoura
+        When Go to Zoura Subscription Page for DigitalPlusCC
+        Then Validate Renewal Setting
+        Then Validate Renewal term
+        And I logout from Zuora
 
-    # Scenario: TC_33:Validate Digital Plus Subscriber Aquisition channel data in Zoura
-    #     When I launch Zoura application
-    #     And Login to Zoura
-    #     When Go to Zoura Subscription Page for DigitalPlusCC
-    #     Then Validate Aquisition channel
-    #     And I logout from Zuora
+    Scenario: TC_33:Validate Digital Plus Subscriber Aquisition channel data in Zoura
+        When I launch Zoura application
+        And Login to Zoura
+        When Go to Zoura Subscription Page for DigitalPlusCC
+        Then Validate Aquisition channel
+        And I logout from Zuora
 
-    # Scenario: TC_34:Validate Digital Plus Subscriber Cancellation method in Zoura
-    #     When I launch Zoura application
-    #     And Login to Zoura
-    #     When Go to Zoura Subscription Page for DigitalPlusCC
-    #     Then Validate Cancellation method
-    #     And I logout from Zuora
+    Scenario: TC_34:Validate Digital Plus Subscriber Cancellation method in Zoura
+        When I launch Zoura application
+        And Login to Zoura
+        When Go to Zoura Subscription Page for DigitalPlusCC
+        Then Validate Cancellation method
+        And I logout from Zuora
 
-    # Scenario: TC_35:Validate Digital Plus Subscriber Continent Country data in Zoura
-    #     When I launch Zoura application
-    #     And Login to Zoura
-    #     When Go to Zoura Subscription Page for DigitalPlusCC
-    #     Then Validate Continent and Country
-    #     And I logout from Zuora
+    Scenario: TC_35:Validate Digital Plus Subscriber Continent Country data in Zoura
+        When I launch Zoura application
+        And Login to Zoura
+        When Go to Zoura Subscription Page for DigitalPlusCC
+        Then Validate Continent and Country
+        And I logout from Zuora
 
-    # Scenario: TC_36:Validate Digital Plus Subscriber Price Segment code data in Zoura
-    #     When I launch Zoura application
-    #     And Login to Zoura
-    #     When Go to Zoura Subscription Page for DigitalPlusCC
-    #     Then Validate Price Segment Code
-    #     And I logout from Zuora
+    Scenario: TC_36:Validate Digital Plus Subscriber Price Segment code data in Zoura
+        When I launch Zoura application
+        And Login to Zoura
+        When Go to Zoura Subscription Page for DigitalPlusCC
+        Then Validate Price Segment Code
+        And I logout from Zuora
 
-    # Scenario: TC_37:Validate Digital Plus Subscriber subscription origin in Zoura
-    #     When I launch Zoura application
-    #     And Login to Zoura
-    #     When Go to Zoura Subscription Page for DigitalPlusCC
-    #     Then Validate Subscription origin
-    #     And I logout from Zuora
+    Scenario: TC_37:Validate Digital Plus Subscriber subscription origin in Zoura
+        When I launch Zoura application
+        And Login to Zoura
+        When Go to Zoura Subscription Page for DigitalPlusCC
+        Then Validate Subscription origin
+        And I logout from Zuora
 
-    # Scenario: TC_38:Validate Digital Plus Subscriber Source System in Zoura
-    #     When I launch Zoura application
-    #     And Login to Zoura
-    #     When Go to Zoura Subscription Page for DigitalPlusCC
-    #     Then Validate Source System
-    #     Then Validate Type of Subscription
-    #     Then Validate Product
-    #     Then Validate Rate Plan
-    #     And I logout from Zuora
+    Scenario: TC_38:Validate Digital Plus Subscriber Source System in Zoura
+        When I launch Zoura application
+        And Login to Zoura
+        When Go to Zoura Subscription Page for DigitalPlusCC
+        Then Validate Source System
+        Then Validate Type of Subscription
+        Then Validate Product
+        Then Validate Rate Plan
+        And I logout from Zuora
 
-    # Scenario: TC_39:Validate Digital Plus Subscriber Type of Subscription in Zoura
-    #     When I launch Zoura application
-    #     And Login to Zoura
-    #     When Go to Zoura Subscription Page for DigitalPlusCC
-    #     Then Validate Type of Subscription
-    #     Then Validate Product
-    #     Then Validate Rate Plan
-    #     And I logout from Zuora
+    Scenario: TC_39:Validate Digital Plus Subscriber Type of Subscription in Zoura
+        When I launch Zoura application
+        And Login to Zoura
+        When Go to Zoura Subscription Page for DigitalPlusCC
+        Then Validate Type of Subscription
+        Then Validate Product
+        Then Validate Rate Plan
+        And I logout from Zuora
 
-    # Scenario: TC_40:Validate Digital Plus Subscriber Product and Rate Plan in Zoura
-    #     When I launch Zoura application
-    #     And Login to Zoura
-    #     When Go to Zoura Subscription Page for DigitalPlusCC
-    #     Then Validate Product
-    #     Then Validate Rate Plan
-    #     And I logout from Zuora
+    Scenario: TC_40:Validate Digital Plus Subscriber Product and Rate Plan in Zoura
+        When I launch Zoura application
+        And Login to Zoura
+        When Go to Zoura Subscription Page for DigitalPlusCC
+        Then Validate Product
+        Then Validate Rate Plan
+        And I logout from Zuora
 
 
 

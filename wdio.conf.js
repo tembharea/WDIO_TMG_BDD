@@ -28,7 +28,6 @@ const jsonReports = process.cwd() + "/Reports/json";
 //import { generate } from 'multiple-cucumber-html-reporter'
 //const report = require('multiple-cucumber-html-reporter');
 export const config = {
-
   //port: 4444,
   //
   // ====================
@@ -56,7 +55,7 @@ export const config = {
     //  "./features/**/ETE11_AccountcreationRegisterflow.feature",
     //   "./features/**/ETE3_SubscriptionAcquisitionDigitalPlus.feature",
     //   "./features/**/ETE7_SubscriptionAcquisitionPuzzles.feature",
-    //   "./features/**/ETE20_PuzzlesOneClickOnboarding.feature",
+    "./features/**/ETE20_PuzzlesOneClickOnboarding.feature",
     //  "./features/**/ETE21_AddPuzzlesfromMyAccount.feature",
     //  "./features/**/ETE22_AddPuzzlesAsBolton.feature",
     //  "./features/**/ETE23_AddDigitalAsBoltonToPuzzles.feature",
@@ -65,7 +64,7 @@ export const config = {
     //   "./features/**/ETE2_SubscriptionAcquisitionMyAccount.feature",
     //  "./features/**/ETE4_SubscriptionAcquisitionOnlineCancellation.feature",
     //  "./features/**/ETE10_SubscriptionAcquisitionDigital.feature",
-     "./features/**/ETE12_Backdated.feature",
+    // "./features/**/ETE12_Backdated.feature",
   ],
   // Patterns to exclude.
   exclude: [
@@ -96,16 +95,16 @@ export const config = {
   capabilities: [
     {
       browserName: "chrome",
-      browserVersion: "118",
+      browserVersion: "120",
       //port: 61973,
       //"wdio:chromedriverOptions": {
-        //binary:
-          //"/chromedriver/win64-116.0.5845.96/chromedriver-win64/chromedriver.exe",
-          //"C:/Users/10703317/WDIO_Workspace/WDIO_TMG_BDD/chromedriver/win64-116.0.5845.96/chromedriver-win64/chromedriver.exe",
-          //v"./chromedriver/win64-116.0.5845.96/chromedriver-win64/chromedriver.exe",
-          //"./chromedriverforlinux/chromedriver-linux64/chromedriver",
-        //port: 61973,
-        //args: ["whitelisted-ips", "allowed-origins"],
+      //binary:
+      //"/chromedriver/win64-116.0.5845.96/chromedriver-win64/chromedriver.exe",
+      //"C:/Users/10703317/WDIO_Workspace/WDIO_TMG_BDD/chromedriver/win64-116.0.5845.96/chromedriver-win64/chromedriver.exe",
+      //v"./chromedriver/win64-116.0.5845.96/chromedriver-win64/chromedriver.exe",
+      //"./chromedriverforlinux/chromedriver-linux64/chromedriver",
+      //port: 61973,
+      //args: ["whitelisted-ips", "allowed-origins"],
       //},
       "goog:chromeOptions": {
         // binary: "/chrome/win64-116.0.5845.96/chrome-win64/",
@@ -117,14 +116,18 @@ export const config = {
         ],
       },
       "cjson:metadata": {
-        browser:{
+        browser: {
           name: "chrome",
           version: "116",
         },
-        device: "MacBook Pro M2",
+        // device: "MacBook Pro M2",
+        // platform: {
+        //   name: "OSX",
+        //   version: "13.6.4",
+        device: "Windows",
         platform: {
-          name: "OSX",
-          version: "13.6.4",
+          name: "windows",
+          version: "11",
         },
       },
     },
