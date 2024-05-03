@@ -25,7 +25,6 @@ pipeline {
                                     reportName           : "Tests",
                                     reportTitles         : "Tests"
                             ])
-                            publishReports("Reports/CucumberReports/index.html", "More Tests")
                         }
                       throw error
                     }
