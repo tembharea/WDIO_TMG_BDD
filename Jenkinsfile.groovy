@@ -13,7 +13,8 @@ pipeline {
                         sh 'npx wdio'
                     }
                     catch (error){
-                        archiveArtifacts artifacts: 'Reports/*', allowEmptyArchive: true
+                        sh 'ls -l'
+                        archiveArtifacts artifacts: 'Reports', allowEmptyArchive: true
                         throw error
                     }
                 }
