@@ -8,12 +8,16 @@ pipeline {
         stage("Test") {
             steps {
                 script {
-                   sh 'npm i'
+                    sh 'npm i'
                     sh 'npx wdio'
+
+                }
+            }
+            always {
+                script {
                     archiveArtifacts artifacts: 'Reports/*', allowEmptyArchive: true
                 }
             }
-
         }
     }
 }
