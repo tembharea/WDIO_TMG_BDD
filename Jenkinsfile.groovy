@@ -14,7 +14,7 @@ pipeline {
                     }
                     catch (error){
                         sh 'ls -l'
-                        archiveArtifacts artifacts: 'Reports', allowEmptyArchive: true
+                        archiveArtifacts artifacts: 'Reports/**', allowEmptyArchive: true
                         throw error
                     }
                 }
