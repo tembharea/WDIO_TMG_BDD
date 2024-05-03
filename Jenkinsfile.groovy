@@ -12,10 +12,10 @@ pipeline {
                     sh 'npx wdio'
 
                 }
-            }
-            always {
-                script {
-                    archiveArtifacts artifacts: 'Reports/*', allowEmptyArchive: true
+                always {
+                    script {
+                        archiveArtifacts artifacts: 'Reports/*', allowEmptyArchive: true
+                    }
                 }
             }
         }
