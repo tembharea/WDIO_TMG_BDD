@@ -1,3 +1,4 @@
+import org.apache.commons.lang3.StringUtils
 pipeline {
     agent { label 'UseGCPPreprodClusterWeb' }
     tools {
@@ -27,6 +28,24 @@ pipeline {
                             ])
                         }
                       throw error
+                    }
+                post {
+                    always {
+                        script {
+                            sh 'ls -l'
+                            archiveArtifacts artifacts: 'Reports/**', allowEmptyArchive: true
+
+                            publishHTML(target: [
+                                    allowMissing         : false,
+                                    alwaysLinkToLastBuild: true,
+                                    keepAll              : true,
+                                    reportDir            : "Reports",
+                                    reportFiles          : "CucmumberReports/index.html",
+                                    reportName           : "Tests",
+                                    reportTitles         : "Tests"
+                            ])
+                        }
+                        }
                     }
                 }
             }
