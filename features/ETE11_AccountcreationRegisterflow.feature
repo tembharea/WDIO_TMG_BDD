@@ -2,16 +2,16 @@ Feature: ETE 11 Account creation Register flow
     #This is ticket number 3132, now known in JIRA as ETE-11
     #Scenario count : 17 as of 3rd Jan 2024
 
-    # Scenario: TC_01:User Registration in Customer
-    #     Given I launch login from homepage
-    #     Then  I fill in new email
-    #     When  I click login-register button
-    #     And   I enter "valid" register password
-    #     Then  I enter "right" first name and last name
-    #     When  I click continue button on registration page
-    #     Then  Validate HomePage
-    #     Then  Go to My Account page
-    #     Then  Logout from Customer application
+    Scenario: TC_01:User Registration in Customer
+        Given I launch login from homepage
+        Then  I fill in new email
+        When  I click login-register button
+        And   I enter "valid" register password
+        Then  I enter "right" first name and last name
+        When  I click continue button on registration page
+        Then  Validate HomePage
+        Then  Go to My Account page
+        Then  Logout from Customer application
 
 #     Scenario: TC_02:Validate Registrant Homepage in Customer web app
 #         Given I launch login from homepage
