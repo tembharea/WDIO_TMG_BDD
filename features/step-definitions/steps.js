@@ -664,6 +664,23 @@ Then("I fill in new email", async () => {
     );
   }
 
+  try {
+    const AcceptBtntwo = await $('//button[@title="Yes, I accept"]');
+    await AcceptBtntwo.waitForDisplayed({ timeout: 30000 });
+    await AcceptBtntwo.click();
+    await browser.pause(500);
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+  }
+
   browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
