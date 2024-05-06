@@ -129,10 +129,10 @@ export const config = {
         // platform: {
         //   name: "OSX",
         //   version: "13.6.4",
-        device: "Windows",
+        device: "Jenkins Executor",
         platform: {
-          name: "windows",
-          version: "11",
+          name: "linux",
+          //version: "11",
         },
       },
     },
