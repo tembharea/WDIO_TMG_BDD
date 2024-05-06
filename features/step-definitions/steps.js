@@ -652,13 +652,15 @@ Then("I fill in new email", async () => {
       '//iframe[@title="SP Consent Message"]'
     );
     await browser.pause(4000);
-    await browser.switchToFrame(consentmsgoneIframe);
-
-    const AcceptBtn = await $('//button[@title="Accept"]');
-    await AcceptBtn.waitForDisplayed({ timeout: 30000 });
-    await AcceptBtn.click();
-    await browser.pause(3000);
-    await browser.switchToFrame(null);
+    if (consentmsgoneIframe.isExisting) {
+      await browser.switchToFrame(consentmsgoneIframe);
+      const AcceptBtn = await $('//button[@title="Accept"]');
+      await AcceptBtn.waitForDisplayed({ timeout: 30000 });
+      await AcceptBtn.click();
+      await browser.pause(3000);
+      await browser.switchToFrame(null);
+      await browser.pause(3000);
+    }
   } catch (error) {
     console.error("no such element");
   } finally {
