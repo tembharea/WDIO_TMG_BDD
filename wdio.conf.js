@@ -132,7 +132,7 @@ export const config = {
         device: "Jenkins Executor",
         platform: {
           name: "linux",
-          //version: "11",
+          version: "4.4.19-29.55.amzn1.x86_64",
         },
       },
     },
@@ -556,7 +556,7 @@ export const config = {
           { label: "Project", value: "TMG Automation" },
           {
             label: "Execution Time",
-            value: new Date().toLocaleString() + " " + "IST",
+            value: new Date().toLocaleString(),
           },
           {
             label: "Release",
