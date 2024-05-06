@@ -648,13 +648,12 @@ Then("I fill in new email", async () => {
   await browser.refresh();
 
   try {
-    const consentmsgoneIframe = await $(
-      '//iframe[@title="SP Consent Message"]'
-    );
-    await browser.pause(4000);
+    const consentmsgoneIframe = await $('//iframe[contains(@id,"sp_message")]');
+    await browser.pause(5000);
     if (consentmsgoneIframe.isExisting) {
       await browser.switchToFrame(consentmsgoneIframe);
-      const AcceptBtn = await $('//button[@title="Accept"]');
+      //const AcceptBtn = await $('//button[@title="Accept"]');
+      const AcceptBtn = await $("//button");
       await AcceptBtn.waitForDisplayed({ timeout: 30000 });
       await AcceptBtn.click();
       await browser.pause(3000);
@@ -673,28 +672,28 @@ Then("I fill in new email", async () => {
     );
   }
 
-  try {
-    const consentmsgoneIframe = await $(
-      '//iframe[@title="SP Consent Message"]'
-    );
-    await browser.pause(4000);
-    await browser.switchToFrame(consentmsgoneIframe);
-    const AcceptBtntwo = await $('//button[@title="Yes, I accept"]');
-    await AcceptBtntwo.waitForDisplayed({ timeout: 30000 });
-    await AcceptBtntwo.click();
-    await browser.pause(5000);
-    await browser.switchToFrame(null);
-  } catch (error) {
-    console.error("no such element");
-  } finally {
-    browser.waitUntil(
-      () => browser.execute(() => document.readyState === "complete"),
-      {
-        timeout: 60 * 1000, // 60 seconds
-        timeoutMsg: "Message on failure",
-      }
-    );
-  }
+  // try {
+  //   const consentmsgoneIframe = await $(
+  //     '//iframe[@title="SP Consent Message"]'
+  //   );
+  //   await browser.pause(4000);
+  //   await browser.switchToFrame(consentmsgoneIframe);
+  //   const AcceptBtntwo = await $('//button[@title="Yes, I accept"]');
+  //   await AcceptBtntwo.waitForDisplayed({ timeout: 30000 });
+  //   await AcceptBtntwo.click();
+  //   await browser.pause(5000);
+  //   await browser.switchToFrame(null);
+  // } catch (error) {
+  //   console.error("no such element");
+  // } finally {
+  //   browser.waitUntil(
+  //     () => browser.execute(() => document.readyState === "complete"),
+  //     {
+  //       timeout: 60 * 1000, // 60 seconds
+  //       timeoutMsg: "Message on failure",
+  //     }
+  //   );
+  // }
 
   browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
