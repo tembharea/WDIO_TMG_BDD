@@ -418,34 +418,32 @@ Given("I launch login from homepage", async () => {
     }
   );
   await browser.pause(5000);
-  try {
-    const consentmsgoneIframe = await $(
-      '//iframe[@title="SP Consent Message"]'
-    );
-    await browser.pause(5000);
-    browser.switchToFrame(consentmsgoneIframe);
-    await browser.pause(500);
-    //const AcceptBtn = await $('//button[@title="Accept"]');
-    const AcceptBtn = await $(
-      '//div[@class="message-component message-column logo"]//following::button[@title="Accept"][1]'
-    );
-    await AcceptBtn.waitForDisplayed({ timeout: 30000 });
-    await AcceptBtn.doubleClick();
-    await browser.pause(3000);
-    //await browser.switchToFrame(null);
-    await browser.switchToParentFrame();
-    await browser.pause(3000);
-  } catch (error) {
-    console.error("no such element");
-  } finally {
-    browser.waitUntil(
-      () => browser.execute(() => document.readyState === "complete"),
-      {
-        timeout: 60 * 1000, // 60 seconds
-        timeoutMsg: "Message on failure",
-      }
-    );
-  }
+  // try {
+  const consentmsgoneIframe = await $('//iframe[@title="SP Consent Message"]');
+  await browser.pause(5000);
+  browser.switchToFrame(consentmsgoneIframe);
+  await browser.pause(500);
+  //const AcceptBtn = await $('//button[@title="Accept"]');
+  const AcceptBtn = await $(
+    '//div[@class="message-component message-column logo"]//following::button[@title="Accept"][1]'
+  );
+  await AcceptBtn.waitForDisplayed({ timeout: 30000 });
+  await AcceptBtn.doubleClick();
+  await browser.pause(3000);
+  //await browser.switchToFrame(null);
+  await browser.switchToParentFrame();
+  await browser.pause(3000);
+  // } catch (error) {
+  //   console.error("no such element");
+  // } finally {
+  //   browser.waitUntil(
+  //     () => browser.execute(() => document.readyState === "complete"),
+  //     {
+  //       timeout: 60 * 1000, // 60 seconds
+  //       timeoutMsg: "Message on failure",
+  //     }
+  //   );
+  // }
   //CucumberJsJsonReporter.attach("checking text logs", "text/plain");
 });
 
