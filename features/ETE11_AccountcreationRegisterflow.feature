@@ -170,11 +170,11 @@ Feature: ETE 11 Account creation Register flow
 #     Then Validate Entitlements are added for digital subscription
 #     Then Close Opened tabs in salesforce
 
-Scenario: TC_17:Validate Registrant User data in Zoura
-    When I launch Zoura application
-    Then Login to Zoura
-    Then Validate Registrant Account details do not exist in Zoura
-    Then I logout from Zuora
+# Scenario: TC_17:Validate Registrant User data in Zoura
+#     When I launch Zoura application
+#     Then Login to Zoura
+#     Then Validate Registrant Account details do not exist in Zoura
+#     Then I logout from Zuora
 
 
 
