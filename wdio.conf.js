@@ -120,6 +120,7 @@ export const config = {
           "--disable-dev-shm-usage",
           "--no-sandbox",
           "--windows-size=1920*1080",
+          "--proxy-server=direct://",
         ],
       },
       "cjson:metadata": {
