@@ -109,15 +109,17 @@ export const config = {
       "goog:chromeOptions": {
         // binary: "/chrome/win64-116.0.5845.96/chrome-win64/",
         args: [
-          "disable-infobars",
-          "disable-popup-blocking",
-          "disable-notifications",
-          "enable-automation",
+          "--disable-infobars",
+          "--disable-popup-blocking",
+          "--disable-notifications",
+          "--enable-automation",
+          "--incognito",
           "--headless",
           "--disable-gpu",
           "--disable-setuid-sandbox",
           "--disable-dev-shm-usage",
           "--no-sandbox",
+          "--windows-size=1600*1200",
         ],
       },
       "cjson:metadata": {
