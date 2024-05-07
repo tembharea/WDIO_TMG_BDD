@@ -3463,6 +3463,7 @@ Then("Logout from Customer application", async () => {
     }
   );
   await browser.pause(2000);
+  await browser.pause(2000);
   await browser.deleteCookies();
 });
 
