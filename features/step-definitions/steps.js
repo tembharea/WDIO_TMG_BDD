@@ -419,13 +419,10 @@ Given("I launch login from homepage", async () => {
   );
   await browser.pause(5000);
   // try {
-  // const consentmsgoneIframe = await $('//iframe[@title="SP Consent Message"]');
-  const consentmsgoneIframe = await $(
-    '//iframe[@title="SP Consent Messaghhghfhgfhgfhe"]'
-  );
-  await browser.pause(5000);
-  await consentmsgoneIframe.isExisting();
-  await browser.switchToFrame(consentmsgoneIframe);
+  // const consentmsgoneIframe = await $('//iframe[@title="SP Consent Message"]');;
+  // await browser.pause(5000);
+  // await consentmsgoneIframe.isExisting();
+  // await browser.switchToFrame(consentmsgoneIframe);
   await browser.pause(500);
   //const AcceptBtn = await $('//button[@title="Accept"]');
   // const AcceptBtn = await $(
