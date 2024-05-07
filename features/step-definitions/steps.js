@@ -417,50 +417,50 @@ Given("I launch login from homepage", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  await browser.pause(5000);
-  try {
-    const consentmsgoneIframe = await $(
-      '//iframe[@title="SP Consent Message"]'
-    );
-    await browser.pause(5000);
-    await consentmsgoneIframe.isExisting();
-    await browser.switchToFrame(consentmsgoneIframe);
-    console.log("switched frame successfully");
-    await browser.pause(500);
-    //const AcceptBtn = await $('//button[@title="Accept"]');
-    // const AcceptBtn = await $(
-    //   '//div[@class="message-component message-column logo"]//following::button[@title="Accept"][1]'
-    // );
-    // const AcceptBtn = await $(
-    //   '//div[@class="message-component message-row buttons-desktop"]//following::button[1]'
-    // );
-    // await AcceptBtn.isExisting();
-    // await AcceptBtn.waitForDisplayed({ timeout: 30000 });
-    // await AcceptBtn.doubleClick();
-    await browser.keys("\ue004");
-    await browser.keys("\ue004");
-    await browser.keys("\ue004");
-    await browser.keys("\ue004");
-    await browser.keys("\ue004");
-    await browser.keys("\ue004");
-    await browser.keys("\ue004");
-    await browser.keys("Enter");
+  //await browser.pause(5000);
+  // try {
+  //   const consentmsgoneIframe = await $(
+  //     '//iframe[@title="SP Consent Message"]'
+  //   );
+  //   await browser.pause(5000);
+  //   await consentmsgoneIframe.isExisting();
+  //   await browser.switchToFrame(consentmsgoneIframe);
+  //   console.log("switched frame successfully");
+  //   await browser.pause(500);
+  //   //const AcceptBtn = await $('//button[@title="Accept"]');
+  //   // const AcceptBtn = await $(
+  //   //   '//div[@class="message-component message-column logo"]//following::button[@title="Accept"][1]'
+  //   // );
+  //   // const AcceptBtn = await $(
+  //   //   '//div[@class="message-component message-row buttons-desktop"]//following::button[1]'
+  //   // );
+  //   // await AcceptBtn.isExisting();
+  //   // await AcceptBtn.waitForDisplayed({ timeout: 30000 });
+  //   // await AcceptBtn.doubleClick();
+  //   await browser.keys("\ue004");
+  //   await browser.keys("\ue004");
+  //   await browser.keys("\ue004");
+  //   await browser.keys("\ue004");
+  //   await browser.keys("\ue004");
+  //   await browser.keys("\ue004");
+  //   await browser.keys("\ue004");
+  //   await browser.keys("Enter");
 
-    await browser.pause(3000);
-    //await browser.switchToFrame(null);
-    await browser.switchToParentFrame();
-    await browser.pause(3000);
-  } catch (error) {
-    console.error("no such element");
-  } finally {
-    browser.waitUntil(
-      () => browser.execute(() => document.readyState === "complete"),
-      {
-        timeout: 60 * 1000, // 60 seconds
-        timeoutMsg: "Message on failure",
-      }
-    );
-  }
+  //   await browser.pause(3000);
+  //   //await browser.switchToFrame(null);
+  //   await browser.switchToParentFrame();
+  //   await browser.pause(3000);
+  // } catch (error) {
+  //   console.error("no such element");
+  // } finally {
+  //   browser.waitUntil(
+  //     () => browser.execute(() => document.readyState === "complete"),
+  //     {
+  //       timeout: 60 * 1000, // 60 seconds
+  //       timeoutMsg: "Message on failure",
+  //     }
+  //   );
+  // }
   //CucumberJsJsonReporter.attach("checking text logs", "text/plain");
 });
 
@@ -5748,6 +5748,18 @@ Then(
     await browser.pause(2500);
   }
 );
+
+Then("Action Keys Set One", async () => {
+  await browser.pause(2500);
+  await browser.keys("\ue004");
+  await browser.keys("\ue004");
+  await browser.keys("\ue004");
+  await browser.keys("\ue004");
+  await browser.keys("\ue004");
+  await browser.keys("\ue004");
+  await browser.keys("\ue004");
+  await browser.keys("Enter");
+});
 
 Then("Validate Subscription External ID is generated", async () => {
   await browser.pause(2500);
