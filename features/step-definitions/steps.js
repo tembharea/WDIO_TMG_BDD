@@ -431,12 +431,21 @@ Given("I launch login from homepage", async () => {
     // const AcceptBtn = await $(
     //   '//div[@class="message-component message-column logo"]//following::button[@title="Accept"][1]'
     // );
-    const AcceptBtn = await $(
-      '//div[@class="message-component message-row buttons-desktop"]//following::button[1]'
-    );
-    await AcceptBtn.isExisting();
-    await AcceptBtn.waitForDisplayed({ timeout: 30000 });
-    await AcceptBtn.doubleClick();
+    // const AcceptBtn = await $(
+    //   '//div[@class="message-component message-row buttons-desktop"]//following::button[1]'
+    // );
+    // await AcceptBtn.isExisting();
+    // await AcceptBtn.waitForDisplayed({ timeout: 30000 });
+    // await AcceptBtn.doubleClick();
+    await browser.keys("\ue004");
+    await browser.keys("\ue004");
+    await browser.keys("\ue004");
+    await browser.keys("\ue004");
+    await browser.keys("\ue004");
+    await browser.keys("\ue004");
+    await browser.keys("\ue004");
+    await browser.keys("Enter");
+
     await browser.pause(3000);
     //await browser.switchToFrame(null);
     await browser.switchToParentFrame();
