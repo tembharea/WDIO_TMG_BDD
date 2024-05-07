@@ -15,51 +15,51 @@ Feature: ETE 11 Account creation Register flow
         Then  Go to My Account page
         Then  Logout from Customer application
 
-#     Scenario: TC_02:Validate Registrant Homepage in Customer web app
-#         Given I launch login from homepage
-#         Then   I fill in existing email
-#         When  I click login-register button
-#         And   I enter "valid" register password
-#         When  I click login-register button
-#         Then  Validate HomePage
-#         Then  Go to My Account page
-#         Then  Logout from Customer application
+    Scenario: TC_02:Validate Registrant Homepage in Customer web app
+        Given I launch login from homepage
+        Then   I fill in existing email
+        When  I click login-register button
+        And   I enter "valid" register password
+        When  I click login-register button
+        Then  Validate HomePage
+        Then  Go to My Account page
+        Then  Logout from Customer application
 
-#     Scenario: TC_03:Validate Registrant subscription details in Customer web app
-#         Given I launch login from homepage
-#         Then  I fill in existing email
-#         When  I click login-register button
-#         And   I enter "valid" register password
-#         When  I click login-register button
-#         Then  Validate HomePage
-#         When  Go to My Account page
-#         Then  Click on Manage Your Details button
-#         Then  Validate No Active Subscription Exists for Registrant
-#         Then  Logout from Customer application
+    Scenario: TC_03:Validate Registrant subscription details in Customer web app
+        Given I launch login from homepage
+        Then  I fill in existing email
+        When  I click login-register button
+        And   I enter "valid" register password
+        When  I click login-register button
+        Then  Validate HomePage
+        When  Go to My Account page
+        Then  Click on Manage Your Details button
+        Then  Validate No Active Subscription Exists for Registrant
+        Then  Logout from Customer application
 
-#     Scenario: TC_04:Validate Registrant Newsletter details in Customer web app
-#         Given I launch login from homepage
-#         Then   I fill in existing email
-#         When  I click login-register button
-#         And   I enter "valid" register password
-#         When  I click login-register button
-#         Then  Validate HomePage
-#         When  Go to My Account page
-#         When  Navigate to My Newsletters page
-#         Then  Validate The From The Editor Newsletters is added by default in customer app
-#         Then  Logout from Customer application
+    Scenario: TC_04:Validate Registrant Newsletter details in Customer web app
+        Given I launch login from homepage
+        Then   I fill in existing email
+        When  I click login-register button
+        And   I enter "valid" register password
+        When  I click login-register button
+        Then  Validate HomePage
+        When  Go to My Account page
+        When  Navigate to My Newsletters page
+        Then  Validate The From The Editor Newsletters is added by default in customer app
+        Then  Logout from Customer application
 
-#     Scenario: TC_05:Validate Registrant Exclusive Newsletter details in Customer web app
-#         Given I launch login from homepage
-#         Then  I fill in existing email
-#         When  I click login-register button
-#         And   I enter "valid" register password
-#         When  I click login-register button
-#         Then  Validate HomePage
-#         When  Go to My Account page
-#         When  Navigate to My Newsletters page
-#         Then  Validate Exclusive newsletters have signup CTA or not
-#         Then  Logout from Customer application
+    Scenario: TC_05:Validate Registrant Exclusive Newsletter details in Customer web app
+        Given I launch login from homepage
+        Then  I fill in existing email
+        When  I click login-register button
+        And   I enter "valid" register password
+        When  I click login-register button
+        Then  Validate HomePage
+        When  Go to My Account page
+        When  Navigate to My Newsletters page
+        Then  Validate Exclusive newsletters have signup CTA or not
+        Then  Logout from Customer application
 
 #     Scenario: TC_06:Validate Registrant data in Piano
 #         Given User opens Piano URL
