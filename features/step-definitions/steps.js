@@ -3446,18 +3446,18 @@ Then("Logout from Customer application", async () => {
   await CustLogOutBtnOne.waitForDisplayed({ timeout: 50000 });
   await CustLogOutBtnOne.click();
 
-  const CustLogOutBtnTwo = await $(
-    '//button[text()="Log out"]//following::a[1]'
-  );
-  await CustLogOutBtnTwo.waitForDisplayed({ timeout: 50000 });
-  await CustLogOutBtnTwo.click();
-  browser.waitUntil(
-    () => browser.execute(() => document.readyState === "complete"),
-    {
-      timeout: 60 * 1000, // 60 seconds
-      timeoutMsg: "Message on failure",
-    }
-  );
+  // const CustLogOutBtnTwo = await $(
+  //   '//button[text()="Log out"]//following::a[1]'
+  // );
+  // await CustLogOutBtnTwo.waitForDisplayed({ timeout: 50000 });
+  // await CustLogOutBtnTwo.click();
+  // browser.waitUntil(
+  //   () => browser.execute(() => document.readyState === "complete"),
+  //   {
+  //     timeout: 60 * 1000, // 60 seconds
+  //     timeoutMsg: "Message on failure",
+  //   }
+  // );
   await browser.pause(2000);
   await browser.deleteCookies();
 });
