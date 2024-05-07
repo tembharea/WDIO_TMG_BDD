@@ -119,7 +119,7 @@ export const config = {
           "--disable-setuid-sandbox",
           "--disable-dev-shm-usage",
           "--no-sandbox",
-          "--windows-size=1600*1200",
+          "--windows-size=1920*1080",
         ],
       },
       "cjson:metadata": {
