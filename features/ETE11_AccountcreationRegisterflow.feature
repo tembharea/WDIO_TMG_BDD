@@ -11,6 +11,7 @@ Feature: ETE 11 Account creation Register flow
         When  I click continue button on registration page
         Then  Validate HomePage
         Then  Go to My Account page
+        Then  Go to My Account page
         Then  Logout from Customer application
 
 #     Scenario: TC_02:Validate Registrant Homepage in Customer web app
