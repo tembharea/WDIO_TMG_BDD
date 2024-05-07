@@ -416,6 +416,34 @@ Given("I launch login from homepage", async () => {
       timeoutMsg: "Message on failure",
     }
   );
+  await browser.pause(5000);
+  try {
+    const consentmsgoneIframe = await $('//iframe[contains(@id,"sp_message")]');
+    await browser.pause(5000);
+    if (consentmsgoneIframe.isExisting) {
+      await browser.switchToFrame(consentmsgoneIframe);
+      //const AcceptBtn = await $('//button[@title="Accept"]');
+      const AcceptBtn = await $(
+        '//div[@class="message-component message-column logo"]//following::button[@title="Accept"][1]'
+      );
+      await AcceptBtn.waitForDisplayed({ timeout: 30000 });
+      await AcceptBtn.click();
+      await browser.pause(3000);
+      //await browser.switchToFrame(null);
+      await browser.switchToParentFrame();
+      await browser.pause(3000);
+    }
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+  }
   //CucumberJsJsonReporter.attach("checking text logs", "text/plain");
 });
 
@@ -647,30 +675,34 @@ Then("I fill in new email", async () => {
   await browser.pause(500);
   await browser.refresh();
 
-  try {
-    const consentmsgoneIframe = await $('//iframe[contains(@id,"sp_message")]');
-    await browser.pause(5000);
-    if (consentmsgoneIframe.isExisting) {
-      await browser.switchToFrame(consentmsgoneIframe);
-      //const AcceptBtn = await $('//button[@title="Accept"]');
-      const AcceptBtn = await $("//button");
-      await AcceptBtn.waitForDisplayed({ timeout: 30000 });
-      await AcceptBtn.click();
-      await browser.pause(3000);
-      await browser.switchToFrame(null);
-      await browser.pause(3000);
-    }
-  } catch (error) {
-    console.error("no such element");
-  } finally {
-    browser.waitUntil(
-      () => browser.execute(() => document.readyState === "complete"),
-      {
-        timeout: 60 * 1000, // 60 seconds
-        timeoutMsg: "Message on failure",
-      }
-    );
-  }
+  // try {
+  //   const consentmsgoneIframe = await $('//iframe[contains(@id,"sp_message")]');
+  //   await browser.pause(5000);
+  //   if (consentmsgoneIframe.isExisting) {
+  //     await browser.switchToFrame(consentmsgoneIframe);
+  //     //const AcceptBtn = await $('//button[@title="Accept"]');
+  //     const AcceptBtn = await $(
+  //       '//div[@class="message-component message-column logo"]//following::button[@title="Accept"][1]'
+  //     );
+  //     await AcceptBtn.waitForDisplayed({ timeout: 30000 });
+  //     await AcceptBtn.click();
+  //     await browser.pause(3000);
+  //     //await browser.switchToFrame(null);
+  //     await browser.switchToParentFrame();
+
+  //     await browser.pause(3000);
+  //   }
+  // } catch (error) {
+  //   console.error("no such element");
+  // } finally {
+  //   browser.waitUntil(
+  //     () => browser.execute(() => document.readyState === "complete"),
+  //     {
+  //       timeout: 60 * 1000, // 60 seconds
+  //       timeoutMsg: "Message on failure",
+  //     }
+  //   );
+  // }
 
   // try {
   //   const consentmsgoneIframe = await $(
