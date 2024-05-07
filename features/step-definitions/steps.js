@@ -425,8 +425,11 @@ Given("I launch login from homepage", async () => {
   await browser.switchToFrame(consentmsgoneIframe);
   await browser.pause(500);
   //const AcceptBtn = await $('//button[@title="Accept"]');
+  // const AcceptBtn = await $(
+  //   '//div[@class="message-component message-column logo"]//following::button[@title="Accept"][1]'
+  // );
   const AcceptBtn = await $(
-    '//div[@class="message-component message-column logo"]//following::button[@title="Accept"][1]'
+    '//div[@class="message-component message-row buttons-desktop"]//following::button[1]'
   );
   await AcceptBtn.waitForDisplayed({ timeout: 30000 });
   await AcceptBtn.doubleClick();
