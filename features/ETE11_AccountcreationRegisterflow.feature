@@ -61,15 +61,15 @@ Feature: ETE 11 Account creation Register flow
         Then  Validate Exclusive newsletters have signup CTA or not
         Then  Logout from Customer application
 
-#     Scenario: TC_06:Validate Registrant data in Piano
-#         Given User opens Piano URL
-#         When User logins to Piano account
-#         When Navigate to All Users page
-#         And  Enter subscriber email in search box
-#         Then Validate Registration date in Piano
-#         Then Validate Piano UiD
-#         Then Validate Access details for Registrant user in Piano
-#         Then LogOut from Piano
+    Scenario: TC_06:Validate Registrant data in Piano
+        Given User opens Piano URL
+        When User logins to Piano account
+        When Navigate to All Users page
+        And  Enter subscriber email in search box
+        Then Validate Registration date in Piano
+        Then Validate Piano UiD
+        Then Validate Access details for Registrant user in Piano
+        Then LogOut from Piano
 
 #     Scenario: TC_07:Validate Registrant name in Salesforce
 #         When I launch Salesforce URL
