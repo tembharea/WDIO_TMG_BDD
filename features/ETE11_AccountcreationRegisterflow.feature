@@ -71,14 +71,14 @@ Feature: ETE 11 Account creation Register flow
         Then Validate Access details for Registrant user in Piano
         Then LogOut from Piano
 
-#     Scenario: TC_07:Validate Registrant name in Salesforce
-#         When I launch Salesforce URL
-#         Then I login to Salesforce
-#         Then Close Opened tabs in salesforce
-#         And Enter the email id in the search box
-#         Then Validate the name in Salesforce
-#         Then Open the Account Page
-#         Then Close Opened tabs in salesforce
+    Scenario: TC_07:Validate Registrant name in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        And Enter the email id in the search box
+        Then Validate the name in Salesforce
+        Then Open the Account Page
+        Then Close Opened tabs in salesforce
 
 #     Scenario: TC_08:Validate Registrant TS number in Salesforce
 #         When I launch Salesforce URL
