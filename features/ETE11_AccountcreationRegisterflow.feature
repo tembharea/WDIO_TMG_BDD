@@ -80,103 +80,103 @@ Feature: ETE 11 Account creation Register flow
         Then Open the Account Page
         Then Close Opened tabs in salesforce
 
-#     Scenario: TC_08:Validate Registrant TS number in Salesforce
-#         When I launch Salesforce URL
-#         Then I login to Salesforce
-#         Then Close Opened tabs in salesforce
-#         Then Enter the email id in the search box
-#         Then Open the Account Page
-#         When User clicks on Details tab
-#         Then Validate TS number is generated in Subscriber Number field
-#         Then Close Opened tabs in salesforce
+    Scenario: TC_08:Validate Registrant TS number in Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        Then Enter the email id in the search box
+        Then Open the Account Page
+        When User clicks on Details tab
+        Then Validate TS number is generated in Subscriber Number field
+        Then Close Opened tabs in salesforce
 
 
-# Scenario: TC_09:Validate Registrant Piano ID in Salesforce
-#     When I launch Salesforce URL
-#     Then I login to Salesforce
-#     Then Close Opened tabs in salesforce
-#     And Enter the email id in the search box
-#     Then Open the Account Page
-#     When User clicks on Details tab
-#     Then Validate a GUID and PianoID are generated
-#     Then Close Opened tabs in salesforce
+Scenario: TC_09:Validate Registrant Piano ID in Salesforce
+    When I launch Salesforce URL
+    Then I login to Salesforce
+    Then Close Opened tabs in salesforce
+    And Enter the email id in the search box
+    Then Open the Account Page
+    When User clicks on Details tab
+    Then Validate a GUID and PianoID are generated
+    Then Close Opened tabs in salesforce
 
-# Scenario: TC_10:Validate Registrant has digital status as Registered in Salesforce
-#     When I launch Salesforce URL
-#     Then I login to Salesforce
-#     Then Close Opened tabs in salesforce
-#     And Enter the email id in the search box
-#     Then Open the Account Page
-#     When User clicks on Details tab
-#     Then Verify the Digital Status is "Registered" and Account Record Type is "Registrant"
-#     Then Close Opened tabs in salesforce
+Scenario: TC_10:Validate Registrant has digital status as Registered in Salesforce
+    When I launch Salesforce URL
+    Then I login to Salesforce
+    Then Close Opened tabs in salesforce
+    And Enter the email id in the search box
+    Then Open the Account Page
+    When User clicks on Details tab
+    Then Verify the Digital Status is "Registered" and Account Record Type is "Registrant"
+    Then Close Opened tabs in salesforce
 
 
-# Scenario: TC_11:Validate Registrant Print status in Salesforce
-#     When I launch Salesforce URL
-#     Then I login to Salesforce
-#     Then Close Opened tabs in salesforce
-#     And Enter the email id in the search box
-#     Then Open the Account Page
-#     When User clicks on Details tab
-#     Then Verify the Print Status is "Inactive"
-#     Then Close Opened tabs in salesforce
+Scenario: TC_11:Validate Registrant Print status in Salesforce
+    When I launch Salesforce URL
+    Then I login to Salesforce
+    Then Close Opened tabs in salesforce
+    And Enter the email id in the search box
+    Then Open the Account Page
+    When User clicks on Details tab
+    Then Verify the Print Status is "Inactive"
+    Then Close Opened tabs in salesforce
 
-# Scenario: TC_12:Validate Registrant account channel type in Salesforce
-#     When I launch Salesforce URL
-#     Then I login to Salesforce
-#     Then Close Opened tabs in salesforce
-#     And Enter the email id in the search box
-#     Then Open the Account Page
-#     Then Validate account channel is "Premium"
-#     Then Close Opened tabs in salesforce
+Scenario: TC_12:Validate Registrant account channel type in Salesforce
+    When I launch Salesforce URL
+    Then I login to Salesforce
+    Then Close Opened tabs in salesforce
+    And Enter the email id in the search box
+    Then Open the Account Page
+    Then Validate account channel is "Premium"
+    Then Close Opened tabs in salesforce
 
-# Scenario: TC_13:Validate Registered subscription status in Salesforce
-#     When I launch Salesforce URL
-#     Then I login to Salesforce
-#     Then Close Opened tabs in salesforce
-#     And Enter the email id in the search box
-#     Then Open the Account Page
-#     When User clicks on Details tab
-#     Then Validate user has no subscription
-#     Then Close Opened tabs in salesforce
+Scenario: TC_13:Validate Registered subscription status in Salesforce
+    When I launch Salesforce URL
+    Then I login to Salesforce
+    Then Close Opened tabs in salesforce
+    And Enter the email id in the search box
+    Then Open the Account Page
+    When User clicks on Details tab
+    Then Validate user has no subscription
+    Then Close Opened tabs in salesforce
 
-# Scenario: TC_14:Validate Registered social account data in Salesforce
-#     When I launch Salesforce URL
-#     Then I login to Salesforce
-#     Then Close Opened tabs in salesforce
-#     And Enter the email id in the search box
-#     Then Open the Account Page
-#     When User clicks on Details tab
-#     Then Verify if registrant signed up via email then validate no Social Account is linked
-#     Then Close Opened tabs in salesforce
+Scenario: TC_14:Validate Registered social account data in Salesforce
+    When I launch Salesforce URL
+    Then I login to Salesforce
+    Then Close Opened tabs in salesforce
+    And Enter the email id in the search box
+    Then Open the Account Page
+    When User clicks on Details tab
+    Then Verify if registrant signed up via email then validate no Social Account is linked
+    Then Close Opened tabs in salesforce
 
-# Scenario: TC_15:Validate Registered newsletters data in Salesforce
-#     When I launch Salesforce URL
-#     Then I login to Salesforce
-#     Then Close Opened tabs in salesforce
-#     And Enter the email id in the search box
-#     Then Open the Account Page
-#     When User clicks on Details tab
-#     Then Validate The From The Editor Newsletters is added
-#     Then Close Opened tabs in salesforce
+Scenario: TC_15:Validate Registered newsletters data in Salesforce
+    When I launch Salesforce URL
+    Then I login to Salesforce
+    Then Close Opened tabs in salesforce
+    And Enter the email id in the search box
+    Then Open the Account Page
+    When User clicks on Details tab
+    Then Validate The From The Editor Newsletters is added
+    Then Close Opened tabs in salesforce
 
-# Scenario: TC_16:Validate Registered Entitlements data in Salesforce
-#     When I launch Salesforce URL
-#     Then I login to Salesforce
-#     Then Close Opened tabs in salesforce
-#     And Enter the email id in the search box
-#     Then Open the Account Page
-#     When User clicks on Details tab
-#     When User clicks on System tab
-#     Then Validate Entitlements are added for digital subscription
-#     Then Close Opened tabs in salesforce
+Scenario: TC_16:Validate Registered Entitlements data in Salesforce
+    When I launch Salesforce URL
+    Then I login to Salesforce
+    Then Close Opened tabs in salesforce
+    And Enter the email id in the search box
+    Then Open the Account Page
+    When User clicks on Details tab
+    When User clicks on System tab
+    Then Validate Entitlements are added for digital subscription
+    Then Close Opened tabs in salesforce
 
-# Scenario: TC_17:Validate Registrant User data in Zoura
-#     When I launch Zoura application
-#     Then Login to Zoura
-#     Then Validate Registrant Account details do not exist in Zoura
-#     Then I logout from Zuora
+Scenario: TC_17:Validate Registrant User data in Zoura
+    When I launch Zoura application
+    Then Login to Zoura
+    Then Validate Registrant Account details do not exist in Zoura
+    Then I logout from Zuora
 
 
 
