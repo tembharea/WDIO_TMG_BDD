@@ -52,7 +52,7 @@ export const config = {
   // will be called from there.
   //C:\Users\10703317\WDIO_Workspace\WDIO_TMG_BDD\features\SubscriptionAcquisitionDigital.feature
   specs: [
-    //"./features/**/ETE11_AccountcreationRegisterflow.feature",
+    "./features/**/ETE11_AccountcreationRegisterflow.feature",
     //   "./features/**/ETE3_SubscriptionAcquisitionDigitalPlus.feature",
     //   "./features/**/ETE7_SubscriptionAcquisitionPuzzles.feature",
     "./features/**/ETE20_PuzzlesOneClickOnboarding.feature",
