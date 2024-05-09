@@ -126,9 +126,11 @@ Given("I continue the flow till puzzle subscription onboarding", async () => {
   } finally {
     await browser.pause(100);
     await browser.scroll(0, 200);
-    const continueButton = await $(
-      '//div[@class="onboarding-sms-btns non-uk"]//button[text()="Continue"]'
-    );
+    // const continueButton = await $(
+    //   '//div[@class="onboarding-sms-btns non-uk"]//button[text()="Continue"]'
+    // );
+    //button[text()="Continue"]
+    const continueButton = await $('//button[text()="Continue"]');
     await continueButton.waitForDisplayed({ timeout: 40000 });
     await continueButton.click();
 
@@ -148,18 +150,22 @@ Given("I continue the flow till puzzle subscription onboarding", async () => {
     await subscriptionConfirmation.waitForDisplayed({ timeout: 50000 });
     await subscriptionConfirmation.click();
 
-
     const subContinueBtnn = await $(
       '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"]'
     );
-    await subContinueBtnn.waitForDisplayed({ timeout: 50000 });
-    await subContinueBtnn.click();
 
     await subContinueBtnn.waitForDisplayed({ timeout: 50000 });
     await subContinueBtnn.click();
 
+    await subContinueBtnn.waitForDisplayed({ timeout: 50000 });
+    await subContinueBtnn.click();
+
+    // const pickwhrleftoff = await $(
+    //   '//span[text()="Pick up where you left off"]'
+    // );
+    //a[@href="https://staging-ams64.telegraph.co.uk/"]
     const pickwhrleftoff = await $(
-      '//span[text()="Pick up where you left off"]'
+      '//a[@href="https://staging-ams64.telegraph.co.uk/"]'
     );
     await pickwhrleftoff.waitForDisplayed({ timeout: 50000 });
     await pickwhrleftoff.click();
