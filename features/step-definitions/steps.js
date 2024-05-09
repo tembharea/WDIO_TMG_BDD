@@ -6624,9 +6624,11 @@ Then("Validate if user has any active subscription for ete20", async () => {
   const SubscriptionTab = await $('//a[text()="Subscriptions"]');
   await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
   await SubscriptionTab.click();
+
   const SubID7 = await $(
     '//span[@title="Z-Subscriptions"]//following::span[contains(text(),"A-")]'
   );
+  await SubID7.waitForDisplayed({ timeout: 50000 });
   RecordSubIDP7 = await SubID7.getText();
   console.log(await SubID7.getText());
   console.log(RecordSubIDP7);
