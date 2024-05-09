@@ -561,10 +561,10 @@ export const config = {
             label: "Execution Time",
             value: new Date().toLocaleString(),
           },
-          {
-            label: "Release",
-            value: "24.08",
-          },
+          // {
+          //   label: "Release",
+          //   value: "24.08",
+          // },
           {
             label: "Apps Tested",
             value: "Telegraph/Salesforce/Piano/Zuora/MPP",
