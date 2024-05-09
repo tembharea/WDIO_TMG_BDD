@@ -45,6 +45,8 @@ const rnd7 = generateRandomString(6);
 const rnd8 = generateRandomString(6);
 const rnd9 = generateRandomString(6);
 
+const SFMoreButton = await $('//button[@title="More Tabs"]');
+const SystemTab = await $('//*[text()="System"]');
 const MyNewsletterPage = await $('//button[text()="My Newsletters"]');
 const NewsletterPage = await $('//a[text()="Newsletters"]');
 const manageyourDetailsBtn = await $('//button[text()="Manage your details"]');
@@ -2578,13 +2580,25 @@ Then(
         timeoutMsg: "Message on failure",
       }
     );
-    const SystemTab = await $('//a[text()="System"]');
-    await SystemTab.waitForDisplayed({ timeout: 60000 });
-    await SystemTab.click();
+
+    try {
+      if (SFMoreButton.isExisting) {
+        await SFMoreButton.click();
+        await browser.pause(700);
+        await SystemTab.click();
+      } else {
+        await SystemTab.click();
+      }
+    } catch (error) {
+      console.error("no such element");
+    } finally {
+      await browser.pause(100);
+    }
     await browser.scroll(0, 200);
     const NoSocialAccLinkedTxt = await $(
       '//lightning-formatted-text[contains(text(),",.No linked Social Accounts were found")]'
     );
+
     await NoSocialAccLinkedTxt.waitForDisplayed({ timeout: 20000 });
     await NoSocialAccLinkedTxt.isExisting();
   }
