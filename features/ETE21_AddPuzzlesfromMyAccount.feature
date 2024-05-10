@@ -43,8 +43,8 @@ Feature: ETE 21 Add Puzzles from MyAccount
         When  Go to My Account page
         Then  Click on View Subscription Offers
         Then  User clicks on Digital Plan Monthly
-        Then Validate user is redirected to Payment gateway page
-        Then  Input paypal Payment details
+        Then  Validate user is redirected to Payment gateway page
+        Then  Input CreditCard Payment details
         Then  User completes the purchase
         When  Go to My Account page
         Then  Click on Manage Your Details button
