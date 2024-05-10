@@ -1647,7 +1647,8 @@ When("I click continue button on registration page", async () => {
   const createAccBtn = await $('//button[@id="create-account-button"]');
   await createAccBtn.waitForDisplayed({ timeout: 50000 });
   await createAccBtn.click();
-
+  await browser.pause(900);
+  await browser.scroll(0, 100);
   const registerNewsBtn = await $(
     '//button[@id="register-newsletters-button"]'
   );
@@ -3136,6 +3137,7 @@ Then("Click on View Subscription Offers", async () => {
   await browser.url(
     "https://secure-staging-ams64.telegraph.co.uk/customer/subscribe/?icid=myaccount"
   );
+  await browser.pause(3000);
   browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
@@ -3143,6 +3145,10 @@ Then("Click on View Subscription Offers", async () => {
       timeoutMsg: "Message on failure",
     }
   );
+  // await browser.url(
+  //   "https://secure-staging-ams64.telegraph.co.uk/customer/subscribe/?icid=myaccount"
+  // );
+  // await browser.pause(3000);
   // const ViewSubofferBTN = await $('//a[text()="View subscription offers"]');
   // await ViewSubofferBTN.waitForDisplayed({ timeout: 50000 });
   // await ViewSubofferBTN.click();
