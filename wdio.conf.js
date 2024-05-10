@@ -52,15 +52,15 @@ export const config = {
   // will be called from there.
   //C:\Users\10703317\WDIO_Workspace\WDIO_TMG_BDD\features\SubscriptionAcquisitionDigital.feature
   specs: [
-    // "./features/**/ETE11_AccountcreationRegisterflow.feature",
+    "./features/**/ETE11_AccountcreationRegisterflow.feature",
     //   "./features/**/ETE3_SubscriptionAcquisitionDigitalPlus.feature",
     //   "./features/**/ETE7_SubscriptionAcquisitionPuzzles.feature",
     "./features/**/ETE20_PuzzlesOneClickOnboarding.feature",
     "./features/**/ETE21_AddPuzzlesfromMyAccount.feature",
     "./features/**/ETE22_AddPuzzlesAsBolton.feature",
     "./features/**/ETE23_AddDigitalAsBoltonToPuzzles.feature",
-    // "./features/**/ETE5_SubscriptionAcquisitionBonus.feature",
-    //  "./features/**/ETE8_SubscriptionAcquisitionGifts.feature",
+    "./features/**/ETE5_SubscriptionAcquisitionBonus.feature",
+    "./features/**/ETE8_SubscriptionAcquisitionGifts.feature",
     //   "./features/**/ETE2_SubscriptionAcquisitionMyAccount.feature",
     //  "./features/**/ETE4_SubscriptionAcquisitionOnlineCancellation.feature",
     //  "./features/**/ETE10_SubscriptionAcquisitionDigital.feature",
@@ -86,7 +86,7 @@ export const config = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: 4,
+  maxInstances: 10,
   //
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
