@@ -2,6 +2,7 @@ Feature: ETE 23 Add Digital As Bolton to Puzzle
 
    Scenario: TC_01:User purchasing puzzles subscription
         Given I launch login from homepage
+        Then  Action Keys Set One
         And   I fill in new Puzzledigitalbotlon email
         When  I click login-register button
         And   I enter "valid" register password

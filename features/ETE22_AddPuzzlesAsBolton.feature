@@ -17,6 +17,7 @@ Feature: ETE 22 Add Puzzles As Bolton
 
     Scenario: TC_01_PreRequisite:User purchasing Digital plan Monthly
         Given I launch login from homepage
+        Then  Action Keys Set One
         And   I fill in new digitalMPaypaletePuzzles email
         When  I click login-register button
         And   I enter "valid" register password

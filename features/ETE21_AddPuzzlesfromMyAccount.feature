@@ -33,6 +33,7 @@ Feature: ETE 21 Add Puzzles from MyAccount
 
  Scenario: TC_01_PreRequisite:User purchasing Digital plan Monthly
         Given I launch login from homepage
+        Then  Action Keys Set One
         And   I fill in new digitalMPaypalforPuzzles email
         When  I click login-register button
         And   I enter "valid" register password
@@ -49,7 +50,7 @@ Feature: ETE 21 Add Puzzles from MyAccount
         Then  Click on Manage Your Details button
         Then  Logout from Customer application
 
-  Scenario: TC_02:Validate Digital Subscriber has can pruchase Puzzles from MyAccount Page
+  Scenario: TC_02:Validate Digital Subscriber can pruchase Puzzles from MyAccount Page
     Given I launch login from homepage
     And   I fill in existing digitalMPaypalforPuzzles email
     When  I click login-register button
