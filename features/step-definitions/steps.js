@@ -3238,32 +3238,46 @@ Then("User completes the purchase", async () => {
   }
 
   try {
-    const subContinueBtn = await $(
-      '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"][2]'
-    );
-    await subContinueBtn.waitForDisplayed({ timeout: 30000 });
-    await subContinueBtn.click();
+    // const subContinueBtn = await $(
+    //   '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"][2]'
+    // );
 
-    const subSkipContinueBtn = await $(
-      '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Skip and continue"]'
-    );
-    await subSkipContinueBtn.waitForDisplayed({ timeout: 50000 });
-    await subSkipContinueBtn.click();
+    const subContinueBtn = await $('//button[text()="Continue"]');
 
-    const subContinueBtnn = await $(
-      '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"]'
-    );
-    await subContinueBtnn.waitForDisplayed({ timeout: 50000 });
-    await subContinueBtnn.click();
+    if (subContinueBtn.isDisplayed) {
+      await subContinueBtn.waitForDisplayed({ timeout: 30000 });
+      await subContinueBtn.click();
 
-    await subContinueBtnn.waitForDisplayed({ timeout: 50000 });
-    await subContinueBtnn.click();
+      // const subSkipContinueBtn = await $(
+      //   '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Skip and continue"]'
+      // );
+      const subSkipContinueBtn = await $(
+        '//button[text()="Skip and continue"]'
+      );
+      //button[text()="Skip and continue"]
+      await subSkipContinueBtn.waitForDisplayed({ timeout: 50000 });
+      await subSkipContinueBtn.click();
 
-    const pickwhrleftoff = await $(
-      '//span[text()="Pick up where you left off"]'
-    );
-    await pickwhrleftoff.waitForDisplayed({ timeout: 50000 });
-    await pickwhrleftoff.click();
+      // const subContinueBtnn = await $(
+      //   '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"]'
+      // );
+      const subContinueBtnn = await $('//button[text()="Continue"]');
+      await subContinueBtnn.waitForDisplayed({ timeout: 50000 });
+      await subContinueBtnn.click();
+
+      await subContinueBtnn.waitForDisplayed({ timeout: 50000 });
+      await subContinueBtnn.click();
+
+      // const pickwhrleftoff = await $(
+      //   '//span[text()="Pick up where you left off"]'
+      // );
+      const pickwhrleftoff = await $(
+        '//a[@href="https://staging-ams64.telegraph.co.uk/"]'
+      );
+      //a[@href="https://staging-ams64.telegraph.co.uk/"]
+      await pickwhrleftoff.waitForDisplayed({ timeout: 50000 });
+      await pickwhrleftoff.click();
+    }
   } catch (error) {
     console.error("no such element");
   } finally {
