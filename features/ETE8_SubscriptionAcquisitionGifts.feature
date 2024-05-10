@@ -4,6 +4,7 @@ Feature: ETE 8 Subscription Acquisition Gifts
 
     Scenario: TC_01:User purchasing Puzzles Gift subscription
         Given I launch login from homepage
+        Then  Action Keys Set One
         And   I fill in new Gift email
         When  I click login-register button
         And   I enter "valid" register password

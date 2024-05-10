@@ -4,6 +4,7 @@ Feature: ETE 6 Bonus Subscription
 
     Scenario: TC_01:User purchasing Digital plan with credit card
         Given I launch login from homepage
+        Then  Action Keys Set One
         And   I fill in new digital for bonus email
         And  I click login-register button
         And   I enter "valid" register password
