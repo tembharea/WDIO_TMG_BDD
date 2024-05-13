@@ -2,6 +2,7 @@ Feature: ETE 4 Online Cancellation
 
   Scenario: TC_01_User purchasing Digital plan with credit card
     Given I launch login from homepage
+    Then  Action Keys Set One
     Then  I fill in new email for Onlinecancellation
     When I click login-register button
     And I enter "valid" register password
