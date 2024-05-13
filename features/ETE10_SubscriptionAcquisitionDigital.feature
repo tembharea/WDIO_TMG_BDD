@@ -4,6 +4,7 @@ Feature: ETE 10 Subscription Acquisition Digital monthly & Annual
 
 Scenario: TC_01:User purchasing Digital plan Monthly with credit card
     Given I launch login from homepage
+    Then  Action Keys Set One
     And   I fill in new digitalMPaypal email
     When  I click login-register button
     And   I enter "valid" register password

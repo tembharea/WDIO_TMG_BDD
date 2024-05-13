@@ -4,6 +4,7 @@ Feature: ETE 7 Subscription Acquisition puzzles
 
     Scenario: TC_01:User purchasing puzzles subscription using Paypal
         Given I launch login from homepage
+        Then  Action Keys Set One
         And   I fill in new PuzzleOne email
         When  I click login-register button
         And   I enter "valid" register password

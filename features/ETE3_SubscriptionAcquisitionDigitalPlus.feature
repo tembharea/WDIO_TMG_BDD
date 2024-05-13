@@ -4,6 +4,7 @@ Feature: ETE 3 Subscription Acquisition Digital plus monthly & Annual
 
     Scenario: TC_01:User purchasing Digital Plus Monthly plan with Paypal
         Given I launch login from homepage
+        Then  Action Keys Set One
         And   I fill in new DigitalPLusMPaypal email
         When  I click login-register button
         And   I enter "valid" register password
