@@ -3704,31 +3704,46 @@ Then("Input Gift Address details", async () => {
     }
   );
 
-  const StreetLineOne = await $('//input[@id="streetline1"]');
-  await StreetLineOne.waitForDisplayed({ timeout: 20000 });
-  const StreetLineTwo = await $('//input[@id="streetline2"]');
-  await StreetLineTwo.waitForDisplayed({ timeout: 20000 });
-  const GiftCity = await $('//input[@id="city"]');
-  await GiftCity.waitForDisplayed({ timeout: 20000 });
-  const GiftPostCode = await $('//input[@id="postcode"]');
+  // const StreetLineOne = await $('//input[@id="streetline1"]');
+  // await StreetLineOne.waitForDisplayed({ timeout: 20000 });
+  // const StreetLineTwo = await $('//input[@id="streetline2"]');
+  // await StreetLineTwo.waitForDisplayed({ timeout: 20000 });
+  // const GiftCity = await $('//input[@id="city"]');
+  // await GiftCity.waitForDisplayed({ timeout: 20000 });
+  // const GiftPostCode = await $('//input[@id="postcode"]');
   //await GiftPostCode.waitForDisplayed({ timeout: 20000 });
 
   const GiftContinueBtn = await $(
     '//button[@id="payment-details-submit-button"]'
   );
-  await GiftContinueBtn.waitForDisplayed({ timeout: 20000 });
+  // await GiftContinueBtn.waitForDisplayed({ timeout: 20000 });
 
-  await StreetLineOne.setValue("87 Stone Cellar Road");
-  await StreetLineTwo.setValue("Kingseat");
-  await GiftCity.setValue("Kingseat");
+  // await StreetLineOne.setValue("87 Stone Cellar Road");
+  // await StreetLineTwo.setValue("Kingseat");
+  // await GiftCity.setValue("Kingseat");
 
-  const GifyCountry = await $('//select[@class="dropdown-wrapper-select"]');
-  await GifyCountry.waitForDisplayed();
-  await GifyCountry.selectByAttribute("value", "GB");
-  await browser.pause(3000);
-  await browser.keys("Enter");
-  await browser.pause(3000);
+  // const GifyCountry = await $('//select[@class="dropdown-wrapper-select"]');
+  // await GifyCountry.waitForDisplayed();
+  // await GifyCountry.selectByAttribute("value", "GB");
+  // await browser.pause(3000);
+  // await browser.keys("Enter");
+  // await browser.pause(3000);
+  const GiftPostCode = await $('//input[@id="postcode"]');
+  await GiftPostCode.waitForDisplayed({ timeout: 20000 });
   await GiftPostCode.setValue("KY12 9LG");
+
+  const findaddbtnn = await $('//span[text()="Find address"]');
+  await findaddbtnn.waitForDisplayed({ timeout: 20000 });
+  await findaddbtnn.click();
+
+  await browser.pause(3000);
+
+  const firstadddcli = await $(
+    '//span[contains(text(),"Please use your billing address")]//following::div[3]'
+  );
+  await firstadddcli.waitForDisplayed({ timeout: 20000 });
+  await firstadddcli.click();
+  await browser.pause(3000);
 
   await GiftContinueBtn.click();
 
