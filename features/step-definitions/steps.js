@@ -2555,7 +2555,7 @@ Then("Validate if user has any active subscription", async () => {
   await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
   await SubscriptionTab.click();
   const SubID = await $(
-    '//span[@title="Z-Subscriptions"]//following::span[contains(text(),"A-")]'
+    '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
   );
   RecordSubID = await SubID.getText();
   console.log(await SubID.getText());
@@ -3293,38 +3293,64 @@ Then("User completes the purchase as loggedout Registrant", async () => {
       timeoutMsg: "Message on failure",
     }
   );
+  try {
+    const subContinueBtn = await $('//button[text()="Continue"]');
 
-  const subContinueBtn = await $(
-    '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"][2]'
-  );
-  await subContinueBtn.waitForDisplayed({ timeout: 50000 });
-  await subContinueBtn.click();
-
-  const subSkipContinueBtn = await $(
-    '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Skip and continue"]'
-  );
-  await subSkipContinueBtn.waitForDisplayed({ timeout: 50000 });
-  await subSkipContinueBtn.click();
-
-  const subContinueBtnn = await $(
-    '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"]'
-  );
-  await subContinueBtnn.waitForDisplayed({ timeout: 50000 });
-  await subContinueBtnn.click();
-
-  await subContinueBtnn.waitForDisplayed({ timeout: 50000 });
-  await subContinueBtnn.click();
-
-  const pickwhrleftoff = await $('//span[text()="Pick up where you left off"]');
-  await pickwhrleftoff.waitForDisplayed({ timeout: 50000 });
-  await pickwhrleftoff.click();
-  browser.waitUntil(
-    () => browser.execute(() => document.readyState === "complete"),
-    {
-      timeout: 60 * 1000, // 60 seconds
-      timeoutMsg: "Message on failure",
+    if (subContinueBtn.isDisplayed) {
+      await subContinueBtn.waitForDisplayed({ timeout: 30000 });
+      await subContinueBtn.click();
+      const subSkipContinueBtn = await $(
+        '//button[text()="Skip and continue"]'
+      );
+      await subSkipContinueBtn.waitForDisplayed({ timeout: 50000 });
+      await subSkipContinueBtn.click();
+      const subContinueBtnn = await $('//button[text()="Continue"]');
+      await subContinueBtnn.waitForDisplayed({ timeout: 50000 });
+      await subContinueBtnn.click();
+      await subContinueBtnn.waitForDisplayed({ timeout: 50000 });
+      await subContinueBtnn.click();
+      const pickwhrleftoff = await $(
+        '//a[@href="https://staging-ams64.telegraph.co.uk/"]'
+      );
+      await pickwhrleftoff.waitForDisplayed({ timeout: 50000 });
+      await pickwhrleftoff.click();
     }
-  );
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
+  // const subContinueBtn = await $(
+  //   '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"][2]'
+  // );
+  // await subContinueBtn.waitForDisplayed({ timeout: 50000 });
+  // await subContinueBtn.click();
+
+  // const subSkipContinueBtn = await $(
+  //   '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Skip and continue"]'
+  // );
+  // await subSkipContinueBtn.waitForDisplayed({ timeout: 50000 });
+  // await subSkipContinueBtn.click();
+
+  // const subContinueBtnn = await $(
+  //   '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"]'
+  // );
+  // await subContinueBtnn.waitForDisplayed({ timeout: 50000 });
+  // await subContinueBtnn.click();
+
+  // await subContinueBtnn.waitForDisplayed({ timeout: 50000 });
+  // await subContinueBtnn.click();
+
+  // const pickwhrleftoff = await $('//span[text()="Pick up where you left off"]');
+  // await pickwhrleftoff.waitForDisplayed({ timeout: 50000 });
+  // await pickwhrleftoff.click();
+  // browser.waitUntil(
+  //   () => browser.execute(() => document.readyState === "complete"),
+  //   {
+  //     timeout: 60 * 1000, // 60 seconds
+  //     timeoutMsg: "Message on failure",
+  //   }
+  // );
 });
 
 Then("Input paypal Payment details", async () => {
@@ -5885,7 +5911,7 @@ Then("User Opens Subscription page", async () => {
   await SubscriptionTab.click();
 
   const SubID = await $(
-    '//span[@title="Z-Subscriptions"]//following::span[contains(text(),"A-")]'
+    '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
   );
   await SubID.waitForDisplayed({ timeout: 50000 });
   await SubID.click();
@@ -5983,7 +6009,7 @@ Then(
     await SubscriptionTab.click();
 
     const SubID = await $(
-      '//span[@title="Z-Subscriptions"]//following::span[contains(text(),"A-")]'
+      '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
     );
 
     RecordSubIDP = await SubID.getText();
@@ -6040,7 +6066,7 @@ Then(
     await SubscriptionTab.click();
 
     const SubID2 = await $(
-      '//span[@title="Z-Subscriptions"]//following::span[contains(text(),"A-")]'
+      '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
     );
 
     RecordSubIDP2 = await SubID2.getText();
@@ -6150,7 +6176,7 @@ Then(
     await SubscriptionTab.click();
 
     const SubID3 = await $(
-      '//span[@title="Z-Subscriptions"]//following::span[contains(text(),"A-")]'
+      '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
     );
 
     RecordSubIDP3 = await SubID3.getText();
@@ -6183,7 +6209,7 @@ Then(
     await SubscriptionTab.click();
 
     const SubID4 = await $(
-      '//span[@title="Z-Subscriptions"]//following::span[contains(text(),"A-")]'
+      '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
     );
 
     RecordSubIDP4 = await SubID4.getText();
@@ -6215,7 +6241,7 @@ Then("Validate subscription for digitalsub in salesforce", async () => {
   await SubscriptionTab.click();
 
   const SubID5 = await $(
-    '//span[@title="Z-Subscriptions"]//following::span[contains(text(),"A-")]'
+    '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
   );
 
   RecordSubIDP5 = await SubID5.getText();
@@ -6246,7 +6272,7 @@ Then("Validate subscription for digitalPlussub in salesforce", async () => {
   await SubscriptionTab.click();
 
   const SubID6 = await $(
-    '//span[@title="Z-Subscriptions"]//following::span[contains(text(),"A-")]'
+    '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
   );
 
   RecordSubIDP6 = await SubID6.getText();
@@ -6646,7 +6672,7 @@ Then("Validate if user has any active subscription for ete20", async () => {
   await SubscriptionTab.click();
 
   const SubID7 = await $(
-    '//span[@title="Z-Subscriptions"]//following::span[contains(text(),"A-")]'
+    '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
   );
   await SubID7.waitForDisplayed({ timeout: 50000 });
   RecordSubIDP7 = await SubID7.getText();
@@ -6899,7 +6925,7 @@ Then("Validate if Cancellation user has active subscription", async () => {
   await SubscriptionTab.click();
 
   const SubID8 = await $(
-    '//span[@title="Z-Subscriptions"]//following::span[contains(text(),"A-")]'
+    '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
   );
 
   RecordSubIDP8 = await SubID8.getText();

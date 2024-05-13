@@ -2,6 +2,7 @@ Feature: ETE 2 Subscription Acquisition MyAccount
 
     Scenario: TC_01:Verify a registrant user can navigate to the subshop where can view all subscriptions.
         Given I launch login from homepage
+        Then  Action Keys Set One
         Then  I fill in new emailOne for Subscription Acquisition
         When  I click login-register button
         And   I enter "valid" register password
