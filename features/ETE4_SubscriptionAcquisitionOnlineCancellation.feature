@@ -50,6 +50,7 @@ Feature: ETE 4 Online Cancellation
     When Go to My Account page
     Then Click on Manage Your Details button
     Then Click on Cancel your subscription
+    Then Cancellation reason selection
     Then Click on Continue to cancel button to verify the availability of one downsell offer
     When  Go to My Account page
     Then  Click on Manage Your Details button
@@ -65,6 +66,7 @@ Feature: ETE 4 Online Cancellation
     When Go to My Account page
     Then Click on Manage Your Details button
     Then Click on Cancel your subscription
+    Then Cancellation reason selection
     Then Click on Continue to cancel button to verify the availability of one downgrade offer
     When  Go to My Account page
     Then  Click on Manage Your Details button
@@ -80,6 +82,7 @@ Feature: ETE 4 Online Cancellation
     When Go to My Account page
     Then Click on Manage Your Details button
     Then Click on Cancel your subscription
+    Then Cancellation reason selection
     Then Click on Continue to cancel button on the downgrade offers
     Then Finally click on Cancel my subscription
     When  Go to My Account page

@@ -5834,6 +5834,20 @@ Then("Validate Entitlements are added for Puzzle subscription", async () => {
   await browser.pause(2500);
 });
 
+Then("Cancellation reason selection", async () => {
+  await browser.pause(2500);
+
+  const cancelreason = await $(
+    '//h1[contains(text(),"sorry to see")]//following::label[1]'
+  );
+  await cancelreason.waitForDisplayed({ timeout: 50000 });
+  await cancelreason.click();
+
+  const cancelcontinue = await $('//a[contains(text(),"Continue")]');
+  await cancelcontinue.waitForDisplayed({ timeout: 50000 });
+  await cancelcontinue.click();
+});
+
 Then("Validate Lock in Expiry date", async () => {
   await browser.pause(2500);
 });
@@ -7893,13 +7907,15 @@ Then("User completes Bonus Onboarding Journey", async () => {
     }
   );
   const subContinueBtn = await $(
-    '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"][2]'
+    //'//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"][2]'
+    '//button[text()="Continue"]'
   );
   await subContinueBtn.waitForDisplayed({ timeout: 50000 });
   await subContinueBtn.click();
 
   const subContinueBtnn = await $(
-    '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"]'
+    //'//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"]'
+    '//button[text()="Continue"]'
   );
   await subContinueBtnn.waitForDisplayed({ timeout: 50000 });
   await subContinueBtnn.click();

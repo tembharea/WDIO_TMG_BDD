@@ -311,14 +311,21 @@ Given(
         timeoutMsg: "Message on failure",
       }
     );
+
+    await browser.scroll(0, 200);
+    await browser.scroll(0, 200);
+    await browser.scroll(0, 200);
     const Showall = await $('(//a[contains(text(), "Show All (24)" )])');
     await browser.pause(5000);
     //await RemoveTheirAccess.waitForDisplayed({ timeout: 50000 });
     await Showall.waitForDisplayed({ timeout: 5000 });
     //await Showall.isDisplayed();
     await Showall.click();
+
     await browser.pause(5000);
+
     await browser.scroll(0, 200);
+
     const promocodes = await $(
       '//span[text()="Has Downgrade"]//following::span[contains(text(),"Promo")][1]'
     );
