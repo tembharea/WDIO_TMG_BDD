@@ -4,7 +4,7 @@ Feature: ETE 11 Account creation Register flow
 
     Scenario: TC_01:User Registration in Customer
         Given I launch login from homepage
-        Then  Action Keys Set One
+        #Then  Action Keys Set One
         Then  I fill in new email
         When  I click login-register button
         And   I enter "valid" register password
