@@ -1635,7 +1635,7 @@ Then("I fill in existing Puzzledigitalbotlon email", async () => {
 });
 
 When("I click continue button on registration page", async () => {
-  await browser.pause(100);
+  await browser.pause(1000);
   browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
@@ -1645,14 +1645,14 @@ When("I click continue button on registration page", async () => {
   );
 
   const createAccBtn = await $('//button[@id="create-account-button"]');
-  await createAccBtn.waitForDisplayed({ timeout: 50000 });
+  await createAccBtn.waitForDisplayed({ timeout: 20000 });
   await createAccBtn.click();
   await browser.pause(900);
   await browser.scroll(0, 100);
   const registerNewsBtn = await $(
     '//button[@id="register-newsletters-button"]'
   );
-  await registerNewsBtn.waitForDisplayed({ timeout: 40000 });
+  await registerNewsBtn.waitForDisplayed({ timeout: 20000 });
   await registerNewsBtn.click();
   await browser.pause(4000);
 });
