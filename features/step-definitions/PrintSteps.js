@@ -149,17 +149,17 @@ Then("Print Tell Us about Yourslef details", async () => {
 
   await printpostcode.waitForDisplayed({ timeout: 50000 });
   await printpostcode.setValue("KY12 9LG");
-
+  await browser.keys("\ue004");
   await findaddressbtn.waitForDisplayed({ timeout: 50000 });
   await findaddressbtn.click();
   await browser.pause(1000);
 
   await addressselectbtn.waitForDisplayed({ timeout: 50000 });
   await addressselectbtn.click();
-  await browser.pause(2000);
-
+  await browser.pause(5000);
+  await browser.keys("\ue004");
   await browser.scroll(0, 200);
-
+  await browser.scroll(0, 200);
   await continuebtn.waitForDisplayed({ timeout: 50000 });
   await continuebtn.click();
   await browser.pause(2000);
