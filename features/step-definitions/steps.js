@@ -3845,11 +3845,6 @@ Then("Search the subscription in Zuora for NewCustEmailthree", async () => {
   // Write code here that turns the phrase above into concrete actions
 });
 
-Then("Search the subscription in Zuora for NewCustEmailthree", async () => {
-  await browser.pause(1000);
-  // Write code here that turns the phrase above into concrete actions
-});
-
 Then("Validate bonus promo code is {string}", async (s) => {
   await browser.pause(1000);
   // Write code here that turns the phrase above into concrete actions
