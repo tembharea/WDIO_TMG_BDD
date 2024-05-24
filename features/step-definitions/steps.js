@@ -5353,9 +5353,17 @@ Then("Enter the GiftThree Donor email id in the search box", async () => {
 });
 
 Then("Logout from MPP platform", async () => {
-  const MppEmailLink = await $("//a[text()='Logout']");
-  await MppEmailLink.waitForDisplayed({ timeout: 20000 });
-  await MppEmailLink.click();
+  // const MppEmailLink = await $("//a[text()='Logout']");
+  // await MppEmailLink.waitForDisplayed({ timeout: 20000 });
+  // await MppEmailLink.click();
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  await browser.url("https://ehquat2.mppglobal.com/SystemAccount/LogOff");
   browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {

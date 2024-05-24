@@ -112,7 +112,7 @@ Then("Print Tell Us about Yourslef details", async () => {
   );
 
   const printuseralias = await $(
-    ' //h2[contains(text(),"Tell us about")]//following::select[1]'
+    '//h2[contains(text(),"Tell us about")]//following::select[1]'
   );
   await printuseralias.waitForDisplayed({ timeout: 50000 });
   await printuseralias.selectByAttribute("value", "Mr");
