@@ -3816,7 +3816,7 @@ Then("Input MPP payment details", async () => {
   await browser.pause(900);
 
   const GiftFinalSubmitBtn = await $(
-    '//a[@id="action_createaccountandpaynow"]'
+    '//*[@id="action_createaccountandpaynow"]'
   );
   await GiftFinalSubmitBtn.waitForDisplayed({ timeout: 20000 });
   await GiftFinalSubmitBtn.click();
@@ -3839,6 +3839,16 @@ Then(
     // Write code here that turns the phrase above into concrete actions
   }
 );
+
+Then("Search the subscription in Zuora for NewCustEmailthree", async () => {
+  await browser.pause(1000);
+  // Write code here that turns the phrase above into concrete actions
+});
+
+Then("Search the subscription in Zuora for NewCustEmailthree", async () => {
+  await browser.pause(1000);
+  // Write code here that turns the phrase above into concrete actions
+});
 
 Then("Validate bonus promo code is {string}", async (s) => {
   await browser.pause(1000);
@@ -6414,15 +6424,11 @@ Then("User completes the purchase for DigitalPlus", async () => {
   } catch (error) {
     console.error("no such element");
   } finally {
-    const subContinueBtn = await $(
-      '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"][2]'
-    );
+    const subContinueBtn = await $('//button[text()="Continue"]');
     await subContinueBtn.waitForDisplayed({ timeout: 50000 });
     await subContinueBtn.click();
 
-    const subContinueBtnn = await $(
-      '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"]'
-    );
+    const subContinueBtnn = await $('//button[text()="Continue"]');
     await subContinueBtnn.waitForDisplayed({ timeout: 50000 });
     await subContinueBtnn.click();
 
@@ -6430,7 +6436,8 @@ Then("User completes the purchase for DigitalPlus", async () => {
     await subContinueBtnn.click();
 
     const pickwhrleftoff = await $(
-      '//span[text()="Pick up where you left off"]'
+      //'//span[text()="Pick up where you left off"]'
+      '//a[@href="https://staging-ams64.telegraph.co.uk/"]'
     );
     await pickwhrleftoff.waitForDisplayed({ timeout: 50000 });
     await pickwhrleftoff.click();

@@ -64,6 +64,8 @@ export const config = {
     "./features/**/ETE2_SubscriptionAcquisitionMyAccount.feature",
     "./features/**/ETE4_SubscriptionAcquisitionOnlineCancellation.feature",
     "./features/**/ETE10_SubscriptionAcquisitionDigital.feature",
+    "./features/**/ETE67_7DayPrintAcquisition.feature",
+    "./features/**/ETE68_2DayPrintAcquisition.feature",
     // "./features/**/ETE12_Backdated.feature",
   ],
   // Patterns to exclude.
@@ -86,7 +88,7 @@ export const config = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: 12,
+  maxInstances: 14,
   //
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:

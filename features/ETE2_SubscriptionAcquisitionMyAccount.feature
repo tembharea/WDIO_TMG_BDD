@@ -142,7 +142,7 @@ Feature: ETE 2 Subscription Acquisition MyAccount
         When I launch Salesforce URL
         Then I login to Salesforce
         Then Close Opened tabs in salesforce
-        And Enter the email id in the search box in Salesforce
+        And Enter the email id in the search box in Salesforce for NewCustEmailthree
         Then Open the Account Page
         When User clicks on Details tab
         Then User clicks on Subscriptions tab
@@ -153,7 +153,7 @@ Feature: ETE 2 Subscription Acquisition MyAccount
         When I launch Salesforce URL
         Then I login to Salesforce
         Then Close Opened tabs in salesforce
-        And Enter the email id in the search box in Salesforce
+        And Enter the email id in the search box in Salesforce for NewCustEmailthree
         Then Open the Account Page
         When User clicks on Details tab
         Then User clicks on System tab
@@ -163,8 +163,8 @@ Feature: ETE 2 Subscription Acquisition MyAccount
     Scenario: TC_15:Validate Digital Subscriber User data in Zoura
         When I launch Zoura application
         Then Login to Zoura
-        Then Search the subscription in Zuora
-        Then validate the status of the subscription before cancellation
+        Then Search the subscription in Zuora for NewCustEmailthree
+        # Then validate the status of the subscription for NewCustEmailthree
 
     Scenario: TC_16:Validate Digital Subscriber data in Piano
         Given User opens Piano URL

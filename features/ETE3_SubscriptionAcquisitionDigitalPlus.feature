@@ -15,7 +15,7 @@ Feature: ETE 3 Subscription Acquisition Digital plus monthly & Annual
         Then  Click on View Subscription Offers
         Then  User clicks on Digital Plus Plan Monthly
         Then  Validate user is redirected to Payment gateway page
-        Then  Input paypal Payment details
+        Then  Input CreditCard Payment details
         Then  User completes the purchase for DigitalPlus
         Then  Validate HomePage
         When  Go to My Account page
@@ -33,7 +33,7 @@ Feature: ETE 3 Subscription Acquisition Digital plus monthly & Annual
         Then  Click on View Subscription Offers
         Then  User clicks on Digital Plus Plan Annual
         Then  Validate user is redirected to Payment gateway page
-        Then  Input paypal Payment details
+        Then  Input CreditCard Payment details
         Then  User completes the purchase for DigitalPlus
         Then  Validate HomePage
         When  Go to My Account page
