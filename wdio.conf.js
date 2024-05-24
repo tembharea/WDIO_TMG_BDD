@@ -289,6 +289,7 @@ export const config = {
       "./features/step-definitions/BonusSteps.js",
       "./features/step-definitions/AcquisitionMyAccount.js",
       "./features/step-definitions/CancellationSteps.js",
+      "./features/step-definitions/PrintSteps.js",
     ],
     // <boolean> show full backtrace for errors
     backtrace: false,

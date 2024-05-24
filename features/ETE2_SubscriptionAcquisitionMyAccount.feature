@@ -80,7 +80,7 @@ Feature: ETE 2 Subscription Acquisition MyAccount
         Then  Click on View Subscription Offers
         Then  User clicks on Digital Plan Annually
         Then  Validate user is redirected to Payment gateway page
-        Then  Input paypal Payment details
+        Then  Input CreditCard Payment details
         Then  User completes the purchase
         Then  Validate HomePage
         Then  Logout from Customer application
