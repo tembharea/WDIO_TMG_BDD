@@ -276,6 +276,7 @@ Scenario: TC_22:Validate External ID is craeted for Puzzles only user in salesfo
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
     When User clicks on Details tab
+    Then User clicks on Subscriptions tab
     And  User Opens Subscription page
     Then Validate Subscription External ID is generated
     Then Close Opened tabs in salesforce
@@ -301,6 +302,7 @@ Scenario: TC_24:Validate the correct Price Segment Code is generated based on th
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
     When User clicks on Details tab
+    Then User clicks on Subscriptions tab
     And  User Opens Subscription page
     Then Validate Price Segment code is generated
     Then Close Opened tabs in salesforce
@@ -311,6 +313,8 @@ Scenario: TC_25:Validate Acquisition Channel is set to TCUK
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
+    When User clicks on Details tab
+    Then User clicks on Subscriptions tab
     And  User Opens Subscription page
     Then Validate Acquisition Channel is set to TCUK
     Then Close Opened tabs in salesforce
@@ -323,6 +327,7 @@ Scenario: TC_26:Validate Promo Code field has generated the correct offer name w
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
     When User clicks on Details tab
+    Then User clicks on Subscriptions tab
     And  User Opens Subscription page
     Then Validate Promo Code is generated for PuzzlesOnly
     Then Close Opened tabs in salesforce

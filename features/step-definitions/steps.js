@@ -147,7 +147,7 @@ Given("User opens Piano URL", async () => {
 });
 
 Given("User clicks on Payment tab", async () => {
-  //await browser.pause(100);
+  await browser.pause(100);
 });
 
 Then("Validate Registrant Account details do not exist in Zoura", async () => {
@@ -4787,16 +4787,17 @@ Then("Validate Gift Promo Code is Generated", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-
-  const SalesFShowAll = await $('//a[text()="Show All (24)"]');
+  await browser.scroll(0, 100);
+  await browser.scroll(100, 0);
+  const SalesFShowAll = await $('//a[contains(text(),"Show All")]');
   await SalesFShowAll.waitForDisplayed({ timeout: 50000 });
-  await SalesFShowAll.scrollIntoView({ block: "center", inline: "center" });
+  await SalesFShowAll.scrollIntoView();
   await browser.pause(1000);
   await SalesFShowAll.click();
   await browser.pause(3000);
 
   const SalesFACOrders = await $(
-    '//span[text()="Has Downgrade"]//following::span[contains(text(),"Account Orders")][1]'
+    '//span[text()="Has Downgrade"]//following::span[contains(text(),"Account Orders")]//..//..//button[1]'
   );
   await SalesFACOrders.waitForDisplayed({ timeout: 50000 });
   await SalesFACOrders.click();

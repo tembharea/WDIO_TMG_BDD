@@ -97,7 +97,7 @@ Then("User clicks on Subscriptions tab", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  const SFSubscriptionTab = await $('//*[text()="Subscriptions"]');
+  const SFSubscriptionTab = await $('//a[text()="Subscriptions"]');
   await SFSubscriptionTab.waitForDisplayed({ timeout: 20000 });
   await SFSubscriptionTab.click();
 });
