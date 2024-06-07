@@ -69,7 +69,7 @@ Then("Finally click on Cancel my subscription", async () => {
     }
   );
   const lastChancePopup = await $(
-    '//h1[text()="Last chance. Stay with us and save."]'
+    '//*[text()="Last chance. Stay with us and save."]'
   );
   // await browser.pause(55000);
 
@@ -97,7 +97,7 @@ Then("User clicks on Subscriptions tab", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  const SFSubscriptionTab = await $('//a[text()="Subscriptions"]');
+  const SFSubscriptionTab = await $('//*[text()="Subscriptions"]');
   await SFSubscriptionTab.waitForDisplayed({ timeout: 20000 });
   await SFSubscriptionTab.click();
 });
@@ -195,7 +195,7 @@ Then(
     await continueToCancelBtn.click();
 
     const verifydownsellofer = await $(
-      '//h1[contains(text(),"stay with us and save")]'
+      '//*[contains(text(),"tay with us and save")]'
     );
     await verifydownsellofer.waitForDisplayed({ timeout: 50000 });
   }

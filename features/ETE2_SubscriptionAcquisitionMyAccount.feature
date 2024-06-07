@@ -83,9 +83,9 @@ Feature: ETE 2 Subscription Acquisition MyAccount
         Then  Input CreditCard Payment details
         Then  User completes the purchase
         Then  Validate HomePage
+        When  Go to My Account page
         Then  Click on Manage Your Details button
         When  Go to My Account page
-        
         Then  Logout from Customer application
 
     Scenario: TC_08:Verify the status of the subscription in Salesforce

@@ -4790,6 +4790,8 @@ Then("Validate Gift Promo Code is Generated", async () => {
 
   const SalesFShowAll = await $('//a[text()="Show All (24)"]');
   await SalesFShowAll.waitForDisplayed({ timeout: 50000 });
+  await SalesFShowAll.scrollIntoView({ block: "center", inline: "center" });
+  await browser.pause(1000);
   await SalesFShowAll.click();
   await browser.pause(3000);
 
@@ -5956,7 +5958,8 @@ Then("User Opens Subscription page", async () => {
   await SubscriptionTab.click();
 
   const SubID = await $(
-    '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
+    // '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
+    '//span[@title="Z-Subscriptions"]//following::*[@class="slds-grid slds-grid_align-spread"][2]'
   );
   await SubID.waitForDisplayed({ timeout: 50000 });
   await SubID.click();
