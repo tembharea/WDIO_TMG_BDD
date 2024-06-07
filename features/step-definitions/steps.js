@@ -4797,7 +4797,8 @@ Then("Validate Gift Promo Code is Generated", async () => {
   await browser.pause(3000);
 
   const SalesFACOrders = await $(
-    '//span[text()="Has Downgrade"]//following::span[contains(text(),"Account Orders")]//..//..//button[1]'
+    //'//span[text()="Has Downgrade"]//following::span[contains(text(),"Account Orders")]//..//..//button[1]'
+    '//a[contains(@href,"/related/Account_Orders__r/view")]'
   );
   await SalesFACOrders.waitForDisplayed({ timeout: 50000 });
   await SalesFACOrders.click();

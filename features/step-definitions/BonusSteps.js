@@ -312,22 +312,24 @@ Given(
       }
     );
 
-    await browser.scroll(0, 200);
-    await browser.scroll(0, 200);
+    // await browser.scroll(0, 200);
+    // await browser.scroll(0, 200);
     await browser.scroll(0, 200);
     const Showall = await $('(//a[contains(text(), "Show All (24)" )])');
     await browser.pause(5000);
+    await Showall.scrollIntoView();
     //await RemoveTheirAccess.waitForDisplayed({ timeout: 50000 });
     await Showall.waitForDisplayed({ timeout: 5000 });
     //await Showall.isDisplayed();
     await Showall.click();
-
+    // await browser.scroll(0, 200);
     await browser.pause(5000);
 
     await browser.scroll(0, 200);
 
     const promocodes = await $(
-      '//span[text()="Has Downgrade"]//following::span[contains(text(),"Promo")][1]'
+      // '//span[text()="Has Downgrade"]//following::span[contains(text(),"Promo")][1]'
+      '//a[contains(@href,"/related/Promo_Codes__r/view")]'
     );
     await browser.pause(5000);
     await promocodes.waitForDisplayed({ timeout: 50000 });
