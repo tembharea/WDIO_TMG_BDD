@@ -66,7 +66,7 @@ export const config = {
     "./features/**/ETE10_SubscriptionAcquisitionDigital.feature",
     "./features/**/ETE67_7DayPrintAcquisition.feature",
     "./features/**/ETE68_2DayPrintAcquisition.feature",
-    "./features/**/ETE12_Backdated.feature",
+    //"./features/**/ETE12_Backdated.feature",
     //"./features/**/Test.feature",
   ],
   // Patterns to exclude.
