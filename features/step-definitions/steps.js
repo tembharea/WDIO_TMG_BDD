@@ -5500,10 +5500,6 @@ Then(
   }
 );
 
-Then("Validate Payment details in MPP", async () => {
-  await browser.pause(100);
-});
-
 Then(
   "Validate Exclusive newsletters cant added and have signup CTA",
   async () => {
@@ -8320,4 +8316,30 @@ Then("Create Bill Run with Payment", async () => {
       timeoutMsg: "Message on failure",
     }
   );
+});
+
+Then("DevConsole Test", async () => {
+  await browser.pause(1000);
+
+  // const clicSettings = await $(
+  //   '//a[@class="menuTriggerLink slds-button slds-button_icon slds-button_icon slds-button_icon-container slds-button_icon-small slds-global-actions__setup slds-global-actions__item-action"]'
+  // );
+  // await clicSettings.waitForDisplayed();
+  // await clicSettings.click();
+
+  await browser.url(
+    "https://mytmg--qa.sandbox.my.salesforce.com/_ui/common/apex/debug/ApexCSIPage"
+  );
+
+  //await browser.switchWindow("Developer Console");
+  await browser.pause(20000);
+
+  const devinput = await $('//div[@id="editors-body"]');
+  await devinput.setValue("1234545");
+  await browser.pause(10000);
+
+  await browser.switchWindow(
+    "https://mytmg--qa.sandbox.lightning.force.com/lightning/"
+  );
+  await browser.pause(2000);
 });

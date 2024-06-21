@@ -25,27 +25,25 @@ Feature: Test
     #     When Navigate to All Users page
     #     #Then LogOut from Piano
 
-    Scenario: TC_D:Validate details in MPP
-        When I launch MPP URL
-        Then I login to MPP application
-        And  Enter the Test email id in the search box
-        Then Open the Account Page for Test in MPP
-        Then Validate Payment details in MPP
-        Then Logout from MPP platform
+    # Scenario: TC_D:Validate details in MPP
+    #     When I launch MPP URL
+    #     Then I login to MPP application
+    #     And  Enter the Test email id in the search box
+    #     Then Open the Account Page for Test in MPP
+    #     Then Validate Payment details in MPP
+    #     Then Logout from MPP platform
 
 
-    Scenario: TC_E:Validate details in MPP
-        When I launch MPP URL
-        Then I login to MPP application
-        And  Enter the Test email id in the search box
-        Then Open the Account Page for Test in MPP
-        Then Validate Payment details in MPP
-        Then Logout from MPP platform
+    # Scenario: TC_E:Validate details in MPP
+    #     When I launch MPP URL
+    #     Then I login to MPP application
+    #     And  Enter the Test email id in the search box
+    #     Then Open the Account Page for Test in MPP
+    #     Then Validate Payment details in MPP
+    #     Then Logout from MPP platform
 
-    Scenario: TC_F:Validate details in MPP
-        When I launch MPP URL
-        Then I login to MPP application
-        And  Enter the Test email id in the search box
-        Then Open the Account Page for Test in MPP
-        Then Validate Payment details in MPP
-        Then Logout from MPP platform
+    Scenario: TC_00:Testing Dev Console of Salesforce
+        When I launch Salesforce URL
+        Then I login to Salesforce
+        Then Close Opened tabs in salesforce
+        Then DevConsole Test
