@@ -84,7 +84,8 @@ Feature: ETE 6 Bonus Subscription
         Then I login to Salesforce
         Then Close Opened tabs in salesforce
         And Enter the Bonus Sub email id in the search box
-        Then Validate if user has active subscription Digital subscription
+        And Open the Account Page
+        Then Validate if Bonus user has active subscription in SF
         Then Close Opened tabs in salesforce
 
     Scenario: TC_07:Validate Digital Bonus Subscriber data in Piano

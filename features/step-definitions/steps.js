@@ -104,7 +104,9 @@ var RecordSubIDP5;
 var RecordSubIDP6;
 var RecordSubIDP7;
 var RecordSubIDP8;
+var RecordSubIDPBonus;
 let ZouraSubURL;
+let ZouraSubURLBonus;
 let ZouraSubURLPuzzle;
 let ZouraSubURLPuzzleete21;
 let ZouraSubURLPuzzleete22;
@@ -3836,9 +3838,76 @@ Then(
   "Validate if user has active subscription Digital subscription",
   async () => {
     await browser.pause(1000);
+    await browser.pause(1000);
+    // Write code here that turns the phrase above into concrete actions
+    await browser.pause(100);
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+    const SubscriptionTab = await $('//a[text()="Subscriptions"]');
+    await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
+    await SubscriptionTab.click();
+
+    const SubID2 = await $(
+      '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
+    );
+    await SubID2.isExisting();
+    await browser.pause(100);
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
     // Write code here that turns the phrase above into concrete actions
   }
 );
+
+Then("Validate if Bonus user has active subscription in SF", async () => {
+  await browser.pause(1000);
+  // Write code here that turns the phrase above into concrete actions
+  await browser.pause(100);
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  const SubscriptionTab = await $('//a[text()="Subscriptions"]');
+  await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
+  await SubscriptionTab.click();
+
+  const SubID2 = await $(
+    '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
+  );
+  await SubID2.isExisting();
+  await browser.pause(100);
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  RecordSubIDPBonus = await SubID2.getText();
+  console.log(await SubID2.getText());
+  console.log(RecordSubIDPBonus);
+  ZouraSubURLBonus =
+    "https://apisandbox.zuora.com/platform/apps/search?searchTerm=" +
+    RecordSubIDPBonus +
+    "&searchObjectType=subscription";
+  await browser.pause(5000);
+  CucumberJsJsonReporter.attach(
+    "Subscription ID: " + RecordSubIDPBonus,
+    "text/plain"
+  );
+});
 
 Then("Search the subscription in Zuora for NewCustEmailthree", async () => {
   await browser.pause(1000);
@@ -3893,6 +3962,19 @@ Then("Validate Subscription end date", async () => {
 
 Then("Go to Zoura Subscription Page for Bonus", async () => {
   await browser.pause(1000);
+  await browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  await browser.url(ZouraSubURLBonus);
+  await browser.pause(2000);
+  CucumberJsJsonReporter.attach(
+    "Subscription ID: " + RecordSubIDPBonus,
+    "text/plain"
+  );
   // Write code here that turns the phrase above into concrete actions
 });
 
@@ -4051,6 +4133,22 @@ Then(
   "Validate subscription for digital Monthly Plan in salesforce",
   async () => {
     await browser.pause(1000);
+    await browser.pause(100);
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+    const SubscriptionTab = await $('//a[text()="Subscriptions"]');
+    await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
+    await SubscriptionTab.click();
+
+    const SubID2 = await $(
+      '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
+    );
+
     // Write code here that turns the phrase above into concrete actions
   }
 );
@@ -4059,6 +4157,22 @@ Then(
   "Validate subscription for digital Annual Plan in salesforce",
   async () => {
     await browser.pause(1000);
+    await browser.pause(100);
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+    const SubscriptionTab = await $('//a[text()="Subscriptions"]');
+    await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
+    await SubscriptionTab.click();
+
+    const SubID2 = await $(
+      '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
+    );
+
     // Write code here that turns the phrase above into concrete actions
   }
 );
@@ -4128,6 +4242,30 @@ Then("Validate Access details in Piano for Digital Plus sub", async () => {
 Then("Validate if user has activee subscription", async () => {
   await browser.pause(1000);
   // Write code here that turns the phrase above into concrete actions
+  await browser.pause(100);
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  const SubscriptionTab = await $('//a[text()="Subscriptions"]');
+  await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
+  await SubscriptionTab.click();
+
+  const SubID2 = await $(
+    '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
+  );
+  await SubID2.isExisting();
+  await browser.pause(100);
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
 });
 
 Then("Validate Continent and Country", async () => {
