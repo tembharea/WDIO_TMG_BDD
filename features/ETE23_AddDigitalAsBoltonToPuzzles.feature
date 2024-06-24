@@ -125,8 +125,9 @@ Scenario: TC_08:Validate Puzzle Digital BoltOn Subscriber Replatform Digital Sta
     Then Close Opened tabs in salesforce
 
   Scenario: TC_11:Validate Puzzle Digital BoltOn Subscriber subscription start and end date in Zoura
-    Given I launch Zoura application
+    Given I open zuora
     And Login to Zoura
+    When Go to Zoura Subscription Page for Puzzledigitalbotlon
     When Validate Subscription End date
     Then Validate Subscription start date
     And I logout from Zuora

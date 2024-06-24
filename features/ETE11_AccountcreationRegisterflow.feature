@@ -118,7 +118,7 @@ Scenario: TC_11:Validate Registrant Print status in Salesforce
     Then Close Opened tabs in salesforce
     And Enter the email id in the search box
     Then Open the Account Page
-    When User clicks on Details tab
+    #When User clicks on Details tab
     Then Verify the Print Status is "Inactive"
     Then Close Opened tabs in salesforce
 
@@ -167,7 +167,7 @@ Scenario: TC_16:Validate Registered Entitlements data in Salesforce
     Then Close Opened tabs in salesforce
     And Enter the email id in the search box
     Then Open the Account Page
-    When User clicks on Details tab
+    #When User clicks on Details tab
     When User clicks on System tab
     Then Validate Entitlements are added for digital subscription
     Then Close Opened tabs in salesforce

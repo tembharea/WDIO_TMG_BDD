@@ -6380,7 +6380,7 @@ Then(
 Then(
   "Validate subscription for Puzzledigitalbotlonn in salesforce",
   async () => {
-    await browser.pause(100);
+    await browser.pause(2000);
     browser.waitUntil(
       () => browser.execute(() => document.readyState === "complete"),
       {
@@ -6390,8 +6390,8 @@ Then(
     );
     const SubscriptionTab = await $('//a[text()="Subscriptions"]');
     await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
-    await SubscriptionTab.click();
-
+    await SubscriptionTab.doubleClick();
+    await browser.pause(2000);
     const SubID4 = await $(
       '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
     );
@@ -6840,7 +6840,7 @@ Then("Enter the digitalete20 Sub email id in the search box", async () => {
 });
 
 Then("Validate if user has any active subscription for ete20", async () => {
-  await browser.pause(100);
+  await browser.pause(2000);
   browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {

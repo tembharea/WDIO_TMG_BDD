@@ -99,7 +99,7 @@ Scenario: TC_07:Validate DigitalPuzzleAsBolton Subscriber Replatform Digital Sta
     Then Close Opened tabs in salesforce
     And Enter the digitalMPaypaletePuzzles email id in the search box in Salesforce
     Then Open the Account Page
-    When User clicks on Details tab
+    #When User clicks on Details tab
     Then Validate Replatform Digital status is Active
     Then Close Opened tabs in salesforce
 

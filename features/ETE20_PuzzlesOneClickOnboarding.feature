@@ -114,7 +114,9 @@ Scenario: TC_10:Validate Digital Puzzle Replatform Digital Status is Active
     Then Close Opened tabs in salesforce
 
   Scenario: TC_11:Validate Digital Puzzle Subscriber subscription start and end date in Zoura
-    Given I launch Zoura application
+    Given I open zuora
+    And Login to Zoura
+    When Go to Zoura Subscription Page for digitalete20
     When Validate Subscription End date
     Then Validate Subscription start date
     And I logout from Zuora

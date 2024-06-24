@@ -149,7 +149,7 @@ Scenario: TC_11A:Validate Puzzle subscription status in Salesforce
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
-    When User clicks on Details tab
+    #When User clicks on Details tab
     Then Validate if user has any active subscription
     Then Close Opened tabs in salesforce
 
@@ -160,7 +160,7 @@ Scenario: TC_12:Validate Puzzles Subscriber TS number in Salesforce
     Then Close Opened tabs in salesforce
     Then Enter the Puzzles email id in the search box
     Then Open the Account Page
-    When User clicks on Details tab
+    #When User clicks on Details tab
     Then Validate TS number is generated in Subscriber Number field
     Then Close Opened tabs in salesforce
 
@@ -171,7 +171,7 @@ Scenario: TC_13:Validate account Origin
     Then Close Opened tabs in salesforce
     And  Enter the Puzzles email id in the search box
     Then Open the Account Page
-    When User clicks on Details tab
+    #When User clicks on Details tab
     Then Validate Account Origin is empty
     Then Close Opened tabs in salesforce
 
@@ -182,7 +182,7 @@ Scenario: TC_14:Validate Puzzles Subscriber Piano ID in Salesforce
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
-    When User clicks on Details tab
+    #When User clicks on Details tab
     Then Validate a GUID and PianoID are generated
     Then Close Opened tabs in salesforce
 
@@ -193,7 +193,7 @@ Scenario: TC_15:Validate account channel is Premium
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
-    When User clicks on Details tab
+    #When User clicks on Details tab
     Then Validate account channel is "Premium"
     Then Close Opened tabs in salesforce
 
@@ -204,7 +204,7 @@ Scenario: TC_16:Validate Billing Currency is GBP
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
-    When User clicks on Details tab
+    #When User clicks on Details tab
     Then Validate Billing Currency is GBP
     Then Close Opened tabs in salesforce
 
@@ -226,7 +226,7 @@ Scenario: TC_18:Validate Puzzles Subscriber Entitlements data in Salesforce
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
-    When User clicks on Details tab
+    #When User clicks on Details tab
     When User clicks on System tab
     Then Validate Entitlements are added for Puzzle subscription
     Then Close Opened tabs in salesforce
@@ -238,7 +238,7 @@ Scenario: TC_19:Validate Puzzles Subscriber Lock In Expiry in Salesforce
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
-    When User clicks on Details tab
+    #When User clicks on Details tab
     Then User clicks on Subscriptions tab
     Then Validate Lock in Expiry date
     Then Close Opened tabs in salesforce
@@ -250,7 +250,7 @@ Scenario: TC_20:Validate Puzzles Subscriber Type of Offer in Salesforce
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
-    When User clicks on Details tab
+    #When User clicks on Details tab
     Then User clicks on Subscriptions tab
     Then Validate Type of Offer for Puzzles
     Then Close Opened tabs in salesforce
@@ -262,7 +262,7 @@ Scenario: TC_21:Validate Puzzles Subscriber Payment details in Salesforce
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
-    When User clicks on Details tab
+    #When User clicks on Details tab
     When User clicks on Payment tab
     Then Validate Default Payment Method for Puzzles in Payment Tab
     Then Validate CMRR matches with the price selected on telegraph customer app
@@ -275,7 +275,7 @@ Scenario: TC_22:Validate External ID is craeted for Puzzles only user in salesfo
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
-    When User clicks on Details tab
+    #When User clicks on Details tab
     Then User clicks on Subscriptions tab
     And  User Opens Subscription page
     Then Validate Subscription External ID is generated
@@ -288,7 +288,7 @@ Scenario: TC_23:Validate subscription product name is Puzzles Monthly Subscripti
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
-    When User clicks on Details tab
+    #When User clicks on Details tab
     Then User clicks on Subscriptions tab
     Then Validate if user has any subscription for puzzle in salesforce
     Then Validate Product name is Puzzles Monthly Subscription
@@ -301,7 +301,7 @@ Scenario: TC_24:Validate the correct Price Segment Code is generated based on th
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
-    When User clicks on Details tab
+    #When User clicks on Details tab
     Then User clicks on Subscriptions tab
     And  User Opens Subscription page
     Then Validate Price Segment code is generated
@@ -313,7 +313,7 @@ Scenario: TC_25:Validate Acquisition Channel is set to TCUK
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
-    When User clicks on Details tab
+    #When User clicks on Details tab
     Then User clicks on Subscriptions tab
     And  User Opens Subscription page
     Then Validate Acquisition Channel is set to TCUK
@@ -326,7 +326,7 @@ Scenario: TC_26:Validate Promo Code field has generated the correct offer name w
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
-    When User clicks on Details tab
+    #When User clicks on Details tab
     Then User clicks on Subscriptions tab
     And  User Opens Subscription page
     Then Validate Promo Code is generated for PuzzlesOnly
