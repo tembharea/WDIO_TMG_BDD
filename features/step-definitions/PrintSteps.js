@@ -28,6 +28,7 @@ const Print2dayMontly = rndstr2 + "4print2dayM7@telegraph.co.uk";
 const Print2dayQuarterly = rndstr3 + "4print2dayQ7@telegraph.co.uk";
 const Print7dayQuarterly = rndstr4 + "4print7dayM7@telegraph.co.uk";
 const Print7dayMontly = rndstr5 + "4print7dayQ7@telegraph.co.uk";
+const Print7dayRenewal = rndstr6 + "7print7dayR@telegraph.co.uk";
 
 const SFMoreButton = await $('//button[@title="More Tabs"]');
 
@@ -973,4 +974,237 @@ When("Click on Print7dayQuarterly Subscription", async () => {
       timeoutMsg: "Message on failure",
     }
   );
+});
+
+Then("I fill in new Print7dayRenewal email", async () => {
+  await browser.pause(500);
+  await browser.refresh();
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  await browser.pause(500);
+  const EmailInput = await $('//input[@id="email"]');
+  await EmailInput.waitForDisplayed();
+  await EmailInput.click();
+  await browser.pause(200);
+  await EmailInput.setValue(Print7dayRenewal);
+  await browser.pause(100);
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + Print7dayRenewal,
+    "text/plain"
+  );
+});
+
+Then(
+  "Enter the Print7dayRenewal email id in the search box in salesforce",
+  async () => {
+    await browser.pause(2000);
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+    await browser.refresh();
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+    await browser.pause(900);
+    const SearchBarClick = await $(
+      '//button[contains(@class,"slds-button slds-button_neutral search")]'
+    );
+    await SearchBarClick.waitForDisplayed({ timeout: 20000 });
+    // await SearchBarClick.click();
+    await browser.pause(1500);
+    await SearchBarClick.doubleClick();
+    await browser.pause(700);
+    await browser.keys("Enter");
+    await browser.pause(1000);
+
+    const serchBartxt = await $('//h2[text()="Do more with Search!"]');
+    //await serchBartxt.waitForDisplayed({ timeout: 20000 });
+    const SearchBarInput = await $(
+      '//div[contains(@class,"icon_left-right")]//input[@class="slds-input"]'
+    );
+
+    if (serchBartxt.isExisting == true) {
+      await SearchBarInput.waitForDisplayed({ timeout: 20000 });
+      await SearchBarInput.click();
+      await SearchBarInput.clearValue();
+      await browser.pause(300);
+      await SearchBarInput.setValue(Print7dayRenewal);
+      await browser.pause(300);
+      await browser.keys("Enter");
+      await browser.pause(3000);
+    } else {
+      await browser.refresh();
+      browser.waitUntil(
+        () => browser.execute(() => document.readyState === "complete"),
+        {
+          timeout: 60 * 1000, // 60 seconds
+          timeoutMsg: "Message on failure",
+        }
+      );
+      await SearchBarClick.waitForDisplayed({ timeout: 20000 });
+      await browser.pause(1500);
+      await SearchBarClick.doubleClick();
+      await browser.pause(700);
+      await browser.keys("Enter");
+      await browser.pause(1000);
+      await SearchBarInput.waitForDisplayed({ timeout: 20000 });
+      await SearchBarInput.click();
+      await SearchBarInput.clearValue();
+      await browser.pause(300);
+      await SearchBarInput.setValue(Print7dayRenewal);
+      await browser.pause(300);
+      await browser.keys("Enter");
+      await browser.pause(3000);
+      CucumberJsJsonReporter.attach(
+        "Test ID is: " + Print7dayRenewal,
+        "text/plain"
+      );
+    }
+  }
+);
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+Then("Oflline 7Day print Sub Purchase", async () => {
+  // Write code here that turns the phrase above into concrete actions
+
+  await browser.pause(500);
+  const firstpageIframe = await $('//iframe[@title="accessibility title"]');
+
+  await browser.pause(4000);
+  await browser.switchToFrame(firstpageIframe);
+  //const OpenOffr = await $('//label[contains(text(),"Open Offer")]');
+  //input[@value="OpenOffer"]
+  const OpenOffr = await $('//input[@value="OpenOffer"]');
+  await OpenOffr.waitForDisplayed({ timeout: 20000 });
+  await OpenOffr.click();
+  await browser.pause(2000);
+  const svndayprintoffr = await $('//td[text()="7-day Print"]');
+  await svndayprintoffr.waitForDisplayed({ timeout: 20000 });
+  await svndayprintoffr.click();
+  await browser.pause(4000);
+  const existing7dayIDinput = await $(
+    '//label[text()="Email:*"]//following::input[1]'
+  );
+  await existing7dayIDinput.waitForDisplayed({ timeout: 20000 });
+  await existing7dayIDinput.setValue(Print7dayRenewal);
+  const chkextngacc = await $('//input[@value="Check Existing Accounts"]');
+  await chkextngacc.waitForDisplayed({ timeout: 20000 });
+  await chkextngacc.click();
+  // const wrngmsg = await $('//h4[text()="Warning:"]');
+  // await wrngmsg.waitForDisplayed({ timeout: 20000 });
+  // await wrngmsg.isExisting();
+  await browser.pause(4000);
+  const extngemailselect = await $('//a[text()="Select"]');
+  await extngemailselect.waitForDisplayed({ timeout: 20000 });
+  await extngemailselect.scrollIntoView();
+  await extngemailselect.click();
+
+  await browser.pause(4000);
+  await browser.switchToFrame(null);
+
+  const secondpageIframe = await $(
+    '//div[@class="slds-global-header__logo"]//following::iframe[@title="accessibility title"][2]'
+  );
+
+  await browser.switchToFrame(secondpageIframe);
+  const addresslocatr1 = await $(
+    '//label[contains(text(),"PostCode:")]//following::input[1]'
+  );
+  const addresslocatr2 = await $(
+    '//label[contains(text(),"PostCode:")]//following::input[2]'
+  );
+  const addresslocatr3 = await $(
+    '//label[contains(text(),"PostCode:")]//following::input[3]'
+  );
+  const addresslocatr4 = await $(
+    '//label[contains(text(),"Mailing Street")]//following::textarea[1]'
+  );
+
+  await browser.scroll(0, 200);
+  await addresslocatr1.waitForDisplayed({ timeout: 20000 });
+  await addresslocatr1.scrollIntoView();
+  await addresslocatr1.setValue("SW1A 1AA");
+  await browser.pause(400);
+  await addresslocatr2.click();
+  await browser.pause(7400);
+  await addresslocatr3.click();
+  await browser.pause(5400);
+  await addresslocatr4.waitForDisplayed({ timeout: 20000 });
+  await addresslocatr4.setValue("Daily Telegraph");
+
+  const takepayment = await $(
+    '//label[contains(text(),"Select Delivery")]//following::input[@value="Save and Take Payment"][2]'
+  );
+  await takepayment.waitForDisplayed({ timeout: 20000 });
+  await takepayment.click();
+  await browser.pause(4000);
+  await browser.switchToFrame(null);
+  await browser.pause(8500);
+
+  // const thirdpage = await $(
+  //   '//div[@class="slds-notify_alert system-message level-info slds-theme_info"]//following::iframe[@title="accessibility title"][2]'
+  // );
+  const thirdpage = await $(
+    '//div[@class="iframe-parent slds-template_iframe slds-card"]'
+  );
+  // await thirdpage.getAttribute("src");
+  // console.log(await thirdpage.getAttribute("src"));
+
+  await browser.switchToFrame(thirdpage);
+  await browser.pause(2000);
+  console.log("new iframe works, xapth issue of card num");
+  console.log("new iframe works, xapth issue of card num");
+  console.log("new iframe works, xapth issue of card num");
+  console.log("new iframe works, xapth issue of card num");
+  console.log("new iframe works, xapth issue of card num");
+  console.log("new iframe works, xapth issue of card num");
+  console.log("new iframe works, xapth issue of card num");
+  console.log("new iframe works, xapth issue of card num");
+  console.log("new iframe works, xapth issue of card num");
+  console.log("new iframe works, xapth issue of card num");
+  await browser.scroll(0, 200);
+  await browser.scroll(0, 200);
+  await browser.scroll(0, 200);
+  const cardnuminput = await $(
+    '//div[@class="fieldArea"]//following::input[1]'
+  );
+  await cardnuminput.waitForDisplayed({ timeout: 20000 });
+  await cardnuminput.setValue("4222000001227408");
+
+  const cardcvvinput = await $(
+    '//label[@class="fieldTitle"]//following::input[2]'
+  );
+  await cardcvvinput.waitForDisplayed({ timeout: 20000 });
+  await cardcvvinput.setValue("123");
+
+  const cardexmonthinput = await $(
+    '//label[@class="fieldTitle"]//following::select[2]'
+  );
+  const cardexyearinput = await $(
+    '//label[@class="fieldTitle"]//following::select[3]'
+  );
+
+  await cardexmonthinput.selectByAttribute("value", "12");
+  await cardexyearinput.selectByAttribute("value", "2025");
+  await browser.pause(1400);
+
+  const offlinepaysubmit = await $('//input[@value="Submit"]');
+  await offlinepaysubmit.waitForDisplayed();
+  await offlinepaysubmit.click();
+
+  await browser.pause(7400);
 });

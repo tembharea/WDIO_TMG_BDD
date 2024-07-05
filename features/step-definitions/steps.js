@@ -4645,14 +4645,47 @@ Then("User clicks on Digital Plus Plan {string}", async (s) => {
 });
 
 Then("I logout from customer app", async () => {
-  await browser.pause(100);
-  const HomeNavigatorBtn = await $('//a[@href="/all-sections/"]');
-  await HomeNavigatorBtn.waitForDisplayed({ timeout: 50000 });
-  await HomeNavigatorBtn.click();
+  // await browser.pause(100);
+  // const HomeNavigatorBtn = await $('//a[@href="/all-sections/"]');
+  // await HomeNavigatorBtn.waitForDisplayed({ timeout: 50000 });
+  // await HomeNavigatorBtn.click();
 
-  const CustLogOutBtn = await $('//span[text()="Log out"]');
-  await CustLogOutBtn.waitForDisplayed({ timeout: 50000 });
-  await CustLogOutBtn.click();
+  // const CustLogOutBtn = await $('//span[text()="Log out"]');
+  // await CustLogOutBtn.waitForDisplayed({ timeout: 50000 });
+  // await CustLogOutBtn.click();
+
+  await browser.pause(100);
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  const CustLogOutBtnOne = await $('//button[text()="Log out"]');
+  //const CustLogOutBtnOne = await $('//button[@class="header-menu-button"]');
+  await CustLogOutBtnOne.waitForDisplayed({ timeout: 50000 });
+  await CustLogOutBtnOne.click();
+
+  const CustLogOutBtnTwo = await $(
+    '//button[text()="Log out"]//following::a[1]'
+  );
+  // const CustLogOutBtnTwo = await $(
+  //   '//a[@href="https://www.telegraph.co.uk/"]//following::a[text()="Log out"][1]'
+  // );
+  await CustLogOutBtnTwo.waitForDisplayed({ timeout: 50000 });
+  await CustLogOutBtnTwo.click();
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  await browser.pause(2000);
+  await browser.pause(2000);
+  await browser.deleteCookies();
+
   // console.log(CustPuzzTwoEmail);
   // console.log(CustPuzzTwoEmail);
   // console.log(CustPuzzTwoEmail);
