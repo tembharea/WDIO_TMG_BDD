@@ -3467,6 +3467,27 @@ Then("Input CreditCard Payment details", async () => {
   await creditcardcvc.doubleClick();
   await creditcardcvc.setValue("123");
 
+  try {
+    const creditcardadone = await $('//input[@id="input-creditCardAddress1"]');
+    await creditcardadone.waitForDisplayed({ timeout: 50000 });
+    await creditcardadone.doubleClick();
+    await creditcardadone.setValue("daily telegraph");
+
+    const creditcardcity = await $('//input[@id="input-creditCardCity"]');
+    await creditcardcity.waitForDisplayed({ timeout: 50000 });
+    await creditcardcity.doubleClick();
+    await creditcardcity.setValue("London");
+
+    const creditcardpc = await $('//input[@id="input-creditCardPostalCode"]');
+    await creditcardpc.waitForDisplayed({ timeout: 50000 });
+    await creditcardpc.doubleClick();
+    await creditcardpc.setValue("SW1A1AA");
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
+
   await browser.switchToFrame(null);
 
   const CardSubmitBtn = await $('//button[@id="express-card-cta"]');
@@ -5275,7 +5296,7 @@ Then("I login to MPP application", async () => {
     '//div[@class="SelectMenuContainer"]//following::input[3]'
   );
   await MPPloginPWD.waitForDisplayed({ timeout: 20000 });
-  await MPPloginPWD.setValue("Ayt@akshat1234");
+  await MPPloginPWD.setValue("Ayt@akshat7890");
 
   const MPPloginBTN = await $(
     '//div[@class="SelectMenuContainer"]//following::a[@class="mTop10 bold"]'

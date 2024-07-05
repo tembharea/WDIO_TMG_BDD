@@ -1158,14 +1158,21 @@ Then("Oflline 7Day print Sub Purchase", async () => {
   // const thirdpage = await $(
   //   '//div[@class="slds-notify_alert system-message level-info slds-theme_info"]//following::iframe[@title="accessibility title"][2]'
   // );
+  //const document: Document = document as Document;
+  // let iframe1 = document.getElementByName(
+  //   "vfFrameId_1720163365617"
+  // ).contentWindow;
+  // console.log("iframe 1 success");
+  // let iframe2 = iframe1.document.getElementById("theIframe");
+  await browser.pause(40000);
   const thirdpage = await $(
-    '//div[@class="iframe-parent slds-template_iframe slds-card"]'
+    '//div[@class="slds-global-header__logo"]//following::iframe[@title="accessibility title"][3]'
   );
-  // await thirdpage.getAttribute("src");
-  // console.log(await thirdpage.getAttribute("src"));
+  await thirdpage.getAttribute("title");
+  console.log(await thirdpage.getAttribute("title"));
 
-  await browser.switchToFrame(thirdpage);
-  await browser.pause(2000);
+  //await browser.switchToFrame(iframe2);
+  await browser.pause(9000);
   console.log("new iframe works, xapth issue of card num");
   console.log("new iframe works, xapth issue of card num");
   console.log("new iframe works, xapth issue of card num");

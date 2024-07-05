@@ -68,7 +68,7 @@ export const config = {
     "./features/**/ETE68_2DayPrintAcquisition.feature",
     //"./features/**/ETE12_Backdated.feature",
     //"./features/**/Test.feature",
-    //"./features/**/ETE69_7DayPrintRenewal.feature",
+    // "./features/**/ETE69_7DayPrintRenewal.feature",
   ],
   // Patterns to exclude.
   exclude: [
