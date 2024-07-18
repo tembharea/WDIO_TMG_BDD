@@ -1164,28 +1164,51 @@ Then("Oflline 7Day print Sub Purchase", async () => {
   // ).contentWindow;
   // console.log("iframe 1 success");
   // let iframe2 = iframe1.document.getElementById("theIframe");
-  await browser.pause(40000);
-  const thirdpage = await $(
-    '//div[@class="slds-global-header__logo"]//following::iframe[@title="accessibility title"][3]'
-  );
-  await thirdpage.getAttribute("title");
-  console.log(await thirdpage.getAttribute("title"));
+  await browser.pause(4000);
 
-  //await browser.switchToFrame(iframe2);
-  await browser.pause(9000);
-  console.log("new iframe works, xapth issue of card num");
-  console.log("new iframe works, xapth issue of card num");
-  console.log("new iframe works, xapth issue of card num");
-  console.log("new iframe works, xapth issue of card num");
-  console.log("new iframe works, xapth issue of card num");
-  console.log("new iframe works, xapth issue of card num");
-  console.log("new iframe works, xapth issue of card num");
-  console.log("new iframe works, xapth issue of card num");
-  console.log("new iframe works, xapth issue of card num");
-  console.log("new iframe works, xapth issue of card num");
+  //////////////////////////////////////////////////////
+
+  const thirdpage = await $(
+    //'//div[@class="slds-global-header__logo"]//following::iframe[@title="accessibility title"]'
+    '//div[@class="slds-global-header__logo"]//following::iframe[(contains(@name,"vfFrameId"))][2]'
+  );
+  // await thirdpage.getAttribute("title");
+  // console.log(await thirdpage.getAttribute("title"));
+
+  await browser.switchToFrame(thirdpage);
+  await browser.pause(900);
+  console.log("new iframe works, primary frame");
+  console.log("new iframe works, primary frame");
+  console.log("new iframe works, primary frame");
+  console.log("new iframe works, primary frame");
+  console.log("new iframe works, primary frame");
+  console.log("new iframe works, primary frame");
+  console.log("new iframe works, primary frame");
+  console.log("new iframe works, primary frame");
+  console.log("new iframe works, primary frame");
+  console.log("new iframe works, primary frame");
+  await browser.pause(4000);
   await browser.scroll(0, 200);
   await browser.scroll(0, 200);
+
+  const fourthpage = await $(
+    //'//div[@class="slds-global-header__logo"]//following::iframe[@title="accessibility title"]'
+    '//iframe[@id="theIframe"]'
+  );
+  await browser.switchToFrame(fourthpage);
+  await browser.pause(900);
+
+  console.log("new iframe works, secondary frame");
+  console.log("new iframe works, secondary frame");
+  console.log("new iframe works, secondary frame");
+  console.log("new iframe works, secondary frame");
+  console.log("new iframe works, secondary frame");
+  console.log("new iframe works, secondary frame");
+  console.log("new iframe works, secondary frame");
+  console.log("new iframe works, secondary frame");
+
   await browser.scroll(0, 200);
+  await browser.pause(900);
   const cardnuminput = await $(
     '//div[@class="fieldArea"]//following::input[1]'
   );
@@ -1214,4 +1237,397 @@ Then("Oflline 7Day print Sub Purchase", async () => {
   await offlinepaysubmit.click();
 
   await browser.pause(7400);
+});
+
+Then("I fill in existing Print7dayRenewal email", async () => {
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  await browser.refresh();
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  const EmailInput = await $('//input[@id="email"]');
+  await EmailInput.waitForDisplayed();
+  await EmailInput.click();
+  await EmailInput.setValue(Print7dayRenewal);
+  CucumberJsJsonReporter.attach(
+    "Test ID used is: " + Print7dayRenewal,
+    "text/plain"
+  );
+});
+
+Then("Validate Expiry date of subscription before renewal", async () => {
+  await browser.pause(2500);
+
+  const subexpdate = await $(
+    '//span[contains(text(),"Expiry date")]//following::span[1]'
+  );
+  await subexpdate.waitForDisplayed();
+  await subexpdate.isExisting();
+  const subexpiryvalue = await subexpdate.getText();
+
+  CucumberJsJsonReporter.attach(
+    "Expiry Date before renewal is: " + subexpiryvalue,
+    "text/plain"
+  );
+});
+
+Then("Print Renewal Flow Print Subscription status Active", async () => {
+  // Write code here that turns the phrase above into concrete actions
+  await browser.pause(500);
+
+  const a = "17/07/2024";
+  const b = "03/10/2024";
+  const c = "30/09/2024";
+  const d = "30/09/2023";
+  const e = "02/10/2023";
+
+  CucumberJsJsonReporter.attach("Value A: Today's date :" + a, "text/plain");
+  CucumberJsJsonReporter.attach(
+    "Value B: Today's date + 78 days :" + b,
+    "text/plain"
+  );
+  CucumberJsJsonReporter.attach(
+    "Value C = Nearest Monday to Value B date :" + c,
+    "text/plain"
+  );
+  CucumberJsJsonReporter.attach(
+    "Value D = 1 year minus from Value C date :" + d,
+    "text/plain"
+  );
+  CucumberJsJsonReporter.attach(
+    "Value E = Nearest Monday to Value D date :" + e,
+    "text/plain"
+  );
+  CucumberJsJsonReporter.attach(
+    "______________________________________________________",
+    "text/plain"
+  );
+  const substatuseditbtn = await $(
+    '//div[@class="slds-global-header__logo"]//following::span[text()="Subscription Status"][2]//following::span[2]'
+  );
+  const substatuboxclick = await $(
+    '//div[text()=" = Required Information"]//following::*[text()="Subscription Status"]//following::button[1]'
+  );
+  const substatusActive = await $(
+    '//lightning-base-combobox-item[@data-value="Active"]'
+  );
+
+  const substatusInRenewal = await $(
+    '//lightning-base-combobox-item[@data-value="In Renewal"]'
+  );
+
+  const substartdate = await $(
+    '//div[text()=" = Required Information"]//following::*[text()="Start Date"]//following::input[1]'
+  );
+  const subeditsave = await $(
+    '//div[text()=" = Required Information"]//following::button[text()="Save"]'
+  );
+
+  await substatuseditbtn.waitForDisplayed();
+  await substatuseditbtn.click();
+  await browser.pause(5000);
+  await browser.scroll(0, 300);
+  await substatuboxclick.waitForDisplayed();
+  await substatuboxclick.click();
+  await browser.pause(5000);
+  await browser.scroll(0, 300);
+  await browser.pause(5000);
+  await substatusActive.scrollIntoView();
+  await browser.pause(5000);
+  await substatusActive.waitForDisplayed();
+  await substatusActive.click();
+
+  await substartdate.waitForDisplayed();
+  await substartdate.setValue(e);
+
+  await subeditsave.waitForDisplayed();
+  await subeditsave.click();
+
+  await browser.pause(6000);
+});
+
+Then("Go to Subscription Tab", async () => {
+  await browser.pause(1000);
+
+  const subtab = await $('//a[text()="Subscriptions"]');
+  // Write code here that turns the phrase above into concrete actions
+  await subtab.waitForDisplayed();
+  await subtab.click();
+
+  const subopen = await $(
+    //'//span[text()="Subscriptions"]//following::div[@class="slds-grid"][2]'
+    '//th[@data-label="Subscription Number"]'
+  );
+  await subopen.waitForDisplayed();
+  await subopen.click();
+  await browser.pause(4000);
+});
+
+Then("Print Renewal Flow Print Subscription status InRenewal", async () => {
+  const substatuseditbtn = await $(
+    '//div[@class="slds-global-header__logo"]//following::span[text()="Subscription Status"][2]//following::span[2]'
+  );
+  const substatuboxclick = await $(
+    '//div[text()=" = Required Information"]//following::*[text()="Subscription Status"]//following::button[1]'
+  );
+  const substatusActive = await $(
+    '//lightning-base-combobox-item[@data-value="Active"]'
+  );
+
+  const substatusInRenewal = await $(
+    '//lightning-base-combobox-item[@data-value="In Renewal"]'
+  );
+
+  const substartdate = await $(
+    '//div[text()=" = Required Information"]//following::*[text()="Start Date"]//following::input[1]'
+  );
+  const subeditsave = await $(
+    '//div[text()=" = Required Information"]//following::button[text()="Save"]'
+  );
+
+  await substatuseditbtn.waitForDisplayed();
+  await substatuseditbtn.click();
+  await browser.pause(5000);
+  await browser.scroll(0, 300);
+  await substatuboxclick.waitForDisplayed();
+  await substatuboxclick.click();
+  await browser.pause(5000);
+  await browser.scroll(0, 300);
+  await browser.pause(5000);
+  await substatusInRenewal.scrollIntoView();
+  await browser.pause(5000);
+  await substatusInRenewal.waitForDisplayed();
+  await substatusInRenewal.click();
+
+  await subeditsave.waitForDisplayed();
+  await subeditsave.click();
+
+  await browser.pause(6000);
+});
+
+Then("Validate two subscription are present in subscription tab", async () => {
+  await browser.pause(1000);
+
+  const subtab = await $('//a[text()="Subscriptions"]');
+  await subtab.waitForDisplayed();
+  await subtab.click();
+
+  await browser.pause(4000);
+
+  const subone = await $(
+    '//a[text()="Subscriptions"]//following::th[@data-label="Subscription Number"][1]'
+  );
+  const subtwo = await $(
+    '//a[text()="Subscriptions"]//following::th[@data-label="Subscription Number"][2]'
+  );
+  const subonestatus = await $(
+    '//a[text()="Subscriptions"]//following::th[@data-label="Subscription Number"][1]//following::*[@data-label="Subscription Status"]//child::span//child::span[1]'
+  );
+
+  const subtwostatus = await $(
+    '//a[text()="Subscriptions"]//following::th[@data-label="Subscription Number"][2]//following::*[@data-label="Subscription Status"]//child::span//child::span[1]'
+  );
+
+  const suboneproduct = await $(
+    '//a[text()="Subscriptions"]//following::th[@data-label="Subscription Number"][1]//following::*[@data-label="Product"]//child::a[1]'
+  );
+  const subtwoproduct = await $(
+    '//a[text()="Subscriptions"]//following::th[@data-label="Subscription Number"][2]//following::*[@data-label="Product"]//child::a[1]'
+  );
+
+  const suboneStartDate = await $(
+    '//a[text()="Subscriptions"]//following::th[@data-label="Subscription Number"][1]//following::*[@data-label="Start Date"]//child::lightning-formatted-date-time[1]'
+  );
+  const subtwoStartDate = await $(
+    '//a[text()="Subscriptions"]//following::th[@data-label="Subscription Number"][2]//following::*[@data-label="Start Date"]//child::lightning-formatted-date-time[1]'
+  );
+
+  const suboneEndDate = await $(
+    '//a[text()="Subscriptions"]//following::th[@data-label="Subscription Number"][1]//following::*[@data-label="End Date"]//child::lightning-formatted-date-time[1]'
+  );
+
+  const subtwoEndDate = await $(
+    '//a[text()="Subscriptions"]//following::th[@data-label="Subscription Number"][2]//following::*[@data-label="End Date"]//child::lightning-formatted-date-time[1]'
+  );
+
+  await subone.waitForDisplayed({ timeout: 50000 });
+
+  const suboneV = await subone.getText();
+  const subonestatusV = await subonestatus.getText();
+  const suboneproductV = await suboneproduct.getText();
+  const suboneStartDateV = await suboneStartDate.getText();
+  const suboneEndDateV = await suboneEndDate.getText();
+  const subtwoV = await subtwo.getText();
+  const subtwostatusV = await subtwostatus.getText();
+  const subtwoproductV = await subtwoproduct.getText();
+  const subtwoStartDateV = await subtwoStartDate.getText();
+  const subtwoEndDateV = await subtwoEndDate.getText();
+
+  CucumberJsJsonReporter.attach(
+    "Subscription_One ID: " + suboneV,
+    "text/plain"
+  );
+  CucumberJsJsonReporter.attach(
+    "Subscription_One Status: " + subonestatusV,
+    "text/plain"
+  );
+  CucumberJsJsonReporter.attach(
+    "Subscription_One Product: " + suboneproductV,
+    "text/plain"
+  );
+  CucumberJsJsonReporter.attach(
+    "Subscription_One Start Date: " + suboneStartDateV,
+    "text/plain"
+  );
+  CucumberJsJsonReporter.attach(
+    "Subscription_One End Date: " + suboneEndDateV,
+    "text/plain"
+  );
+
+  CucumberJsJsonReporter.attach(
+    "___________________________________________________",
+    "text/plain"
+  );
+
+  CucumberJsJsonReporter.attach(
+    "Subscription_Two ID: " + subtwoV,
+    "text/plain"
+  );
+  CucumberJsJsonReporter.attach(
+    "Subscription_Two Status: " + subtwostatusV,
+    "text/plain"
+  );
+  CucumberJsJsonReporter.attach(
+    "Subscription_Two Product: " + subtwoproductV,
+    "text/plain"
+  );
+  CucumberJsJsonReporter.attach(
+    "Subscription_Two Start Date: " + subtwoStartDateV,
+    "text/plain"
+  );
+  CucumberJsJsonReporter.attach(
+    "Subscription_Two End Date: " + subtwoEndDateV,
+    "text/plain"
+  );
+
+  await browser.pause(4000);
+});
+
+Then("Validate Expiry date of subscription after renewal", async () => {
+  await browser.pause(2500);
+
+  const subexpdate = await $(
+    '//span[contains(text(),"Expiry date")]//following::span[1]'
+  );
+  await subexpdate.waitForDisplayed();
+  await subexpdate.isExisting();
+  const subexpiryvalue = await subexpdate.getText();
+
+  CucumberJsJsonReporter.attach(
+    "Expiry Date after renewal is: " + subexpiryvalue,
+    "text/plain"
+  );
+});
+
+///////////////////////////////////////////////////////////
+
+Then("Validate Date Values", async () => {
+  await browser.pause(100);
+
+  var p = Date.now();
+  var q = new Date();
+  let r = q.toDateString().substring(4).replace(/ /g, "");
+  let s = q.toLocaleTimeString();
+  let t = q.toDateString();
+  let u = q.toLocaleDateString();
+  let v = q.toUTCString();
+
+  //var date;
+  // const getPreviousMonday = (date = null) => {
+  //   const prevMonday = (date && new Date(date.valueOf())) || new Date();
+  //   prevMonday.setDate(prevMonday.getDate() - ((prevMonday.getDay() + 6) % 7));
+  //   return prevMonday;
+  // };
+
+  // const w = ;
+
+  var prevMonday = new Date();
+  prevMonday.setDate(prevMonday.getDate() - ((prevMonday.getDay() + 6) % 7));
+  const w = prevMonday.toLocaleDateString();
+  const w1 = prevMonday.toLocaleTimeString();
+  const w2 = prevMonday.toDateString();
+  const w3 = prevMonday.toTimeString();
+  const w4 = prevMonday.toString();
+  const w5 = prevMonday.toLocaleDateString("en-GB");
+  const w6 = prevMonday.toLocaleString("en-us", { weekday: "long" });
+  let x1 = prevMonday.getDay();
+  let x2 = prevMonday.getDate();
+  //let x3 = prevMonday.getDay.toLocaleDateString();
+  //let x4 = prevMonday.getDate.toLocaleDateString();
+  let x5 = prevMonday.getTime();
+  let x6 = x5.toLocaleString();
+  let x7 = x1.toLocaleString();
+  let x8 = x2.toLocaleString();
+  let x9 = x5.toLocaleString();
+
+  var add = new Date();
+  add.setDate(add.getDate() + 78);
+  var year = new Date();
+  year.setDate(year.getDate() + 78);
+  year.setFullYear(year.getFullYear() - 1);
+  //let newyeardate = year.toLocaleDateString("en-GB");
+
+  var d = new Date();
+  d.setDate(d.getDate() + ((1 + 7 - d.getDay()) % 7));
+
+  const z = d.toString();
+  CucumberJsJsonReporter.attach(
+    "____________________________________",
+    "text/plain"
+  );
+  CucumberJsJsonReporter.attach("Date Test", "text/plain");
+  CucumberJsJsonReporter.attach(
+    "______________________________________",
+    "text/plain"
+  );
+  CucumberJsJsonReporter.attach("Test 1: " + p, "text/plain");
+  CucumberJsJsonReporter.attach("Test 2: " + q, "text/plain");
+  CucumberJsJsonReporter.attach("Test 3: " + r, "text/plain");
+  CucumberJsJsonReporter.attach("Test 4: " + s, "text/plain");
+  CucumberJsJsonReporter.attach("Test 5: " + t, "text/plain");
+  CucumberJsJsonReporter.attach("Test 6: " + u, "text/plain");
+  CucumberJsJsonReporter.attach("Test 7: " + v, "text/plain");
+  CucumberJsJsonReporter.attach("Test 8: " + w, "text/plain");
+  CucumberJsJsonReporter.attach("Test 9: " + x1, "text/plain");
+  CucumberJsJsonReporter.attach("Test 10: " + x2, "text/plain");
+  CucumberJsJsonReporter.attach("Test 11: " + x5, "text/plain");
+  CucumberJsJsonReporter.attach("Test 12: " + x6, "text/plain");
+  CucumberJsJsonReporter.attach("Test 13: " + x7, "text/plain");
+  CucumberJsJsonReporter.attach("Test 14: " + x8, "text/plain");
+  CucumberJsJsonReporter.attach("Test 15: " + x9, "text/plain");
+  CucumberJsJsonReporter.attach("Test 16: " + w1, "text/plain");
+  CucumberJsJsonReporter.attach("Test 17: " + w2, "text/plain");
+  CucumberJsJsonReporter.attach("Test 18: " + w3, "text/plain");
+  CucumberJsJsonReporter.attach("Test 19: " + w4, "text/plain");
+  CucumberJsJsonReporter.attach("Test 20: " + w5, "text/plain");
+  CucumberJsJsonReporter.attach("Test 21: " + w6, "text/plain");
+  CucumberJsJsonReporter.attach("Test 22: " + z, "text/plain");
+  CucumberJsJsonReporter.attach("Test 23: " + add, "text/plain");
+  CucumberJsJsonReporter.attach("Test 24: " + year, "text/plain");
+  // CucumberJsJsonReporter.attach("Test 25: " + newyeardate, "text/plain");
+
+  CucumberJsJsonReporter.attach(
+    "______________________________________",
+    "text/plain"
+  );
 });

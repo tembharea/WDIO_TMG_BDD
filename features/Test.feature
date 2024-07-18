@@ -1,11 +1,10 @@
 Feature: Test
     
 
-    #  Scenario: TC_01:Validate Piano Login Logout
-    #     Given User opens Piano URL
-    #     When User logins to Piano account
-    #     When Navigate to All Users page
-    #     #Then LogOut from Piano
+     Scenario: TC_01:Test
+        Given User opens Piano URL
+        Then Validate Date Values
+   
 
     # Scenario: TC_A:Validate Registrant name in Salesforce
     #     When I launch Salesforce URL
@@ -42,8 +41,8 @@ Feature: Test
     #     Then Validate Payment details in MPP
     #     Then Logout from MPP platform
 
-    Scenario: TC_00:Testing Dev Console of Salesforce
-        When I launch Salesforce URL
-        Then I login to Salesforce
-        Then Close Opened tabs in salesforce
-        Then DevConsole Test
+    # Scenario: TC_00:Testing Dev Console of Salesforce
+    #     When I launch Salesforce URL
+    #     Then I login to Salesforce
+    #     Then Close Opened tabs in salesforce
+    #     Then DevConsole Test

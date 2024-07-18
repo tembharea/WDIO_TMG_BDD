@@ -68,7 +68,7 @@ export const config = {
     "./features/**/ETE68_2DayPrintAcquisition.feature",
     //"./features/**/ETE12_Backdated.feature",
     //"./features/**/Test.feature",
-    // "./features/**/ETE69_7DayPrintRenewal.feature",
+    //"./features/**/ETE69_7DayPrintRenewal.feature",
   ],
   // Patterns to exclude.
   exclude: [
@@ -130,7 +130,7 @@ export const config = {
       "cjson:metadata": {
         browser: {
           name: "chrome",
-          version: "116",
+          version: "120",
         },
         // device: "MacBook Pro M2",
         // platform: {
@@ -568,7 +568,7 @@ export const config = {
           },
           {
             label: "Release",
-            value: "24.13",
+            value: "24.14",
           },
           {
             label: "Apps Tested",
