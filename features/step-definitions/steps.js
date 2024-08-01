@@ -2373,7 +2373,7 @@ Then("I login to Salesforce", async () => {
     //await SalesforceUsrname.setValue("areeb.butt+automation@telegraph.co.uk");
     const SalesforcePwd = await $('//input[@id="password"]');
     await SalesforcePwd.waitForDisplayed({ timeout: 10000 });
-    await SalesforcePwd.setValue("Fabokrl@5679");
+    await SalesforcePwd.setValue("aytakshat@123");
     //await SalesforcePwd.setValue("Telegraph1");
     const SalesforceLogin = await $('//input[@id="Login"]');
     await SalesforceLogin.waitForDisplayed({ timeout: 10000 });
@@ -2667,15 +2667,15 @@ Then("Go to Zoura Subscription Page", async () => {
 });
 
 Then("Go to Zoura Subscription Page for Digital", async () => {
-  //await browser.pause(100);
-  // browser.waitUntil(
-  //   () => browser.execute(() => document.readyState === "complete"),
-  //   {
-  //     timeout: 60 * 1000, // 60 seconds
-  //     timeoutMsg: "Message on failure",
-  //   }
-  // );
-  // await browser.url(ZouraSubURLDigital);
+  await browser.pause(100);
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  await browser.url(ZouraSubURLDigital);
   await browser.pause(1000);
   CucumberJsJsonReporter.attach(
     "Subscription ID for Digital Subscriber is: " + RecordSubIDP5,
@@ -5016,7 +5016,6 @@ Then("Validate Gift Promo Code is Generated", async () => {
     "";
   await browser.pause(5000);
 });
-
 Then("Validate Gift Digital Promo Code is Generated", async () => {
   // Write code here that turns the phrase above into concrete actions
   browser.waitUntil(

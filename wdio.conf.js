@@ -292,6 +292,7 @@ export const config = {
       "./features/step-definitions/AcquisitionMyAccount.js",
       "./features/step-definitions/CancellationSteps.js",
       "./features/step-definitions/PrintSteps.js",
+      "./features/step-definitions/TestSteps.js",
     ],
     // <boolean> show full backtrace for errors
     backtrace: false,
@@ -568,7 +569,7 @@ export const config = {
           },
           {
             label: "Release",
-            value: "24.14",
+            value: "24.15",
           },
           {
             label: "Apps Tested",

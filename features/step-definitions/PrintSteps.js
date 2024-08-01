@@ -1561,8 +1561,43 @@ Then("Validate Date Values", async () => {
 
   // const w = ;
 
+  ///////////////////Previous Monday///////////////////////////
   var prevMonday = new Date();
   prevMonday.setDate(prevMonday.getDate() - ((prevMonday.getDay() + 6) % 7));
+  //////////////////////////////////////////////////////////////
+
+  ////////////////Next Monday//////////////////////////////
+  var d = new Date();
+  d.setDate(d.getDate() + ((1 + 7 - d.getDay()) % 7));
+  ////////////////////////////////////////////////////////
+
+  ///////////////Plus 78 days////////////////////////////
+  var add = new Date();
+  add.setDate(add.getDate() + 78);
+  /////////////////////////////////////////////////////
+
+  //////////////////1 year Minus///////////////////////
+  var year = new Date();
+  year.setDate(year.getDate() + 78);
+  year.setFullYear(year.getFullYear() - 1);
+  //////////////////////////////////////////////////////
+
+  ///////////////Minus 6 months///////////////////////
+  var mtest = new Date();
+  mtest.setMonth(mtest.getMonth() - 6);
+  //////////////////////////////////////////////////
+
+  ////////////FinalDateTest////////////////////////////
+  var datetest = new Date(); ///today's date
+  datetest.setDate(datetest.getDate() + 78); ////added 78 days
+  datetest.setDate(datetest.getDate() - ((datetest.getDay() + 6) % 7)); ///found nearest monday
+  datetest.setFullYear(datetest.getFullYear() - 1); ////subtracted 1 year
+  let daycount = datetest.getDay();
+  datetest.setDate(datetest.getDate() + ((1 + 7 - datetest.getDay()) % 7)); /// nearest monday
+  let daycount2 = datetest.getDay();
+  let finaldate = datetest.toLocaleDateString("en-GB");
+  ////////////////////////////////////////////////////
+
   const w = prevMonday.toLocaleDateString();
   const w1 = prevMonday.toLocaleTimeString();
   const w2 = prevMonday.toDateString();
@@ -1580,15 +1615,7 @@ Then("Validate Date Values", async () => {
   let x8 = x2.toLocaleString();
   let x9 = x5.toLocaleString();
 
-  var add = new Date();
-  add.setDate(add.getDate() + 78);
-  var year = new Date();
-  year.setDate(year.getDate() + 78);
-  year.setFullYear(year.getFullYear() - 1);
   //let newyeardate = year.toLocaleDateString("en-GB");
-
-  var d = new Date();
-  d.setDate(d.getDate() + ((1 + 7 - d.getDay()) % 7));
 
   const z = d.toString();
   CucumberJsJsonReporter.attach(
@@ -1624,10 +1651,311 @@ Then("Validate Date Values", async () => {
   CucumberJsJsonReporter.attach("Test 22: " + z, "text/plain");
   CucumberJsJsonReporter.attach("Test 23: " + add, "text/plain");
   CucumberJsJsonReporter.attach("Test 24: " + year, "text/plain");
-  // CucumberJsJsonReporter.attach("Test 25: " + newyeardate, "text/plain");
+  CucumberJsJsonReporter.attach("Test 25: " + datetest, "text/plain");
+  CucumberJsJsonReporter.attach("Test 26: " + daycount, "text/plain");
+  CucumberJsJsonReporter.attach("Test 27: " + daycount2, "text/plain");
+  CucumberJsJsonReporter.attach("Test 28: " + mtest, "text/plain");
+  CucumberJsJsonReporter.attach("Test 29: " + finaldate, "text/plain");
 
   CucumberJsJsonReporter.attach(
     "______________________________________",
     "text/plain"
   );
+
+  ////////////-----------------------------------------------------/////////////////////////
+
+  var switchD = new Date(); ///////////Today's date
+
+  CucumberJsJsonReporter.attach(
+    "Current/Today's date: " + switchD,
+    "text/plain"
+  );
+
+  switchD.setDate(switchD.getDate() + 78); //////////adding 78 days
+
+  CucumberJsJsonReporter.attach(
+    "Current/Today's date with addition of 78 days: " + switchD,
+    "text/plain"
+  );
+
+  //////////////////Switch Case for first nearest monday////////////////////////////
+  switch (switchD.getDay()) {
+    case 0:
+      switchD.setDate(switchD.getDate() + ((1 + 7 - switchD.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Sunday, so NextMonday code required, new date derived: " + switchD,
+        "text/plain"
+      );
+      break;
+    case 1:
+      CucumberJsJsonReporter.attach(
+        "Its Monday, so no code required :" + switchD,
+        "text/plain"
+      );
+      break;
+    case 2:
+      switchD.setDate(switchD.getDate() - ((switchD.getDay() + 6) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Tuesday, so PrevMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+      break;
+    case 3:
+      switchD.setDate(switchD.getDate() - ((switchD.getDay() + 6) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Wednesday, so PrevMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+      break;
+    case 4:
+      switchD.setDate(switchD.getDate() - ((switchD.getDay() + 6) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Thursday, so PrevMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+      break;
+    case 5:
+      switchD.setDate(switchD.getDate() + ((1 + 7 - switchD.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Friday, so NextMonday code required, new date derived: " + switchD,
+        "text/plain"
+      );
+      break;
+    case 6:
+      switchD.setDate(switchD.getDate() + ((1 + 7 - switchD.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Saturday, so NextMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+  }
+  ////////////////////////////////////////////////////////
+
+  switchD.setFullYear(switchD.getFullYear() - 1); ////subtracted 1 year
+
+  CucumberJsJsonReporter.attach(
+    "After 1 year subtraction: " + switchD,
+    "text/plain"
+  );
+
+  //////////////////Switch Case for second nearest monday////////////////////////////
+  switch (switchD.getDay()) {
+    case 0:
+      switchD.setDate(switchD.getDate() + ((1 + 7 - switchD.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Sunday, so NextMonday code required, new date derived: " + switchD,
+        "text/plain"
+      );
+      break;
+    case 1:
+      CucumberJsJsonReporter.attach(
+        "Its Monday, so no code required :" + switchD,
+        "text/plain"
+      );
+      break;
+    case 2:
+      switchD.setDate(switchD.getDate() - ((switchD.getDay() + 6) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Tuesday, so PrevMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+      break;
+    case 3:
+      switchD.setDate(switchD.getDate() - ((switchD.getDay() + 6) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Wednesday, so PrevMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+      break;
+    case 4:
+      switchD.setDate(switchD.getDate() - ((switchD.getDay() + 6) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Thursday, so PrevMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+      break;
+    case 5:
+      switchD.setDate(switchD.getDate() + ((1 + 7 - switchD.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Friday, so NextMonday code required, new date derived: " + switchD,
+        "text/plain"
+      );
+      break;
+    case 6:
+      switchD.setDate(switchD.getDate() + ((1 + 7 - switchD.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Saturday, so NextMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+  }
+
+  /////////////////////////////////////////////////////////////////////
+
+  let satrtdateX = switchD.toLocaleDateString("en-GB");
+  CucumberJsJsonReporter.attach(
+    "Final Date Value for Print Start Date: " + satrtdateX,
+    "text/plain"
+  );
+  ////////////-----------------------------------------------------/////////////////////////
+
+  ////////////-------------------------------Only Next Monday Logic----------------------/////////////////////////
+
+  CucumberJsJsonReporter.attach(
+    "////////////-------------------------------Only Next Monday Logic----------------------////////////////////",
+    "text/plain"
+  );
+
+  ////////////-----------------------------------------------------/////////////////////////
+
+  var switchD2 = new Date(); ///////////Today's date
+
+  CucumberJsJsonReporter.attach(
+    "Current/Today's date: " + switchD2,
+    "text/plain"
+  );
+
+  switchD2.setDate(switchD2.getDate() + 78); //////////adding 78 days
+
+  CucumberJsJsonReporter.attach(
+    "Current/Today's date with addition of 78 days: " + switchD2,
+    "text/plain"
+  );
+
+  //////////////////Switch Case for first nearest monday////////////////////////////
+  switch (switchD2.getDay()) {
+    case 0:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Sunday, so NextMonday code required, new date derived: " +
+          switchD2,
+        "text/plain"
+      );
+      break;
+    case 1:
+      CucumberJsJsonReporter.attach(
+        "Its Monday, so no code required :" + switchD2,
+        "text/plain"
+      );
+      break;
+    case 2:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Tuesday, so NextMonday code required, new date derived: " +
+          switchD2,
+        "text/plain"
+      );
+      break;
+    case 3:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Wednesday, so NextMonday code required, new date derived: " +
+          switchD2,
+        "text/plain"
+      );
+      break;
+    case 4:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Thursday, so NextMonday code required, new date derived: " +
+          switchD2,
+        "text/plain"
+      );
+      break;
+    case 5:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Friday, so NextMonday code required, new date derived: " +
+          switchD2,
+        "text/plain"
+      );
+      break;
+    case 6:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Saturday, so NextMonday code required, new date derived: " +
+          switchD2,
+        "text/plain"
+      );
+  }
+  ////////////////////////////////////////////////////////
+
+  switchD2.setFullYear(switchD2.getFullYear() - 1); ////subtracted 1 year
+
+  CucumberJsJsonReporter.attach(
+    "After 1 year subtraction: " + switchD2,
+    "text/plain"
+  );
+
+  //////////////////Switch Case for second nearest monday////////////////////////////
+  switch (switchD2.getDay()) {
+    case 0:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Sunday, so NextMonday code required, new date derived: " +
+          switchD2,
+        "text/plain"
+      );
+      break;
+    case 1:
+      CucumberJsJsonReporter.attach(
+        "Its Monday, so no code required :" + switchD2,
+        "text/plain"
+      );
+      break;
+    case 2:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Tuesday, so NextMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+      break;
+    case 3:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Wednesday, so NextMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+      break;
+    case 4:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Thursday, so NextMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+      break;
+    case 5:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Friday, so NextMonday code required, new date derived: " +
+          switchD2,
+        "text/plain"
+      );
+      break;
+    case 6:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Saturday, so NextMonday code required, new date derived: " +
+          switchD2,
+        "text/plain"
+      );
+  }
+
+  /////////////////////////////////////////////////////////////////////
+
+  let satrtdateX2 = switchD2.toLocaleDateString("en-GB");
+  CucumberJsJsonReporter.attach(
+    "Final Date Value for Print Start Date: " + satrtdateX2,
+    "text/plain"
+  );
+  ////////////-----------------------------------------------------/////////////////////////
 });
