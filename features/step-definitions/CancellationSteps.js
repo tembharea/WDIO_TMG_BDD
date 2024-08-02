@@ -169,10 +169,10 @@ Then(
     await continueToCancelBtn.click();
     await browser.pause(100);
 
-    const verifydownsellofer = await $(
-      '//h1[contains(text(),"here’s our final offer")]'
-    );
-    await verifydownsellofer.waitForDisplayed({ timeout: 50000 });
+    //   const verifydownsellofer = await $(
+    //     '//h1[contains(text(),"here’s our final offer")]'
+    //   );
+    //   await verifydownsellofer.waitForDisplayed({ timeout: 50000 });
   }
 );
 

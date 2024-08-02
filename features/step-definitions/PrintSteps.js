@@ -137,6 +137,10 @@ Then("Print Tell Us about Yourslef details", async () => {
     '//h2[contains(text(),"Tell us about")]//following::button[2]'
   );
 
+  const addressselineone = await $('//input[@id="streetline1"]');
+
+  const addressselinetwo = await $('//input[@id="streetline2"]');
+
   const continuebtn = await $('//button[@id="express-card-cta"]');
 
   await printfirstname.waitForDisplayed({ timeout: 50000 });
@@ -149,18 +153,27 @@ Then("Print Tell Us about Yourslef details", async () => {
   await printphone.setValue("2212345678");
 
   await printpostcode.waitForDisplayed({ timeout: 50000 });
-  await printpostcode.setValue("KY12 9LG");
+  await printpostcode.setValue("SW1A1AA");
   await browser.keys("\ue004");
   await findaddressbtn.waitForDisplayed({ timeout: 50000 });
   await findaddressbtn.click();
-  await browser.pause(1000);
+  await browser.pause(7000);
 
   await addressselectbtn.waitForDisplayed({ timeout: 50000 });
   await addressselectbtn.click();
   await browser.pause(5000);
   await browser.keys("\ue004");
+  await browser.keys("Enter");
+  await browser.pause(5000);
   await browser.scroll(0, 200);
   await browser.scroll(0, 200);
+
+  await addressselineone.waitForDisplayed({ timeout: 50000 });
+  await addressselineone.setValue("Test1");
+
+  await addressselinetwo.waitForDisplayed({ timeout: 50000 });
+  await addressselinetwo.setValue("Test2");
+  await browser.pause(500);
   await continuebtn.waitForDisplayed({ timeout: 50000 });
   await continuebtn.click();
   await browser.pause(2000);
@@ -217,7 +230,7 @@ Then("Input MPP payment details for Print", async () => {
   await GiftFinalSubmitBtn.waitForDisplayed({ timeout: 20000 });
   await GiftFinalSubmitBtn.click();
 
-  await browser.pause(55000);
+  await browser.pause(5000);
   browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {

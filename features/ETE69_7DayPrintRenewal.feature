@@ -28,7 +28,7 @@ Scenario: TC_1.3:Offline Subscription Purchase
         Then Close Opened tabs in salesforce
         Then Close Opened tabs in salesforce
         And  Oflline 7Day print Sub Purchase
-        Then Close Opened tabs in salesforce
+        Then Close Opened tabs in salesforce.
 
 Scenario: TC_1.4:Validate Subscription Details are reflecting in Telegraph web app
         Given I launch login from homepage

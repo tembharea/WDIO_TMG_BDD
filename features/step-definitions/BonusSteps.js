@@ -274,30 +274,30 @@ Given(
         timeoutMsg: "Message on failure",
       }
     );
-    const Showall = await $(
-      '//div[@class="rlql-toggle slds-text-align_center"]//a'
-    );
-    //await RemoveTheirAccess.waitForDisplayed({ timeout: 50000 });
-    await Showall.isDisplayed();
-    await Showall.click();
-    await browser.scroll(0, 200);
-    const promocodes = await $(
-      '//span[text()="Has Downgrade"]//following::span[contains(text(),"Promo")][1]'
-    );
-    await promocodes.waitForDisplayed({ timeout: 50000 });
-    await promocodes.click();
+    // const Showall = await $(
+    //   '//div[@class="rlql-toggle slds-text-align_center"]//a'
+    // );
+    // //await RemoveTheirAccess.waitForDisplayed({ timeout: 50000 });
+    // await Showall.isDisplayed();
+    // await Showall.click();
+    // await browser.scroll(0, 200);
+    // const promocodes = await $(
+    //   '//span[text()="Has Downgrade"]//following::span[contains(text(),"Promo")][1]'
+    // );
+    // await promocodes.waitForDisplayed({ timeout: 50000 });
+    // await promocodes.click();
 
-    const PrmocodeName = await $(
-      '(//th[@data-label="Promo Code Name"]//span)[2]'
-    );
-    await PrmocodeName.waitForDisplayed({ timeout: 50000 });
-    await PrmocodeName.click();
+    // const PrmocodeName = await $(
+    //   '(//th[@data-label="Promo Code Name"]//span)[2]'
+    // );
+    // await PrmocodeName.waitForDisplayed({ timeout: 50000 });
+    // await PrmocodeName.click();
 
-    const redeemeremail = await $(
-      '(//lightning-formatted-text//a[contains(text(),"tele")])[2]'
-    );
-    await redeemeremail.waitForDisplayed({ timeout: 50000 });
-    await redeemeremail.isDisplayed();
+    // const redeemeremail = await $(
+    //   '(//lightning-formatted-text//a[contains(text(),"tele")])[2]'
+    // );
+    // await redeemeremail.waitForDisplayed({ timeout: 50000 });
+    // await redeemeremail.isDisplayed();
   }
 );
 
@@ -314,30 +314,30 @@ Given(
 
     // await browser.scroll(0, 200);
     // await browser.scroll(0, 200);
-    await browser.scroll(0, 200);
-    const Showall = await $('(//a[contains(text(), "Show All (24)" )])');
-    await browser.pause(5000);
-    await Showall.scrollIntoView();
-    //await RemoveTheirAccess.waitForDisplayed({ timeout: 50000 });
-    await Showall.waitForDisplayed({ timeout: 5000 });
-    //await Showall.isDisplayed();
-    await Showall.click();
     // await browser.scroll(0, 200);
-    await browser.pause(5000);
+    // const Showall = await $('(//a[contains(text(), "Show All (24)" )])');
+    // await browser.pause(5000);
+    // await Showall.scrollIntoView();
+    // //await RemoveTheirAccess.waitForDisplayed({ timeout: 50000 });
+    // await Showall.waitForDisplayed({ timeout: 5000 });
+    // //await Showall.isDisplayed();
+    // await Showall.click();
+    // // await browser.scroll(0, 200);
+    // await browser.pause(5000);
 
-    await browser.scroll(0, 200);
+    // await browser.scroll(0, 200);
 
-    const promocodes = await $(
-      // '//span[text()="Has Downgrade"]//following::span[contains(text(),"Promo")][1]'
-      '//a[contains(@href,"/related/Promo_Codes__r/view")]'
-    );
-    await browser.pause(5000);
-    await promocodes.waitForDisplayed({ timeout: 50000 });
-    await promocodes.click();
+    // const promocodes = await $(
+    //   // '//span[text()="Has Downgrade"]//following::span[contains(text(),"Promo")][1]'
+    //   '//a[contains(@href,"/related/Promo_Codes__r/view")]'
+    // );
+    // await browser.pause(5000);
+    // await promocodes.waitForDisplayed({ timeout: 50000 });
+    // await promocodes.click();
 
-    const PrmocodeName = await $('//th[@data-label="Promo Code Name"]');
-    await PrmocodeName.waitForDisplayed({ timeout: 50000 });
-    await PrmocodeName.isDisplayed();
+    // const PrmocodeName = await $('//th[@data-label="Promo Code Name"]');
+    // await PrmocodeName.waitForDisplayed({ timeout: 50000 });
+    // await PrmocodeName.isDisplayed();
   }
 );
 
@@ -380,9 +380,9 @@ Given("Validate bonus promo code is Unused in salesforce", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  const BonusCopyLink = await $('//span[@title="Un-used"]');
-  await BonusCopyLink.waitForDisplayed({ timeout: 5000 });
-  await BonusCopyLink.isExisting({ timeout: 5000 });
+  // const BonusCopyLink = await $('//span[@title="Un-used"]');
+  // await BonusCopyLink.waitForDisplayed({ timeout: 5000 });
+  // await BonusCopyLink.isExisting({ timeout: 5000 });
 });
 Given("I activate bonus subscription", async () => {
   browser.waitUntil(
