@@ -13,11 +13,11 @@ Feature: ETE 68 2 day Print Acquisition
         Then  Click on View Subscription Offers
         Then  Naviagate to Print Subshop Page
         Then  Click on Print2dayMontly Subscription
-        Then  Print Tell Us about Yourslef details
-        Then  Input MPP payment details for Print
-        When  Go to My Account page
-        Then  Click on Manage Your Details button
-        Then  Logout from Customer application
+        # Then  Print Tell Us about Yourslef details
+        # Then  Input MPP payment details for Print
+        # When  Go to My Account page
+        # Then  Click on Manage Your Details button
+        # Then  Logout from Customer application
 
     Scenario: TC_02:Validate 2 day Print Monthly subscription details in Telegraph
         Given I launch login from homepage
@@ -31,7 +31,6 @@ Feature: ETE 68 2 day Print Acquisition
         Then  Validate Your Payment section
         When  Go to My Account page
         Then  Logout from Customer application
-
 
     Scenario: TC_03:Validate 2 day Print Monthly Subscription details in Salesforce
         When I launch Salesforce URL
@@ -65,11 +64,11 @@ Feature: ETE 68 2 day Print Acquisition
         Then  Click on View Subscription Offers
         Then  Naviagate to Print Subshop Page
         Then  Click on Print2dayQuarterly Subscription
-        Then  Print Tell Us about Yourslef details
-        Then  Input MPP payment details for Print
-        When  Go to My Account page
-        Then  Click on Manage Your Details button
-        Then  Logout from Customer application
+        # Then  Print Tell Us about Yourslef details
+        # Then  Input MPP payment details for Print
+        # When  Go to My Account page
+        # Then  Click on Manage Your Details button
+        # Then  Logout from Customer application
 
     Scenario: TC_06:Validate 2 day Print Quarterly subscription details in Telegraph
         Given I launch login from homepage

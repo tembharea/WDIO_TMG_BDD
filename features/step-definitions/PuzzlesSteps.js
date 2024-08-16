@@ -135,7 +135,8 @@ Given("I continue the flow till puzzle subscription onboarding", async () => {
     await continueButton.click();
 
     const offerForPuzzleHeading = await $(
-      '//h1[text()="Add Puzzles to your package"]'
+      //'//h1[text()="Add Puzzles to your package"]'
+      '//*[text()="CLAIM THIS OFFER"]'
     );
     await offerForPuzzleHeading.waitForDisplayed({ timeout: 50000 });
     await offerForPuzzleHeading.isDisplayed();

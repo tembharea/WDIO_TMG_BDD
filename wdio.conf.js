@@ -66,9 +66,10 @@ export const config = {
     "./features/**/ETE10_SubscriptionAcquisitionDigital.feature",
     "./features/**/ETE67_7DayPrintAcquisition.feature",
     "./features/**/ETE68_2DayPrintAcquisition.feature",
-    //"./features/**/ETE12_Backdated.feature",
-    //"./features/**/Test.feature",
-    //"./features/**/ETE69_7DayPrintRenewal.feature",
+    // "./features/**/ETE12_Backdated.feature",
+    // "./features/**/Test.feature",
+    // "./features/**/ETE69_7DayPrintRenewal.feature",
+    "./features/**/ETE127_Digital_DowngradeOffer.feature",
   ],
   // Patterns to exclude.
   exclude: [
@@ -118,13 +119,13 @@ export const config = {
           "--disable-notifications",
           "--enable-automation",
           "--incognito",
-          "--headless",
-          "--disable-gpu",
-          "--disable-setuid-sandbox",
-          "--disable-dev-shm-usage",
-          "--no-sandbox",
-          "--windows-size=1920*1080",
-          "--proxy-server=direct://",
+          // "--headless",
+          // "--disable-gpu",
+          // "--disable-setuid-sandbox",
+          // "--disable-dev-shm-usage",
+          // "--no-sandbox",
+          // "--windows-size=1920*1080",
+          // "--proxy-server=direct://",
         ],
       },
       "cjson:metadata": {
@@ -293,6 +294,7 @@ export const config = {
       "./features/step-definitions/CancellationSteps.js",
       "./features/step-definitions/PrintSteps.js",
       "./features/step-definitions/TestSteps.js",
+      "./features/step-definitions/downgradedownsellSteps.js",
     ],
     // <boolean> show full backtrace for errors
     backtrace: false,
@@ -569,7 +571,7 @@ export const config = {
           },
           {
             label: "Release",
-            value: "24.15",
+            value: "24.16",
           },
           {
             label: "Apps Tested",

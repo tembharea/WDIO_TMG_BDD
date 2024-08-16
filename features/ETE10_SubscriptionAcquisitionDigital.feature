@@ -187,11 +187,11 @@ Scenario: TC_12:User purchasing Digital plan with any working payment method
     Then  Click on View Subscription Offers
     Then  User clicks on Digital Plan Monthly
     Then  Validate user is redirected to Payment gateway page
-    Then  Input paypal Payment details
+    Then  Input CreditCard Payment details
     Then  User completes the purchase
     When  Go to My Account page
     Then  Click on Manage Your Details button
-    Then  Logout from Customer application  
+    Then  Logout from Customer application
 
 Scenario: TC_13:Validate Digital Subscriber has One Bonus Account in Telegraph app
     Given I launch login from homepage

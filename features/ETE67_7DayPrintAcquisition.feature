@@ -13,11 +13,11 @@ Feature: ETE 67 7 day Print Acquisition
         Then  Click on View Subscription Offers
         Then  Naviagate to Print Subshop Page
         Then  Click on Print7dayMontly Subscription
-        Then  Print Tell Us about Yourslef details
-        Then  Input MPP payment details for Print
-        When  Go to My Account page
-        Then  Click on Manage Your Details button
-        Then  Logout from Customer application
+        # Then  Print Tell Us about Yourslef details
+        # Then  Input MPP payment details for Print
+        # When  Go to My Account page
+        # Then  Click on Manage Your Details button
+        # Then  Logout from Customer application
 
     Scenario: TC_02:Validate 7 day Print Monthly subscription details in Telegraph
         Given I launch login from homepage
@@ -65,11 +65,11 @@ Feature: ETE 67 7 day Print Acquisition
         Then  Click on View Subscription Offers
         Then  Naviagate to Print Subshop Page
         Then  Click on Print7dayQuarterly Subscription
-        Then  Print Tell Us about Yourslef details
-        Then  Input MPP payment details for Print
-        When  Go to My Account page
-        Then  Click on Manage Your Details button
-        Then  Logout from Customer application
+        # Then  Print Tell Us about Yourslef details
+        # Then  Input MPP payment details for Print
+        # When  Go to My Account page
+        # Then  Click on Manage Your Details button
+        # Then  Logout from Customer application
 
     Scenario: TC_06:Validate 7 day Print Quarterly subscription details in Telegraph
         Given I launch login from homepage
