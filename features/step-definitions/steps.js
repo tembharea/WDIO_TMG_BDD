@@ -2486,9 +2486,7 @@ Then("Validate a GUID and PianoID are generated", async () => {
   // await GUID.waitForDisplayed({ timeout: 50000 });
   // await GUID.isExisting();
   await browser.pause(5000);
-  const PianoID = await $(
-    '//span[text()="PianoID"]/parent::div//following::span[2]'
-  );
+  const PianoID = await $('//span[text()="PianoID"]');
   await PianoID.waitForDisplayed({ timeout: 50000 });
   await PianoID.isExisting();
 });

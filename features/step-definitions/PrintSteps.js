@@ -2129,3 +2129,58 @@ Then("Validate Date Values", async () => {
   );
   ////////////-----------------------------------------------------/////////////////////////
 });
+
+When("Validate Print Renewal is successful", async () => {
+  //await browser.pause(100);
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+
+  const printRenewalBtn = await $('//a[@class="renewal-button"]');
+  await printRenewalBtn.waitForDisplayed({ timeout: 50000 });
+  await printRenewalBtn.click();
+
+  const renewcontinuBtn = await $('//a[text()="continue"]');
+  await renewcontinuBtn.waitForDisplayed({ timeout: 50000 });
+  await renewcontinuBtn.click();
+
+  const renewChcekout = await $('//button[@class="checkout-button primary"]');
+  await renewChcekout.waitForDisplayed({ timeout: 50000 });
+  await renewChcekout.click();
+
+  const renewChcekoutsubmit = await $('//*[@type="submit"]');
+  await renewChcekoutsubmit.waitForDisplayed({ timeout: 50000 });
+  await renewChcekoutsubmit.click();
+
+  await browser.pause(10000);
+
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+
+  await browser.url(
+    "https://secure-staging-ams64.telegraph.co.uk/customer/secure/account/manage/"
+  );
+
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+
+  const renewVerify = await $(
+    '//*[contains(text(),"You have successfully renewed your subscription")]'
+  );
+  await renewVerify.waitForDisplayed({ timeout: 50000 });
+  await renewVerify.isExisting();
+});

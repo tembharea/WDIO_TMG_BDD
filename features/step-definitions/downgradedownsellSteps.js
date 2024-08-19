@@ -737,7 +737,7 @@ Then("Enter the digitaltest127_1Bonus in the search box in SF", async () => {
 Then(
   "Validate if digitaltest127_1Bonus has active subscription in SF",
   async () => {
-    await browser.pause(1000);
+    //await browser.pause(1000);
     // Write code here that turns the phrase above into concrete actions
     await browser.pause(100);
     browser.waitUntil(
@@ -747,10 +747,11 @@ Then(
         timeoutMsg: "Message on failure",
       }
     );
+    await browser.pause(5000);
     const SubscriptionTab = await $('//a[text()="Subscriptions"]');
     await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
     await SubscriptionTab.click();
-    await browser.pause(10000);
+    await browser.pause(5000);
     const SubID_b1 = await $(
       '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
     );
@@ -1105,8 +1106,8 @@ Then(
     await browser.pause(100);
 
     RecordSubIDP_digitaltest127_2 = await SubID_digitaltest127_2.getText();
-    console.log(await SubID_digitaltest127_1.getText());
-    console.log(RecordSubIDP_digitaltest127_1);
+    console.log(await SubID_digitaltest127_2.getText());
+    console.log(RecordSubIDP_digitaltest127_2);
     await browser.pause(5000);
 
     const sfproductone = await $(
