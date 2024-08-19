@@ -100,6 +100,7 @@ Then("User clicks on Subscriptions tab", async () => {
   const SFSubscriptionTab = await $('//a[text()="Subscriptions"]');
   await SFSubscriptionTab.waitForDisplayed({ timeout: 20000 });
   await SFSubscriptionTab.click();
+  await browser.pause(10000);
 });
 
 Then(

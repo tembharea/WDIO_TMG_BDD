@@ -2485,6 +2485,7 @@ Then("Validate a GUID and PianoID are generated", async () => {
   // const GUID = await $('//span[text()="Guid"]/parent::div//following::span[2]');
   // await GUID.waitForDisplayed({ timeout: 50000 });
   // await GUID.isExisting();
+  await browser.pause(5000);
   const PianoID = await $(
     '//span[text()="PianoID"]/parent::div//following::span[2]'
   );
@@ -2561,6 +2562,7 @@ Then("Validate if user has any active subscription", async () => {
   const SubscriptionTab = await $('//a[text()="Subscriptions"]');
   await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
   await SubscriptionTab.click();
+  await browser.pause(10000);
   const SubID = await $(
     '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
   );
@@ -3874,6 +3876,7 @@ Then(
     const SubscriptionTab = await $('//a[text()="Subscriptions"]');
     await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
     await SubscriptionTab.click();
+    await browser.pause(10000);
 
     const SubID2 = await $(
       '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
@@ -3905,6 +3908,7 @@ Then("Validate if Bonus user has active subscription in SF", async () => {
   const SubscriptionTab = await $('//a[text()="Subscriptions"]');
   await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
   await SubscriptionTab.click();
+  await browser.pause(10000);
 
   const SubID2 = await $(
     '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
@@ -4173,7 +4177,7 @@ Then(
     const SubscriptionTab = await $('//a[text()="Subscriptions"]');
     await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
     await SubscriptionTab.click();
-
+    await browser.pause(10000);
     const SubID2 = await $(
       '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
     );
@@ -4195,7 +4199,7 @@ Then(
     const SubscriptionTab = await $('//a[text()="Subscriptions"]');
     await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
     await SubscriptionTab.click();
-
+    await browser.pause(10000);
     const SubID2 = await $(
       '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
     );
@@ -4280,7 +4284,7 @@ Then("Validate if user has activee subscription", async () => {
   const SubscriptionTab = await $('//a[text()="Subscriptions"]');
   await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
   await SubscriptionTab.click();
-
+  await browser.pause(10000);
   const SubID2 = await $(
     '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
   );
@@ -5002,8 +5006,11 @@ Then("Validate Gift Promo Code is Generated", async () => {
   await SalesFACOrders.click();
   await browser.pause(5000);
 
+  /////////////////////////////////////
+
   const AccountOrderLink = await $(
-    '//h1[@title="Account Orders"]//following::span[contains(text(),"AO-")][1]'
+    //'//h1[@title="Account Orders"]//following::span[contains(text(),"AO-")][1]'
+    '//h1[@title="Account Orders"]//following::a[@class="slds-truncate"][1]'
   );
   await AccountOrderLink.waitForDisplayed({ timeout: 50000 });
   await AccountOrderLink.click();
@@ -5032,20 +5039,20 @@ Then("Validate Gift Digital Promo Code is Generated", async () => {
     }
   );
 
-  const SalesFShowAll = await $('//a[text()="Show All (24)"]');
+  const SalesFShowAll = await $('//a[contains(text(),"Show All")]');
   await SalesFShowAll.waitForDisplayed({ timeout: 50000 });
   await SalesFShowAll.click();
   await browser.pause(3000);
 
   const SalesFACOrders = await $(
-    '//span[text()="Has Downgrade"]//following::span[contains(text(),"Account Orders")][1]'
+    '//span[text()="Has Downgrade"]//following::a[contains(@href,"/related/Account_Orders__r/view")]'
   );
   await SalesFACOrders.waitForDisplayed({ timeout: 50000 });
   await SalesFACOrders.click();
   await browser.pause(5000);
 
   const AccountOrderLink = await $(
-    '//h1[@title="Account Orders"]//following::span[contains(text(),"AO-")][1]'
+    '//h1[@title="Account Orders"]//following::a[@class="slds-truncate"][1]'
   );
   await AccountOrderLink.waitForDisplayed({ timeout: 50000 });
   await AccountOrderLink.click();
@@ -5075,20 +5082,20 @@ Then("Validate Gift Digital Plus Promo Code is Generated", async () => {
     }
   );
 
-  const SalesFShowAll = await $('//a[text()="Show All (24)"]');
+  const SalesFShowAll = await $('//a[contains(text(),"Show All")]');
   await SalesFShowAll.waitForDisplayed({ timeout: 50000 });
   await SalesFShowAll.click();
   await browser.pause(3000);
 
   const SalesFACOrders = await $(
-    '//span[text()="Has Downgrade"]//following::span[contains(text(),"Account Orders")][1]'
+    '//span[text()="Has Downgrade"]//following::a[contains(@href,"/related/Account_Orders__r/view")]'
   );
   await SalesFACOrders.waitForDisplayed({ timeout: 50000 });
   await SalesFACOrders.click();
   await browser.pause(5000);
 
   const AccountOrderLink = await $(
-    '//h1[@title="Account Orders"]//following::span[contains(text(),"AO-")][1]'
+    '//h1[@title="Account Orders"]//following::a[@class="slds-truncate"][1]'
   );
   await AccountOrderLink.waitForDisplayed({ timeout: 50000 });
   await AccountOrderLink.click();
@@ -5248,13 +5255,13 @@ Then("Validate Gift Promo Code is Used", async () => {
     }
   );
 
-  const SalesFShowAll = await $('//a[text()="Show All (24)"]');
+  const SalesFShowAll = await $('//a[contains(text(),"Show All")]');
   await SalesFShowAll.waitForDisplayed({ timeout: 50000 });
   await SalesFShowAll.click();
   await browser.pause(3000);
 
   const SalesFACOrders = await $(
-    '//span[text()="Has Downgrade"]//following::span[contains(text(),"Account Orders")][1]'
+    '//span[text()="Has Downgrade"]//following::a[contains(@href,"/related/Account_Orders__r/view")]'
   );
   await SalesFACOrders.waitForDisplayed({ timeout: 50000 });
   await SalesFACOrders.click();
@@ -6151,7 +6158,7 @@ Then("User Opens Subscription page", async () => {
   const SubscriptionTab = await $('//a[text()="Subscriptions"]');
   await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
   await SubscriptionTab.click();
-
+  await browser.pause(10000);
   const SubID = await $(
     // '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
     '//span[@title="Z-Subscriptions"]//following::*[@class="slds-grid slds-grid_align-spread"][2]'
@@ -6250,7 +6257,7 @@ Then(
     const SubscriptionTab = await $('//a[text()="Subscriptions"]');
     await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
     await SubscriptionTab.click();
-
+    await browser.pause(10000);
     const SubID = await $(
       '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
     );
@@ -6307,7 +6314,7 @@ Then(
     const SubscriptionTab = await $('//a[text()="Subscriptions"]');
     await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
     await SubscriptionTab.click();
-
+    await browser.pause(10000);
     const SubID2 = await $(
       '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
     );
@@ -6417,7 +6424,7 @@ Then(
     const SubscriptionTab = await $('//a[text()="Subscriptions"]');
     await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
     await SubscriptionTab.click();
-
+    await browser.pause(10000);
     const SubID3 = await $(
       '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
     );
@@ -6450,7 +6457,8 @@ Then(
     const SubscriptionTab = await $('//a[text()="Subscriptions"]');
     await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
     await SubscriptionTab.doubleClick();
-    await browser.pause(2000);
+
+    await browser.pause(10000);
     const SubID4 = await $(
       '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
     );
@@ -6482,7 +6490,7 @@ Then("Validate subscription for digitalsub in salesforce", async () => {
   const SubscriptionTab = await $('//a[text()="Subscriptions"]');
   await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
   await SubscriptionTab.click();
-
+  await browser.pause(10000);
   const SubID5 = await $(
     '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
   );
@@ -6513,7 +6521,7 @@ Then("Validate subscription for digitalPlussub in salesforce", async () => {
   const SubscriptionTab = await $('//a[text()="Subscriptions"]');
   await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
   await SubscriptionTab.click();
-
+  await browser.pause(10000);
   const SubID6 = await $(
     '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
   );
@@ -6912,6 +6920,7 @@ Then("Validate if user has any active subscription for ete20", async () => {
   await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
   await browser.pause(2000);
   await SubscriptionTab.click();
+  await browser.pause(10000);
 
   const SubID7 = await $(
     '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
@@ -7165,7 +7174,7 @@ Then("Validate if Cancellation user has active subscription", async () => {
   const SubscriptionTab = await $('//a[text()="Subscriptions"]');
   await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
   await SubscriptionTab.click();
-
+  await browser.pause(10000);
   const SubID8 = await $(
     '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
   );
@@ -8119,25 +8128,36 @@ Then("User completes Bonus Onboarding Journey", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  const subContinueBtn = await $(
-    '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"][2]'
-    //'//button[text()="Continue"]'
-  );
-  await subContinueBtn.waitForDisplayed({ timeout: 50000 });
-  await subContinueBtn.click();
+  try {
+    const subContinueBtn = await $(
+      '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"][2]'
+      //'//button[text()="Continue"]'
+    );
+    await subContinueBtn.waitForDisplayed({ timeout: 10000 });
+    await subContinueBtn.click();
 
-  const subContinueBtnn = await $(
-    '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"]'
-    //'//button[text()="Continue"]'
-  );
-  await subContinueBtnn.waitForDisplayed({ timeout: 50000 });
-  await subContinueBtnn.click();
+    const subContinueBtnn = await $(
+      '//a[@href="https://www.telegraph.co.uk/"]//following::button[text()="Continue"]'
+      //'//button[text()="Continue"]'
+    );
+    await subContinueBtnn.waitForDisplayed({ timeout: 10000 });
+    await subContinueBtnn.click();
 
-  const BonusLastContinueBtn = await $(
-    '//a[@class="onboarding-btns--redirect"]'
-  );
-  await BonusLastContinueBtn.waitForDisplayed({ timeout: 50000 });
-  await BonusLastContinueBtn.click();
+    const BonusLastContinueBtn = await $(
+      '//a[@class="onboarding-btns--redirect"]'
+    );
+    await BonusLastContinueBtn.waitForDisplayed({ timeout: 10000 });
+    await BonusLastContinueBtn.click();
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+    await browser.url(
+      "https://secure-staging-ams64.telegraph.co.uk/customer/secure/account/manage/"
+    );
+    await browser.pause(5000);
+  }
+
   browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {

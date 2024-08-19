@@ -87,6 +87,7 @@ Given("I copy the bonus url", async () => {
     }
   );
   await browser.scroll(0, 200);
+  browser.pause(25000);
   const urlbutton = await $('//input[@class="express-input-control"]');
   await urlbutton.waitForDisplayed({ timeout: 50000 });
   const BonusUrlStr = await $('//input[contains(@value, "https://secure")]');

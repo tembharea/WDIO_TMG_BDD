@@ -274,6 +274,7 @@ Then(
     const SubscriptionTab = await $('//a[text()="Subscriptions"]');
     await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
     await SubscriptionTab.click();
+    await browser.pause(10000);
 
     const SubID_digitaltest127_1 = await $(
       '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
@@ -307,7 +308,7 @@ Then(
     const SubscriptionTab = await $('//a[text()="Subscriptions"]');
     await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
     await SubscriptionTab.click();
-
+    await browser.pause(10000);
     const SubID_digitaltest127_1 = await $(
       '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
     );
@@ -585,7 +586,7 @@ Then(
     const SubscriptionTab = await $('//a[text()="Subscriptions"]');
     await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
     await SubscriptionTab.click();
-
+    await browser.pause(10000);
     const SubID_digitaltest127_2 = await $(
       '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
     );
@@ -749,7 +750,7 @@ Then(
     const SubscriptionTab = await $('//a[text()="Subscriptions"]');
     await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
     await SubscriptionTab.click();
-
+    await browser.pause(10000);
     const SubID_b1 = await $(
       '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
     );
@@ -822,7 +823,7 @@ Then(
     const SubscriptionTab = await $('//a[text()="Subscriptions"]');
     await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
     await SubscriptionTab.click();
-
+    await browser.pause(10000);
     const SubID_b2 = await $(
       '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
     );
@@ -1095,7 +1096,7 @@ Then(
     const SubscriptionTab = await $('//a[text()="Subscriptions"]');
     await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
     await SubscriptionTab.click();
-
+    await browser.pause(10000);
     const SubID_digitaltest127_2 = await $(
       '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
     );

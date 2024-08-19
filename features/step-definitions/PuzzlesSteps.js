@@ -243,7 +243,7 @@ Given("I verify puzzle subscription is active from salesforce", async () => {
   const SubscriptionTab = await $('//a[text()="Subscriptions"]');
   await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
   await SubscriptionTab.click();
-
+  await browser.pause(10000);
   const PuzzleSubProduct = await $(
     '//span[@title="Puzzles Annual Subscription"]'
   );

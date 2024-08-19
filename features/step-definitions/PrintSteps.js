@@ -1296,31 +1296,186 @@ Then("Validate Expiry date of subscription before renewal", async () => {
 
 Then("Print Renewal Flow Print Subscription status Active", async () => {
   // Write code here that turns the phrase above into concrete actions
+
+  ////////////-------------------------------By Next Monday Logic----------------------/////////////////////////
+
+  CucumberJsJsonReporter.attach(
+    "////////////-------------------------------By nearest Next Monday Logic----------------------////////////////////",
+    "text/plain"
+  );
+
+  ////////////-----------------------------------------------------/////////////////////////
+
+  var switchD2 = new Date(); ///////////Today's date
+
+  CucumberJsJsonReporter.attach(
+    "Current/Today's date: " + switchD2,
+    "text/plain"
+  );
+
+  switchD2.setDate(switchD2.getDate() + 78); //////////adding 78 days
+
+  CucumberJsJsonReporter.attach(
+    "Current/Today's date with addition of 78 days: " + switchD2,
+    "text/plain"
+  );
+
+  //////////////////Switch Case for first nearest monday////////////////////////////
+  switch (switchD2.getDay()) {
+    case 0:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Sunday, so NextMonday code required, new date derived: " +
+          switchD2,
+        "text/plain"
+      );
+      break;
+    case 1:
+      CucumberJsJsonReporter.attach(
+        "Its Monday, so no code required :" + switchD2,
+        "text/plain"
+      );
+      break;
+    case 2:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Tuesday, so NextMonday code required, new date derived: " +
+          switchD2,
+        "text/plain"
+      );
+      break;
+    case 3:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Wednesday, so NextMonday code required, new date derived: " +
+          switchD2,
+        "text/plain"
+      );
+      break;
+    case 4:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Thursday, so NextMonday code required, new date derived: " +
+          switchD2,
+        "text/plain"
+      );
+      break;
+    case 5:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Friday, so NextMonday code required, new date derived: " +
+          switchD2,
+        "text/plain"
+      );
+      break;
+    case 6:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Saturday, so NextMonday code required, new date derived: " +
+          switchD2,
+        "text/plain"
+      );
+  }
+  ////////////////////////////////////////////////////////
+
+  switchD2.setFullYear(switchD2.getFullYear() - 1); ////subtracted 1 year
+
+  CucumberJsJsonReporter.attach(
+    "After 1 year subtraction: " + switchD2,
+    "text/plain"
+  );
+
+  //////////////////Switch Case for second nearest monday////////////////////////////
+  switch (switchD2.getDay()) {
+    case 0:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Sunday, so NextMonday code required, new date derived: " +
+          switchD2,
+        "text/plain"
+      );
+      break;
+    case 1:
+      CucumberJsJsonReporter.attach(
+        "Its Monday, so no code required :" + switchD2,
+        "text/plain"
+      );
+      break;
+    case 2:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Tuesday, so NextMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+      break;
+    case 3:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Wednesday, so NextMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+      break;
+    case 4:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Thursday, so NextMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+      break;
+    case 5:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Friday, so NextMonday code required, new date derived: " +
+          switchD2,
+        "text/plain"
+      );
+      break;
+    case 6:
+      switchD2.setDate(switchD2.getDate() + ((1 + 7 - switchD2.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Saturday, so NextMonday code required, new date derived: " +
+          switchD2,
+        "text/plain"
+      );
+  }
+
+  /////////////////////////////////////////////////////////////////////
+
+  let satrtdateX2 = switchD2.toLocaleDateString("en-GB");
+  CucumberJsJsonReporter.attach(
+    "Final Date Value for Print Start Date: " + satrtdateX2,
+    "text/plain"
+  );
+  ////////////-----------------------------------------------------/////////////////////////
+
   await browser.pause(500);
 
-  const a = "17/07/2024";
-  const b = "03/10/2024";
-  const c = "30/09/2024";
-  const d = "30/09/2023";
-  const e = "02/10/2023";
+  // const a = "17/07/2024";
+  // const b = "03/10/2024";
+  // const c = "30/09/2024";
+  // const d = "30/09/2023";
+  // const e = "02/10/2023";
 
-  CucumberJsJsonReporter.attach("Value A: Today's date :" + a, "text/plain");
-  CucumberJsJsonReporter.attach(
-    "Value B: Today's date + 78 days :" + b,
-    "text/plain"
-  );
-  CucumberJsJsonReporter.attach(
-    "Value C = Nearest Monday to Value B date :" + c,
-    "text/plain"
-  );
-  CucumberJsJsonReporter.attach(
-    "Value D = 1 year minus from Value C date :" + d,
-    "text/plain"
-  );
-  CucumberJsJsonReporter.attach(
-    "Value E = Nearest Monday to Value D date :" + e,
-    "text/plain"
-  );
+  // CucumberJsJsonReporter.attach("Value A: Today's date :" + a, "text/plain");
+  // CucumberJsJsonReporter.attach(
+  //   "Value B: Today's date + 78 days :" + b,
+  //   "text/plain"
+  // );
+  // CucumberJsJsonReporter.attach(
+  //   "Value C = Nearest Monday to Value B date :" + c,
+  //   "text/plain"
+  // );
+  // CucumberJsJsonReporter.attach(
+  //   "Value D = 1 year minus from Value C date :" + d,
+  //   "text/plain"
+  // );
+  // CucumberJsJsonReporter.attach(
+  //   "Value E = Nearest Monday to Value D date :" + e,
+  //   "text/plain"
+  // );
   CucumberJsJsonReporter.attach(
     "______________________________________________________",
     "text/plain"
@@ -1361,7 +1516,7 @@ Then("Print Renewal Flow Print Subscription status Active", async () => {
   await substatusActive.click();
 
   await substartdate.waitForDisplayed();
-  await substartdate.setValue(e);
+  await substartdate.setValue(satrtdateX2);
 
   await subeditsave.waitForDisplayed();
   await subeditsave.click();
@@ -1376,6 +1531,7 @@ Then("Go to Subscription Tab", async () => {
   // Write code here that turns the phrase above into concrete actions
   await subtab.waitForDisplayed();
   await subtab.click();
+  await browser.pause(10000);
 
   const subopen = await $(
     //'//span[text()="Subscriptions"]//following::div[@class="slds-grid"][2]'
@@ -1434,6 +1590,7 @@ Then("Validate two subscription are present in subscription tab", async () => {
   const subtab = await $('//a[text()="Subscriptions"]');
   await subtab.waitForDisplayed();
   await subtab.click();
+  await browser.pause(10000);
 
   await browser.pause(4000);
 
