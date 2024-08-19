@@ -89,7 +89,7 @@ Given("I copy the bonus url", async () => {
   await browser.url(
     "https://secure-staging-ams64.telegraph.co.uk/customer/secure/account/"
   );
-  browser.pause(15000);
+  browser.pause(25000);
   await browser.scroll(0, 200);
   browser.pause(25000);
   const urlbutton = await $('//input[@class="express-input-control"]');
