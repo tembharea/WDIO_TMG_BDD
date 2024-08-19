@@ -126,7 +126,7 @@ Scenario: TC_10:Validate logged out registrant Digital Monthly Sub details in Sa
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
     And Enter the digitalLoggedOutUser in the search box of salesforce
-    # Then Open the Account Page
+    Then Open the Account Page
     # When User clicks on Details tab
     Then Validate subscription for digital Annual Plan in salesforce
     Then Close Opened tabs in salesforce

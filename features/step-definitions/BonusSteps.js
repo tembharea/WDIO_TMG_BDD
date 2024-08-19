@@ -86,15 +86,21 @@ Given("I copy the bonus url", async () => {
       timeoutMsg: "Message on failure",
     }
   );
+  await browser.url(
+    "https://secure-staging-ams64.telegraph.co.uk/customer/secure/account/"
+  );
+  browser.pause(15000);
   await browser.scroll(0, 200);
   browser.pause(25000);
   const urlbutton = await $('//input[@class="express-input-control"]');
   await urlbutton.waitForDisplayed({ timeout: 50000 });
+  browser.pause(45000);
   const BonusUrlStr = await $('//input[contains(@value, "https://secure")]');
   await BonusUrlStr.waitForDisplayed({ timeout: 50000 });
   varurl = await BonusUrlStr.getAttribute("value");
   console.log(varurl);
 });
+
 Given("I open the bonus URL", async () => {
   browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
