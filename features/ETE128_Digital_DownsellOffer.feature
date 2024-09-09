@@ -4,6 +4,7 @@ Feature: ETE 128 Digital monthly and Annual subscription completes Downsell offe
 
 Scenario: TC_A_01:User purchasing Digital plan Monthly with credit card
     Given I launch login from homepage
+    Then  Action Keys Set One
     And   I fill in new digitaltest128_1 email
     When  I click login-register button
     And   I enter "valid" register password
@@ -18,7 +19,8 @@ Scenario: TC_A_01:User purchasing Digital plan Monthly with credit card
     Then  User completes the purchase
     When  Go to My Account page
     Then  Click on Manage Your Details button
-    Then  I logout from customer app
+    Then Logout from Customer application
+    #Then  I logout from customer app
 
 Scenario: TC_A_02:Validate Digital Monthly Sub bought via credit card details in Telegraph
     Given I launch login from homepage
@@ -32,7 +34,8 @@ Scenario: TC_A_02:Validate Digital Monthly Sub bought via credit card details in
     Then  Validate Your Subscription section
     Then  Validate Your Payment section
     When  Go to My Account page
-    Then  I logout from customer app
+    Then Logout from Customer application
+    #Then  I logout from customer app
 
 Scenario: TC_A_03:Validate Digital Monthly Sub bought via credit card details in Salesforce
     When I launch Salesforce URL
@@ -71,7 +74,7 @@ Scenario: TC_A_06:Redeem Bonus account from donors bonus link
     And I click continue button on registration page
     And Validate HomePage
     And Go to My Account page
-    And I open the digitaltest127_1Bonus URL
+    And I open the digitaltest128_1Bonus URL
     And I validate bonus subscription is not redeem
     And I activate bonus subscription
     And User completes Bonus Onboarding Journey
@@ -81,7 +84,8 @@ Scenario: TC_A_06:Redeem Bonus account from donors bonus link
     Then I check the bonus subscription start date with current plan
     And I Validate Payment details do not exist for Bonus account
     Then Go to My Account page
-    Then I logout from customer app
+    Then Logout from Customer application
+    #Then I logout from customer app
 
 Scenario: TC_A_07:Validate Bonus Subscriber subscription status in Salesforce
     When I launch Salesforce URL
@@ -109,7 +113,8 @@ Scenario: TC_A_09:Validate User can claim Downsell offer
     Then  Click on Manage Your Details button
     Then  Validate Digital User can claim Downsell offer
     When  Go to My Account page
-    Then  I logout from customer app
+    #Then  I logout from customer app
+    Then Logout from Customer application
 
 Scenario: TC_A_10:Validate Digital Monthly Sub Downsell details in Salesforce
     When I launch Salesforce URL
@@ -138,7 +143,8 @@ Scenario: TC_A_12:Validate Bonus sub is working after Downsell offer claim in Te
     Then  Click on Manage Your Details button
     Then  Validate Your Subscription section
     When  Go to My Account page
-    Then  I logout from customer app
+    Then Logout from Customer application
+    #Then  I logout from customer app
 
     ##################################################-----------Digital Annual Subscription-------##########################################
 
@@ -158,7 +164,8 @@ Scenario: TC_B_01:User purchasing Digital plan Annually with credit card
     Then User completes the purchase
     When Go to My Account page
     Then Click on Manage Your Details button
-    Then I logout from customer app
+    Then Logout from Customer application
+    #Then I logout from customer app
 
 Scenario: TC_B_02:Validate Digital Annual Sub bought via CreditCard details in Telegraph
     Given I launch login from homepage
@@ -172,7 +179,8 @@ Scenario: TC_B_02:Validate Digital Annual Sub bought via CreditCard details in T
     Then Validate Your Subscription section
     Then Validate Your Payment section
     When Go to My Account page
-    Then I logout from customer app
+    Then Logout from Customer application
+    #Then I logout from customer app
 
 Scenario: TC_B_03:Validate Digital Annual Sub bought via credit card details in Salesforce
     When I launch Salesforce URL
@@ -181,7 +189,7 @@ Scenario: TC_B_03:Validate Digital Annual Sub bought via credit card details in 
     And Enter the digitaltest128_2 in the search box of salesforce
     Then Open the Account Page
     When User clicks on Details tab
-    Then Validate if digitaltest127_2 user has active subscription in salesforce
+    Then Validate if digitaltest128_2 user has active subscription in salesforce
     Then Close Opened tabs in salesforce
 
 Scenario: TC_B_04:Validate Digital Annual Sub bought via credit card details in Piano
@@ -211,7 +219,7 @@ Scenario: TC_B_06:Redeem Bonus account from donors bonus link
     And I click continue button on registration page
     And Validate HomePage
     And Go to My Account page
-    And I open the digitaltest127_2Bonus URL
+    And I open the digitaltest128_2Bonus URL
     And I validate bonus subscription is not redeem
     And I activate bonus subscription
     And User completes Bonus Onboarding Journey
@@ -221,7 +229,8 @@ Scenario: TC_B_06:Redeem Bonus account from donors bonus link
     Then I check the bonus subscription start date with current plan
     And I Validate Payment details do not exist for Bonus account
     Then  Go to My Account page
-    Then  I logout from customer app
+    Then Logout from Customer application
+    #Then  I logout from customer app
 
 Scenario: TC_B_07:Validate Bonus Subscriber subscription status in Salesforce
     When I launch Salesforce URL
@@ -249,7 +258,8 @@ Scenario: TC_B_09:Validate User can claim Downsell offer
     Then  Click on Manage Your Details button
     Then  Validate Digital User can claim Downsell offer
     When  Go to My Account page
-    Then  I logout from customer app
+    Then Logout from Customer application
+    #Then  I logout from customer app
 
 Scenario: TC_B_10:Validate Digital Annual Sub Downsell details in Salesforce
     When I launch Salesforce URL
@@ -278,4 +288,5 @@ Scenario: TC_B_12:Validate Bonus sub is working after Downsell offer claim in Te
     Then  Click on Manage Your Details button
     Then  Validate Your Subscription section
     When  Go to My Account page
-    Then  I logout from customer app
+    #Then  I logout from customer app
+    Then Logout from Customer application

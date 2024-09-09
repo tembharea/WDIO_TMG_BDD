@@ -2184,3 +2184,201 @@ When("Validate Print Renewal is successful", async () => {
   await renewVerify.waitForDisplayed({ timeout: 50000 });
   await renewVerify.isExisting();
 });
+
+Then("Print Renewal Flow Print Subscription status Active second", async () => {
+  // Write code here that turns the phrase above into concrete actions
+
+  ////////////-------------------------------By Previous Monday Logic----------------------/////////////////////////
+
+  ////////////-----------------------------------------------------/////////////////////////
+
+  var switchD = new Date(); ///////////Today's date
+
+  CucumberJsJsonReporter.attach(
+    "Current/Today's date: " + switchD,
+    "text/plain"
+  );
+
+  switchD.setDate(switchD.getDate() + 78); //////////adding 78 days
+
+  CucumberJsJsonReporter.attach(
+    "Current/Today's date with addition of 78 days: " + switchD,
+    "text/plain"
+  );
+
+  //////////////////Switch Case for first nearest monday////////////////////////////
+  switch (switchD.getDay()) {
+    case 0:
+      switchD.setDate(switchD.getDate() + ((1 + 7 - switchD.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Sunday, so NextMonday code required, new date derived: " + switchD,
+        "text/plain"
+      );
+      break;
+    case 1:
+      CucumberJsJsonReporter.attach(
+        "Its Monday, so no code required :" + switchD,
+        "text/plain"
+      );
+      break;
+    case 2:
+      switchD.setDate(switchD.getDate() - ((switchD.getDay() + 6) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Tuesday, so PrevMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+      break;
+    case 3:
+      switchD.setDate(switchD.getDate() - ((switchD.getDay() + 6) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Wednesday, so PrevMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+      break;
+    case 4:
+      switchD.setDate(switchD.getDate() - ((switchD.getDay() + 6) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Thursday, so PrevMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+      break;
+    case 5:
+      switchD.setDate(switchD.getDate() + ((1 + 7 - switchD.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Friday, so NextMonday code required, new date derived: " + switchD,
+        "text/plain"
+      );
+      break;
+    case 6:
+      switchD.setDate(switchD.getDate() + ((1 + 7 - switchD.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Saturday, so NextMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+  }
+  ////////////////////////////////////////////////////////
+
+  switchD.setFullYear(switchD.getFullYear() - 1); ////subtracted 1 year
+
+  CucumberJsJsonReporter.attach(
+    "After 1 year subtraction: " + switchD,
+    "text/plain"
+  );
+
+  //////////////////Switch Case for second nearest monday////////////////////////////
+  switch (switchD.getDay()) {
+    case 0:
+      switchD.setDate(switchD.getDate() + ((1 + 7 - switchD.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Sunday, so NextMonday code required, new date derived: " + switchD,
+        "text/plain"
+      );
+      break;
+    case 1:
+      CucumberJsJsonReporter.attach(
+        "Its Monday, so no code required :" + switchD,
+        "text/plain"
+      );
+      break;
+    case 2:
+      switchD.setDate(switchD.getDate() - ((switchD.getDay() + 6) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Tuesday, so PrevMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+      break;
+    case 3:
+      switchD.setDate(switchD.getDate() - ((switchD.getDay() + 6) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Wednesday, so PrevMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+      break;
+    case 4:
+      switchD.setDate(switchD.getDate() - ((switchD.getDay() + 6) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Thursday, so PrevMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+      break;
+    case 5:
+      switchD.setDate(switchD.getDate() + ((1 + 7 - switchD.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Friday, so NextMonday code required, new date derived: " + switchD,
+        "text/plain"
+      );
+      break;
+    case 6:
+      switchD.setDate(switchD.getDate() + ((1 + 7 - switchD.getDay()) % 7));
+      CucumberJsJsonReporter.attach(
+        "Its Saturday, so NextMonday code required, new date derived: " +
+          switchD,
+        "text/plain"
+      );
+  }
+
+  /////////////////////////////////////////////////////////////////////
+
+  let satrtdateX3 = switchD.toLocaleDateString("en-GB");
+  CucumberJsJsonReporter.attach(
+    "Final Date Value for Print Start Date: " + satrtdateX3,
+    "text/plain"
+  );
+  ////////////-----------------------------------------------------/////////////////////////
+
+  await browser.pause(500);
+
+  CucumberJsJsonReporter.attach(
+    "______________________________________________________",
+    "text/plain"
+  );
+  const substatuseditbtn = await $(
+    '//div[@class="slds-global-header__logo"]//following::span[text()="Subscription Status"][2]//following::span[2]'
+  );
+  const substatuboxclick = await $(
+    '//div[text()=" = Required Information"]//following::*[text()="Subscription Status"]//following::button[1]'
+  );
+  const substatusActive = await $(
+    '//lightning-base-combobox-item[@data-value="Active"]'
+  );
+
+  const substatusInRenewal = await $(
+    '//lightning-base-combobox-item[@data-value="In Renewal"]'
+  );
+
+  const substartdate = await $(
+    '//div[text()=" = Required Information"]//following::*[text()="Start Date"]//following::input[1]'
+  );
+  const subeditsave = await $(
+    '//div[text()=" = Required Information"]//following::button[text()="Save"]'
+  );
+
+  await substatuseditbtn.waitForDisplayed();
+  await substatuseditbtn.click();
+  await browser.pause(5000);
+  await browser.scroll(0, 300);
+  await substatuboxclick.waitForDisplayed();
+  await substatuboxclick.click();
+  await browser.pause(5000);
+  await browser.scroll(0, 300);
+  await browser.pause(5000);
+  await substatusActive.scrollIntoView();
+  await browser.pause(5000);
+  await substatusActive.waitForDisplayed();
+  await substatusActive.click();
+
+  await substartdate.waitForDisplayed();
+  await substartdate.setValue(satrtdateX3);
+
+  await subeditsave.waitForDisplayed();
+  await subeditsave.click();
+
+  await browser.pause(6000);
+});

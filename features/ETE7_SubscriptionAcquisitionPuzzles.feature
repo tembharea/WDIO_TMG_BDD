@@ -138,19 +138,8 @@ Scenario: TC_11:Validate Puzzles Subscriber name in Salesforce
     Then Close Opened tabs in salesforce
     And Enter the Puzzles email id in the search box
     Then Open the Account Page
-    Then Validate the name in Salesforce for Puzzles
-    Then Open the Account Page
-    Then Close Opened tabs in salesforce
-
-Scenario: TC_11A:Validate Puzzle subscription status in Salesforce
-    When I launch Salesforce URL
-    Then I login to Salesforce
-    Then Close Opened tabs in salesforce
-    Then Close Opened tabs in salesforce
-    And Enter the Puzzles email id in the search box
-    Then Open the Account Page
-    #When User clicks on Details tab
     Then Validate if user has any active subscription
+    Then Validate the name in Salesforce for Puzzles
     Then Close Opened tabs in salesforce
 
 Scenario: TC_12:Validate Puzzles Subscriber TS number in Salesforce

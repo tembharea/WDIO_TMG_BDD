@@ -159,7 +159,7 @@ Scenario: TC_B_01:User purchasing Digital plan Annually with credit card
     Then User completes the purchase
     When Go to My Account page
     Then Click on Manage Your Details button
-    Then Logout from Customer application 
+    Then Logout from Customer application
 
 Scenario: TC_B_02:Validate Digital Annual Sub bought via CreditCard details in Telegraph
     Given I launch login from homepage
