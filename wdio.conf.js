@@ -579,7 +579,7 @@ export const config = {
           },
           {
             label: "Release",
-            value: "24.17",
+            value: "24.18",
           },
           {
             label: "Apps Tested",
