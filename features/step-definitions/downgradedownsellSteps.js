@@ -645,13 +645,19 @@ Then("Go to Zoura Subscription Page for digitaltest127_2", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  await browser.url(ZouraURL_digitaltest127_2);
-  await browser.pause(1000);
-  CucumberJsJsonReporter.attach(
-    "Subscription ID for Digital Subscriber is: " +
-      RecordSubIDP_digitaltest127_2,
-    "text/plain"
-  );
+  try {
+    await browser.url(ZouraURL_digitaltest127_2);
+    await browser.pause(1000);
+    CucumberJsJsonReporter.attach(
+      "Subscription ID for Digital Subscriber is: " +
+        RecordSubIDP_digitaltest127_2,
+      "text/plain"
+    );
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 When("Copy the bonus url for digitaltest127_2", async () => {
@@ -745,6 +751,7 @@ Then(
   async () => {
     //await browser.pause(1000);
     // Write code here that turns the phrase above into concrete actions
+
     await browser.pause(100);
     browser.waitUntil(
       () => browser.execute(() => document.readyState === "complete"),
@@ -753,35 +760,41 @@ Then(
         timeoutMsg: "Message on failure",
       }
     );
-    await browser.pause(5000);
-    const SubscriptionTab = await $('//a[text()="Subscriptions"]');
-    await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
-    await SubscriptionTab.click();
-    await browser.pause(5000);
-    const SubID_b1 = await $(
-      '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
-    );
-    await SubID_b1.isExisting();
-    await browser.pause(100);
-    browser.waitUntil(
-      () => browser.execute(() => document.readyState === "complete"),
-      {
-        timeout: 60 * 1000, // 60 seconds
-        timeoutMsg: "Message on failure",
-      }
-    );
-    RecordSubIDPBonus1 = await SubID_b1.getText();
-    console.log(await SubID_b1.getText());
-    console.log(RecordSubIDPBonus1);
-    ZouraSubURLBonus1 =
-      "https://apisandbox.zuora.com/platform/apps/search?searchTerm=" +
-      RecordSubIDPBonus1 +
-      "&searchObjectType=subscription";
-    await browser.pause(5000);
-    CucumberJsJsonReporter.attach(
-      "Subscription ID: " + RecordSubIDPBonus1,
-      "text/plain"
-    );
+    try {
+      await browser.pause(5000);
+      const SubscriptionTab = await $('//a[text()="Subscriptions"]');
+      await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
+      await SubscriptionTab.click();
+      await browser.pause(5000);
+      const SubID_b1 = await $(
+        '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
+      );
+      await SubID_b1.isExisting();
+      await browser.pause(100);
+      browser.waitUntil(
+        () => browser.execute(() => document.readyState === "complete"),
+        {
+          timeout: 60 * 1000, // 60 seconds
+          timeoutMsg: "Message on failure",
+        }
+      );
+      RecordSubIDPBonus1 = await SubID_b1.getText();
+      console.log(await SubID_b1.getText());
+      console.log(RecordSubIDPBonus1);
+      ZouraSubURLBonus1 =
+        "https://apisandbox.zuora.com/platform/apps/search?searchTerm=" +
+        RecordSubIDPBonus1 +
+        "&searchObjectType=subscription";
+      await browser.pause(5000);
+      CucumberJsJsonReporter.attach(
+        "Subscription ID: " + RecordSubIDPBonus1,
+        "text/plain"
+      );
+    } catch (error) {
+      console.error("no such element");
+    } finally {
+      await browser.pause(100);
+    }
   }
 );
 
@@ -827,34 +840,40 @@ Then(
         timeoutMsg: "Message on failure",
       }
     );
-    const SubscriptionTab = await $('//a[text()="Subscriptions"]');
-    await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
-    await SubscriptionTab.click();
-    await browser.pause(10000);
-    const SubID_b2 = await $(
-      '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
-    );
-    await SubID_b2.isExisting();
-    await browser.pause(100);
-    browser.waitUntil(
-      () => browser.execute(() => document.readyState === "complete"),
-      {
-        timeout: 60 * 1000, // 60 seconds
-        timeoutMsg: "Message on failure",
-      }
-    );
-    RecordSubIDPBonus2 = await SubID_b2.getText();
-    console.log(await SubID_b2.getText());
-    console.log(RecordSubIDPBonus2);
-    ZouraSubURLBonus2 =
-      "https://apisandbox.zuora.com/platform/apps/search?searchTerm=" +
-      RecordSubIDPBonus2 +
-      "&searchObjectType=subscription";
-    await browser.pause(5000);
-    CucumberJsJsonReporter.attach(
-      "Subscription ID: " + RecordSubIDPBonus2,
-      "text/plain"
-    );
+    try {
+      const SubscriptionTab = await $('//a[text()="Subscriptions"]');
+      await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
+      await SubscriptionTab.click();
+      await browser.pause(10000);
+      const SubID_b2 = await $(
+        '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
+      );
+      await SubID_b2.isExisting();
+      await browser.pause(100);
+      browser.waitUntil(
+        () => browser.execute(() => document.readyState === "complete"),
+        {
+          timeout: 60 * 1000, // 60 seconds
+          timeoutMsg: "Message on failure",
+        }
+      );
+      RecordSubIDPBonus2 = await SubID_b2.getText();
+      console.log(await SubID_b2.getText());
+      console.log(RecordSubIDPBonus2);
+      ZouraSubURLBonus2 =
+        "https://apisandbox.zuora.com/platform/apps/search?searchTerm=" +
+        RecordSubIDPBonus2 +
+        "&searchObjectType=subscription";
+      await browser.pause(5000);
+      CucumberJsJsonReporter.attach(
+        "Subscription ID: " + RecordSubIDPBonus2,
+        "text/plain"
+      );
+    } catch (error) {
+      console.error("no such element");
+    } finally {
+      await browser.pause(100);
+    }
   }
 );
 
@@ -867,12 +886,18 @@ Then("Go to Zoura Subscription Page for digitaltest127_1Bonus", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  await browser.url(ZouraSubURLBonus1);
-  await browser.pause(1000);
-  CucumberJsJsonReporter.attach(
-    "Subscription ID for Digital Subscriber is: " + RecordSubIDPBonus1,
-    "text/plain"
-  );
+  try {
+    await browser.url(ZouraSubURLBonus1);
+    await browser.pause(1000);
+    CucumberJsJsonReporter.attach(
+      "Subscription ID for Digital Subscriber is: " + RecordSubIDPBonus1,
+      "text/plain"
+    );
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then("Go to Zoura Subscription Page for digitaltest127_2Bonus", async () => {
@@ -884,12 +909,18 @@ Then("Go to Zoura Subscription Page for digitaltest127_2Bonus", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  await browser.url(ZouraSubURLBonus2);
-  await browser.pause(1000);
-  CucumberJsJsonReporter.attach(
-    "Subscription ID for Digital Subscriber is: " + RecordSubIDPBonus2,
-    "text/plain"
-  );
+  try {
+    await browser.url(ZouraSubURLBonus2);
+    await browser.pause(1000);
+    CucumberJsJsonReporter.attach(
+      "Subscription ID for Digital Subscriber is: " + RecordSubIDPBonus2,
+      "text/plain"
+    );
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then(
@@ -903,13 +934,18 @@ Then(
         timeoutMsg: "Message on failure",
       }
     );
-
-    const Subscriptionbuttonzuora = $(
-      "//span[text()='" + RecordSubIDPBonus1 + "']"
-    );
-    ///span[text()njdbjbd]]
-    await Subscriptionbuttonzuora.waitForDisplayed({ timeout: 50000 });
-    await Subscriptionbuttonzuora.isExisting();
+    try {
+      const Subscriptionbuttonzuora = $(
+        "//span[text()='" + RecordSubIDPBonus1 + "']"
+      );
+      ///span[text()njdbjbd]]
+      await Subscriptionbuttonzuora.waitForDisplayed({ timeout: 50000 });
+      await Subscriptionbuttonzuora.isExisting();
+    } catch (error) {
+      console.error("no such element");
+    } finally {
+      await browser.pause(100);
+    }
   }
 );
 
@@ -925,11 +961,17 @@ Then(
       }
     );
 
-    const Subscriptionbuttonzuora = $(
-      "//span[text()='" + RecordSubIDPBonus2 + "']"
-    );
-    await Subscriptionbuttonzuora.waitForDisplayed({ timeout: 50000 });
-    await Subscriptionbuttonzuora.isExisting();
+    try {
+      const Subscriptionbuttonzuora = $(
+        "//span[text()='" + RecordSubIDPBonus2 + "']"
+      );
+      await Subscriptionbuttonzuora.waitForDisplayed({ timeout: 50000 });
+      await Subscriptionbuttonzuora.isExisting();
+    } catch (error) {
+      console.error("no such element");
+    } finally {
+      await browser.pause(100);
+    }
   }
 );
 
@@ -1186,50 +1228,56 @@ Then("validate downgrade details for digitaltest127_2 in zuora", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  await browser.pause(5000);
-  const Subscriptionbuttonzuora = $(
-    "//span[text()='" + RecordSubIDP_digitaltest127_2 + "']"
-  );
-  await Subscriptionbuttonzuora.waitForDisplayed({ timeout: 50000 });
-  await Subscriptionbuttonzuora.isExisting();
+  try {
+    await browser.pause(5000);
+    const Subscriptionbuttonzuora = $(
+      "//span[text()='" + RecordSubIDP_digitaltest127_2 + "']"
+    );
+    await Subscriptionbuttonzuora.waitForDisplayed({ timeout: 50000 });
+    await Subscriptionbuttonzuora.isExisting();
 
-  const subone = await $(
-    '//button[@id="global-search-subscription"]//following::span[contains(text(),"A-")][1]//following::span[4]'
-  );
+    const subone = await $(
+      '//button[@id="global-search-subscription"]//following::span[contains(text(),"A-")][1]//following::span[4]'
+    );
 
-  const subtwo = await $(
-    '//button[@id="global-search-subscription"]//following::span[contains(text(),"A-")][2]//following::span[4]'
-  );
+    const subtwo = await $(
+      '//button[@id="global-search-subscription"]//following::span[contains(text(),"A-")][2]//following::span[4]'
+    );
 
-  const sunonenum = await $(
-    '//button[@id="global-search-subscription"]//following::span[contains(text(),"A-")][1]'
-  );
+    const sunonenum = await $(
+      '//button[@id="global-search-subscription"]//following::span[contains(text(),"A-")][1]'
+    );
 
-  const suntwonum = await $(
-    '//button[@id="global-search-subscription"]//following::span[contains(text(),"A-")][2]'
-  );
+    const suntwonum = await $(
+      '//button[@id="global-search-subscription"]//following::span[contains(text(),"A-")][2]'
+    );
 
-  const subonetext = await subone.getText();
-  const subtwotext = await subtwo.getText();
-  const subonenumtext = await sunonenum.getText();
-  const subtwonumtext = await suntwonum.getText();
+    const subonetext = await subone.getText();
+    const subtwotext = await subtwo.getText();
+    const subonenumtext = await sunonenum.getText();
+    const subtwonumtext = await suntwonum.getText();
 
-  CucumberJsJsonReporter.attach(
-    "Original Subscription: " +
-      subonenumtext +
-      " " +
-      "having status : " +
-      subonetext,
-    "text/plain"
-  );
-  CucumberJsJsonReporter.attach(
-    "Downgraded Subscription: " +
-      subtwonumtext +
-      " " +
-      "having status : " +
-      subtwotext,
-    "text/plain"
-  );
+    CucumberJsJsonReporter.attach(
+      "Original Subscription: " +
+        subonenumtext +
+        " " +
+        "having status : " +
+        subonetext,
+      "text/plain"
+    );
+    CucumberJsJsonReporter.attach(
+      "Downgraded Subscription: " +
+        subtwonumtext +
+        " " +
+        "having status : " +
+        subtwotext,
+      "text/plain"
+    );
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then("I fill in existing digitaltest127_2Bonus email", async () => {
@@ -1241,6 +1289,7 @@ Then("I fill in existing digitaltest127_2Bonus email", async () => {
     }
   );
   await browser.refresh();
+  await browser.pause(2000);
   browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {

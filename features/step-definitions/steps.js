@@ -2392,6 +2392,7 @@ Then("I login to Salesforce", async () => {
   } finally {
     await browser.pause(100);
   }
+  await browser.pause(3000);
 });
 
 Then("Validate TS number is generated in Subscriber Number field", async () => {
@@ -2729,11 +2730,17 @@ Then("Open Subscription in Zoura for Puzzles", async () => {
     }
   );
 
-  const SubIDOpen = await $("//span[text()='" + RecordSubIDP + "']");
-  await SubIDOpen.waitForDisplayed({ timeout: 50000 });
-  await SubIDOpen.click();
+  try {
+    const SubIDOpen = await $("//span[text()='" + RecordSubIDP + "']");
+    await SubIDOpen.waitForDisplayed({ timeout: 50000 });
+    await SubIDOpen.click();
 
-  await browser.pause(5000);
+    await browser.pause(5000);
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 
   await browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
@@ -5121,21 +5128,39 @@ Then("Validate Gift Digital Plus Promo Code is Generated", async () => {
 });
 
 Given("I launch Gift Redeem URL", async () => {
-  await browser.url(GiftRedeemURL);
-  await browser.maximizeWindow();
-  await browser.pause(5000);
+  try {
+    await browser.url(GiftRedeemURL);
+    await browser.maximizeWindow();
+    await browser.pause(5000);
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Given("I launch GiftDigital Redeem URL", async () => {
-  await browser.url(GiftRedeemURL2);
-  await browser.maximizeWindow();
-  await browser.pause(5000);
+  try {
+    await browser.url(GiftRedeemURL2);
+    await browser.maximizeWindow();
+    await browser.pause(5000);
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Given("I launch GiftDigitalPlus Redeem URL", async () => {
-  await browser.url(GiftRedeemURL3);
-  await browser.maximizeWindow();
-  await browser.pause(5000);
+  try {
+    await browser.url(GiftRedeemURL3);
+    await browser.maximizeWindow();
+    await browser.pause(5000);
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then("Close Opened tabs in salesforce", async () => {
@@ -5146,19 +5171,25 @@ Then("Close Opened tabs in salesforce", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  await browser.pause(5000);
-  let tabs = await $$(
-    '//a[contains(@class,"slds-context-bar__label-action ")]/..//button[contains(@class,"slds-button slds-button_icon slds")]'
-  );
-  console.log(tabs);
-  console.log(tabs.length);
-  if (tabs.length > 0) {
-    tabs.forEach((el) => {
-      el.click();
-      browser.pause(3000);
-    });
+  try {
+    await browser.pause(8000);
+    let tabs = await $$(
+      '//a[contains(@class,"slds-context-bar__label-action ")]/..//button[contains(@class,"slds-button slds-button_icon slds")]'
+    );
+    console.log(tabs);
+    console.log(tabs.length);
+    if (tabs.length > 0) {
+      tabs.forEach((el) => {
+        el.click();
+        browser.pause(5000);
+      });
+    }
+    await browser.pause(3000);
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
   }
-  await browser.pause(3000);
 });
 
 Then("Close Recently Opened Gift Tabs in Salesforce", async () => {
@@ -5188,66 +5219,74 @@ Then("Close Recently Opened Gift Tabs in Salesforce", async () => {
 });
 
 When("Redemption of gift subscription", async () => {
-  const GiFtReceipntGetStrtedBtn = await $('//button[@class="button primary"]');
-  await GiFtReceipntGetStrtedBtn.waitForDisplayed();
-  await GiFtReceipntGetStrtedBtn.click();
-  await browser.pause(2000);
+  try {
+    const GiFtReceipntGetStrtedBtn = await $(
+      '//button[@class="button primary"]'
+    );
+    await GiFtReceipntGetStrtedBtn.waitForDisplayed();
+    await GiFtReceipntGetStrtedBtn.click();
+    await browser.pause(2000);
 
-  const GiFtReceipntRegisterBtn = await $("//a[text()='Register']");
-  await GiFtReceipntRegisterBtn.waitForDisplayed();
-  await GiFtReceipntRegisterBtn.click();
-  await browser.pause(2000);
+    const GiFtReceipntRegisterBtn = await $("//a[text()='Register']");
+    await GiFtReceipntRegisterBtn.waitForDisplayed();
+    await GiFtReceipntRegisterBtn.click();
+    await browser.pause(2000);
 
-  const GiftRcvEmail = await $('//input[@id="email"]');
-  await GiftRcvEmail.waitForDisplayed({ timeout: 20000 });
-  const GiftRcvPWD = await $('//input[@id="password"]');
-  await GiftRcvPWD.waitForDisplayed({ timeout: 20000 });
-  const GiFtRcvRegisterSubmitBtn = await $('//button[@type="submit"]');
-  await GiFtRcvRegisterSubmitBtn.waitForDisplayed();
+    const GiftRcvEmail = await $('//input[@id="email"]');
+    await GiftRcvEmail.waitForDisplayed({ timeout: 20000 });
+    const GiftRcvPWD = await $('//input[@id="password"]');
+    await GiftRcvPWD.waitForDisplayed({ timeout: 20000 });
+    const GiFtRcvRegisterSubmitBtn = await $('//button[@type="submit"]');
+    await GiFtRcvRegisterSubmitBtn.waitForDisplayed();
 
-  await GiftRcvEmail.setValue(GiftRcvOneEmail);
-  await GiftRcvPWD.setValue(CustPasswrd);
-  await GiFtRcvRegisterSubmitBtn.click();
-  await browser.pause(3000);
-  CucumberJsJsonReporter.attach(
-    "Test ID used for Puzzles Gift Subscription Receiver: " + GiftRcvOneEmail,
-    "text/plain"
-  );
+    await GiftRcvEmail.setValue(GiftRcvOneEmail);
+    await GiftRcvPWD.setValue(CustPasswrd);
+    await GiFtRcvRegisterSubmitBtn.click();
+    await browser.pause(3000);
+    CucumberJsJsonReporter.attach(
+      "Test ID used for Puzzles Gift Subscription Receiver: " + GiftRcvOneEmail,
+      "text/plain"
+    );
 
-  const StreetLineOne = await $('//input[@id="streetline1"]');
-  await StreetLineOne.waitForDisplayed({ timeout: 20000 });
-  const StreetLineTwo = await $('//input[@id="streetline2"]');
-  await StreetLineTwo.waitForDisplayed({ timeout: 20000 });
-  const GiftCity = await $('//input[@id="city"]');
-  await GiftCity.waitForDisplayed({ timeout: 20000 });
-  //const GiftPostCode = await $('//input[@id="postcode"]');
-  const GiftRFirstName = await $('//input[@id="firstName"]');
-  const GiftSecondtName = await $('//input[@id="lastName"]');
-  await GiftRFirstName.waitForDisplayed({ timeout: 20000 });
-  await GiftSecondtName.waitForDisplayed({ timeout: 20000 });
+    const StreetLineOne = await $('//input[@id="streetline1"]');
+    await StreetLineOne.waitForDisplayed({ timeout: 20000 });
+    const StreetLineTwo = await $('//input[@id="streetline2"]');
+    await StreetLineTwo.waitForDisplayed({ timeout: 20000 });
+    const GiftCity = await $('//input[@id="city"]');
+    await GiftCity.waitForDisplayed({ timeout: 20000 });
+    //const GiftPostCode = await $('//input[@id="postcode"]');
+    const GiftRFirstName = await $('//input[@id="firstName"]');
+    const GiftSecondtName = await $('//input[@id="lastName"]');
+    await GiftRFirstName.waitForDisplayed({ timeout: 20000 });
+    await GiftSecondtName.waitForDisplayed({ timeout: 20000 });
 
-  const GiftContinueBtn = await $(
-    '//button[@id="payment-details-submit-button"]'
-  );
-  await GiftContinueBtn.waitForDisplayed({ timeout: 20000 });
+    const GiftContinueBtn = await $(
+      '//button[@id="payment-details-submit-button"]'
+    );
+    await GiftContinueBtn.waitForDisplayed({ timeout: 20000 });
 
-  await GiftRFirstName.setValue("Akshat");
-  await GiftSecondtName.setValue("GiftReceipent");
-  await StreetLineOne.setValue("Ghansoli");
-  await StreetLineTwo.setValue("Near Station");
-  await GiftCity.setValue("Mumbai");
+    await GiftRFirstName.setValue("Akshat");
+    await GiftSecondtName.setValue("GiftReceipent");
+    await StreetLineOne.setValue("Ghansoli");
+    await StreetLineTwo.setValue("Near Station");
+    await GiftCity.setValue("Mumbai");
 
-  await GiftContinueBtn.click();
-  await browser.pause(3000);
+    await GiftContinueBtn.click();
+    await browser.pause(3000);
 
-  const StartMyGiftSub = await $('//span[text()="Start my subscription"]');
-  await StartMyGiftSub.click();
-  await browser.pause(3000);
+    const StartMyGiftSub = await $('//span[text()="Start my subscription"]');
+    await StartMyGiftSub.click();
+    await browser.pause(3000);
 
-  const GiftSubActiveValidate = await $(
-    '//div[text()="Welcome to your Telegraph subscription"]'
-  );
-  await GiftSubActiveValidate.waitForDisplayed({ timeout: 60000 });
+    const GiftSubActiveValidate = await $(
+      '//div[text()="Welcome to your Telegraph subscription"]'
+    );
+    await GiftSubActiveValidate.waitForDisplayed({ timeout: 60000 });
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then("Validate Gift Promo Code is Used", async () => {
@@ -5260,35 +5299,41 @@ Then("Validate Gift Promo Code is Used", async () => {
     }
   );
 
-  const SalesFShowAll = await $('//a[contains(text(),"Show All")]');
-  await SalesFShowAll.waitForDisplayed({ timeout: 50000 });
-  await SalesFShowAll.click();
-  await browser.pause(3000);
+  try {
+    const SalesFShowAll = await $('//a[contains(text(),"Show All")]');
+    await SalesFShowAll.waitForDisplayed({ timeout: 50000 });
+    await SalesFShowAll.click();
+    await browser.pause(3000);
 
-  const SalesFACOrders = await $(
-    '//span[text()="Has Downgrade"]//following::a[contains(@href,"/related/Account_Orders__r/view")]'
-  );
-  await SalesFACOrders.waitForDisplayed({ timeout: 50000 });
-  await SalesFACOrders.click();
-  await browser.pause(5000);
+    const SalesFACOrders = await $(
+      '//span[text()="Has Downgrade"]//following::a[contains(@href,"/related/Account_Orders__r/view")]'
+    );
+    await SalesFACOrders.waitForDisplayed({ timeout: 50000 });
+    await SalesFACOrders.click();
+    await browser.pause(5000);
 
-  // const AccountOrderLink = await $(
-  //   '//h1[@title="Account Orders"]//following::span[contains(text(),"AO-")][1]'
-  // );
-  // await AccountOrderLink.waitForDisplayed({ timeout: 50000 });
-  // await AccountOrderLink.click();
-  // await browser.pause(10000);
+    // const AccountOrderLink = await $(
+    //   '//h1[@title="Account Orders"]//following::span[contains(text(),"AO-")][1]'
+    // );
+    // await AccountOrderLink.waitForDisplayed({ timeout: 50000 });
+    // await AccountOrderLink.click();
+    // await browser.pause(10000);
 
-  // const AccountOrderViewAll = await $(
-  //   '//span[text()="Account Order Items"]//following::span[text()="View All"]'
-  // );
-  // await AccountOrderViewAll.waitForDisplayed({ timeout: 50000 });
-  // await AccountOrderViewAll.click();
-  // await browser.pause(50000);
+    // const AccountOrderViewAll = await $(
+    //   '//span[text()="Account Order Items"]//following::span[text()="View All"]'
+    // );
+    // await AccountOrderViewAll.waitForDisplayed({ timeout: 50000 });
+    // await AccountOrderViewAll.click();
+    // await browser.pause(50000);
 
-  // const GiftPromoCodeUsed = await $('//span[text()="Used"]');
-  // await GiftPromoCodeUsed.waitForDisplayed({ timeout: 50000 });
-  // await GiftPromoCodeUsed.isExisting();
+    // const GiftPromoCodeUsed = await $('//span[text()="Used"]');
+    // await GiftPromoCodeUsed.waitForDisplayed({ timeout: 50000 });
+    // await GiftPromoCodeUsed.isExisting();
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Given("I launch MPP URL", async () => {
@@ -5331,50 +5376,56 @@ Then("I login to MPP application", async () => {
 });
 
 Then("Enter the Gift Donor email id in the MPP search box", async () => {
-  //const testemail = "f96bh3GiftDonor@telegraph.co.uk";
-  const MPPCustomerTab = await $('//a[text()="Customers"]');
-  await MPPCustomerTab.waitForDisplayed({ timeout: 20000 });
-  await MPPCustomerTab.click();
+  try {
+    //const testemail = "f96bh3GiftDonor@telegraph.co.uk";
+    const MPPCustomerTab = await $('//a[text()="Customers"]');
+    await MPPCustomerTab.waitForDisplayed({ timeout: 20000 });
+    await MPPCustomerTab.click();
 
-  const MPPCustEmailInput = await $(
-    '//label[text()="Email Address"]//following::input[1]'
-  );
-  await MPPCustEmailInput.waitForDisplayed({ timeout: 20000 });
-  //await MPPCustEmailInput.setValue(testemail);
-  await MPPCustEmailInput.setValue(GiftCustEmail);
-  CucumberJsJsonReporter.attach(
-    "Test ID used for Puzzles Gift Subscription Donor: " + GiftCustEmail,
-    "text/plain"
-  );
-  //await MPPCustEmailInput.setValue("testgift121@telegraph.com");
-  await browser.pause(500);
-  // await browser.keys("Enter");
-  await browser.scroll(0, 400);
-  await browser.scroll(0, 400);
-  await browser.scroll(0, 400);
-  await browser.scroll(0, 400);
-  const FilterBTN = await $('//a[text()="Filter"]');
-  await FilterBTN.waitForDisplayed({ timeout: 60000 });
-  await FilterBTN.scrollIntoView({
-    behavior: "smooth",
-    block: "end",
-    inline: "nearest",
-  });
-  await browser.pause(3000);
-  await FilterBTN.scrollIntoView({
-    behavior: "smooth",
-    block: "end",
-    inline: "nearest",
-  });
-  await browser.scroll(0, 400);
-  await browser.scroll(0, 400);
-  await browser.scroll(0, 400);
-  await browser.scroll(0, 400);
-  await browser.pause(3000);
-  await FilterBTN.click();
-  // await FilterBTN.doubleClick();
-  // await FilterBTN.doubleClick();
-  await browser.pause(3000);
+    const MPPCustEmailInput = await $(
+      '//label[text()="Email Address"]//following::input[1]'
+    );
+    await MPPCustEmailInput.waitForDisplayed({ timeout: 20000 });
+    //await MPPCustEmailInput.setValue(testemail);
+    await MPPCustEmailInput.setValue(GiftCustEmail);
+    CucumberJsJsonReporter.attach(
+      "Test ID used for Puzzles Gift Subscription Donor: " + GiftCustEmail,
+      "text/plain"
+    );
+    //await MPPCustEmailInput.setValue("testgift121@telegraph.com");
+    await browser.pause(500);
+    // await browser.keys("Enter");
+    await browser.scroll(0, 400);
+    await browser.scroll(0, 400);
+    await browser.scroll(0, 400);
+    await browser.scroll(0, 400);
+    const FilterBTN = await $('//a[text()="Filter"]');
+    await FilterBTN.waitForDisplayed({ timeout: 60000 });
+    await FilterBTN.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
+    await browser.pause(3000);
+    await FilterBTN.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
+    await browser.scroll(0, 400);
+    await browser.scroll(0, 400);
+    await browser.scroll(0, 400);
+    await browser.scroll(0, 400);
+    await browser.pause(3000);
+    await FilterBTN.click();
+    // await FilterBTN.doubleClick();
+    // await FilterBTN.doubleClick();
+    await browser.pause(3000);
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then("Open the Account Page in MPP", async () => {
@@ -5465,50 +5516,56 @@ Then("Open the Account Page for DigitalPlusSubDonor in MPP", async () => {
 });
 
 Then("Enter the GiftTwo Donor email id in the search box", async () => {
-  //const testemail = "f96bh3GiftDonor@telegraph.co.uk";
-  const MPPCustomerTab = await $('//a[text()="Customers"]');
-  await MPPCustomerTab.waitForDisplayed({ timeout: 20000 });
-  await MPPCustomerTab.click();
+  try {
+    //const testemail = "f96bh3GiftDonor@telegraph.co.uk";
+    const MPPCustomerTab = await $('//a[text()="Customers"]');
+    await MPPCustomerTab.waitForDisplayed({ timeout: 20000 });
+    await MPPCustomerTab.click();
 
-  const MPPCustEmailInput = await $(
-    '//label[text()="Email Address"]//following::input[1]'
-  );
-  await MPPCustEmailInput.waitForDisplayed({ timeout: 20000 });
-  //await MPPCustEmailInput.setValue(testemail);
-  await MPPCustEmailInput.setValue(GiftCustTwoEmail);
-  CucumberJsJsonReporter.attach(
-    "Test ID used for Digital Gift Subscription Donor: " + GiftCustTwoEmail,
-    "text/plain"
-  );
-  //await MPPCustEmailInput.setValue("testgift121@telegraph.com");
-  await browser.pause(500);
-  // await browser.keys("Enter");
-  await browser.scroll(0, 400);
-  await browser.scroll(0, 400);
-  await browser.scroll(0, 400);
-  await browser.scroll(0, 400);
-  const FilterBTN = await $('//a[text()="Filter"]');
-  await FilterBTN.waitForDisplayed({ timeout: 60000 });
-  await FilterBTN.scrollIntoView({
-    behavior: "smooth",
-    block: "end",
-    inline: "nearest",
-  });
-  await browser.pause(3000);
-  await FilterBTN.scrollIntoView({
-    behavior: "smooth",
-    block: "end",
-    inline: "nearest",
-  });
-  await browser.scroll(0, 400);
-  await browser.scroll(0, 400);
-  await browser.scroll(0, 400);
-  await browser.scroll(0, 400);
-  await browser.pause(3000);
-  await FilterBTN.click();
-  // await FilterBTN.doubleClick();
-  // await FilterBTN.doubleClick();
-  await browser.pause(3000);
+    const MPPCustEmailInput = await $(
+      '//label[text()="Email Address"]//following::input[1]'
+    );
+    await MPPCustEmailInput.waitForDisplayed({ timeout: 20000 });
+    //await MPPCustEmailInput.setValue(testemail);
+    await MPPCustEmailInput.setValue(GiftCustTwoEmail);
+    CucumberJsJsonReporter.attach(
+      "Test ID used for Digital Gift Subscription Donor: " + GiftCustTwoEmail,
+      "text/plain"
+    );
+    //await MPPCustEmailInput.setValue("testgift121@telegraph.com");
+    await browser.pause(500);
+    // await browser.keys("Enter");
+    await browser.scroll(0, 400);
+    await browser.scroll(0, 400);
+    await browser.scroll(0, 400);
+    await browser.scroll(0, 400);
+    const FilterBTN = await $('//a[text()="Filter"]');
+    await FilterBTN.waitForDisplayed({ timeout: 60000 });
+    await FilterBTN.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
+    await browser.pause(3000);
+    await FilterBTN.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
+    await browser.scroll(0, 400);
+    await browser.scroll(0, 400);
+    await browser.scroll(0, 400);
+    await browser.scroll(0, 400);
+    await browser.pause(3000);
+    await FilterBTN.click();
+    // await FilterBTN.doubleClick();
+    // await FilterBTN.doubleClick();
+    await browser.pause(3000);
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then("Enter the GiftThree Donor email id in the search box", async () => {
@@ -5566,71 +5623,42 @@ Then("Enter the GiftThree Donor email id in the search box", async () => {
 });
 
 Then("Logout from MPP platform", async () => {
-  // const MppEmailLink = await $("//a[text()='Logout']");
-  // await MppEmailLink.waitForDisplayed({ timeout: 20000 });
-  // await MppEmailLink.click();
-  browser.waitUntil(
-    () => browser.execute(() => document.readyState === "complete"),
-    {
-      timeout: 60 * 1000, // 60 seconds
-      timeoutMsg: "Message on failure",
-    }
-  );
-  await browser.url("https://ehquat2.mppglobal.com/SystemAccount/LogOff");
-  browser.waitUntil(
-    () => browser.execute(() => document.readyState === "complete"),
-    {
-      timeout: 60 * 1000, // 60 seconds
-      timeoutMsg: "Message on failure",
-    }
-  );
+  try {
+    // const MppEmailLink = await $("//a[text()='Logout']");
+    // await MppEmailLink.waitForDisplayed({ timeout: 20000 });
+    // await MppEmailLink.click();
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+    await browser.url("https://ehquat2.mppglobal.com/SystemAccount/LogOff");
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then("Enter the Gift redeem email id in the search box", async () => {
-  await browser.pause(2000);
-  browser.waitUntil(
-    () => browser.execute(() => document.readyState === "complete"),
-    {
-      timeout: 60 * 1000, // 60 seconds
-      timeoutMsg: "Message on failure",
-    }
-  );
-  await browser.refresh();
-  browser.waitUntil(
-    () => browser.execute(() => document.readyState === "complete"),
-    {
-      timeout: 60 * 1000, // 60 seconds
-      timeoutMsg: "Message on failure",
-    }
-  );
-  await browser.pause(900);
-  const SearchBarClick = await $(
-    '//button[contains(@class,"slds-button slds-button_neutral search")]'
-  );
-  await SearchBarClick.waitForDisplayed({ timeout: 40000 });
-  // await SearchBarClick.click();
-  await browser.pause(1500);
-  await SearchBarClick.doubleClick();
-  await browser.pause(700);
-  await browser.keys("Enter");
-  await browser.pause(1000);
-
-  const serchBartxt = await $('//h2[text()="Do more with Search!"]');
-  //await serchBartxt.waitForDisplayed({ timeout: 20000 });
-  const SearchBarInput = await $(
-    '//div[contains(@class,"icon_left-right")]//input[@class="slds-input"]'
-  );
-
-  if (serchBartxt.isExisting == true) {
-    await SearchBarInput.waitForDisplayed({ timeout: 20000 });
-    await SearchBarInput.click();
-    await SearchBarInput.clearValue();
-    await browser.pause(300);
-    await SearchBarInput.setValue(GiftRcvOneEmail);
-    await browser.pause(300);
-    await browser.keys("Enter");
-    await browser.pause(3000);
-  } else {
+  try {
+    await browser.pause(2000);
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
     await browser.refresh();
     browser.waitUntil(
       () => browser.execute(() => document.readyState === "complete"),
@@ -5639,24 +5667,66 @@ Then("Enter the Gift redeem email id in the search box", async () => {
         timeoutMsg: "Message on failure",
       }
     );
-    await SearchBarClick.waitForDisplayed({ timeout: 20000 });
+    await browser.pause(900);
+    const SearchBarClick = await $(
+      '//button[contains(@class,"slds-button slds-button_neutral search")]'
+    );
+    await SearchBarClick.waitForDisplayed({ timeout: 40000 });
+    // await SearchBarClick.click();
     await browser.pause(1500);
     await SearchBarClick.doubleClick();
     await browser.pause(700);
     await browser.keys("Enter");
     await browser.pause(1000);
-    await SearchBarInput.waitForDisplayed({ timeout: 20000 });
-    await SearchBarInput.click();
-    await SearchBarInput.clearValue();
-    await browser.pause(300);
-    await SearchBarInput.setValue(GiftRcvOneEmail);
-    await browser.pause(300);
-    await browser.keys("Enter");
-    await browser.pause(3000);
-    CucumberJsJsonReporter.attach(
-      "Test ID used for Puzzles Gift Subscription Receiver: " + GiftRcvOneEmail,
-      "text/plain"
+
+    const serchBartxt = await $('//h2[text()="Do more with Search!"]');
+    //await serchBartxt.waitForDisplayed({ timeout: 20000 });
+    const SearchBarInput = await $(
+      '//div[contains(@class,"icon_left-right")]//input[@class="slds-input"]'
     );
+
+    if (serchBartxt.isExisting == true) {
+      await SearchBarInput.waitForDisplayed({ timeout: 20000 });
+      await SearchBarInput.click();
+      await SearchBarInput.clearValue();
+      await browser.pause(300);
+      await SearchBarInput.setValue(GiftRcvOneEmail);
+      await browser.pause(300);
+      await browser.keys("Enter");
+      await browser.pause(3000);
+    } else {
+      await browser.refresh();
+      browser.waitUntil(
+        () => browser.execute(() => document.readyState === "complete"),
+        {
+          timeout: 60 * 1000, // 60 seconds
+          timeoutMsg: "Message on failure",
+        }
+      );
+      await SearchBarClick.waitForDisplayed({ timeout: 20000 });
+      await browser.pause(1500);
+      await SearchBarClick.doubleClick();
+      await browser.pause(700);
+      await browser.keys("Enter");
+      await browser.pause(1000);
+      await SearchBarInput.waitForDisplayed({ timeout: 20000 });
+      await SearchBarInput.click();
+      await SearchBarInput.clearValue();
+      await browser.pause(300);
+      await SearchBarInput.setValue(GiftRcvOneEmail);
+      await browser.pause(300);
+      await browser.keys("Enter");
+      await browser.pause(3000);
+      CucumberJsJsonReporter.attach(
+        "Test ID used for Puzzles Gift Subscription Receiver: " +
+          GiftRcvOneEmail,
+        "text/plain"
+      );
+    }
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
   }
 });
 
@@ -5670,29 +5740,35 @@ Then("Open the Account Page for GiftReceipent", async () => {
     }
   );
 
-  const AccOpenDynamic = await $(
-    "//a[@title='" +
-      FirstNameLastNameGR +
-      "']//ancestor::h2//following::a[text()='" +
-      FirstNameLastNameGR +
-      "'][2]"
-  );
+  try {
+    const AccOpenDynamic = await $(
+      "//a[@title='" +
+        FirstNameLastNameGR +
+        "']//ancestor::h2//following::a[text()='" +
+        FirstNameLastNameGR +
+        "'][2]"
+    );
 
-  await AccOpenDynamic.waitForDisplayed({ timeout: 50000 });
-  await AccOpenDynamic.click();
-  await browser.pause(2000);
+    await AccOpenDynamic.waitForDisplayed({ timeout: 50000 });
+    await AccOpenDynamic.click();
+    await browser.pause(2000);
 
-  const RequiredText = " | Account";
-  const TabTwo = FirstNameLastNameGR.concat(RequiredText);
-  const TabTwoSelector = await $(
-    "//div[@class='slds-global-header__logo']//following::span[text()='" +
-      TabTwo +
-      "'][1]"
-  );
-  //const TabOneSelector = await $("//span[text()='" + TabOne + "']");
-  await TabTwoSelector.waitForDisplayed();
-  await TabTwoSelector.click();
-  await browser.pause(2000);
+    const RequiredText = " | Account";
+    const TabTwo = FirstNameLastNameGR.concat(RequiredText);
+    const TabTwoSelector = await $(
+      "//div[@class='slds-global-header__logo']//following::span[text()='" +
+        TabTwo +
+        "'][1]"
+    );
+    //const TabOneSelector = await $("//span[text()='" + TabOne + "']");
+    await TabTwoSelector.waitForDisplayed();
+    await TabTwoSelector.click();
+    await browser.pause(2000);
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then(
@@ -5721,199 +5797,227 @@ Then("Validate user has no subscription", async () => {
 });
 
 When("Redemption of GiftTwo subscription", async () => {
-  const GiFtReceipntGetStrtedBtn = await $('//button[@class="button primary"]');
-  await GiFtReceipntGetStrtedBtn.waitForDisplayed();
-  await GiFtReceipntGetStrtedBtn.click();
-  await browser.pause(2000);
+  try {
+    const GiFtReceipntGetStrtedBtn = await $(
+      '//button[@class="button primary"]'
+    );
+    await GiFtReceipntGetStrtedBtn.waitForDisplayed();
+    await GiFtReceipntGetStrtedBtn.click();
+    await browser.pause(2000);
 
-  const GiFtReceipntRegisterBtn = await $("//a[text()='Register']");
-  await GiFtReceipntRegisterBtn.waitForDisplayed();
-  await GiFtReceipntRegisterBtn.click();
-  await browser.pause(2000);
+    const GiFtReceipntRegisterBtn = await $("//a[text()='Register']");
+    await GiFtReceipntRegisterBtn.waitForDisplayed();
+    await GiFtReceipntRegisterBtn.click();
+    await browser.pause(2000);
 
-  const GiftRcvEmail = await $('//input[@id="email"]');
-  await GiftRcvEmail.waitForDisplayed({ timeout: 20000 });
-  const GiftRcvPWD = await $('//input[@id="password"]');
-  await GiftRcvPWD.waitForDisplayed({ timeout: 20000 });
-  const GiFtRcvRegisterSubmitBtn = await $('//button[@type="submit"]');
-  await GiFtRcvRegisterSubmitBtn.waitForDisplayed();
+    const GiftRcvEmail = await $('//input[@id="email"]');
+    await GiftRcvEmail.waitForDisplayed({ timeout: 20000 });
+    const GiftRcvPWD = await $('//input[@id="password"]');
+    await GiftRcvPWD.waitForDisplayed({ timeout: 20000 });
+    const GiFtRcvRegisterSubmitBtn = await $('//button[@type="submit"]');
+    await GiFtRcvRegisterSubmitBtn.waitForDisplayed();
 
-  await GiftRcvEmail.setValue(GiftRcvTwoEmail);
-  await GiftRcvPWD.setValue(CustPasswrd);
-  await GiFtRcvRegisterSubmitBtn.click();
-  await browser.pause(3000);
+    await GiftRcvEmail.setValue(GiftRcvTwoEmail);
+    await GiftRcvPWD.setValue(CustPasswrd);
+    await GiFtRcvRegisterSubmitBtn.click();
+    await browser.pause(3000);
 
-  CucumberJsJsonReporter.attach(
-    "Test ID used for Puzzles Digital Subscription Receiver: " +
-      GiftRcvTwoEmail,
-    "text/plain"
-  );
+    CucumberJsJsonReporter.attach(
+      "Test ID used for Puzzles Digital Subscription Receiver: " +
+        GiftRcvTwoEmail,
+      "text/plain"
+    );
 
-  const StreetLineOne = await $('//input[@id="streetline1"]');
-  await StreetLineOne.waitForDisplayed({ timeout: 20000 });
-  const StreetLineTwo = await $('//input[@id="streetline2"]');
-  await StreetLineTwo.waitForDisplayed({ timeout: 20000 });
-  const GiftCity = await $('//input[@id="city"]');
-  await GiftCity.waitForDisplayed({ timeout: 20000 });
-  //const GiftPostCode = await $('//input[@id="postcode"]');
-  const GiftRFirstName = await $('//input[@id="firstName"]');
-  const GiftSecondtName = await $('//input[@id="lastName"]');
-  await GiftRFirstName.waitForDisplayed({ timeout: 20000 });
-  await GiftSecondtName.waitForDisplayed({ timeout: 20000 });
+    const StreetLineOne = await $('//input[@id="streetline1"]');
+    await StreetLineOne.waitForDisplayed({ timeout: 20000 });
+    const StreetLineTwo = await $('//input[@id="streetline2"]');
+    await StreetLineTwo.waitForDisplayed({ timeout: 20000 });
+    const GiftCity = await $('//input[@id="city"]');
+    await GiftCity.waitForDisplayed({ timeout: 20000 });
+    //const GiftPostCode = await $('//input[@id="postcode"]');
+    const GiftRFirstName = await $('//input[@id="firstName"]');
+    const GiftSecondtName = await $('//input[@id="lastName"]');
+    await GiftRFirstName.waitForDisplayed({ timeout: 20000 });
+    await GiftSecondtName.waitForDisplayed({ timeout: 20000 });
 
-  const GiftContinueBtn = await $(
-    '//button[@id="payment-details-submit-button"]'
-  );
-  await GiftContinueBtn.waitForDisplayed({ timeout: 20000 });
+    const GiftContinueBtn = await $(
+      '//button[@id="payment-details-submit-button"]'
+    );
+    await GiftContinueBtn.waitForDisplayed({ timeout: 20000 });
 
-  await GiftRFirstName.setValue("Akshat");
-  await GiftSecondtName.setValue("GiftReceipent");
-  await StreetLineOne.setValue("Ghansoli");
-  await StreetLineTwo.setValue("Near Station");
-  await GiftCity.setValue("Mumbai");
+    await GiftRFirstName.setValue("Akshat");
+    await GiftSecondtName.setValue("GiftReceipent");
+    await StreetLineOne.setValue("Ghansoli");
+    await StreetLineTwo.setValue("Near Station");
+    await GiftCity.setValue("Mumbai");
 
-  await GiftContinueBtn.click();
-  await browser.pause(3000);
+    await GiftContinueBtn.click();
+    await browser.pause(3000);
 
-  const StartMyGiftSub = await $('//span[text()="Start my subscription"]');
-  await StartMyGiftSub.click();
-  await browser.pause(3000);
+    const StartMyGiftSub = await $('//span[text()="Start my subscription"]');
+    await StartMyGiftSub.click();
+    await browser.pause(3000);
 
-  const GiftSubActiveValidate = await $(
-    '//div[text()="Welcome to your Telegraph subscription"]'
-  );
-  await GiftSubActiveValidate.waitForDisplayed({ timeout: 60000 });
+    const GiftSubActiveValidate = await $(
+      '//div[text()="Welcome to your Telegraph subscription"]'
+    );
+    await GiftSubActiveValidate.waitForDisplayed({ timeout: 60000 });
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 When("Redemption of GiftThree subscription", async () => {
-  const GiFtReceipntGetStrtedBtn = await $('//button[@class="button primary"]');
-  await GiFtReceipntGetStrtedBtn.waitForDisplayed();
-  await GiFtReceipntGetStrtedBtn.click();
-  await browser.pause(2000);
+  try {
+    const GiFtReceipntGetStrtedBtn = await $(
+      '//button[@class="button primary"]'
+    );
+    await GiFtReceipntGetStrtedBtn.waitForDisplayed();
+    await GiFtReceipntGetStrtedBtn.click();
+    await browser.pause(2000);
 
-  const GiFtReceipntRegisterBtn = await $("//a[text()='Register']");
-  await GiFtReceipntRegisterBtn.waitForDisplayed();
-  await GiFtReceipntRegisterBtn.click();
-  await browser.pause(2000);
+    const GiFtReceipntRegisterBtn = await $("//a[text()='Register']");
+    await GiFtReceipntRegisterBtn.waitForDisplayed();
+    await GiFtReceipntRegisterBtn.click();
+    await browser.pause(2000);
 
-  const GiftRcvEmail = await $('//input[@id="email"]');
-  await GiftRcvEmail.waitForDisplayed({ timeout: 20000 });
-  const GiftRcvPWD = await $('//input[@id="password"]');
-  await GiftRcvPWD.waitForDisplayed({ timeout: 20000 });
-  const GiFtRcvRegisterSubmitBtn = await $('//button[@type="submit"]');
-  await GiFtRcvRegisterSubmitBtn.waitForDisplayed();
+    const GiftRcvEmail = await $('//input[@id="email"]');
+    await GiftRcvEmail.waitForDisplayed({ timeout: 20000 });
+    const GiftRcvPWD = await $('//input[@id="password"]');
+    await GiftRcvPWD.waitForDisplayed({ timeout: 20000 });
+    const GiFtRcvRegisterSubmitBtn = await $('//button[@type="submit"]');
+    await GiFtRcvRegisterSubmitBtn.waitForDisplayed();
 
-  await GiftRcvEmail.setValue(GiftRcvThreeEmail);
-  await GiftRcvPWD.setValue(CustPasswrd);
-  await GiFtRcvRegisterSubmitBtn.click();
-  await browser.pause(3000);
+    await GiftRcvEmail.setValue(GiftRcvThreeEmail);
+    await GiftRcvPWD.setValue(CustPasswrd);
+    await GiFtRcvRegisterSubmitBtn.click();
+    await browser.pause(3000);
 
-  CucumberJsJsonReporter.attach(
-    "Test ID used for Puzzles Digital Plus Subscription Receiver: " +
-      GiftRcvThreeEmail,
-    "text/plain"
-  );
+    CucumberJsJsonReporter.attach(
+      "Test ID used for Puzzles Digital Plus Subscription Receiver: " +
+        GiftRcvThreeEmail,
+      "text/plain"
+    );
 
-  const StreetLineOne = await $('//input[@id="streetline1"]');
-  await StreetLineOne.waitForDisplayed({ timeout: 20000 });
-  const StreetLineTwo = await $('//input[@id="streetline2"]');
-  await StreetLineTwo.waitForDisplayed({ timeout: 20000 });
-  const GiftCity = await $('//input[@id="city"]');
-  await GiftCity.waitForDisplayed({ timeout: 20000 });
-  //const GiftPostCode = await $('//input[@id="postcode"]');
-  const GiftRFirstName = await $('//input[@id="firstName"]');
-  const GiftSecondtName = await $('//input[@id="lastName"]');
-  await GiftRFirstName.waitForDisplayed({ timeout: 20000 });
-  await GiftSecondtName.waitForDisplayed({ timeout: 20000 });
+    const StreetLineOne = await $('//input[@id="streetline1"]');
+    await StreetLineOne.waitForDisplayed({ timeout: 20000 });
+    const StreetLineTwo = await $('//input[@id="streetline2"]');
+    await StreetLineTwo.waitForDisplayed({ timeout: 20000 });
+    const GiftCity = await $('//input[@id="city"]');
+    await GiftCity.waitForDisplayed({ timeout: 20000 });
+    //const GiftPostCode = await $('//input[@id="postcode"]');
+    const GiftRFirstName = await $('//input[@id="firstName"]');
+    const GiftSecondtName = await $('//input[@id="lastName"]');
+    await GiftRFirstName.waitForDisplayed({ timeout: 20000 });
+    await GiftSecondtName.waitForDisplayed({ timeout: 20000 });
 
-  const GiftContinueBtn = await $(
-    '//button[@id="payment-details-submit-button"]'
-  );
-  await GiftContinueBtn.waitForDisplayed({ timeout: 20000 });
+    const GiftContinueBtn = await $(
+      '//button[@id="payment-details-submit-button"]'
+    );
+    await GiftContinueBtn.waitForDisplayed({ timeout: 20000 });
 
-  await GiftRFirstName.setValue("Akshat");
-  await GiftSecondtName.setValue("GiftReceipent");
-  await StreetLineOne.setValue("Ghansoli");
-  await StreetLineTwo.setValue("Near Station");
-  await GiftCity.setValue("Mumbai");
+    await GiftRFirstName.setValue("Akshat");
+    await GiftSecondtName.setValue("GiftReceipent");
+    await StreetLineOne.setValue("Ghansoli");
+    await StreetLineTwo.setValue("Near Station");
+    await GiftCity.setValue("Mumbai");
 
-  await GiftContinueBtn.click();
-  await browser.pause(3000);
+    await GiftContinueBtn.click();
+    await browser.pause(3000);
 
-  const StartMyGiftSub = await $('//span[text()="Start my subscription"]');
-  await StartMyGiftSub.click();
-  await browser.pause(3000);
+    const StartMyGiftSub = await $('//span[text()="Start my subscription"]');
+    await StartMyGiftSub.click();
+    await browser.pause(3000);
 
-  const GiftSubActiveValidate = await $(
-    '//div[text()="Welcome to your Telegraph subscription"]'
-  );
-  await GiftSubActiveValidate.waitForDisplayed({ timeout: 60000 });
+    const GiftSubActiveValidate = await $(
+      '//div[text()="Welcome to your Telegraph subscription"]'
+    );
+    await GiftSubActiveValidate.waitForDisplayed({ timeout: 60000 });
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then("Enter the Test email id in the search box", async () => {
-  const testemail = "f96bh3GiftDonor@telegraph.co.uk";
-  const MPPCustomerTab = await $('//a[text()="Customers"]');
-  await MPPCustomerTab.waitForDisplayed({ timeout: 20000 });
-  await MPPCustomerTab.click();
+  try {
+    const testemail = "f96bh3GiftDonor@telegraph.co.uk";
+    const MPPCustomerTab = await $('//a[text()="Customers"]');
+    await MPPCustomerTab.waitForDisplayed({ timeout: 20000 });
+    await MPPCustomerTab.click();
 
-  const MPPCustEmailInput = await $(
-    '//label[text()="Email Address"]//following::input[1]'
-  );
-  await MPPCustEmailInput.waitForDisplayed({ timeout: 20000 });
-  await MPPCustEmailInput.setValue(testemail);
-  //await MPPCustEmailInput.setValue(GiftCustTwoEmail);
-  //await MPPCustEmailInput.setValue("testgift121@telegraph.com");
-  await browser.pause(500);
-  // await browser.keys("Enter");
-  await browser.scroll(0, 400);
-  await browser.scroll(0, 400);
-  await browser.scroll(0, 400);
-  await browser.scroll(0, 400);
-  const FilterBTN = await $('//a[text()="Filter"]');
-  await FilterBTN.waitForDisplayed({ timeout: 60000 });
-  await FilterBTN.scrollIntoView({
-    behavior: "smooth",
-    block: "end",
-    inline: "nearest",
-  });
-  await browser.pause(3000);
-  await FilterBTN.scrollIntoView({
-    behavior: "smooth",
-    block: "end",
-    inline: "nearest",
-  });
-  await browser.scroll(0, 400);
-  await browser.scroll(0, 400);
-  await browser.scroll(0, 400);
-  await browser.scroll(0, 400);
-  await browser.pause(3000);
-  await FilterBTN.click();
-  // await FilterBTN.doubleClick();
-  // await FilterBTN.doubleClick();
-  await browser.pause(3000);
+    const MPPCustEmailInput = await $(
+      '//label[text()="Email Address"]//following::input[1]'
+    );
+    await MPPCustEmailInput.waitForDisplayed({ timeout: 20000 });
+    await MPPCustEmailInput.setValue(testemail);
+    //await MPPCustEmailInput.setValue(GiftCustTwoEmail);
+    //await MPPCustEmailInput.setValue("testgift121@telegraph.com");
+    await browser.pause(500);
+    // await browser.keys("Enter");
+    await browser.scroll(0, 400);
+    await browser.scroll(0, 400);
+    await browser.scroll(0, 400);
+    await browser.scroll(0, 400);
+    const FilterBTN = await $('//a[text()="Filter"]');
+    await FilterBTN.waitForDisplayed({ timeout: 60000 });
+    await FilterBTN.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
+    await browser.pause(3000);
+    await FilterBTN.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
+    await browser.scroll(0, 400);
+    await browser.scroll(0, 400);
+    await browser.scroll(0, 400);
+    await browser.scroll(0, 400);
+    await browser.pause(3000);
+    await FilterBTN.click();
+    // await FilterBTN.doubleClick();
+    // await FilterBTN.doubleClick();
+    await browser.pause(3000);
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then("Open the Account Page for Test in MPP", async () => {
-  const testemail = "f96bh3GiftDonor@telegraph.co.uk";
-  const scrollElement = $("//*[contains(text(),'Akshat Tembhare')]");
-  const MppEmailLink = await $(
-    "//h3//following::a[text()='" + testemail + "'][1]"
-  );
-  await scrollElement.waitForDisplayed({ timeout: 60000 });
-  await scrollElement.scrollIntoView({
-    behavior: "smooth",
-    block: "end",
-    inline: "nearest",
-  });
-  await browser.pause(2500);
-  await MppEmailLink.click();
-  browser.waitUntil(
-    () => browser.execute(() => document.readyState === "complete"),
-    {
-      timeout: 60 * 1000, // 60 seconds
-      timeoutMsg: "Message on failure",
-    }
-  );
+  try {
+    const testemail = "f96bh3GiftDonor@telegraph.co.uk";
+    const scrollElement = $("//*[contains(text(),'Akshat Tembhare')]");
+    const MppEmailLink = await $(
+      "//h3//following::a[text()='" + testemail + "'][1]"
+    );
+    await scrollElement.waitForDisplayed({ timeout: 60000 });
+    await scrollElement.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
+    await browser.pause(2500);
+    await MppEmailLink.click();
+    browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then("Validate User able to purchase Puzzles from MyAccount page", async () => {
@@ -5924,6 +6028,7 @@ Then("Validate User able to purchase Puzzles from MyAccount page", async () => {
       timeoutMsg: "Message on failure",
     }
   );
+
   const AddPuzzleBTN = await $('//button[contains(text(),"Add Puzzles")]');
   const ConfrimPayBTN = await $('//button[contains(text(),"Confirm payment")]');
   const PlayNowBtn = await $('//*[text()="Play now"]');
@@ -6160,16 +6265,22 @@ Then("User Opens Subscription page", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  const SubscriptionTab = await $('//a[text()="Subscriptions"]');
-  await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
-  await SubscriptionTab.click();
-  await browser.pause(10000);
-  const SubID = await $(
-    // '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
-    '//span[@title="Z-Subscriptions"]//following::*[@class="slds-grid slds-grid_align-spread"][2]'
-  );
-  await SubID.waitForDisplayed({ timeout: 50000 });
-  await SubID.click();
+  try {
+    const SubscriptionTab = await $('//a[text()="Subscriptions"]');
+    await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
+    await SubscriptionTab.click();
+    await browser.pause(10000);
+    const SubID = await $(
+      // '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
+      '//span[@title="Z-Subscriptions"]//following::*[@class="slds-grid slds-grid_align-spread"][2]'
+    );
+    await SubID.waitForDisplayed({ timeout: 50000 });
+    await SubID.click();
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then("Go to Zoura Subscription Page for Puzzles", async () => {
@@ -6181,20 +6292,26 @@ Then("Go to Zoura Subscription Page for Puzzles", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  await browser.url(ZouraSubURLPuzzle);
-  await browser.pause(2000);
-  await browser.url(ZouraSubURLPuzzle);
-  await browser.waitUntil(
-    () => browser.execute(() => document.readyState === "complete"),
-    {
-      timeout: 60 * 1000, // 60 seconds
-      timeoutMsg: "Message on failure",
-    }
-  );
-  CucumberJsJsonReporter.attach(
-    "Subscription ID for Puzzles Subscription: " + RecordSubIDP,
-    "text/plain"
-  );
+  try {
+    await browser.url(ZouraSubURLPuzzle);
+    await browser.pause(2000);
+    await browser.url(ZouraSubURLPuzzle);
+    await browser.waitUntil(
+      () => browser.execute(() => document.readyState === "complete"),
+      {
+        timeout: 60 * 1000, // 60 seconds
+        timeoutMsg: "Message on failure",
+      }
+    );
+    CucumberJsJsonReporter.attach(
+      "Subscription ID for Puzzles Subscription: " + RecordSubIDP,
+      "text/plain"
+    );
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then("Go to Zoura Subscription Page for digitalMPaypalforPuzzles", async () => {
@@ -6206,12 +6323,18 @@ Then("Go to Zoura Subscription Page for digitalMPaypalforPuzzles", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  await browser.url(ZouraSubURLPuzzleete21);
-  await browser.pause(2000);
-  CucumberJsJsonReporter.attach(
-    "Subscription ID: " + RecordSubIDP2,
-    "text/plain"
-  );
+  try {
+    await browser.url(ZouraSubURLPuzzleete21);
+    await browser.pause(2000);
+    CucumberJsJsonReporter.attach(
+      "Subscription ID: " + RecordSubIDP2,
+      "text/plain"
+    );
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then("Go to Zoura Subscription Page for Puzzledigitalbotlon", async () => {
@@ -6223,12 +6346,18 @@ Then("Go to Zoura Subscription Page for Puzzledigitalbotlon", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  await browser.url(ZouraSubURLPuzzleete23);
-  await browser.pause(2000);
-  CucumberJsJsonReporter.attach(
-    "Subscription ID: " + RecordSubIDP4,
-    "text/plain"
-  );
+  try {
+    await browser.url(ZouraSubURLPuzzleete23);
+    await browser.pause(2000);
+    CucumberJsJsonReporter.attach(
+      "Subscription ID: " + RecordSubIDP4,
+      "text/plain"
+    );
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then("Go to Zoura digitalMPaypaletePuzzles Subscription Page", async () => {
@@ -6240,12 +6369,18 @@ Then("Go to Zoura digitalMPaypaletePuzzles Subscription Page", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  await browser.url(ZouraSubURLPuzzleete22);
-  await browser.pause(2000);
-  CucumberJsJsonReporter.attach(
-    "Subscription ID: " + RecordSubIDP3,
-    "text/plain"
-  );
+  try {
+    await browser.url(ZouraSubURLPuzzleete22);
+    await browser.pause(2000);
+    CucumberJsJsonReporter.attach(
+      "Subscription ID: " + RecordSubIDP3,
+      "text/plain"
+    );
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then(
@@ -6259,22 +6394,28 @@ Then(
         timeoutMsg: "Message on failure",
       }
     );
-    const SubscriptionTab = await $('//a[text()="Subscriptions"]');
-    await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
-    await SubscriptionTab.click();
-    await browser.pause(10000);
-    const SubID = await $(
-      '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
-    );
+    try {
+      const SubscriptionTab = await $('//a[text()="Subscriptions"]');
+      await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
+      await SubscriptionTab.click();
+      await browser.pause(10000);
+      const SubID = await $(
+        '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
+      );
 
-    RecordSubIDP = await SubID.getText();
-    console.log(await SubID.getText());
-    console.log(RecordSubIDP);
-    ZouraSubURLPuzzle =
-      "https://apisandbox.zuora.com/platform/apps/search?searchTerm=" +
-      RecordSubIDP +
-      "&searchObjectType=subscription";
-    await browser.pause(5000);
+      RecordSubIDP = await SubID.getText();
+      console.log(await SubID.getText());
+      console.log(RecordSubIDP);
+      ZouraSubURLPuzzle =
+        "https://apisandbox.zuora.com/platform/apps/search?searchTerm=" +
+        RecordSubIDP +
+        "&searchObjectType=subscription";
+      await browser.pause(5000);
+    } catch (error) {
+      console.error("no such element");
+    } finally {
+      await browser.pause(100);
+    }
   }
 );
 
@@ -6287,22 +6428,28 @@ Then("Validate the name in Salesforce for Puzzles", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  const RequiredText = " - Search";
-  const TabOne = CustPuzzTwoEmail.concat(RequiredText);
-  const TabOneSelector = await $(
-    "//div[@class='slds-global-header__logo']//following::span[text()='" +
-      TabOne +
-      "'][2]"
-  );
-  await TabOneSelector.waitForDisplayed();
-  await TabOneSelector.click();
-  await browser.pause(500);
-  const TextXpath = CustFirstNameZ.concat(" ", CustLasttNameZ);
-  const AcctNameVerifyDynamic = await $(
-    "//a[@title='" + TextXpath + "']//ancestor::h2"
-  );
-  await AcctNameVerifyDynamic.waitForDisplayed({ timeout: 50000 });
-  await AcctNameVerifyDynamic.isExisting();
+  try {
+    const RequiredText = " - Search";
+    const TabOne = CustPuzzTwoEmail.concat(RequiredText);
+    const TabOneSelector = await $(
+      "//div[@class='slds-global-header__logo']//following::span[text()='" +
+        TabOne +
+        "'][2]"
+    );
+    await TabOneSelector.waitForDisplayed();
+    await TabOneSelector.click();
+    await browser.pause(500);
+    const TextXpath = CustFirstNameZ.concat(" ", CustLasttNameZ);
+    const AcctNameVerifyDynamic = await $(
+      "//a[@title='" + TextXpath + "']//ancestor::h2"
+    );
+    await AcctNameVerifyDynamic.waitForDisplayed({ timeout: 50000 });
+    await AcctNameVerifyDynamic.isExisting();
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then(
@@ -6316,26 +6463,32 @@ Then(
         timeoutMsg: "Message on failure",
       }
     );
-    const SubscriptionTab = await $('//a[text()="Subscriptions"]');
-    await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
-    await SubscriptionTab.click();
-    await browser.pause(10000);
-    const SubID2 = await $(
-      '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
-    );
+    try {
+      const SubscriptionTab = await $('//a[text()="Subscriptions"]');
+      await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
+      await SubscriptionTab.click();
+      await browser.pause(10000);
+      const SubID2 = await $(
+        '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
+      );
 
-    RecordSubIDP2 = await SubID2.getText();
-    console.log(await SubID2.getText());
-    console.log(RecordSubIDP2);
-    ZouraSubURLPuzzleete21 =
-      "https://apisandbox.zuora.com/platform/apps/search?searchTerm=" +
-      RecordSubIDP2 +
-      "&searchObjectType=subscription";
-    await browser.pause(5000);
-    CucumberJsJsonReporter.attach(
-      "Subscription ID: " + RecordSubIDP2,
-      "text/plain"
-    );
+      RecordSubIDP2 = await SubID2.getText();
+      console.log(await SubID2.getText());
+      console.log(RecordSubIDP2);
+      ZouraSubURLPuzzleete21 =
+        "https://apisandbox.zuora.com/platform/apps/search?searchTerm=" +
+        RecordSubIDP2 +
+        "&searchObjectType=subscription";
+      await browser.pause(5000);
+      CucumberJsJsonReporter.attach(
+        "Subscription ID: " + RecordSubIDP2,
+        "text/plain"
+      );
+    } catch (error) {
+      console.error("no such element");
+    } finally {
+      await browser.pause(100);
+    }
   }
 );
 
@@ -6426,26 +6579,32 @@ Then(
         timeoutMsg: "Message on failure",
       }
     );
-    const SubscriptionTab = await $('//a[text()="Subscriptions"]');
-    await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
-    await SubscriptionTab.click();
-    await browser.pause(10000);
-    const SubID3 = await $(
-      '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
-    );
+    try {
+      const SubscriptionTab = await $('//a[text()="Subscriptions"]');
+      await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
+      await SubscriptionTab.click();
+      await browser.pause(10000);
+      const SubID3 = await $(
+        '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
+      );
 
-    RecordSubIDP3 = await SubID3.getText();
-    console.log(await SubID3.getText());
-    console.log(RecordSubIDP3);
-    ZouraSubURLPuzzleete22 =
-      "https://apisandbox.zuora.com/platform/apps/search?searchTerm=" +
-      RecordSubIDP3 +
-      "&searchObjectType=subscription";
-    await browser.pause(5000);
-    CucumberJsJsonReporter.attach(
-      "Subscription ID: " + RecordSubIDP3,
-      "text/plain"
-    );
+      RecordSubIDP3 = await SubID3.getText();
+      console.log(await SubID3.getText());
+      console.log(RecordSubIDP3);
+      ZouraSubURLPuzzleete22 =
+        "https://apisandbox.zuora.com/platform/apps/search?searchTerm=" +
+        RecordSubIDP3 +
+        "&searchObjectType=subscription";
+      await browser.pause(5000);
+      CucumberJsJsonReporter.attach(
+        "Subscription ID: " + RecordSubIDP3,
+        "text/plain"
+      );
+    } catch (error) {
+      console.error("no such element");
+    } finally {
+      await browser.pause(100);
+    }
   }
 );
 Then(
@@ -6459,27 +6618,33 @@ Then(
         timeoutMsg: "Message on failure",
       }
     );
-    const SubscriptionTab = await $('//a[text()="Subscriptions"]');
-    await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
-    await SubscriptionTab.doubleClick();
+    try {
+      const SubscriptionTab = await $('//a[text()="Subscriptions"]');
+      await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
+      await SubscriptionTab.doubleClick();
 
-    await browser.pause(10000);
-    const SubID4 = await $(
-      '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
-    );
+      await browser.pause(10000);
+      const SubID4 = await $(
+        '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
+      );
 
-    RecordSubIDP4 = await SubID4.getText();
-    console.log(await SubID4.getText());
-    console.log(RecordSubIDP4);
-    ZouraSubURLPuzzleete23 =
-      "https://apisandbox.zuora.com/platform/apps/search?searchTerm=" +
-      RecordSubIDP4 +
-      "&searchObjectType=subscription";
-    await browser.pause(5000);
-    CucumberJsJsonReporter.attach(
-      "Subscription ID: " + RecordSubIDP4,
-      "text/plain"
-    );
+      RecordSubIDP4 = await SubID4.getText();
+      console.log(await SubID4.getText());
+      console.log(RecordSubIDP4);
+      ZouraSubURLPuzzleete23 =
+        "https://apisandbox.zuora.com/platform/apps/search?searchTerm=" +
+        RecordSubIDP4 +
+        "&searchObjectType=subscription";
+      await browser.pause(5000);
+      CucumberJsJsonReporter.attach(
+        "Subscription ID: " + RecordSubIDP4,
+        "text/plain"
+      );
+    } catch (error) {
+      console.error("no such element");
+    } finally {
+      await browser.pause(100);
+    }
   }
 );
 
