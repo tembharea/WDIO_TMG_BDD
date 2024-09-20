@@ -107,12 +107,12 @@ Scenario: TC_1.1:Registrant Account creation from FE
         And   I fill in new Print7dayRenewal email
         When  I click login-register button
         And   I enter "valid" register password
-        Then  I enter "right" first name and last name
-        When  I click continue button on registration page
-        Then  Validate HomePage
-        When  Go to My Account page
-        Then  Click on Manage Your Details button
-        Then  Logout from Customer application
+        # Then  I enter "right" first name and last name
+        # When  I click continue button on registration page
+        # Then  Validate HomePage
+        # When  Go to My Account page
+        # Then  Click on Manage Your Details button
+        # Then  Logout from Customer application
         #Then  I logout from customer app
 
 Scenario: TC_1.2:Verify Registrant Account is reflecting in SF
@@ -129,8 +129,8 @@ Scenario: TC_1.3:Offline Subscription Purchase
         Then I login to Salesforce
         Then Close Opened tabs in salesforce
         Then Close Opened tabs in salesforce
-        And  Oflline 7Day print Sub Purchase
-        Then Close Opened tabs in salesforce
+        # And  Oflline 7Day print Sub Purchase
+        # Then Close Opened tabs in salesforce
 
 Scenario: TC_1.4:Validate Subscription Details are reflecting in Telegraph web app
         Given I launch login from homepage

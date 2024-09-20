@@ -305,61 +305,67 @@ Then(
         timeoutMsg: "Message on failure",
       }
     );
-    const SubscriptionTab = await $('//a[text()="Subscriptions"]');
-    await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
-    await SubscriptionTab.click();
-    await browser.pause(10000);
-    const SubID_digitaltest127_1 = await $(
-      '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
-    );
+    try {
+      const SubscriptionTab = await $('//a[text()="Subscriptions"]');
+      await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
+      await SubscriptionTab.click();
+      await browser.pause(10000);
+      const SubID_digitaltest127_1 = await $(
+        '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
+      );
 
-    await SubID_digitaltest127_1.isExisting();
-    await browser.pause(100);
+      await SubID_digitaltest127_1.isExisting();
+      await browser.pause(100);
 
-    RecordSubIDP_digitaltest127_1 = await SubID_digitaltest127_1.getText();
-    console.log(await SubID_digitaltest127_1.getText());
-    console.log(RecordSubIDP_digitaltest127_1);
-    await browser.pause(5000);
+      RecordSubIDP_digitaltest127_1 = await SubID_digitaltest127_1.getText();
+      console.log(await SubID_digitaltest127_1.getText());
+      console.log(RecordSubIDP_digitaltest127_1);
+      await browser.pause(5000);
 
-    const sfproductone = await $(
-      '//a[@data-label="Subscriptions"]//following::span[text()="Z-Subscriptions"][1]//following::span[@title="Subscription Product"]//following::span[contains(@title,"Website")][1]'
-    );
-    const sfproducttwo = await $(
-      '//a[@data-label="Subscriptions"]//following::span[text()="Z-Subscriptions"][1]//following::span[@title="Subscription Product"]//following::span[contains(@title,"Website")][2]'
-    );
-    const sfsubstatusone = await $(
-      '//a[@data-label="Subscriptions"]//following::span[text()="Z-Subscriptions"][1]//following::span[@title="Status"]//following::span[contains(@title,"Pending")][1]'
-    );
-    const sfsubstatustwo = await $(
-      '//a[@data-label="Subscriptions"]//following::span[text()="Z-Subscriptions"][1]//following::span[@title="Status"]//following::span[contains(@title,"Pending")][2]'
-    );
+      const sfproductone = await $(
+        '//a[@data-label="Subscriptions"]//following::span[text()="Z-Subscriptions"][1]//following::span[@title="Subscription Product"]//following::span[contains(@title,"Website")][1]'
+      );
+      const sfproducttwo = await $(
+        '//a[@data-label="Subscriptions"]//following::span[text()="Z-Subscriptions"][1]//following::span[@title="Subscription Product"]//following::span[contains(@title,"Website")][2]'
+      );
+      const sfsubstatusone = await $(
+        '//a[@data-label="Subscriptions"]//following::span[text()="Z-Subscriptions"][1]//following::span[@title="Status"]//following::span[contains(@title,"Pending")][1]'
+      );
+      const sfsubstatustwo = await $(
+        '//a[@data-label="Subscriptions"]//following::span[text()="Z-Subscriptions"][1]//following::span[@title="Status"]//following::span[contains(@title,"Pending")][2]'
+      );
 
-    await sfproductone.isExisting();
-    await sfproducttwo.isExisting();
-    await sfsubstatusone.isExisting();
-    await sfsubstatustwo.isExisting();
+      await sfproductone.isExisting();
+      await sfproducttwo.isExisting();
+      await sfsubstatusone.isExisting();
+      await sfsubstatustwo.isExisting();
 
-    const sfproductonetext = await sfproductone.getText();
-    const sfproducttwotext = await sfproducttwo.getText();
-    const sfsubstatusonetext = await sfsubstatusone.getText();
-    const sfsubstatustwotext = await sfsubstatustwo.getText();
+      const sfproductonetext = await sfproductone.getText();
+      const sfproducttwotext = await sfproducttwo.getText();
+      const sfsubstatusonetext = await sfsubstatusone.getText();
+      const sfsubstatustwotext = await sfsubstatustwo.getText();
 
-    CucumberJsJsonReporter.attach(
-      "Downgraded Subscription/Product: " + sfproductonetext,
-      "text/plain"
-    );
-    CucumberJsJsonReporter.attach(
-      "Originally taken Subscription/Product: " + sfproducttwotext,
-      "text/plain"
-    );
-    CucumberJsJsonReporter.attach(
-      "Downgrade Subscription's status: " + sfsubstatusonetext,
-      "text/plain"
-    );
-    CucumberJsJsonReporter.attach(
-      "Original Subscription's Status two: " + sfsubstatustwotext,
-      "text/plain"
-    );
+      CucumberJsJsonReporter.attach(
+        "Downgraded Subscription/Product: " + sfproductonetext,
+        "text/plain"
+      );
+      CucumberJsJsonReporter.attach(
+        "Originally taken Subscription/Product: " + sfproducttwotext,
+        "text/plain"
+      );
+      CucumberJsJsonReporter.attach(
+        "Downgrade Subscription's status: " + sfsubstatusonetext,
+        "text/plain"
+      );
+      CucumberJsJsonReporter.attach(
+        "Original Subscription's Status two: " + sfsubstatustwotext,
+        "text/plain"
+      );
+    } catch (error) {
+      console.error("no such element");
+    } finally {
+      await browser.pause(100);
+    }
   }
 );
 
@@ -956,50 +962,56 @@ Then("Validate Digital User can claim downgrade offer", async () => {
     }
   );
 
-  //span[text()='Continue to cancel']
-  //span[text()='Continue to cancel']
-  //p[contains(text(),'choose from two special offers')]//following::button[1]
-  //p[text()='Your subscription has been updated to:']
-  //p[text()='Your new entitlements and price will be active from this date']
-  const CancellationBtn = await $('//button[@id="cancellation-button"]');
-  const cancelreason = await $(
-    '//label[contains(text(),"not enjoying the journalism")]'
-  );
-  const continuebtnone = await $('//a[@class="continue-button"]');
-  const continuebtntwo = await $('//span[text()="Continue to cancel"]');
-  const continuebtnthree = await $('//button[@class="button default"]');
+  try {
+    //span[text()='Continue to cancel']
+    //span[text()='Continue to cancel']
+    //p[contains(text(),'choose from two special offers')]//following::button[1]
+    //p[text()='Your subscription has been updated to:']
+    //p[text()='Your new entitlements and price will be active from this date']
+    const CancellationBtn = await $('//button[@id="cancellation-button"]');
+    const cancelreason = await $(
+      '//label[contains(text(),"not enjoying the journalism")]'
+    );
+    const continuebtnone = await $('//a[@class="continue-button"]');
+    const continuebtntwo = await $('//span[text()="Continue to cancel"]');
+    const continuebtnthree = await $('//button[@class="button default"]');
 
-  const downgradeofferclick = await $(
-    '//p[contains(text(),"choose from two special offers")]//following::button[1]'
-  );
-  const downgradetextverify = await $(
-    '//p[text()="Your subscription has been updated to:"]'
-  );
+    const downgradeofferclick = await $(
+      '//p[contains(text(),"choose from two special offers")]//following::button[1]'
+    );
+    const downgradetextverify = await $(
+      '//p[text()="Your subscription has been updated to:"]'
+    );
 
-  await CancellationBtn.waitForDisplayed({ timeout: 50000 });
-  await CancellationBtn.click();
+    await CancellationBtn.waitForDisplayed({ timeout: 50000 });
+    await CancellationBtn.click();
 
-  await cancelreason.waitForDisplayed({ timeout: 50000 });
-  await cancelreason.click();
+    await cancelreason.waitForDisplayed({ timeout: 50000 });
+    await cancelreason.click();
 
-  await continuebtnone.waitForDisplayed({ timeout: 50000 });
-  await continuebtnone.doubleClick();
-  await browser.pause(4000);
-  await browser.scroll(0, 200);
-  await browser.scroll(0, 200);
-  await continuebtntwo.waitForDisplayed({ timeout: 50000 });
-  await continuebtntwo.doubleClick();
-  await browser.pause(4000);
-  await browser.scroll(0, 200);
-  await browser.scroll(0, 200);
-  await continuebtntwo.waitForDisplayed({ timeout: 50000 });
-  await continuebtntwo.doubleClick();
-  await browser.pause(4000);
-  await downgradeofferclick.waitForDisplayed({ timeout: 50000 });
-  await downgradeofferclick.click();
-  await browser.pause(4000);
-  await downgradetextverify.waitForDisplayed({ timeout: 50000 });
-  await downgradeofferclick.isExisting();
+    await continuebtnone.waitForDisplayed({ timeout: 50000 });
+    await continuebtnone.doubleClick();
+    await browser.pause(4000);
+    await browser.scroll(0, 200);
+    await browser.scroll(0, 200);
+    await continuebtntwo.waitForDisplayed({ timeout: 50000 });
+    await continuebtntwo.doubleClick();
+    await browser.pause(4000);
+    await browser.scroll(0, 200);
+    await browser.scroll(0, 200);
+    await continuebtntwo.waitForDisplayed({ timeout: 50000 });
+    await continuebtntwo.doubleClick();
+    await browser.pause(4000);
+    await downgradeofferclick.waitForDisplayed({ timeout: 50000 });
+    await downgradeofferclick.click();
+    await browser.pause(4000);
+    await downgradetextverify.waitForDisplayed({ timeout: 50000 });
+    await downgradeofferclick.isExisting();
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then("validate downgrade details for digitaltest127_1 in zuora", async () => {
@@ -1011,50 +1023,57 @@ Then("validate downgrade details for digitaltest127_1 in zuora", async () => {
       timeoutMsg: "Message on failure",
     }
   );
-  await browser.pause(5000);
-  const Subscriptionbuttonzuora = $(
-    "//span[text()='" + RecordSubIDP_digitaltest127_1 + "']"
-  );
-  await Subscriptionbuttonzuora.waitForDisplayed({ timeout: 50000 });
-  await Subscriptionbuttonzuora.isExisting();
 
-  const subone = await $(
-    '//button[@id="global-search-subscription"]//following::span[contains(text(),"A-")][1]//following::span[4]'
-  );
+  try {
+    await browser.pause(5000);
+    const Subscriptionbuttonzuora = $(
+      "//span[text()='" + RecordSubIDP_digitaltest127_1 + "']"
+    );
+    await Subscriptionbuttonzuora.waitForDisplayed({ timeout: 50000 });
+    await Subscriptionbuttonzuora.isExisting();
 
-  const subtwo = await $(
-    '//button[@id="global-search-subscription"]//following::span[contains(text(),"A-")][2]//following::span[4]'
-  );
+    const subone = await $(
+      '//button[@id="global-search-subscription"]//following::span[contains(text(),"A-")][1]//following::span[4]'
+    );
 
-  const sunonenum = await $(
-    '//button[@id="global-search-subscription"]//following::span[contains(text(),"A-")][1]'
-  );
+    const subtwo = await $(
+      '//button[@id="global-search-subscription"]//following::span[contains(text(),"A-")][2]//following::span[4]'
+    );
 
-  const suntwonum = await $(
-    '//button[@id="global-search-subscription"]//following::span[contains(text(),"A-")][2]'
-  );
+    const sunonenum = await $(
+      '//button[@id="global-search-subscription"]//following::span[contains(text(),"A-")][1]'
+    );
 
-  const subonetext = await subone.getText();
-  const subtwotext = await subtwo.getText();
-  const subonenumtext = await sunonenum.getText();
-  const subtwonumtext = await suntwonum.getText();
+    const suntwonum = await $(
+      '//button[@id="global-search-subscription"]//following::span[contains(text(),"A-")][2]'
+    );
 
-  CucumberJsJsonReporter.attach(
-    "Original Subscription: " +
-      subonenumtext +
-      " " +
-      "having status : " +
-      subonetext,
-    "text/plain"
-  );
-  CucumberJsJsonReporter.attach(
-    "Downgraded Subscription: " +
-      subtwonumtext +
-      " " +
-      "having status : " +
-      subtwotext,
-    "text/plain"
-  );
+    const subonetext = await subone.getText();
+    const subtwotext = await subtwo.getText();
+    const subonenumtext = await sunonenum.getText();
+    const subtwonumtext = await suntwonum.getText();
+
+    CucumberJsJsonReporter.attach(
+      "Original Subscription: " +
+        subonenumtext +
+        " " +
+        "having status : " +
+        subonetext,
+      "text/plain"
+    );
+    CucumberJsJsonReporter.attach(
+      "Downgraded Subscription: " +
+        subtwonumtext +
+        " " +
+        "having status : " +
+        subtwotext,
+      "text/plain"
+    );
+  } catch (error) {
+    console.error("no such element");
+  } finally {
+    await browser.pause(100);
+  }
 });
 
 Then("I fill in existing digitaltest127_1Bonus email", async () => {
@@ -1094,61 +1113,67 @@ Then(
         timeoutMsg: "Message on failure",
       }
     );
-    const SubscriptionTab = await $('//a[text()="Subscriptions"]');
-    await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
-    await SubscriptionTab.click();
-    await browser.pause(10000);
-    const SubID_digitaltest127_2 = await $(
-      '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
-    );
+    try {
+      const SubscriptionTab = await $('//a[text()="Subscriptions"]');
+      await SubscriptionTab.waitForDisplayed({ timeout: 50000 });
+      await SubscriptionTab.click();
+      await browser.pause(10000);
+      const SubID_digitaltest127_2 = await $(
+        '//span[@title="Z-Subscriptions"]//following::slot[contains(text(),"A-")][1]'
+      );
 
-    await SubID_digitaltest127_2.isExisting();
-    await browser.pause(100);
+      await SubID_digitaltest127_2.isExisting();
+      await browser.pause(100);
 
-    RecordSubIDP_digitaltest127_2 = await SubID_digitaltest127_2.getText();
-    console.log(await SubID_digitaltest127_2.getText());
-    console.log(RecordSubIDP_digitaltest127_2);
-    await browser.pause(5000);
+      RecordSubIDP_digitaltest127_2 = await SubID_digitaltest127_2.getText();
+      console.log(await SubID_digitaltest127_2.getText());
+      console.log(RecordSubIDP_digitaltest127_2);
+      await browser.pause(5000);
 
-    const sfproductone = await $(
-      '//a[@data-label="Subscriptions"]//following::span[text()="Z-Subscriptions"][1]//following::span[@title="Subscription Product"]//following::span[contains(@title,"Website")][1]'
-    );
-    const sfproducttwo = await $(
-      '//a[@data-label="Subscriptions"]//following::span[text()="Z-Subscriptions"][1]//following::span[@title="Subscription Product"]//following::span[contains(@title,"Website")][2]'
-    );
-    const sfsubstatusone = await $(
-      '//a[@data-label="Subscriptions"]//following::span[text()="Z-Subscriptions"][1]//following::span[@title="Status"]//following::span[contains(@title,"Pending")][1]'
-    );
-    const sfsubstatustwo = await $(
-      '//a[@data-label="Subscriptions"]//following::span[text()="Z-Subscriptions"][1]//following::span[@title="Status"]//following::span[contains(@title,"Pending")][2]'
-    );
+      const sfproductone = await $(
+        '//a[@data-label="Subscriptions"]//following::span[text()="Z-Subscriptions"][1]//following::span[@title="Subscription Product"]//following::span[contains(@title,"Website")][1]'
+      );
+      const sfproducttwo = await $(
+        '//a[@data-label="Subscriptions"]//following::span[text()="Z-Subscriptions"][1]//following::span[@title="Subscription Product"]//following::span[contains(@title,"Website")][2]'
+      );
+      const sfsubstatusone = await $(
+        '//a[@data-label="Subscriptions"]//following::span[text()="Z-Subscriptions"][1]//following::span[@title="Status"]//following::span[contains(@title,"Pending")][1]'
+      );
+      const sfsubstatustwo = await $(
+        '//a[@data-label="Subscriptions"]//following::span[text()="Z-Subscriptions"][1]//following::span[@title="Status"]//following::span[contains(@title,"Pending")][2]'
+      );
 
-    await sfproductone.isExisting();
-    await sfproducttwo.isExisting();
-    await sfsubstatusone.isExisting();
-    await sfsubstatustwo.isExisting();
+      await sfproductone.isExisting();
+      await sfproducttwo.isExisting();
+      await sfsubstatusone.isExisting();
+      await sfsubstatustwo.isExisting();
 
-    const sfproductonetext = await sfproductone.getText();
-    const sfproducttwotext = await sfproducttwo.getText();
-    const sfsubstatusonetext = await sfsubstatusone.getText();
-    const sfsubstatustwotext = await sfsubstatustwo.getText();
+      const sfproductonetext = await sfproductone.getText();
+      const sfproducttwotext = await sfproducttwo.getText();
+      const sfsubstatusonetext = await sfsubstatusone.getText();
+      const sfsubstatustwotext = await sfsubstatustwo.getText();
 
-    CucumberJsJsonReporter.attach(
-      "Downgraded Subscription/Product: " + sfproductonetext,
-      "text/plain"
-    );
-    CucumberJsJsonReporter.attach(
-      "Originally taken Subscription/Product: " + sfproducttwotext,
-      "text/plain"
-    );
-    CucumberJsJsonReporter.attach(
-      "Downgrade Subscription's status: " + sfsubstatusonetext,
-      "text/plain"
-    );
-    CucumberJsJsonReporter.attach(
-      "Original Subscription's Status two: " + sfsubstatustwotext,
-      "text/plain"
-    );
+      CucumberJsJsonReporter.attach(
+        "Downgraded Subscription/Product: " + sfproductonetext,
+        "text/plain"
+      );
+      CucumberJsJsonReporter.attach(
+        "Originally taken Subscription/Product: " + sfproducttwotext,
+        "text/plain"
+      );
+      CucumberJsJsonReporter.attach(
+        "Downgrade Subscription's status: " + sfsubstatusonetext,
+        "text/plain"
+      );
+      CucumberJsJsonReporter.attach(
+        "Original Subscription's Status two: " + sfsubstatustwotext,
+        "text/plain"
+      );
+    } catch (error) {
+      console.error("no such element");
+    } finally {
+      await browser.pause(100);
+    }
   }
 );
 

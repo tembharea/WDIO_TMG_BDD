@@ -79,6 +79,7 @@ const BonusCustEmail = rndstr2 + "bonus@telegraph.co.uk";
 //   await BonusCopyLink.isExisting({ timeout: 50000 });
 // });
 Given("I copy the bonus url", async () => {
+  browser.pause(25000);
   browser.waitUntil(
     () => browser.execute(() => document.readyState === "complete"),
     {
@@ -93,6 +94,7 @@ Given("I copy the bonus url", async () => {
   await browser.scroll(0, 200);
   browser.pause(25000);
   const urlbutton = await $('//input[@class="express-input-control"]');
+  browser.pause(25000);
   await urlbutton.waitForDisplayed({ timeout: 50000 });
   browser.pause(45000);
   const BonusUrlStr = await $('//input[contains(@value, "https://secure")]');
@@ -387,6 +389,7 @@ Given("Validate bonus promo code is Unused in salesforce", async () => {
       timeoutMsg: "Message on failure",
     }
   );
+  await browser.pause(25000);
   // const BonusCopyLink = await $('//span[@title="Un-used"]');
   // await BonusCopyLink.waitForDisplayed({ timeout: 5000 });
   // await BonusCopyLink.isExisting({ timeout: 5000 });
