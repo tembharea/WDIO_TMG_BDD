@@ -2375,7 +2375,7 @@ Then("I login to Salesforce", async () => {
     //await SalesforceUsrname.setValue("areeb.butt+automation@telegraph.co.uk");
     const SalesforcePwd = await $('//input[@id="password"]');
     await SalesforcePwd.waitForDisplayed({ timeout: 10000 });
-    await SalesforcePwd.setValue("aytakshat@123");
+    await SalesforcePwd.setValue("Appsec@2024");
     //await SalesforcePwd.setValue("Telegraph1");
     const SalesforceLogin = await $('//input[@id="Login"]');
     await SalesforceLogin.waitForDisplayed({ timeout: 10000 });
