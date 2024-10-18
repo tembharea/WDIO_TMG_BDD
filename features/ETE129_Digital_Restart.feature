@@ -1,6 +1,6 @@
 Feature: ETE 129 Digital monthly and Annual subscription Cancellation to Restart flow
 
-# ##################################################-----------Digital Monthly Subscription-------##########################################
+##################################################-----------Digital Monthly Subscription-------##########################################
 
 # Scenario: TC_A_01:User purchasing Digital plan Monthly with credit card
 #     Given I launch login from homepage
@@ -331,8 +331,6 @@ Feature: ETE 129 Digital monthly and Annual subscription Cancellation to Restart
 #     Given I open zuora
 #     And Login to Zoura
 
-
-##################################################-----------Digital Monthly Subscription-------##########################################
 
 Scenario: TC_A_01:User purchasing Digital plan Monthly with credit card
     Given I launch login from homepage

@@ -76,6 +76,9 @@ export const config = {
     "./features/**/ETE132_DigitalPlus_Restart.feature",
     "./features/**/ETE133_Puzzles_DowngradeOffer.feature",
     "./features/**/ETE134_Puzzles_DownsellOffer.feature",
+    "./features/**/ETE135_MyAccount.feature",
+    "./features/**/ETE143_Digital2024.feature",
+    "./features/**/ETE145.feature",
     // "./features/**/ETE12_Backdated.feature",
     //"./features/**/Test.feature",
   ],
@@ -99,7 +102,7 @@ export const config = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: 14,
+  maxInstances: 15,
   //
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -303,6 +306,7 @@ export const config = {
       "./features/step-definitions/PrintSteps.js",
       "./features/step-definitions/TestSteps.js",
       "./features/step-definitions/downgradedownsellSteps.js",
+      "./features/step-definitions/ete145.js",
     ],
     // <boolean> show full backtrace for errors
     backtrace: false,
@@ -579,7 +583,7 @@ export const config = {
           },
           {
             label: "Release",
-            value: "24.18",
+            value: "24.20",
           },
           {
             label: "Apps Tested",

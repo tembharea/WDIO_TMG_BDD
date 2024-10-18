@@ -1,6 +1,6 @@
 Feature: ETE 131 Digital Plus monthly and Annual subscription completes Downsell offer
 
-# ##################################################-----------Digital Plus Monthly Subscription-------##########################################
+##################################################-----------Digital Plus Monthly Subscription-------##########################################
 
 # Scenario: TC_A_01:User purchasing Digital Plus plan Monthly with credit card
 #     Given I launch login from homepage
@@ -384,8 +384,6 @@ Feature: ETE 131 Digital Plus monthly and Annual subscription completes Downsell
 #     #Then  I logout from customer app
 
 
-##################################################-----------Digital Monthly Subscription-------##########################################
-
 Scenario: TC_A_01:User purchasing Digital plan Monthly with credit card
     Given I launch login from homepage
     Then  Action Keys Set One
@@ -528,13 +526,13 @@ Scenario: TC_A_12:Validate Bonus sub is working after downgrade offer claim in T
 Scenario: TC_A_13:Validate Digital Plus Subscriber Downsell details in Zoura
     Given I open zuora
     And Login to Zoura
-    When Go to Zoura Subscription Page for digitaltest131_1
-    Then validate downgrade details for digitaltest131_1 in zuora
+    When Go to Zoura Subscription Page for digitaltest130_1
+    Then validate downgrade details for digitaltest130_1 in zuora
     And I logout from Zuora 
 
 Scenario: TC_A_14:Validate Bonus sub is working after Downsell offer claim in Telegraph
     Given I launch login from homepage
-    And   I fill in existing digitaltest131_1Bonus email
+    And   I fill in existing digitaltest130_1Bonus email
     When  I click login-register button
     And   I enter "valid" register password
     When  I click login-register button
@@ -544,6 +542,7 @@ Scenario: TC_A_14:Validate Bonus sub is working after Downsell offer claim in Te
     When  Go to My Account page
     Then Logout from Customer application
     #Then  I logout from customer app
+
     ##################################################-----------Digital Annual Subscription-------##########################################
 
 Scenario: TC_B_01:User purchasing Digital plan Annually with credit card
@@ -684,16 +683,17 @@ Scenario: TC_B_12:Validate Bonus sub is working after downgrade offer claim in T
     When  Go to My Account page
     Then Logout from Customer application 
 
-Scenario: TC_B_13:Validate Digital Subscriber Downsell details in Zoura
+
+Scenario: TC_B_13:Validate Digital Plus Subscriber Downsell details in Zoura
     Given I open zuora
     And Login to Zoura
-    When Go to Zoura Subscription Page for digitaltest131_2
-    Then validate downgrade details for digitaltest131_2 in zuora
+    When Go to Zoura Subscription Page for digitaltest130_2
+    Then validate downgrade details for digitaltest130_2 in zuora
     And I logout from Zuora
 
 Scenario: TC_B_14:Validate Bonus sub is working after Downsell offer claim in Telegraph
     Given I launch login from homepage
-    And   I fill in existing digitaltest131_2Bonus email
+    And   I fill in existing digitaltest130_2Bonus email
     When  I click login-register button
     And   I enter "valid" register password
     When  I click login-register button

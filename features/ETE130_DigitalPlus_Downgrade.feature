@@ -1,6 +1,6 @@
 Feature: ETE 130 Digital Plus monthly and Annual subscription completes downgrade offer
 
-# # ##################################################-----------Digital Plus Monthly Subscription-------##########################################
+# ##################################################-----------Digital Plus Monthly Subscription-------##########################################
 
 # Scenario: TC_A_01:User purchasing Digital Plus plan Monthly with credit card
 #     Given I launch login from homepage
@@ -383,9 +383,6 @@ Feature: ETE 130 Digital Plus monthly and Annual subscription completes downgrad
 #     Then Logout from Customer application
 #     #Then  I logout from customer app
 
-
-##################################################-----------Digital Monthly Subscription-------##########################################
-
 Scenario: TC_A_01:User purchasing Digital plan Monthly with credit card
     Given I launch login from homepage
     Then  Action Keys Set One
@@ -684,6 +681,7 @@ Scenario: TC_B_12:Validate Bonus sub is working after downgrade offer claim in T
     Then  Validate Your Subscription section
     When  Go to My Account page
     Then Logout from Customer application 
+
 
 Scenario: TC_B_13:Validate Digital Plus Subscriber Downsell details in Zoura
     Given I open zuora

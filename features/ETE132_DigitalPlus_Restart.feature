@@ -332,9 +332,7 @@ Feature: ETE 132 Digital Plus monthly and Annual subscription Cancellation to Re
 #     And Login to Zoura
 
 
-##################################################-----------Digital Monthly Subscription-------##########################################
-
-Scenario: TC_A_01:User purchasing Digital Plus plan Monthly with credit card
+Scenario: TC_A_01:User purchasing Digital plan Monthly with credit card
     Given I launch login from homepage
     Then  Action Keys Set One
     And   I fill in new digitaltest127_1 email
@@ -353,7 +351,7 @@ Scenario: TC_A_01:User purchasing Digital Plus plan Monthly with credit card
     Then  Click on Manage Your Details button
     Then  Logout from Customer application 
 
-Scenario: TC_A_02:Validate Digital Plus Monthly Sub bought via credit card details in Telegraph
+Scenario: TC_A_02:Validate Digital Monthly Sub bought via credit card details in Telegraph
     Given I launch login from homepage
     And   I fill in existing digitaltest127_1 email
     When  I click login-register button
@@ -475,7 +473,7 @@ Scenario: TC_A_12:Validate Bonus sub is working after downgrade offer claim in T
 
 Scenario: TC_A_13:Validate User can Restart Subscription successfully in Telegraph
     Given I launch login from homepage
-    And   I fill in existing digitaltest132_1 email
+    And   I fill in existing digitaltest129_1 email
     When  I click login-register button
     And   I enter "valid" register password
     When  I click login-register button
@@ -487,7 +485,7 @@ Scenario: TC_A_14:Validate Subscription restart details in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
-    And Enter the digitaltest132_1 in the search box of salesforce
+    And Enter the digitaltest129_1 in the search box of salesforce
 
 Scenario: TC_A_15:Validate Subscription restart details in Zuora
     Given I open zuora
@@ -635,7 +633,7 @@ Scenario: TC_B_12:Validate Bonus sub is working after downgrade offer claim in T
 
 Scenario: TC_B_13:Validate User can Restart Subscription successfully in Telegraph
     Given I launch login from homepage
-    And   I fill in existing digitaltest132_2 email
+    And   I fill in existing digitaltest129_2 email
     When  I click login-register button
     And   I enter "valid" register password
     When  I click login-register button
@@ -647,7 +645,7 @@ Scenario: TC_B_14:Validate Subscription restart details in Salesforce
     When I launch Salesforce URL
     Then I login to Salesforce
     Then Close Opened tabs in salesforce
-    And Enter the digitaltest132_2 in the search box of salesforce
+    And Enter the digitaltest129_2 in the search box of salesforce
 
 Scenario: TC_B_15:Validate Subscription restart details in Zuora
     Given I open zuora

@@ -1,6 +1,6 @@
 Feature: ETE 128 Digital monthly and Annual subscription completes Downsell offer
 
-# ##################################################-----------Digital Monthly Subscription-------##########################################
+##################################################-----------Digital Monthly Subscription-------##########################################
 
 # Scenario: TC_A_01:User purchasing Digital plan Monthly with credit card
 #     Given I launch login from homepage
@@ -291,8 +291,6 @@ Feature: ETE 128 Digital monthly and Annual subscription completes Downsell offe
 #     #Then  I logout from customer app
 #     Then Logout from Customer application
 
-
-##################################################-----------Digital Monthly Subscription-------##########################################
 
 Scenario: TC_A_01:User purchasing Digital plan Monthly with credit card
     Given I launch login from homepage
