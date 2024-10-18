@@ -1,4 +1,4 @@
-Feature: ETE 128 Digital monthly and Annual subscription completes Downsell offer
+Feature: ETE 143
 
 #######################################-----------Digital User Downsell Offer Claim For Digital Sub-------##########################################
 
