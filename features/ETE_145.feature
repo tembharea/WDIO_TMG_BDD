@@ -1,9 +1,10 @@
-Feature: ETE 143
+Feature: ETE 145 Downsell Downgrade of Two Subscriptions
 
 #######################################-----------Digital User Downsell Offer Claim For Digital Sub-------##########################################
 
 Scenario: TC_01:User purchasing Digital plan Monthly with credit card
     Given I launch login from homepage
+    Then  Action Keys Set One
     And   I fill in new digital2024 email
     When  I click login-register button
     And   I enter "valid" register password
@@ -18,6 +19,7 @@ Scenario: TC_01:User purchasing Digital plan Monthly with credit card
     When  Go to My Account page
     Then  Click on Manage Your Details button
     Then I verify that i have both digital 2024 and puzzle subscriptions
+    Then  Logout from Customer application
     
 
 Scenario: TC_02:Validate Digital Monthly Sub bought via credit card details in Salesforce
@@ -58,7 +60,7 @@ Scenario: TC_05:Validate User can claim Downsell offer
     Then  Click on Manage Your Details button
     Then  Validate newDigital User can claim downsell offer
     When  Go to My Account page
-    Then  I logout from customer app
+    Then  Logout from Customer application
 
 Scenario: TC_06:Validate Digital Monthly Sub Downsell details in Salesforce
     When I launch Salesforce URL
@@ -95,6 +97,7 @@ Scenario: TC_A_01:User purchasing Digital plan Monthly with credit card
     When  Go to My Account page
     Then  Click on Manage Your Details button
     Then I verify that i have both digital 2024 and puzzle subscriptions
+    Then  Logout from Customer application
     
 
 Scenario: TC_A_02:Validate Digital Monthly Sub bought via credit card details in Salesforce
@@ -135,7 +138,7 @@ Scenario: TC_A_05:Validate User can claim Downgrade offer
     Then  Click on Manage Your Details button
     Then  Validate newDigital User can claim downgrade offer
     When  Go to My Account page
-    Then  I logout from customer app
+    Then  Logout from Customer application
 
 Scenario: TC_A_6:Validate Digital Monthly Sub downgrade details in Salesforce
     When I launch Salesforce URL
@@ -173,6 +176,7 @@ Scenario: TC_B_01:User purchasing Digital plan Monthly with credit card
     When  Go to My Account page
     Then  Click on Manage Your Details button
     Then I verify that i have both digital 2024 and puzzle subscriptions
+    Then  Logout from Customer application
     
 
 Scenario: TC_B_02:Validate Digital Monthly Sub bought via credit card details in Salesforce
@@ -212,7 +216,7 @@ Scenario: TC_B_05:Validate User can claim Downsell offer
     Then  Click on Manage Your Details button
     Then  Validate newDigital User can claim downsell offer for Puzzle subscription
     When  Go to My Account page
-    Then  I logout from customer app
+   Then  Logout from Customer application
 
 Scenario: TC_B_06:Validate Digital Monthly Sub downgrade details in Salesforce
     When I launch Salesforce URL
@@ -249,6 +253,7 @@ Scenario: TC_C_01:User purchasing Digital plan Monthly with credit card
     When  Go to My Account page
     Then  Click on Manage Your Details button
     Then I verify that i have both digital 2024 and puzzle subscriptions
+    Then  Logout from Customer application
     
 
 Scenario: TC_C_02:Validate Digital Monthly Sub bought via credit card details in Salesforce
@@ -289,7 +294,7 @@ Scenario: TC_C_05:Validate User can claim Downsell offer
     Then  Click on Manage Your Details button
     Then  Validate newDigital User can claim downgrade offer for Puzzle subscription
     When  Go to My Account page
-    Then  I logout from customer app
+    Then  Logout from Customer application
 
 Scenario: TC_C_06:Validate Digital Monthly Sub downgrade details in Salesforce
     When I launch Salesforce URL

@@ -8738,3 +8738,124 @@ Then("DevConsole Test", async () => {
   );
   await browser.pause(2000);
 });
+
+When("I fill in new digital2024 email", async () => {
+  await browser.pause(500);
+  await browser.refresh();
+  await browser.pause(100);
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  await browser.pause(500);
+  //await browser.refresh();
+  const EmailInput = await $('//input[@id="email"]');
+  await EmailInput.waitForDisplayed();
+  await EmailInput.doubleClick();
+  await EmailInput.click();
+  await EmailInput.click();
+  await browser.pause(100);
+  await EmailInput.setValue(DigitalCustEmail);
+  CucumberJsJsonReporter.attach(
+    "Test ID used for Digital Subscriber is: " + DigitalCustEmail,
+    "text/plain"
+  );
+});
+
+Then("User clicks on Digital 2024 Monthly", async () => {
+  //await browser.pause(100);
+  //await browser.pause(1000);
+  browser.waitUntil(
+    () => browser.execute(() => document.readyState === "complete"),
+    {
+      timeout: 60 * 1000, // 60 seconds
+      timeoutMsg: "Message on failure",
+    }
+  );
+  const DigitalPBuyAnunual = await $(
+    '//header[text()="Digital Plus"]//following::div[@class="acquisition-button"][2]'
+  );
+  await DigitalPBuyAnunual.waitForDisplayed({ timeout: 20000 });
+  await DigitalPBuyAnunual.click();
+});
+
+Then("Validate onboarding journey for Digital 2024", async () => {
+  await browser.pause(1000);
+  // Write code here that turns the phrase above into concrete actions
+});
+
+Then("Validate Bonus Account do not exist for Digital 2024 sub", async () => {
+  await browser.pause(1000);
+  // Write code here that turns the phrase above into concrete actions
+});
+
+Then("Validate Default Newsletter details for Digital 2024", async () => {
+  await browser.pause(1000);
+  // Write code here that turns the phrase above into concrete actions
+});
+
+Then("Validate Puzzles is not added by default in Digital 2024", async () => {
+  await browser.pause(1000);
+  // Write code here that turns the phrase above into concrete actions
+});
+
+Then(
+  "Enter the Digital 2024 email in the search box of salesforce",
+  async () => {
+    await browser.pause(1000);
+    // Write code here that turns the phrase above into concrete actions
+  }
+);
+
+Then("Validate subscription for digital 2024 Plan in salesforce", async () => {
+  await browser.pause(1000);
+  // Write code here that turns the phrase above into concrete actions
+});
+
+Then("Validate Digital Status is Active", async () => {
+  await browser.pause(1000);
+  // Write code here that turns the phrase above into concrete actions
+});
+
+Then("Validate Current Product Details", async () => {
+  await browser.pause(1000);
+  // Write code here that turns the phrase above into concrete actions
+});
+
+Then("Validate Subscription Type Details", async () => {
+  await browser.pause(1000);
+  // Write code here that turns the phrase above into concrete actions
+});
+
+Then("Validate Account Origin Details", async () => {
+  await browser.pause(1000);
+  // Write code here that turns the phrase above into concrete actions
+});
+
+Then("Validate Account Channel Details", async () => {
+  await browser.pause(1000);
+  // Write code here that turns the phrase above into concrete actions
+});
+
+Then("Validate Billing Currency Details", async () => {
+  await browser.pause(1000);
+  // Write code here that turns the phrase above into concrete actions
+});
+
+Then("Validate Invoice Details", async () => {
+  await browser.pause(1000);
+  // Write code here that turns the phrase above into concrete actions
+});
+
+Then("Validate High level Subscription Details", async () => {
+  await browser.pause(1000);
+  // Write code here that turns the phrase above into concrete actions
+});
+
+Then("Validate Payment details", async () => {
+  await browser.pause(1000);
+  // Write code here that turns the phrase above into concrete actions
+});

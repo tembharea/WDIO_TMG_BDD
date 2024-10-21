@@ -13,6 +13,7 @@ Feature: ETE 2 Subscription Acquisition MyAccount
         Then  Select the View your subscriptions CTA in MyAccount
         Then  Verify navigate to the subshop
         Then  User can view all subscriptions
+        Then  Logout from Customer application
 
     Scenario: TC_02:User purchasing Digital plan with credit card
         Given I launch login from homepage

@@ -3,7 +3,7 @@ Feature: ETE 143 Subscription Acquisition Digital 2024
 Scenario: TC_01:User purchasing Digital plan Monthly with credit card
     Given I launch login from homepage
     And  Action Keys Set One
-    When   I fill in new Digital email
+    When I fill in new digital2024 email
     And  I click login-register button
     And   I enter "valid" register password
     And  I enter "right" first name and last name
@@ -15,9 +15,9 @@ Scenario: TC_01:User purchasing Digital plan Monthly with credit card
     And  Validate user is redirected to Payment gateway page
     And  Input CreditCard Payment details
     And  User completes the purchase
-    And   Validate onboarding journey for Digital 2024
+    And  Validate onboarding journey for Digital 2024
     And  Go to My Account page
-    Then  Click on Manage Your Details button
+    Then Click on Manage Your Details button
     And  Logout from Customer application  
 
 Scenario: TC_01.1:Validate Digital 2024 Monthly via CreditCard details in Telegraph
@@ -28,7 +28,7 @@ Scenario: TC_01.1:Validate Digital 2024 Monthly via CreditCard details in Telegr
     And  I click login-register button
     And  Go to My Account page
     And  Click on Manage Your Details button
-    Then  Validate Bonus Account do not exist for Digital 2024 sub
+    Then Validate Bonus Account do not exist for Digital 2024 sub
     And  Validate Your Subscription section
     And  Validate Your Payment section
     And  Validate Default Newsletter details for Digital 2024
@@ -44,7 +44,7 @@ Scenario: TC_01.2:Validate Digital 2024 Monthly via CreditCard details in Salesf
     Then Open the Account Page
     When User clicks on Details tab
     Then Validate subscription for digital 2024 Plan in salesforce
-    And  Validate Digital Status is Active
+    And Validate Digital Status is Active
     And Validate Current Product Details
     And Validate Subscription Type Details
     And Validate Account Origin Details

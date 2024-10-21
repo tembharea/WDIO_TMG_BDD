@@ -1,4 +1,4 @@
-Feature: ETE 135 My Account Tests
+Feature: ETE 135 My Account
 
     Scenario: TC_01:User purchasing puzzles subscription using Paypal
         Given I launch login from homepage
@@ -362,9 +362,9 @@ Scenario: TC_11:Validate logged out registrant Digital Monthly Sub details in Pi
         Then  Click on Print7dayMontly Subscription
         # Then  Print Tell Us about Yourslef details
         # Then  Input MPP payment details for Print
-        # When  Go to My Account page
-        # Then  Click on Manage Your Details button
-        # Then  Logout from Customer application
+        When  Go to My Account page
+        #Then  Click on Manage Your Details button
+        Then  Logout from Customer application
 
     Scenario: TC_02:Validate 7 day Print Monthly subscription details in Telegraph
         Given I launch login from homepage
@@ -414,9 +414,9 @@ Scenario: TC_11:Validate logged out registrant Digital Monthly Sub details in Pi
         Then  Click on Print7dayQuarterly Subscription
         # Then  Print Tell Us about Yourslef details
         # Then  Input MPP payment details for Print
-        # When  Go to My Account page
-        # Then  Click on Manage Your Details button
-        # Then  Logout from Customer application
+        When  Go to My Account page
+        #Then  Click on Manage Your Details button
+        Then  Logout from Customer application
 
     Scenario: TC_06:Validate 7 day Print Quarterly subscription details in Telegraph
         Given I launch login from homepage
